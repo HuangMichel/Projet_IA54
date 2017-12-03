@@ -1,0 +1,19 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.gui
+
+import javafx.application.Application
+import javafx.stage.Stage
+
+/** 
+ * @author Michel
+ * 
+ */
+class FxApplication extends Application{
+	
+	def start(arg0 : Stage) throws Exception {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+}

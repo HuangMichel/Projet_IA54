@@ -1,0 +1,10 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.gui.fx
+/** 
+ * @author Michel
+ * 
+ */
+class Ant2DGridFxViewerController {
+}

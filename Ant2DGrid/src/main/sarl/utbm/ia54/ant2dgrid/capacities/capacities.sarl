@@ -1,0 +1,19 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.capacities
+/** 
+ * @author Michel
+ * 
+ */
+capacity MoveCapacity {
+	def move()
+	def moveUp()
+	def moveDown()
+	def moveLeft()
+	def moveRight()
+}
+
+capacity PheromoneCapacity{
+	def followPheromone()
+}
