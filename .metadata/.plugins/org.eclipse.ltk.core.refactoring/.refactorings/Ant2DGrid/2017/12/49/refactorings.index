@@ -1,0 +1,20 @@
+1512315754324	Rename package 'utbm.ia.gui'
+1512335767108	Rename package 'utbm.ia54.capacity'
+1512335775046	Rename package 'utbm.ia54.event'
+1512335793493	Rename package 'utbm.ia54.agent'
+1512335914243	Rename package 'utbm.ia54'
+1512335927487	Copy package
+1512335952295	Rename package 'utbm.ia54.agents.copy'
+1512335961327	Rename package 'utbm.ia54.capacities'
+1512335970832	Rename package 'utbm.ia54.events'
+1512335980995	Rename package 'utbm.ia54.gui.fx'
+1512335991691	Rename resource 'Simulator.sarl'
+1512336156428	Rename package 'utbm.ia54.ant2dgrid.gui.fx'
+1512336169386	Rename package 'utbm.ia54.ant2dgrid.gui.fc'
+1512336174449	Move files
+1512336396979	Delete element
+1512336470802	Delete element
+1512336635262	Rename resource 'Ants.sarl'
+1512336710438	Copy package
+1512336713408	Delete element
+1512336801039	Delete element

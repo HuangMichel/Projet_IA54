@@ -1,0 +1,14 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.Enum
+/** 
+ * @author Michel
+ * 
+ */
+enum CellState {
+	WALL,
+	HOME,
+	FOOD,
+	NORMAL
+}
