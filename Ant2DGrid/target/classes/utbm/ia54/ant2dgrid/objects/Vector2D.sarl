@@ -23,16 +23,16 @@ class Vector2D {
 	}
 	
 	new(v : Vector2D){
-		this.x = v.getX()
-		this.y = v.getY()
+		this.x = v.getX
+		this.y = v.getY
 	}
 	
-	def getX() : double {
-		return x
+	def getX : double {
+		this.x
 	}
 	
-	def getY() : double {
-		return y
+	def getY : double {
+		this.y
 	}
 	
 	def setX(x : double){

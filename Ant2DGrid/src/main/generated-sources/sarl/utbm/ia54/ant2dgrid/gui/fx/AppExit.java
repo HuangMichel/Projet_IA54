@@ -7,19 +7,19 @@ import io.sarl.lang.core.Address;
 import io.sarl.lang.core.Event;
 
 /**
- * @author Michel
+ * Triggered when the app need to be exited
  */
 @SarlSpecification("0.6")
 @SarlElementType(14)
 @SuppressWarnings("all")
-public class FxEvent extends Event {
+public class AppExit extends Event {
   @SyntheticMember
-  public FxEvent() {
+  public AppExit() {
     super();
   }
   
   @SyntheticMember
-  public FxEvent(final Address source) {
+  public AppExit(final Address source) {
     super(source);
   }
   

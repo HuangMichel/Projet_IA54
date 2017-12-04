@@ -81,9 +81,11 @@ public class Cell {
   
   @Pure
   public int getNumberAnt() {
+    int _xsynchronizedexpression = (int) 0;
     synchronized (this.AntList) {
-      return this.AntList.size();
+      _xsynchronizedexpression = this.AntList.size();
     }
+    return _xsynchronizedexpression;
   }
   
   @Override

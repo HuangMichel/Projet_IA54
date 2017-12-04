@@ -6,4 +6,11 @@ package utbm.ia54.ant2dgrid.events
  * @author Michel
  * 
  */
-event events
+event ConfigureSimulation{
+	val antQuantity : int
+	
+	new(antQuantity : int){
+		this.antQuantity = antQuantity
+	}
+	
+}

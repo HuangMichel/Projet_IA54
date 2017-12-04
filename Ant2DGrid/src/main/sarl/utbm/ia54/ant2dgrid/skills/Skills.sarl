@@ -5,6 +5,8 @@ package utbm.ia54.ant2dgrid.skills
 
 import utbm.ia54.ant2dgrid.capacities.MoveCapacity
 import utbm.ia54.ant2dgrid.capacities.PheromoneCapacity
+import utbm.ia54.ant2dgrid.Enum.AntState
+import utbm.ia54.ant2dgrid.objects.Vector2D
 
 /** 
  * @author Michel
@@ -12,23 +14,24 @@ import utbm.ia54.ant2dgrid.capacities.PheromoneCapacity
  */
 skill MoveSkill implements MoveCapacity{
 	
-	def move {
+	
+	def move(move : AntState) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
-	def moveUp {
+	def moveUp(up : AntState) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
-	def moveDown {
+	def moveDown(down : AntState) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
-	def moveLeft {
+	def moveLeft(left : AntState) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
-	def moveRight {
+	def moveRight(right : AntState) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
@@ -36,7 +39,7 @@ skill MoveSkill implements MoveCapacity{
 
 skill PheromoneSkill implements PheromoneCapacity{
 	
-	def followPheromone {
+	def followPheromone(position : Vector2D) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
