@@ -1,0 +1,13 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.Enum
+/** 
+ * @author Michel
+ * 
+ */
+enum AntState {
+	SEARCH_FOOD,
+	RETURN_HOME,
+	PICK_UP_FOOD
+}
