@@ -1,0 +1,85 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.objects
+
+import java.util.ArrayList
+import utbm.ia54.ant2dgrid.agents.Ant
+import java.util.List
+import utbm.ia54.ant2dgrid.Enum.CellState
+
+/** 
+ * 
+ * @author Michel
+ * 
+ */
+class Cell {
+	
+	private var vector : Vector2D
+	private val AntList : ArrayList<Ant>
+	private var state : CellState
+	
+	new(){
+		this.vector = new Vector2D
+		this.AntList = new ArrayList<Ant>
+		this.state = CellState.HOME
+	}
+	
+	new(v : Vector2D, antList : ArrayList<Ant>, state : CellState){
+		this.vector = new Vector2D(v)
+		this.AntList = antList
+		this.state = state
+	}
+	
+	new(x : double, y : double, antList : ArrayList<Ant>, state : CellState) {
+		this.vector = new Vector2D(x, y)
+		this.AntList = antList
+		this.state = state
+	}
+	
+	def getPosition : Vector2D {
+		return vector
+	}
+	
+	def setPosition(v : Vector2D){
+		this.vector = v
+	}
+	
+	def setPosition(x : double, y : double){
+		this.vector.setX(x)
+		this.vector.setY(y)
+	}
+	
+	def addAnt(ant : Ant){
+		synchronized(AntList){
+			this.AntList.add(ant)
+		}
+	}
+	
+	def removeAnt(ant : Ant){
+		synchronized(AntList){
+			this.AntList.remove(ant)
+		}
+	}
+	
+	def getAntList : List<Ant>{
+		synchronized(AntList){
+			this.AntList.unmodifiableView
+		}
+	}
+	
+	def getNumberAnt : int{
+		synchronized(AntList){
+			this.AntList.size
+		}
+	}
+	
+	def getState : CellState{
+		this.state
+	}
+	
+	def setState(state : CellState){
+		this.state = state
+	}
+	
+}

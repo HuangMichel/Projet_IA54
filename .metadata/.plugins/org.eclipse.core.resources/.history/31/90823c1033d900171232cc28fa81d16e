@@ -1,0 +1,58 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.objects
+/** 
+ * Simple 2D Vector contains x and y position
+ * @author Michel
+ * 
+ */
+class Vector2i {
+	
+	/*
+	 * The position x
+	 */
+	private var x: int
+	private var y : int
+	
+	new(){
+		this.x = 0
+		this.y = 0
+	}
+	
+	new(x : int, y : int){
+		this.x = x;
+		this.y = y
+	}
+	
+	new(v : Vector2i){
+		this.x = v.getX
+		this.y = v.getY
+	}
+	
+	def getX : int {
+		this.x
+	}
+	
+	def getY : int {
+		this.y
+	}
+	
+	def setX(x : int){
+		this.x = x
+	}
+	
+	def setY(y : int){
+		this.y = y
+	}
+	
+	def setXY(x : int, y : int){
+		this.x = x
+		this.y = y
+	}
+	
+	def setXY(v : Vector2i){
+		this.x = v.getX
+		this.y = v.getY
+	}
+}

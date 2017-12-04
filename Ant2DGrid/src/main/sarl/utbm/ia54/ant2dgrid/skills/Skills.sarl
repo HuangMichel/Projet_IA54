@@ -6,7 +6,7 @@ package utbm.ia54.ant2dgrid.skills
 import utbm.ia54.ant2dgrid.capacities.MoveCapacity
 import utbm.ia54.ant2dgrid.capacities.PheromoneCapacity
 import utbm.ia54.ant2dgrid.Enum.AntState
-import utbm.ia54.ant2dgrid.objects.Vector2D
+import utbm.ia54.ant2dgrid.objects.Vector2i
 
 /** 
  * @author Michel
@@ -39,7 +39,7 @@ skill MoveSkill implements MoveCapacity{
 
 skill PheromoneSkill implements PheromoneCapacity{
 	
-	def followPheromone(position : Vector2D) {
+	def followPheromone(position : Vector2i) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	

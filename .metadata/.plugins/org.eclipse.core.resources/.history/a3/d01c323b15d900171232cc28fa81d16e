@@ -1,0 +1,72 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.objects
+
+import java.util.ArrayList
+import utbm.ia54.ant2dgrid.agents.Ant
+import java.util.List
+
+/** 
+ * 
+ * @author Michel
+ * 
+ */
+class Cell {
+	
+	private var vector : Vector2D
+	private val AntList : ArrayList<Ant>
+	
+	new(){
+		this.vector = new Vector2D
+		this.AntList = new ArrayList<Ant>
+	}
+	
+	new(v : Vector2D, antList : ArrayList<Ant>){
+		this.vector = new Vector2D(v)
+		this.AntList = antList
+	}
+	
+	new(x : double, y : double, antList : ArrayList<Ant>) {
+		this.vector = new Vector2D(x, y)
+		this.AntList = antList
+	}
+	
+	def getPosition : Vector2D {
+		return vector
+	}
+	
+	def setPosition(v : Vector2D){
+		this.vector = v
+	}
+	
+	def setPosition(x : double, y : double){
+		this.vector.setX(x)
+		this.vector.setY(y)
+	}
+	
+	def addAnt(ant : Ant){
+		synchronized(AntList){
+			this.AntList.add(ant)
+		}
+	}
+	
+	def removeAnt(ant : Ant){
+		synchronized(AntList){
+			this.AntList.remove(ant)
+		}
+	}
+	
+	def getAntList : List<Ant>{
+		synchronized(AntList){
+			this.AntList.unmodifiableView
+		}
+	}
+	
+	def getNumberAnt : int{
+		synchronized(AntList){
+			this.AntList.size
+		}
+	}
+	
+}

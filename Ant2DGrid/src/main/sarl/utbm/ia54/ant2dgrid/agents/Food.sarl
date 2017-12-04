@@ -12,7 +12,7 @@ import io.sarl.core.Initialize
 import io.sarl.core.Logging
 import io.sarl.core.MemberJoined
 import io.sarl.core.MemberLeft
-import utbm.ia54.ant2dgrid.objects.Vector2D
+import utbm.ia54.ant2dgrid.objects.Vector2i
 
 /** 
  * @author Michel
@@ -21,7 +21,7 @@ import utbm.ia54.ant2dgrid.objects.Vector2D
 agent Food {
 	uses Logging
 
-	var position : Vector2D
+	var position : Vector2i
 	
 	on Initialize {
 		loggingName = "Food"
@@ -64,11 +64,11 @@ agent Food {
 		// Sent to all members of the considered super-holon.
 	}
 
-	def getPosition : Vector2D {
+	def getPosition : Vector2i {
 		this.position
 	}
 
-	def setPosition(v : Vector2D) {
+	def setPosition(v : Vector2i) {
 		this.position = v
 	}
 }

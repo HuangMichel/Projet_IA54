@@ -7,8 +7,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.eclipse.xtext.xbase.lib.Pure;
+import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.agents.Ant;
-import utbm.ia54.ant2dgrid.objects.Vector2D;
+import utbm.ia54.ant2dgrid.objects.Vector2i;
 
 /**
  * @author Michel
@@ -17,39 +18,69 @@ import utbm.ia54.ant2dgrid.objects.Vector2D;
 @SarlElementType(9)
 @SuppressWarnings("all")
 public class Cell {
-  private Vector2D vector;
+  /**
+   * The vector position
+   */
+  private Vector2i vector;
   
+  /**
+   * A list of ants
+   */
   private final ArrayList<Ant> AntList;
   
+  /**
+   * The cell state
+   */
+  private CellState state;
+  
   public Cell() {
-    Vector2D _vector2D = new Vector2D();
-    this.vector = _vector2D;
+    Vector2i _vector2i = new Vector2i();
+    this.vector = _vector2i;
     ArrayList<Ant> _arrayList = new ArrayList<Ant>();
     this.AntList = _arrayList;
+    this.state = CellState.NORMAL;
   }
   
-  public Cell(final Vector2D v, final ArrayList<Ant> antList) {
-    Vector2D _vector2D = new Vector2D(v);
-    this.vector = _vector2D;
-    this.AntList = antList;
+  public Cell(final int x, final int y) {
+    Vector2i _vector2i = new Vector2i(x, y);
+    this.vector = _vector2i;
+    ArrayList<Ant> _arrayList = new ArrayList<Ant>();
+    this.AntList = _arrayList;
+    this.state = CellState.NORMAL;
   }
   
-  public Cell(final double x, final double y, final ArrayList<Ant> antList) {
-    Vector2D _vector2D = new Vector2D(x, y);
-    this.vector = _vector2D;
+  public Cell(final int x, final int y, final CellState state) {
+    Vector2i _vector2i = new Vector2i(x, y);
+    this.vector = _vector2i;
+    ArrayList<Ant> _arrayList = new ArrayList<Ant>();
+    this.AntList = _arrayList;
+    this.state = state;
+  }
+  
+  public Cell(final Vector2i v, final ArrayList<Ant> antList, final CellState state) {
+    Vector2i _vector2i = new Vector2i(v);
+    this.vector = _vector2i;
     this.AntList = antList;
+    this.state = state;
+  }
+  
+  public Cell(final int x, final int y, final ArrayList<Ant> antList, final CellState state) {
+    Vector2i _vector2i = new Vector2i(x, y);
+    this.vector = _vector2i;
+    this.AntList = antList;
+    this.state = state;
   }
   
   @Pure
-  public Vector2D getPosition() {
+  public Vector2i getPosition() {
     return this.vector;
   }
   
-  public void setPosition(final Vector2D v) {
+  public void setPosition(final Vector2i v) {
     this.vector = v;
   }
   
-  public void setPosition(final double x, final double y) {
+  public void setPosition(final int x, final int y) {
     this.vector.setX(x);
     this.vector.setY(y);
   }
@@ -86,6 +117,15 @@ public class Cell {
       _xsynchronizedexpression = this.AntList.size();
     }
     return _xsynchronizedexpression;
+  }
+  
+  @Pure
+  public CellState getState() {
+    return this.state;
+  }
+  
+  public void setState(final CellState state) {
+    this.state = state;
   }
   
   @Override

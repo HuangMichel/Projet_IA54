@@ -4,7 +4,7 @@
 package utbm.ia54.ant2dgrid.capacities
 
 import utbm.ia54.ant2dgrid.Enum.AntState
-import utbm.ia54.ant2dgrid.objects.Vector2D
+import utbm.ia54.ant2dgrid.objects.Vector2i
 
 /** 
  * @author Michel
@@ -19,5 +19,5 @@ capacity MoveCapacity {
 }
 
 capacity PheromoneCapacity{
-	def followPheromone(position : Vector2D)
+	def followPheromone(position : Vector2i)
 }

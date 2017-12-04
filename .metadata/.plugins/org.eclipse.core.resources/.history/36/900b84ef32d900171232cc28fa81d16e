@@ -7,7 +7,7 @@ package utbm.ia54.ant2dgrid.objects
  * @author Michel
  * 
  */
-class Vector2D {
+class Vector2i {
 	
 	private var x: double
 	private var y : double
@@ -22,7 +22,7 @@ class Vector2D {
 		this.y = y
 	}
 	
-	new(v : Vector2D){
+	new(v : Vector2i){
 		this.x = v.getX
 		this.y = v.getY
 	}
@@ -48,7 +48,7 @@ class Vector2D {
 		this.y = y
 	}
 	
-	def setXY(v : Vector2D){
+	def setXY(v : Vector2i){
 		this.x = v.getX
 		this.y = v.getY
 	}

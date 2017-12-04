@@ -25,7 +25,7 @@ import javax.inject.Inject;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Inline;
 import org.eclipse.xtext.xbase.lib.Pure;
-import utbm.ia54.ant2dgrid.objects.Vector2D;
+import utbm.ia54.ant2dgrid.objects.Vector2i;
 
 /**
  * @author Michel
@@ -34,7 +34,7 @@ import utbm.ia54.ant2dgrid.objects.Vector2D;
 @SarlElementType(17)
 @SuppressWarnings("all")
 public class Nest extends Agent {
-  private Vector2D position;
+  private Vector2i position;
   
   @SyntheticMember
   private void $behaviorUnit$Initialize$0(final Initialize occurrence) {
@@ -75,11 +75,11 @@ public class Nest extends Agent {
   }
   
   @Pure
-  protected Vector2D getPosition() {
+  protected Vector2i getPosition() {
     return this.position;
   }
   
-  protected void setPosition(final Vector2D v) {
+  protected void setPosition(final Vector2i v) {
     this.position = v;
   }
   
