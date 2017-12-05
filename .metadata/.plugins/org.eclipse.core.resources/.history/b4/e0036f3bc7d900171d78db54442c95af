@@ -30,9 +30,11 @@ public class Vetor2iTest {
 	@Test
 	public void testSetVector2i() {
 		vector = new Vector2i();
-		assertEquals(vector, new Vector2i());
+		assertEquals(vector.getX(), 0);
+		assertEquals(vector.getY(), 0);
 		vector.setXY(2, 2);
-		assertEquals(vector, new Vector2i(2,2));
+		assertEquals(vector.getX(), 2);
+		assertEquals(vector.getY(), 2);
 	}
 
 }

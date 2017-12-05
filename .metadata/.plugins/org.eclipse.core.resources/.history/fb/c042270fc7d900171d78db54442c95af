@@ -17,7 +17,13 @@ public class CellTest {
 		cell = new Cell();
 		
 		assertEquals(cell.getState(), CellState.NORMAL);
-		assertFalse(cell == new Cell(1,1));
+		if(cell.getState() != CellState.NORMAL) {
+			fail("cell State wall");
+		}
+		assertEquals(cell.getNumberAnt(), 0);
+		if(cell.getNumberAnt() != 0) {
+			fail("ant number >0");
+		}
 	}
 	
 	@Test

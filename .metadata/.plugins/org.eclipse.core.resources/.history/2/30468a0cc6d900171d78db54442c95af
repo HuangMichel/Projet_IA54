@@ -7,9 +7,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.eclipse.xtext.xbase.lib.Pure;
-
-import com.google.common.base.Objects;
-
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.agents.Ant;
 import utbm.ia54.ant2dgrid.objects.Vector2i;
@@ -135,8 +132,7 @@ public class Cell {
   @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
-	Cell other = (Cell) obj;
-	return (Objects.equal(this.state, other.getState()) && Objects.equal(this.vector, other.getPosition()) && Objects.equal(this.AntList, other.getAntList()));
+    return super.equals(obj);
   }
   
   @Override

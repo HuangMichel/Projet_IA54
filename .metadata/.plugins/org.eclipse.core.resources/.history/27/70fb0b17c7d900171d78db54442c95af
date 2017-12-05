@@ -88,6 +88,11 @@ public class Vector2i {
       return false;
     Vector2i other = (Vector2i) obj;
     return (Objects.equal(this.x, other.x) && Objects.equal(this.y, other.y));
+    /*if (other.x != this.x)
+      return false;
+    if (other.y != this.y)
+      return false;
+    return super.equals(obj);*/
   }
   
   @Override

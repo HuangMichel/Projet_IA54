@@ -137,6 +137,7 @@ public class Cell {
   public boolean equals(final Object obj) {
 	Cell other = (Cell) obj;
 	return (Objects.equal(this.state, other.getState()) && Objects.equal(this.vector, other.getPosition()) && Objects.equal(this.AntList, other.getAntList()));
+    //return super.equals(obj);
   }
   
   @Override

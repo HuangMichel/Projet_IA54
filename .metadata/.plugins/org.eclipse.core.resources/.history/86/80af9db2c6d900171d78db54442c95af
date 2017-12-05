@@ -17,15 +17,20 @@ public class CellTest {
 		cell = new Cell();
 		
 		assertEquals(cell.getState(), CellState.NORMAL);
-		assertFalse(cell == new Cell(1,1));
+		if(cell.getState() != CellState.NORMAL) {
+			fail("cell State wall");
+		}
+		assertEquals(cell.getNumberAnt(), 0);
+		if(cell.getNumberAnt() != 0) {
+			fail("ant number >0");
+		}
 	}
 	
 	@Test
 	public void testSetCell() {
 		cell = new Cell(4, 6, CellState.WALL);
 		assertEquals(cell, new Cell(4,6, CellState.WALL));
-		cell.setPosition(5, 6);
-		assertFalse(cell == new Cell(4,6, CellState.WALL));
+		
 	}
 
 }
