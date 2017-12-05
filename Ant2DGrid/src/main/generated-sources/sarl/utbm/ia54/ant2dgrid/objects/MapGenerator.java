@@ -71,8 +71,8 @@ public class MapGenerator {
       for (int j = 0; (j < this.height); j++) {
         {
           Cell cell = null;
-          double _random = Math.random();
-          boolean _lessThan = (_random < this.chanceNormalState);
+          float _floatValue = Double.valueOf(Math.random()).floatValue();
+          boolean _lessThan = (_floatValue < this.chanceNormalState);
           if (_lessThan) {
             Cell _cell = new Cell(i, j);
             cell = _cell;

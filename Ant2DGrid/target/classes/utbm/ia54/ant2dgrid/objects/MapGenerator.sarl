@@ -65,7 +65,7 @@ class MapGenerator {
 		for(var i = 0; i<width; i++){
 			for(var j = 0; j<height; j++){
 				var cell : Cell
-				if (Math.random() < chanceNormalState) {
+				if (Math.random().floatValue < chanceNormalState) {
 					cell = new Cell(i, j)
 				}else{
 					cell = new Cell(i, j, CellState.WALL)
@@ -165,7 +165,7 @@ class MapGenerator {
 	def generateMap : List<Cell>{
 		initializeMap
 		for(var i = 0; i<3; i++){
-			simulationStep()
+			simulationStep
 		}
 		placeNest
 		placeFood
