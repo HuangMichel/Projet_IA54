@@ -7,11 +7,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.eclipse.xtext.xbase.lib.Pure;
-
-import com.google.common.base.Objects;
-
+import utbm.ia54.ant2dgrid.Enum.AntState;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.agents.Ant;
+import utbm.ia54.ant2dgrid.objects.Pheromone;
 import utbm.ia54.ant2dgrid.objects.Vector2i;
 
 /**
@@ -36,12 +35,26 @@ public class Cell {
    */
   private CellState state;
   
+  /**
+   * The pheromone home
+   */
+  private Pheromone pheromoneHome;
+  
+  /**
+   * The pheromone food
+   */
+  private Pheromone pheromoneFood;
+  
   public Cell() {
     Vector2i _vector2i = new Vector2i();
     this.vector = _vector2i;
     ArrayList<Ant> _arrayList = new ArrayList<Ant>();
     this.AntList = _arrayList;
     this.state = CellState.NORMAL;
+    Pheromone _pheromone = new Pheromone(AntState.RETURN_HOME);
+    this.pheromoneHome = _pheromone;
+    Pheromone _pheromone_1 = new Pheromone();
+    this.pheromoneFood = _pheromone_1;
   }
   
   public Cell(final int x, final int y) {
@@ -131,12 +144,61 @@ public class Cell {
     this.state = state;
   }
   
+  @Pure
+  public float getPheromoneHomeIntensity() {
+    float _xsynchronizedexpression = (float) 0;
+    synchronized (this.pheromoneHome) {
+      _xsynchronizedexpression = this.pheromoneHome.getIntensity();
+    }
+    return _xsynchronizedexpression;
+  }
+  
+  @Pure
+  public float getPheromoneFoodIntensity() {
+    float _xsynchronizedexpression = (float) 0;
+    synchronized (this.pheromoneFood) {
+      _xsynchronizedexpression = this.pheromoneFood.getIntensity();
+    }
+    return _xsynchronizedexpression;
+  }
+  
+  public float incrementPheromoneHomeIntensity() {
+    float _xsynchronizedexpression = (float) 0;
+    synchronized (this.pheromoneHome) {
+      _xsynchronizedexpression = this.pheromoneHome.incrementIntensity();
+    }
+    return _xsynchronizedexpression;
+  }
+  
+  public float incrementPheromoneFoodIntensity() {
+    float _xsynchronizedexpression = (float) 0;
+    synchronized (this.pheromoneFood) {
+      _xsynchronizedexpression = this.pheromoneFood.incrementIntensity();
+    }
+    return _xsynchronizedexpression;
+  }
+  
+  public float evaporationPheromoneFood() {
+    float _xsynchronizedexpression = (float) 0;
+    synchronized (this.pheromoneFood) {
+      _xsynchronizedexpression = this.pheromoneFood.evaporation();
+    }
+    return _xsynchronizedexpression;
+  }
+  
+  public float evaporationPheromoneHome() {
+    float _xsynchronizedexpression = (float) 0;
+    synchronized (this.pheromoneHome) {
+      _xsynchronizedexpression = this.pheromoneHome.evaporation();
+    }
+    return _xsynchronizedexpression;
+  }
+  
   @Override
   @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
-	Cell other = (Cell) obj;
-	return (Objects.equal(this.state, other.getState()) && Objects.equal(this.vector, other.getPosition()) && Objects.equal(this.AntList, other.getAntList()));
+    return super.equals(obj);
   }
   
   @Override

@@ -7,6 +7,7 @@ import utbm.ia54.ant2dgrid.capacities.MoveCapacity
 import utbm.ia54.ant2dgrid.capacities.PheromoneCapacity
 import utbm.ia54.ant2dgrid.Enum.AntState
 import utbm.ia54.ant2dgrid.objects.Vector2i
+import utbm.ia54.ant2dgrid.capacities.PerceptionCapacity
 
 /** 
  * @author Michel
@@ -40,6 +41,18 @@ skill MoveSkill implements MoveCapacity{
 skill PheromoneSkill implements PheromoneCapacity{
 	
 	def followPheromone(position : Vector2i) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+}
+
+skill PerceptionSkill implements PerceptionCapacity{
+	
+	def sendPerception {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+	def receivePerception {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	

@@ -7,6 +7,7 @@ import java.util.ArrayList
 import utbm.ia54.ant2dgrid.agents.Ant
 import java.util.List
 import utbm.ia54.ant2dgrid.Enum.CellState
+import utbm.ia54.ant2dgrid.Enum.AntState
 
 /** 
  * 
@@ -30,10 +31,22 @@ class Cell {
 	 */
 	private var state : CellState
 	
+	/*
+	 * The pheromone home
+	 */
+	private var pheromoneHome : Pheromone
+	
+	/*
+	 * The pheromone food
+	 */
+	private var pheromoneFood : Pheromone
+	
 	new(){
 		this.vector = new Vector2i
 		this.AntList = new ArrayList<Ant>
 		this.state = CellState.NORMAL
+		this.pheromoneHome = new Pheromone(AntState.RETURN_HOME)
+		this.pheromoneFood = new Pheromone
 	}
 	
 	new(x : int, y : int) {
@@ -105,4 +118,39 @@ class Cell {
 		this.state = state
 	}
 	
+	def getPheromoneHomeIntensity : float {
+		synchronized (pheromoneHome) {
+			this.pheromoneHome.intensity
+		}
+	}
+	
+	def getPheromoneFoodIntensity : float{
+		synchronized (pheromoneFood) {
+			this.pheromoneFood.intensity
+		}
+	}
+	
+	def incrementPheromoneHomeIntensity {
+		synchronized(pheromoneHome){
+			this.pheromoneHome.incrementIntensity
+		}
+	}
+	
+	def incrementPheromoneFoodIntensity{
+		synchronized(pheromoneFood){
+			this.pheromoneFood.incrementIntensity
+		}
+	}
+
+	def evaporationPheromoneFood {
+		synchronized (pheromoneFood) {
+			this.pheromoneFood.evaporation
+		}
+	}
+
+	def evaporationPheromoneHome {
+		synchronized (pheromoneHome) {
+			this.pheromoneHome.evaporation
+		}
+	}
 }

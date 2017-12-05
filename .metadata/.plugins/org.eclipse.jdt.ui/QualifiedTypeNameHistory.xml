@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.Enum.CellState"/>
+<fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.objects.MapGenerator"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.objects.Cell"/>
+<fullyQualifiedTypeName name="junit.textui.TestRunner"/>
+<fullyQualifiedTypeName name="junit.framework.TestSuite"/>
+<fullyQualifiedTypeName name="junit.framework.Test"/>
+<fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.objects.Vector2i"/>
+<fullyQualifiedTypeName name="com.google.common.base.Objects"/>
+<fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.agents.Ant"/>
+<fullyQualifiedTypeName name="utbm.ia54.test.objects.PheromoneTest"/>
+<fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.objects.Pheromone"/>
+</qualifiedTypeNameHistroy>

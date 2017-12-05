@@ -1,0 +1,43 @@
+package utbm.ia54.test.objects;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import utbm.ia54.ant2dgrid.Enum.CellState;
+import utbm.ia54.ant2dgrid.agents.Ant;
+import utbm.ia54.ant2dgrid.objects.Cell;
+import utbm.ia54.ant2dgrid.objects.Vector2i;
+
+public class CellTest {
+	
+	Cell cell;
+	
+	@Test
+	public void testCell() {
+		cell = new Cell();
+		assertEquals(cell.getState(), CellState.NORMAL);
+		assertFalse(cell == new Cell(1,1));
+	}
+	
+	@Test
+	public void testAddAnt(){
+		fail("not yet implemented");
+	}
+	
+	@Test
+	public void testRemoveAnt() {
+		fail("not yet implemented");
+	}
+	
+	@Test
+	public void testIncrementIntensity() {
+		fail("not yet implemented");
+	}
+	
+	@Test 
+	public void testEvaporationIntensity() {
+		fail("not yet implemented");
+	}
+
+}

@@ -21,3 +21,8 @@ capacity MoveCapacity {
 capacity PheromoneCapacity{
 	def followPheromone(position : Vector2i)
 }
+
+capacity PerceptionCapacity{
+	def sendPerception
+	def receivePerception
+}

@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
 <typeInfo handle="=Ant2DGrid/C:\/迅雷下载\/io.sarl.lang.updatesite-0.6.0-win32.win32.x86_64\/plugins\/io.sarl.lang.core_0.6.0.jar&lt;io.sarl.lang.core(Capacity.class[Capacity" modifiers="1537" timestamp="1505407874000"/>
+<typeInfo handle="=Ant2DGrid/src\/main\/generated-sources\/sarl&lt;utbm.ia54.ant2dgrid.objects{Cell.java[Cell" modifiers="1" timestamp="1512486856716"/>
+<typeInfo handle="=Ant2DGrid/src\/main\/generated-sources\/sarl&lt;utbm.ia54.ant2dgrid.objects{Vector2i.java[Vector2i" modifiers="1" timestamp="1512483476662"/>
+<typeInfo handle="=Ant2DGrid/src\/main\/generated-sources\/sarl&lt;utbm.ia54.ant2dgrid.objects{MapGenerator.java[MapGenerator" modifiers="1" timestamp="1512475897703"/>
+<typeInfo handle="=Ant2DGrid/src\/main\/generated-sources\/sarl&lt;utbm.ia54.ant2dgrid.objects{Pheromone.java[Pheromone" modifiers="1" timestamp="1512509819363"/>
 </typeInfoHistroy>

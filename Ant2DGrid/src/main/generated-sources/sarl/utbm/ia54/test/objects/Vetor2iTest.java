@@ -23,16 +23,8 @@ public class Vetor2iTest {
 	@Test
 	public void testVector2i() {
 		vector = new Vector2i(1,1);
-		assertEquals(vector.getX(), 1);
-		assertEquals(vector.getY(), 1);
-	}
-	
-	@Test
-	public void testSetVector2i() {
-		vector = new Vector2i();
-		assertEquals(vector, new Vector2i());
-		vector.setXY(2, 2);
-		assertEquals(vector, new Vector2i(2,2));
+		assertEquals(vector, new Vector2i(1,1));
+		assertFalse(vector == new Vector2i());
 	}
 
 }
