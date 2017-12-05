@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="CellTest" project="Ant2DGrid" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="utbm.ia54.test.objects.CellTest" time="0.0">
+    <testcase name="testCell" classname="utbm.ia54.test.objects.CellTest" time="0.0"/>
+  </testsuite>
+</testrun>

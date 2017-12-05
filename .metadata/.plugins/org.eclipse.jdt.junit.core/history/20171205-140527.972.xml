@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Vetor2iTest" project="Ant2DGrid" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="utbm.ia54.test.objects.Vetor2iTest" time="0.0">
+    <testcase name="testVector2i" classname="utbm.ia54.test.objects.Vetor2iTest" time="0.0"/>
+    <testcase name="testSetVector2i" classname="utbm.ia54.test.objects.Vetor2iTest" time="0.0"/>
+  </testsuite>
+</testrun>

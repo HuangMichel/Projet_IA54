@@ -1,0 +1,24 @@
+/**
+ * 
+ */
+package utbm.ia54.test.objects;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+/**
+ * @author Michel
+ *
+ */
+public class Vetor2iTest {
+
+	/**
+	 * Test method for {@link utbm.ia54.ant2dgrid.objects.Vector2i#Vector2i()}.
+	 */
+	@Test
+	public void testVector2i() {
+		fail("Not yet implemented"); // TODO
+	}
+
+}
