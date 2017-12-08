@@ -1,13 +1,26 @@
-/** 
- * 
- */
 package utbm.ia54.ant2dgrid.gui
 
 import utbm.ia54.ant2dgrid.gui.fx.FxViewerController
+import javafx.fxml.FXML
+import javafx.scene.control.Button
+import utbm.ia54.ant2dgrid.events.SpawnEnv
 
 /** 
  * @author Michel
  * 
  */
+
 class Ant2DGridFxViewerController extends FxViewerController{
+	
+	@FXML
+	var spawnButton : Button
+	
+	@FXML
+	def actionSpawn{
+		var evt = new SpawnEnv
+		
+	}
+	
+	
+	
 }

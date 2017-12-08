@@ -5,8 +5,6 @@ import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
 import org.eclipse.xtext.xbase.lib.Pure;
 
-import com.google.common.base.Objects;
-
 /**
  * Simple 2D Vector contains x and y position
  * @author Michel
@@ -87,7 +85,11 @@ public class Vector2i {
     if (getClass() != obj.getClass())
       return false;
     Vector2i other = (Vector2i) obj;
-    return (Objects.equal(this.x, other.x) && Objects.equal(this.y, other.y));
+    if (other.x != this.x)
+      return false;
+    if (other.y != this.y)
+      return false;
+    return super.equals(obj);
   }
   
   @Override
