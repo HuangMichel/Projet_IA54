@@ -5,17 +5,20 @@ import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
 import io.sarl.lang.core.Agent;
 import io.sarl.lang.core.Skill;
-import utbm.ia54.ant2dgrid.capacities.PerceptionCapacity;
+import java.util.Map;
+import java.util.UUID;
+import utbm.ia54.ant2dgrid.capacities.PerceptionProviderCapacity;
+import utbm.ia54.ant2dgrid.events.Perception;
 
 @SarlSpecification("0.6")
 @SarlElementType(20)
 @SuppressWarnings("all")
-public class PerceptionSkill extends Skill implements PerceptionCapacity {
-  public void sendPerception() {
+public class PerceptionSkill extends Skill implements PerceptionProviderCapacity {
+  public Map<UUID, Perception> compute() {
     throw new UnsupportedOperationException("TODO: auto-generated method stub");
   }
   
-  public void receivePerception() {
+  public void emit(final Map<UUID, Perception> l) {
     throw new UnsupportedOperationException("TODO: auto-generated method stub");
   }
   

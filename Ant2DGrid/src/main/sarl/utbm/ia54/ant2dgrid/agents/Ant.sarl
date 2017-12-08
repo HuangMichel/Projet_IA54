@@ -13,6 +13,9 @@ import io.sarl.core.Logging
 import io.sarl.core.MemberJoined
 import io.sarl.core.MemberLeft
 import utbm.ia54.ant2dgrid.objects.Vector2i
+import utbm.ia54.ant2dgrid.events.Perception
+import utbm.ia54.ant2dgrid.skills.MotionSkill
+import utbm.ia54.ant2dgrid.Enum.AntState
 
 /** 
  * @author Michel
@@ -22,12 +25,17 @@ agent Ant {
 	uses Logging
 	
 	var position : Vector2i
+	var pheromoneHome : float
+	var pheromoneFood : float
+	var currentState : AntState
 
 	on Initialize {
 		loggingName = "Ant"
 		// Event trigger before the agent begin to live or to be used.
 		// You should put all the initialization statements in this block of code.
 		info("The agent Ant was started.")
+		currentState = AntState.SEARCH_FOOD
+		setSkill(new MotionSkill)
 	}
 
 	on Destroy {
@@ -70,5 +78,31 @@ agent Ant {
 	
 	def setPosition(v : Vector2i){
 		this.position = v
+	}
+	
+	on Perception{
+		var listPerception = occurrence.list
+		if (!listPerception.isEmpty) {
+			var tempVector : Vector2i
+			pheromoneFood = 0f
+			pheromoneHome = 0f
+			if (currentState == AntState.SEARCH_FOOD) {
+				for(var i = 0; i<listPerception.length; i++){
+					if(pheromoneFood<listPerception.get(i).pheromoneFoodIntensity){
+						pheromoneFood = listPerception.get(i).pheromoneFoodIntensity
+						tempVector = listPerception.get(i).position
+					}
+				}
+			} else if (currentState == AntState.RETURN_HOME) {
+				for (var i = 0; i < listPerception.length; i++) {
+					if (pheromoneHome < listPerception.get(i).pheromoneHomeIntensity) {
+						pheromoneHome = listPerception.get(i).pheromoneHomeIntensity
+						tempVector = listPerception.get(i).position
+					}
+				}
+			}
+			
+			//move
+		}
 	}
 }

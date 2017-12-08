@@ -1,0 +1,14 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.capacities
+
+import utbm.ia54.ant2dgrid.objects.Vector2i
+
+/** 
+ * @author Michel
+ * 
+ */
+capacity MotionCapacity {
+	def move(v : Vector2i)
+}

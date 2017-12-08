@@ -12,4 +12,6 @@
 <fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.agents.Ant"/>
 <fullyQualifiedTypeName name="utbm.ia54.test.objects.PheromoneTest"/>
 <fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.objects.Pheromone"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="java.util.UUID"/>
 </qualifiedTypeNameHistroy>

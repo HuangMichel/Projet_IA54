@@ -153,4 +153,10 @@ class Cell {
 			this.pheromoneHome.evaporation
 		}
 	}
+	
+	def removeAllAnt(){
+		synchronized(AntList){
+			AntList.removeAll()
+		}
+	}
 }

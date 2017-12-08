@@ -3,36 +3,25 @@
  */
 package utbm.ia54.ant2dgrid.skills
 
-import utbm.ia54.ant2dgrid.capacities.MoveCapacity
 import utbm.ia54.ant2dgrid.capacities.PheromoneCapacity
-import utbm.ia54.ant2dgrid.Enum.AntState
 import utbm.ia54.ant2dgrid.objects.Vector2i
-import utbm.ia54.ant2dgrid.capacities.PerceptionCapacity
+import utbm.ia54.ant2dgrid.capacities.MotionCapacity
+import utbm.ia54.ant2dgrid.capacities.PerceptionProviderCapacity
+import java.util.Map
+import java.util.UUID
+import utbm.ia54.ant2dgrid.events.Perception
+import utbm.ia54.ant2dgrid.capacities.InfluenceSolverCapacity
+import java.util.List
+import utbm.ia54.ant2dgrid.Enum.Direction
+import utbm.ia54.ant2dgrid.capacities.StateUpdaterCapacity
 
 /** 
  * @author Michel
  * 
  */
-skill MoveSkill implements MoveCapacity{
+skill MotionSkill implements MotionCapacity{
 	
-	
-	def move(move : AntState) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
-	def moveUp(up : AntState) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
-	def moveDown(down : AntState) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
-	def moveLeft(left : AntState) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
-	def moveRight(right : AntState) {
+	def move(v : Vector2i) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
@@ -46,13 +35,29 @@ skill PheromoneSkill implements PheromoneCapacity{
 	
 }
 
-skill PerceptionSkill implements PerceptionCapacity{
+skill PerceptionSkill implements PerceptionProviderCapacity{
 	
-	def sendPerception {
+	def compute : Map<UUID, Perception> {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
-	def receivePerception {
+	def emit(l : Map<UUID, Perception>) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+}
+
+skill InfluenceSolverSkill implements InfluenceSolverCapacity{
+	
+	def solve : List<Direction> {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+}
+
+skill StateUpdaterSkill implements StateUpdaterCapacity{
+	
+	def update(l : List<Direction>) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	

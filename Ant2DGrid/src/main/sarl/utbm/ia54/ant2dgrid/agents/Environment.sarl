@@ -12,6 +12,10 @@ import io.sarl.core.Initialize
 import io.sarl.core.Logging
 import io.sarl.core.MemberJoined
 import io.sarl.core.MemberLeft
+import utbm.ia54.ant2dgrid.objects.Cell
+import java.util.List
+import utbm.ia54.ant2dgrid.events.ConfigureSimulation
+
 /** 
  * @author Michel
  * 
@@ -19,10 +23,23 @@ import io.sarl.core.MemberLeft
 agent Environment {
 	uses Logging
 
+	var antQuantity : int
+	var grid : List<Cell>
+	var width : int
+	var height : int
+	
 	on Initialize {
+		loggingName = "Environment"
 		// Event trigger before the agent begin to live or to be used.
 		// You should put all the initialization statements in this block of code.
-		info("The agent was started.")
+		info("The agent Environment was started.")
+	}
+	
+	on ConfigureSimulation{
+		antQuantity = occurrence.antQuantity
+		width = occurrence.width
+		height = occurrence.height
+		grid = occurrence.grid
 	}
 
 	on Destroy {

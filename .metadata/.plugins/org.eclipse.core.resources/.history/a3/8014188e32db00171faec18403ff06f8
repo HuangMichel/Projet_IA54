@@ -1,0 +1,28 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.capacities
+
+import utbm.ia54.ant2dgrid.Enum.AntState
+import utbm.ia54.ant2dgrid.objects.Vector2i
+
+/** 
+ * @author Michel
+ * 
+ */
+capacity MoveCapacity {
+	def move(move : AntState)
+	def moveUp(up : AntState)
+	def moveDown(down : AntState)
+	def moveLeft(left : AntState)
+	def moveRight(right : AntState)
+}
+
+capacity PheromoneCapacity{
+	def followPheromone(position : Vector2i)
+}
+
+capacity PerceptionCapacity{
+	def sendPerception
+	def receivePerception
+}

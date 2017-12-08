@@ -6,6 +6,7 @@ import io.sarl.lang.annotation.SyntheticMember;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import org.eclipse.xtext.xbase.lib.CollectionExtensions;
 import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.AntState;
 import utbm.ia54.ant2dgrid.Enum.CellState;
@@ -190,6 +191,15 @@ public class Cell {
     float _xsynchronizedexpression = (float) 0;
     synchronized (this.pheromoneHome) {
       _xsynchronizedexpression = this.pheromoneHome.evaporation();
+    }
+    return _xsynchronizedexpression;
+  }
+  
+  @Pure
+  public boolean removeAllAnt() {
+    boolean _xsynchronizedexpression = false;
+    synchronized (this.AntList) {
+      _xsynchronizedexpression = CollectionExtensions.<Ant>removeAll(this.AntList);
     }
     return _xsynchronizedexpression;
   }

@@ -1,0 +1,10 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.objects
+/** 
+ * @author Michel
+ * 
+ */
+class EnvObj {
+}

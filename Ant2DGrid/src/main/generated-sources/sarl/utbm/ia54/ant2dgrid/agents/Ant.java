@@ -1,5 +1,6 @@
 package utbm.ia54.ant2dgrid.agents;
 
+import com.google.common.base.Objects;
 import io.sarl.core.AgentKilled;
 import io.sarl.core.AgentSpawned;
 import io.sarl.core.ContextJoined;
@@ -20,12 +21,18 @@ import io.sarl.lang.core.DynamicSkillProvider;
 import io.sarl.lang.core.Skill;
 import io.sarl.lang.util.ClearableReference;
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 import javax.inject.Inject;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Inline;
 import org.eclipse.xtext.xbase.lib.Pure;
+import utbm.ia54.ant2dgrid.Enum.AntState;
+import utbm.ia54.ant2dgrid.events.Perception;
+import utbm.ia54.ant2dgrid.objects.Cell;
 import utbm.ia54.ant2dgrid.objects.Vector2i;
+import utbm.ia54.ant2dgrid.skills.MotionSkill;
 
 /**
  * @author Michel
@@ -36,12 +43,21 @@ import utbm.ia54.ant2dgrid.objects.Vector2i;
 public class Ant extends Agent {
   private Vector2i position;
   
+  private float pheromoneHome;
+  
+  private float pheromoneFood;
+  
+  private AntState currentState;
+  
   @SyntheticMember
   private void $behaviorUnit$Initialize$0(final Initialize occurrence) {
     Logging _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER = this.$castSkill(Logging.class, (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || this.$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING = this.$getSkill(Logging.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LOGGING);
     _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER.setLoggingName("Ant");
     Logging _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER_1 = this.$castSkill(Logging.class, (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || this.$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING = this.$getSkill(Logging.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LOGGING);
     _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER_1.info("The agent Ant was started.");
+    this.currentState = AntState.SEARCH_FOOD;
+    MotionSkill _motionSkill = new MotionSkill();
+    this.<MotionSkill>setSkill(_motionSkill);
   }
   
   @SyntheticMember
@@ -81,6 +97,41 @@ public class Ant extends Agent {
   
   protected void setPosition(final Vector2i v) {
     this.position = v;
+  }
+  
+  @SyntheticMember
+  private void $behaviorUnit$Perception$8(final Perception occurrence) {
+    List<Cell> listPerception = occurrence.list;
+    boolean _isEmpty = listPerception.isEmpty();
+    boolean _not = (!_isEmpty);
+    if (_not) {
+      Vector2i tempVector = null;
+      this.pheromoneFood = 0f;
+      this.pheromoneHome = 0f;
+      boolean _equals = Objects.equal(this.currentState, AntState.SEARCH_FOOD);
+      if (_equals) {
+        for (int i = 0; (i < ((Object[])Conversions.unwrapArray(listPerception, Object.class)).length); i++) {
+          float _pheromoneFoodIntensity = listPerception.get(i).getPheromoneFoodIntensity();
+          boolean _lessThan = (this.pheromoneFood < _pheromoneFoodIntensity);
+          if (_lessThan) {
+            this.pheromoneFood = listPerception.get(i).getPheromoneFoodIntensity();
+            tempVector = listPerception.get(i).getPosition();
+          }
+        }
+      } else {
+        boolean _equals_1 = Objects.equal(this.currentState, AntState.RETURN_HOME);
+        if (_equals_1) {
+          for (int i = 0; (i < ((Object[])Conversions.unwrapArray(listPerception, Object.class)).length); i++) {
+            float _pheromoneHomeIntensity = listPerception.get(i).getPheromoneHomeIntensity();
+            boolean _lessThan = (this.pheromoneHome < _pheromoneHomeIntensity);
+            if (_lessThan) {
+              this.pheromoneHome = listPerception.get(i).getPheromoneHomeIntensity();
+              tempVector = listPerception.get(i).getPosition();
+            }
+          }
+        }
+      }
+    }
   }
   
   @Extension
@@ -140,6 +191,14 @@ public class Ant extends Agent {
   
   @SyntheticMember
   @PerceptGuardEvaluator
+  private void $guardEvaluator$Perception(final Perception occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
+    assert occurrence != null;
+    assert ___SARLlocal_runnableCollection != null;
+    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Perception$8(occurrence));
+  }
+  
+  @SyntheticMember
+  @PerceptGuardEvaluator
   private void $guardEvaluator$Destroy(final Destroy occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
     assert occurrence != null;
     assert ___SARLlocal_runnableCollection != null;
@@ -166,6 +225,17 @@ public class Ant extends Agent {
   @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Ant other = (Ant) obj;
+    if (Float.floatToIntBits(other.pheromoneHome) != Float.floatToIntBits(this.pheromoneHome))
+      return false;
+    if (Float.floatToIntBits(other.pheromoneFood) != Float.floatToIntBits(this.pheromoneFood))
+      return false;
     return super.equals(obj);
   }
   
@@ -174,6 +244,9 @@ public class Ant extends Agent {
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();
+    final int prime = 31;
+    result = prime * result + Float.floatToIntBits(this.pheromoneHome);
+    result = prime * result + Float.floatToIntBits(this.pheromoneFood);
     return result;
   }
   
