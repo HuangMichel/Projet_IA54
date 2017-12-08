@@ -35,3 +35,4 @@ event Influence{
 	var v : Vector2i
 	var id : UUID
 }
+event SpawnEnv

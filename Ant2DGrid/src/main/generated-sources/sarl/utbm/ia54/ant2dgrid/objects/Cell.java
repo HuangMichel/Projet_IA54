@@ -64,6 +64,21 @@ public class Cell {
     ArrayList<Ant> _arrayList = new ArrayList<Ant>();
     this.AntList = _arrayList;
     this.state = CellState.NORMAL;
+    Pheromone _pheromone = new Pheromone(AntState.RETURN_HOME);
+    this.pheromoneHome = _pheromone;
+    Pheromone _pheromone_1 = new Pheromone();
+    this.pheromoneFood = _pheromone_1;
+  }
+  
+  public Cell(final Vector2i v) {
+    this.vector = v;
+    ArrayList<Ant> _arrayList = new ArrayList<Ant>();
+    this.AntList = _arrayList;
+    this.state = CellState.NORMAL;
+    Pheromone _pheromone = new Pheromone(AntState.RETURN_HOME);
+    this.pheromoneHome = _pheromone;
+    Pheromone _pheromone_1 = new Pheromone();
+    this.pheromoneFood = _pheromone_1;
   }
   
   public Cell(final int x, final int y, final CellState state) {
@@ -72,6 +87,10 @@ public class Cell {
     ArrayList<Ant> _arrayList = new ArrayList<Ant>();
     this.AntList = _arrayList;
     this.state = state;
+    Pheromone _pheromone = new Pheromone(AntState.RETURN_HOME);
+    this.pheromoneHome = _pheromone;
+    Pheromone _pheromone_1 = new Pheromone();
+    this.pheromoneFood = _pheromone_1;
   }
   
   public Cell(final Vector2i v, final ArrayList<Ant> antList, final CellState state) {
@@ -79,6 +98,10 @@ public class Cell {
     this.vector = _vector2i;
     this.AntList = antList;
     this.state = state;
+    Pheromone _pheromone = new Pheromone(AntState.RETURN_HOME);
+    this.pheromoneHome = _pheromone;
+    Pheromone _pheromone_1 = new Pheromone();
+    this.pheromoneFood = _pheromone_1;
   }
   
   public Cell(final int x, final int y, final ArrayList<Ant> antList, final CellState state) {
@@ -86,6 +109,10 @@ public class Cell {
     this.vector = _vector2i;
     this.AntList = antList;
     this.state = state;
+    Pheromone _pheromone = new Pheromone(AntState.RETURN_HOME);
+    this.pheromoneHome = _pheromone;
+    Pheromone _pheromone_1 = new Pheromone();
+    this.pheromoneFood = _pheromone_1;
   }
   
   @Pure

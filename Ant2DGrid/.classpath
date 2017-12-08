@@ -12,5 +12,6 @@
 	<classpathentry exported="true" kind="con" path="io.sarl.eclipse.launching.SARL_SUPPORT"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="lib/mockito-core-2.13.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

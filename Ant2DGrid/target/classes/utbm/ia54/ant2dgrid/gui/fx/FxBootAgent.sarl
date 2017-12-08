@@ -3,59 +3,66 @@
  */
 package utbm.ia54.ant2dgrid.gui.fx
 
-import io.sarl.core.AgentKilled
 import io.sarl.core.AgentSpawned
-import io.sarl.core.ContextJoined
-import io.sarl.core.ContextLeft
-import io.sarl.core.Destroy
+import io.sarl.core.Behaviors
+import io.sarl.core.DefaultContextInteractions
 import io.sarl.core.Initialize
+import io.sarl.core.Lifecycle
 import io.sarl.core.Logging
-import io.sarl.core.MemberJoined
-import io.sarl.core.MemberLeft
-/** 
- * @author Michel
- * 
+import io.sarl.core.Schedules
+import io.sarl.lang.core.Agent
+import io.sarl.util.OpenEventSpaceSpecification
+import java.util.List
+import java.util.UUID
+import javafx.application.Application
+
+import static utbm.ia54.ant2dgrid.gui.fx.FxApplication.*
+/** Abstract definition of an agent that is able to boot a JavaFX application. 
  */
-agent FxBootAgent {
-	uses Logging
+abstract agent FxBootAgent {
+
+	uses Lifecycle, DefaultContextInteractions, Behaviors, Schedules, Logging
+
+	var launcherID : UUID
+	var startFeedback : ()=>void
 
 	on Initialize {
-		// Event trigger before the agent begin to live or to be used.
-		// You should put all the initialization statements in this block of code.
-		info("The agent was started.")
+		loggingName = "BootAgent"
+		var ^space = defaultContext.createSpace(
+			typeof(OpenEventSpaceSpecification),
+			UUID::randomUUID
+		)
+		^space.register(asEventListener)
+		FxApplication::eventSpaceCandidate = ^space
+		execute [Application::launch(this.fxApplicationType)]
 	}
 
-	on Destroy {
-		// Event trigger when the agent is destroyed from the system.
-		// You should put all the resource releasing statements in this block of code.
-		info("The agent was stopped.")
+	on AppStart {
+		this.startFeedback = occurrence.startFeedBack
+		this.launcherID = UUID::randomUUID
+		var parameters = <Object>newArrayList
+		parameters += occurrence.fxController
+		buildApplicationBootAgentParameters(this.launcherID, occurrence.fxController, parameters)
+		spawnInContextWithID(this.applicationBootAgentType, this.launcherID, defaultContext, parameters.toArray)
 	}
 
-	on AgentSpawned {
-		// A new agent has been spawned in our context.
+	on AgentSpawned [it.agentIdentifiers.contains(this.launcherID)] {
+		var feedback = this.startFeedback
+		this.startFeedback = null
+		feedback?.apply
 	}
 
-	on AgentKilled {
-		// A new agent has been killed in our context.
+	on AppExit {
+		killMe
 	}
 
-	on ContextJoined {
-		// Event trigger when an agent of the level joins a shared context.
-		// Sent to a agent of the same level.
+	abstract def getFxApplicationType : Class<? extends FxApplication>
+
+	abstract def getApplicationBootAgentType : Class<? extends Agent>
+
+	def buildApplicationBootAgentParameters(launcherID : UUID, controller : FxViewerController,
+		parameters : List<Object>) {
+		// No additional parameter to give to the application boot agent
 	}
 
-	on ContextLeft {
-		// Event trigger when an agent of the level jleaves a shared context.
-		// Sent to a agent of the same level.
-	}
-
-	on MemberJoined {
-		// Event trigger when an agent joins one of our shared super-holons.
-		// Sent to all members of the considered super-holon.
-	}
-
-	on MemberLeft {
-		// Event trigger when an agent leaves one of our shared super-holons.
-		// Sent to all members of the considered super-holon.
-	}
 }

@@ -2,16 +2,22 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.Enum.CellState"/>
 <fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.objects.MapGenerator"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.objects.Cell"/>
 <fullyQualifiedTypeName name="junit.textui.TestRunner"/>
 <fullyQualifiedTypeName name="junit.framework.TestSuite"/>
 <fullyQualifiedTypeName name="junit.framework.Test"/>
-<fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.objects.Vector2i"/>
 <fullyQualifiedTypeName name="com.google.common.base.Objects"/>
-<fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.agents.Ant"/>
 <fullyQualifiedTypeName name="utbm.ia54.test.objects.PheromoneTest"/>
 <fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.objects.Pheromone"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.objects.Cell"/>
+<fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.agents.Ant"/>
+<fullyQualifiedTypeName name="java.util.Vector"/>
+<fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.objects.Vector2i"/>
 <fullyQualifiedTypeName name="java.util.UUID"/>
+<fullyQualifiedTypeName name="org.junit.runner.RunWith"/>
+<fullyQualifiedTypeName name="org.mockito.Mockito"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.Enum.AntState"/>
 </qualifiedTypeNameHistroy>

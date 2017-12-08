@@ -53,24 +53,40 @@ class Cell {
 		this.vector = new Vector2i(x, y)
 		this.AntList = new ArrayList<Ant>
 		this.state = CellState.NORMAL
+		this.pheromoneHome = new Pheromone(AntState.RETURN_HOME)
+		this.pheromoneFood = new Pheromone
+	}
+	
+	new(v : Vector2i) {
+		this.vector = v
+		this.AntList = new ArrayList<Ant>
+		this.state = CellState.NORMAL
+		this.pheromoneHome = new Pheromone(AntState.RETURN_HOME)
+		this.pheromoneFood = new Pheromone
 	}
 
 	new(x : int, y : int, state : CellState) {
 		this.vector = new Vector2i(x, y)
 		this.AntList = new ArrayList<Ant>
 		this.state = state
+		this.pheromoneHome = new Pheromone(AntState.RETURN_HOME)
+		this.pheromoneFood = new Pheromone
 	}
 	
 	new(v : Vector2i, antList : ArrayList<Ant>, state : CellState){
 		this.vector = new Vector2i(v)
 		this.AntList = antList
 		this.state = state
+		this.pheromoneHome = new Pheromone(AntState.RETURN_HOME)
+		this.pheromoneFood = new Pheromone
 	}
 	
 	new(x : int, y : int, antList : ArrayList<Ant>, state : CellState) {
 		this.vector = new Vector2i(x, y)
 		this.AntList = antList
 		this.state = state
+		this.pheromoneHome = new Pheromone(AntState.RETURN_HOME)
+		this.pheromoneFood = new Pheromone
 	}
 	
 	def getPosition : Vector2i {

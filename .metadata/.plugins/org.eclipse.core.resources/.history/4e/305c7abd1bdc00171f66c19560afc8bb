@@ -1,0 +1,149 @@
+/**
+ * 
+ */
+package utbm.ia54.test.objects;
+
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import utbm.ia54.ant2dgrid.Enum.AntState;
+import utbm.ia54.ant2dgrid.agents.Ant;
+import utbm.ia54.ant2dgrid.objects.Cell;
+import utbm.ia54.ant2dgrid.objects.Vector2i;
+
+/**
+ * @author Michel
+ *
+ */
+public class CellTest1 {
+
+	private Cell cell;
+	private Ant mockAnt;
+	private UUID idChild;
+	private UUID idParent;
+	
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+		this.cell = new Cell();
+		this.idChild = UUID.randomUUID();
+		this.idParent = UUID.randomUUID();
+		this.mockAnt = spy(new Ant(this.idParent, this.idChild));
+		this.cell.addAnt(this.mockAnt);
+	}
+
+	/**
+	 * Test method for {@link utbm.ia54.ant2dgrid.objects.Cell#getPosition()}.
+	 */
+	@Test
+	public void testGetPosition() {
+		assertEquals(cell.getPosition(), new Vector2i());
+	}
+
+	/**
+	 * Test method for {@link utbm.ia54.ant2dgrid.objects.Cell#getAntList()}.
+	 */
+	@Test
+	public void testGetAntList() {
+		List<Ant> list = new ArrayList<Ant>();
+		cell.addAnt(this.mockAnt);
+		list = cell.getAntList();
+		assertEquals(list, cell.getAntList());
+	}
+
+	/**
+	 * Test method for {@link utbm.ia54.ant2dgrid.objects.Cell#getNumberAnt()}.
+	 */
+	@Test
+	public void testGetNumberAnt() {
+		cell.addAnt(this.mockAnt);
+		assertEquals(cell.getNumberAnt(), 1);
+	}
+
+	/**
+	 * Test method for {@link utbm.ia54.ant2dgrid.objects.Cell#getState()}.
+	 */
+	@Test
+	public void testGetState() {
+		assertEquals(cell.getState(), AntState.SEARCH_FOOD);
+	}
+
+	/**
+	 * Test method for {@link utbm.ia54.ant2dgrid.objects.Cell#getPheromoneHomeIntensity()}.
+	 */
+	@Test
+	public void testGetPheromoneHomeIntensity() {
+		assertEquals(cell.getPheromoneHomeIntensity(), 0f, 0f);
+	}
+
+	/**
+	 * Test method for {@link utbm.ia54.ant2dgrid.objects.Cell#getPheromoneFoodIntensity()}.
+	 */
+	@Test
+	public void testGetPheromoneFoodIntensity() {
+		assertEquals(cell.getPheromoneFoodIntensity(), 0f, 0f);
+	}
+
+	/**
+	 * Test method for {@link utbm.ia54.ant2dgrid.objects.Cell#incrementPheromoneHomeIntensity()}.
+	 */
+	@Test
+	public void testIncrementPheromoneHomeIntensity() {
+		cell.incrementPheromoneHomeIntensity();
+		assertEquals(cell.getPheromoneHomeIntensity(), 1f, 0f);
+	}
+
+	/**
+	 * Test method for {@link utbm.ia54.ant2dgrid.objects.Cell#incrementPheromoneFoodIntensity()}.
+	 */
+	@Test
+	public void testIncrementPheromoneFoodIntensity() {
+		cell.incrementPheromoneFoodIntensity();
+		assertEquals(cell.getPheromoneFoodIntensity(), 1f, 0f);
+	}
+
+	/**
+	 * Test method for {@link utbm.ia54.ant2dgrid.objects.Cell#evaporationPheromoneFood()}.
+	 */
+	@Test
+	public void testEvaporationPheromoneFood() {
+		cell.incrementPheromoneFoodIntensity();
+		cell.evaporationPheromoneFood();
+		assertEquals(cell.getPheromoneFoodIntensity(), 1f*0.5f, 0f);
+		
+	}
+
+	/**
+	 * Test method for {@link utbm.ia54.ant2dgrid.objects.Cell#evaporationPheromoneHome()}.
+	 */
+	@Test
+	public void testEvaporationPheromoneHome() {
+		cell.incrementPheromoneHomeIntensity();
+		cell.evaporationPheromoneHome();
+		assertEquals(cell.getPheromoneHomeIntensity(), 1f*0.5f, 0f);
+	}
+
+	/**
+	 * Test method for {@link utbm.ia54.ant2dgrid.objects.Cell#removeAllAnt()}.
+	 */
+	@Test
+	public void testRemoveAllAnt() {
+		cell.addAnt(this.mockAnt);
+		cell.removeAnt(this.mockAnt);
+		assertEquals(cell.getNumberAnt(), 0);
+		cell.addAnt(this.mockAnt);
+		cell.removeAllAnt();
+		assertEquals(cell.getNumberAnt(), 0);
+		
+	}
+
+}

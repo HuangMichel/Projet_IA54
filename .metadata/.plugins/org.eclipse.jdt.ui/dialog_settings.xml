@@ -53,6 +53,16 @@
 		<item value="false" key="updateTextualMatches"/>
 		<item value="1" key="updateSimilarElementsMatchStrategy"/>
 	</section>
+	<section name="ProblemSeveritiesConfigurationBlock">
+		<item value="false" key="expanded2"/>
+		<item value="false" key="expanded1"/>
+		<item value="false" key="expanded4"/>
+		<item value="false" key="expanded3"/>
+		<item value="false" key="expanded6"/>
+		<item value="false" key="expanded5"/>
+		<item value="false" key="expanded7"/>
+		<item value="true" key="expanded0"/>
+	</section>
 	<section name="DialogBounds_SuperInterfaceSelectionDialog">
 		<item value="373" key="DIALOG_WIDTH"/>
 		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
@@ -100,6 +110,11 @@
 		<item value="600" key="width"/>
 		<item value="400" key="height"/>
 	</section>
+	<section name="JavaBuildConfigurationBlock">
+		<item value="false" key="expanded2"/>
+		<item value="false" key="expanded1"/>
+		<item value="true" key="expanded0"/>
+	</section>
 	<section name="SourceActionDialog.methods">
 		<item value="false" key="SynchronizedModifier"/>
 		<item value="false" key="Comments"/>
@@ -126,7 +141,7 @@
 		<item value="true" key="create_unimplemented"/>
 	</section>
 	<section name="ClasspathContainerSelectionPage">
-		<item value="1" key="index"/>
+		<item value="3" key="index"/>
 	</section>
 	<section name="DialogBounds_io.sarl.eclipse.wizards.elements.aop.newcapacity.SuperCapacitySelectionDialog">
 		<item value="373" key="DIALOG_WIDTH"/>
@@ -141,7 +156,7 @@
 		<item value="false" key="create_package_info_java"/>
 	</section>
 	<section name="BuildPathsPropertyPage">
-		<item value="3" key="pageIndex"/>
+		<item value="2" key="pageIndex"/>
 	</section>
 	<section name="DialogBounds_io.sarl.eclipse.wizards.elements.aop.newskill.SuperSkillSelectionDialog">
 		<item value="373" key="DIALOG_WIDTH"/>
