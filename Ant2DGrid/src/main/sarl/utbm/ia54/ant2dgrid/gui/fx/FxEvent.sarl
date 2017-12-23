@@ -2,6 +2,10 @@
  * 
  */
 package utbm.ia54.ant2dgrid.gui.fx
+
+import java.util.List
+import utbm.ia54.ant2dgrid.objects.Cell
+
 /** 
  * @author Michel
  * 
@@ -24,3 +28,19 @@ event AppStart{
  * Triggered when the app need to be exited
  */
 event AppExit
+
+
+event ConfigureSimulation {
+	val antQuantity : int
+	val width : int
+	val height : int
+	var grid : List<Cell>
+
+	new(antQuantity : int, width : int, height : int, grid : List<Cell>) {
+		this.antQuantity = antQuantity
+		this.width = width
+		this.height = height
+		this.grid = grid
+	}
+
+}

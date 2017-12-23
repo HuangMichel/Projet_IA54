@@ -3,21 +3,26 @@ package utbm.ia54.ant2dgrid.gui
 import utbm.ia54.ant2dgrid.gui.fx.FxViewerController
 import javafx.fxml.FXML
 import javafx.scene.control.Button
-import utbm.ia54.ant2dgrid.events.SpawnEnv
+import utbm.ia54.ant2dgrid.gui.fx.ConfigureSimulation
+import javafx.scene.layout.GridPane
 
 /** 
- * @author Michel
+ * @author aelez
  * 
  */
 
 class Ant2DGridFxViewerController extends FxViewerController{
-	
+
 	@FXML
 	var spawnButton : Button
 	
 	@FXML
+	var gridZone : GridPane
+	
+	@FXML
 	def actionSpawn{
-		var evt = new SpawnEnv
+		var evt = new ConfigureSimulation(5,10,10,{})
+		emitToAgent(evt)
 		
 	}
 	

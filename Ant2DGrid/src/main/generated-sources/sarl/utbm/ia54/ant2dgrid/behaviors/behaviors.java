@@ -21,7 +21,6 @@ import io.sarl.lang.util.ClearableReference;
 import java.util.Collection;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Inline;
-import org.eclipse.xtext.xbase.lib.Pure;
 
 /**
  * @author Michel
@@ -72,7 +71,6 @@ public class behaviors extends Behavior {
   private transient ClearableReference<Skill> $CAPACITY_USE$IO_SARL_CORE_LOGGING;
   
   @SyntheticMember
-  @Pure
   @Inline(value = "$castSkill(Logging.class, ($0$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || $0$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) ? ($0$CAPACITY_USE$IO_SARL_CORE_LOGGING = $0$getSkill(Logging.class)) : $0$CAPACITY_USE$IO_SARL_CORE_LOGGING)", imported = Logging.class)
   private Logging $CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER() {
     if (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || this.$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) {

@@ -3,14 +3,17 @@ package utbm.ia54.ant2dgrid.gui;
 import io.sarl.lang.annotation.SarlElementType;
 import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
+import java.util.List;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import org.eclipse.xtext.xbase.lib.Pure;
-import utbm.ia54.ant2dgrid.events.SpawnEnv;
+import javafx.scene.layout.GridPane;
+import org.eclipse.xtext.xbase.lib.Functions.Function0;
+import utbm.ia54.ant2dgrid.gui.fx.ConfigureSimulation;
 import utbm.ia54.ant2dgrid.gui.fx.FxViewerController;
+import utbm.ia54.ant2dgrid.objects.Cell;
 
 /**
- * @author Michel
+ * @author aelez
  */
 @SarlSpecification("0.6")
 @SarlElementType(9)
@@ -20,20 +23,25 @@ public class Ant2DGridFxViewerController extends FxViewerController {
   private Button spawnButton;
   
   @FXML
-  @Pure
+  private GridPane gridZone;
+  
+  @FXML
   public void actionSpawn() {
-    SpawnEnv evt = new SpawnEnv();
+    ConfigureSimulation evt = new ConfigureSimulation(5, 10, 10, new Function0<List<Cell>>() {
+      public List<Cell> apply() {
+        return null;
+      }
+    }.apply());
+    this.emitToAgent(evt);
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     return super.equals(obj);
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

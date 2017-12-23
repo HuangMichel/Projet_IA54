@@ -17,6 +17,7 @@ import javafx.application.Platform
  */
 class FxViewerController implements EventListener{
 	
+	
 	val id = UUID::randomUUID
 	
 	/*
@@ -75,7 +76,7 @@ class FxViewerController implements EventListener{
 	 * Needed for receiving events from the agents
 	 */
 	def receiveEvent(^event : Event) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		//throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
 }

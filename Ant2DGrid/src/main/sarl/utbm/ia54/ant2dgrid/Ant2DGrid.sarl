@@ -15,7 +15,7 @@ import utbm.ia54.ant2dgrid.agents.Environment
  * @author aelez
  * 
  */
-
+ 
 agent Ant2DGrid extends FxBootAgent{
 
 	def getFxApplicationType : Class<? extends FxApplication> {
@@ -26,7 +26,6 @@ agent Ant2DGrid extends FxBootAgent{
 		typeof(Environment)
 	}
 	
-
 	override buildApplicationBootAgentParameters(
 		launcherID : UUID,
 		controller : FxViewerController,

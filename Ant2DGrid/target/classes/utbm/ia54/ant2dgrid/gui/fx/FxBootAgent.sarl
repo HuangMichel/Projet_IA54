@@ -55,7 +55,10 @@ abstract agent FxBootAgent {
 	on AppExit {
 		killMe
 	}
-
+	on ConfigureSimulation {
+		info("received conf")
+	}
+	
 	abstract def getFxApplicationType : Class<? extends FxApplication>
 
 	abstract def getApplicationBootAgentType : Class<? extends Agent>

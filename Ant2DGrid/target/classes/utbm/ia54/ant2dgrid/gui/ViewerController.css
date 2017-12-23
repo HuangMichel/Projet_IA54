@@ -1,0 +1,18 @@
+/*
+* @Author: Bartuccio Antoine
+* @Date:   2017-05-26 17:51:42
+* @Last Modified by:   klmp200
+* @Last Modified time: 2017-05-26 17:57:14
+*/
+
+// Nice white #F9FAFB
+// Nice black #2B2B2B
+
+#mainPane {
+	-fx-background-color: #F9FAFB;
+}
+
+.gridPane {
+	-fx-background-color: #F9FAFB;	
+}
+

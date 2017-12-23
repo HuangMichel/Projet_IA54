@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.eclipse.xtext.xbase.lib.CollectionExtensions;
-import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.AntState;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.agents.Ant;
@@ -115,7 +114,6 @@ public class Cell {
     this.pheromoneFood = _pheromone_1;
   }
   
-  @Pure
   public Vector2i getPosition() {
     return this.vector;
   }
@@ -145,7 +143,6 @@ public class Cell {
     return _xsynchronizedexpression;
   }
   
-  @Pure
   public List<Ant> getAntList() {
     List<Ant> _xsynchronizedexpression = null;
     synchronized (this.AntList) {
@@ -154,7 +151,6 @@ public class Cell {
     return _xsynchronizedexpression;
   }
   
-  @Pure
   public int getNumberAnt() {
     int _xsynchronizedexpression = (int) 0;
     synchronized (this.AntList) {
@@ -163,7 +159,6 @@ public class Cell {
     return _xsynchronizedexpression;
   }
   
-  @Pure
   public CellState getState() {
     return this.state;
   }
@@ -172,7 +167,6 @@ public class Cell {
     this.state = state;
   }
   
-  @Pure
   public float getPheromoneHomeIntensity() {
     float _xsynchronizedexpression = (float) 0;
     synchronized (this.pheromoneHome) {
@@ -181,7 +175,6 @@ public class Cell {
     return _xsynchronizedexpression;
   }
   
-  @Pure
   public float getPheromoneFoodIntensity() {
     float _xsynchronizedexpression = (float) 0;
     synchronized (this.pheromoneFood) {
@@ -222,7 +215,6 @@ public class Cell {
     return _xsynchronizedexpression;
   }
   
-  @Pure
   public boolean removeAllAnt() {
     boolean _xsynchronizedexpression = false;
     synchronized (this.AntList) {
@@ -232,14 +224,12 @@ public class Cell {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     return super.equals(obj);
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

@@ -9,7 +9,6 @@ import io.sarl.lang.core.DynamicSkillProvider;
 import java.util.List;
 import java.util.UUID;
 import javax.inject.Inject;
-import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.agents.Environment;
 import utbm.ia54.ant2dgrid.gui.Ant2DGridFxApplication;
 import utbm.ia54.ant2dgrid.gui.Ant2DGridFxViewerController;
@@ -33,7 +32,6 @@ public class Ant2DGrid extends FxBootAgent {
   }
   
   @Override
-  @Pure
   protected void buildApplicationBootAgentParameters(final UUID launcherID, final FxViewerController controller, final List<Object> parameters) {
     Ant2DGridFxViewerController ctrl = ((Ant2DGridFxViewerController) controller);
   }

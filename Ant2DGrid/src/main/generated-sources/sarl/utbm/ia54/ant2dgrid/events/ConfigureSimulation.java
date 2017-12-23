@@ -5,7 +5,6 @@ import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
 import io.sarl.lang.core.Event;
 import java.util.List;
-import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.objects.Cell;
 
 /**
@@ -31,7 +30,6 @@ public class ConfigureSimulation extends Event {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -51,7 +49,6 @@ public class ConfigureSimulation extends Event {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();
@@ -66,7 +63,6 @@ public class ConfigureSimulation extends Event {
    * Returns a String representation of the ConfigureSimulation event's attributes only.
    */
   @SyntheticMember
-  @Pure
   protected String attributesToString() {
     StringBuilder result = new StringBuilder(super.attributesToString());
     result.append("antQuantity  = ").append(this.antQuantity);
