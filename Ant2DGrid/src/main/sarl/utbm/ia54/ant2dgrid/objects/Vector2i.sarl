@@ -59,4 +59,8 @@ class Vector2i {
 		this.x = v.getX
 		this.y = v.getY
 	}
+	
+	def toString : String{
+		return "X : " + x + ", Y : " + y
+	}
 }

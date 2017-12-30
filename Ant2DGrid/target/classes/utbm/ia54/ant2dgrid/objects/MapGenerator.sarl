@@ -44,6 +44,13 @@ class MapGenerator {
 		this.height = 45
 	}
 	
+	new(width : int, height : int) {
+		this.grid = new ArrayList<Cell>
+		this.chanceNormalState = 0.4f
+		this.width = width
+		this.height = height
+	}
+	
 	/*
 	 * Constructor initializing
 	 * @param grid the 2D grid
@@ -63,28 +70,29 @@ class MapGenerator {
 	 */
 	def initializeMap{
 		for(var i = 0; i<width; i++){
-			for(var j = 0; j<height; j++){
+			for (var j = 0; j < height; j++) {
 				var cell : Cell
 				if (Math.random().floatValue < chanceNormalState) {
 					cell = new Cell(i, j)
 				}else{
 					cell = new Cell(i, j, CellState.WALL)
 				}
+				//println("position " + cell.getPosition.toString + ", state " +cell.state)
 				this.grid.add(cell)
 			}
 		}
 	}
 	
 	
-	def simulationStep{
-		var newGrid : ArrayList<Cell>
+	def simulationStep : ArrayList<Cell> {
+		var newGrid = new ArrayList<Cell>
 		val deathLimit = 4
 		val birthLimit = 3
 		
 		for(var i = 0; i<width; i++){
-			for(var j = 0; j<height; i++){
+			for(var j = 0; j<height; j++){
 				var count = countNormalStateNeighbours(i, j)
-				if(this.grid.get(((j*width)+i)).state == CellState.NORMAL){
+				if(this.grid.get(i*height+j).state == CellState.NORMAL){
 					if(count<deathLimit){
 						newGrid.add(new Cell(i, j, CellState.WALL))
 					}else{
@@ -99,7 +107,7 @@ class MapGenerator {
 				}
 			}
 		}
-		this.grid = newGrid
+		newGrid
 	}
 	
 	/*
@@ -114,9 +122,9 @@ class MapGenerator {
 			for(var j = -1; j<2; j++){
 				var temp_x = x + i;
 				var temp_y = y + j;
-				if(temp_x<0 || temp_y < 0 ||  temp_x >= height || temp_y >= width){
+				if(temp_x<0 || temp_y <0 || temp_x>height || temp_y>width){
 					count++
-				}else if(grid.get(((temp_y*width)+temp_x)).state == CellState.NORMAL){
+				} else if (this.grid.get(temp_x * height + temp_y).state == CellState.NORMAL) {
 					count++
 				}
 			}
@@ -126,36 +134,55 @@ class MapGenerator {
 	
 	/*
 	 * Places the nest on the map
+	 * @param n 
 	 */
-	def placeNest{
-		val nestLimit = 2
+	def placeNest (n : int){
+		val nestLimit = n
+		var listNest = new ArrayList<Cell>
 		for(var i = 0; i<width; i++){
 			for(var j = 0; j<height; j++){
-				if(this.grid.get(((j*width)+i)).state == CellState.NORMAL){
+				if (this.grid.get(i * height + j).state == CellState.NORMAL) {
 					var count = countNormalStateNeighbours(i,j)
+					//System.out.println("position " + (i*height+j) + "count nest " + count)
 					if(count==nestLimit){
-						this.grid.get(((j*width)+i)).state = CellState.HOME
+						//this.grid.get(i * height + j).state = CellState.HOME
+						listNest.add(this.grid.get(i * height + j))
 					}
 				}
 			}
+		}
+		if (!listNest.empty) {
+			this.grid.get(listNest.get(0).position.x * height + listNest.get(0).position.y).state = CellState.HOME
+		}else{
+			placeNest(n+1)
 		}
 	}
 	
 	/*
 	 * Places the food on the map
+	 * @param n 
 	 */
-	def placeFood{
-		val foodLimit = 2
-		for(var i = width; i<0; i--){
-			for (var j = height; j < 0; j--) {
-				if (this.grid.get(((j * width) + i)).state == CellState.NORMAL) {
+	def placeFood (n : int){
+		val foodLimit = n
+		var listFood = new ArrayList<Cell>
+		for(var i = 0; i<width; i++){
+			for (var j = 0; j < height; j++) {
+				if (this.grid.get(i * height + j).state == CellState.NORMAL) {
 					var count = countNormalStateNeighbours(i, j)
 					if (count == foodLimit) {
-						this.grid.get(((j * width) + i)).state = CellState.FOOD
+						listFood.add(this.grid.get(i * height + j))
 					}
 				}
 			}
 		}
+		if (!listFood.isEmpty) {
+			this.grid.get(
+				this.grid.get(listFood.size - 1).position.x * height +
+					this.grid.get(listFood.size - 1).position.y).state = CellState.FOOD
+		}else{
+			placeFood(n+1)
+		}
+		
 	}
 	
 	/*
@@ -164,11 +191,11 @@ class MapGenerator {
 	 */
 	def generateMap : List<Cell>{
 		initializeMap
-		for(var i = 0; i<3; i++){
-			simulationStep
+		for(var i = 0; i<2; i++){
+			this.grid = simulationStep
 		}
-		placeNest
-		placeFood
+		placeNest(4)
+		placeFood(4)
 		this.grid
 	}
 }

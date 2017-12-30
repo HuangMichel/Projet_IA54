@@ -1,0 +1,37 @@
+package utbm.ia54.ant2dgrid.gui
+
+import utbm.ia54.ant2dgrid.gui.fx.FxViewerController
+import javafx.fxml.FXML
+import javafx.scene.control.Button
+import utbm.ia54.ant2dgrid.gui.fx.ConfigureSimulation
+import javafx.scene.layout.GridPane
+import utbm.ia54.ant2dgrid.objects.Cell
+import java.util.List
+import utbm.ia54.ant2dgrid.objects.MapGenerator
+
+/** 
+ * @author aelez
+ * 
+ */
+
+class Ant2DGridFxViewerController extends FxViewerController{
+
+	@FXML
+	var spawnButton : Button
+	
+	@FXML
+	var gridZone : GridPane
+	
+	@FXML
+	def actionSpawn{
+		val generator = new MapGenerator
+		var grid : List<Cell>
+		grid = generator.generateMap
+		var evt = new ConfigureSimulation(5,10,10,grid)
+		emitToAgent(evt)
+		
+	}
+	
+	
+	
+}

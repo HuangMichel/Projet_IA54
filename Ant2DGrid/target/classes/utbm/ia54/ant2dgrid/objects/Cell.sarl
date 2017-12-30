@@ -8,13 +8,14 @@ import utbm.ia54.ant2dgrid.agents.Ant
 import java.util.List
 import utbm.ia54.ant2dgrid.Enum.CellState
 import utbm.ia54.ant2dgrid.Enum.AntState
+import javafx.scene.layout.Pane
 
 /** 
  * 
  * @author Michel
  * 
  */
-class Cell {
+class Cell extends Pane{
 	
 	/*
 	 * The vector position
@@ -45,6 +46,7 @@ class Cell {
 		this.vector = new Vector2i
 		this.AntList = new ArrayList<Ant>
 		this.state = CellState.NORMAL
+		setColor
 		this.pheromoneHome = new Pheromone(AntState.RETURN_HOME)
 		this.pheromoneFood = new Pheromone
 	}
@@ -53,6 +55,7 @@ class Cell {
 		this.vector = new Vector2i(x, y)
 		this.AntList = new ArrayList<Ant>
 		this.state = CellState.NORMAL
+		setColor
 		this.pheromoneHome = new Pheromone(AntState.RETURN_HOME)
 		this.pheromoneFood = new Pheromone
 	}
@@ -61,6 +64,7 @@ class Cell {
 		this.vector = v
 		this.AntList = new ArrayList<Ant>
 		this.state = CellState.NORMAL
+		setColor
 		this.pheromoneHome = new Pheromone(AntState.RETURN_HOME)
 		this.pheromoneFood = new Pheromone
 	}
@@ -69,6 +73,7 @@ class Cell {
 		this.vector = new Vector2i(x, y)
 		this.AntList = new ArrayList<Ant>
 		this.state = state
+		setColor
 		this.pheromoneHome = new Pheromone(AntState.RETURN_HOME)
 		this.pheromoneFood = new Pheromone
 	}
@@ -77,6 +82,7 @@ class Cell {
 		this.vector = new Vector2i(v)
 		this.AntList = antList
 		this.state = state
+		setColor
 		this.pheromoneHome = new Pheromone(AntState.RETURN_HOME)
 		this.pheromoneFood = new Pheromone
 	}
@@ -85,6 +91,7 @@ class Cell {
 		this.vector = new Vector2i(x, y)
 		this.AntList = antList
 		this.state = state
+		setColor
 		this.pheromoneHome = new Pheromone(AntState.RETURN_HOME)
 		this.pheromoneFood = new Pheromone
 	}
@@ -132,6 +139,7 @@ class Cell {
 	
 	def setState(state : CellState){
 		this.state = state
+		setColor
 	}
 	
 	def getPheromoneHomeIntensity : float {
@@ -174,5 +182,31 @@ class Cell {
 		synchronized(AntList){
 			AntList.removeAll()
 		}
+	}
+
+	def setColor {
+		
+		var color : String
+
+		switch (this.state) {
+			case CellState.WALL:
+			//CHOCOLATE
+				color = "#d2691e"
+			case CellState.HOME:
+			//AZURE
+				color = "#f0ffff"
+			case CellState.FOOD:
+			//AQUA
+				color = "#00ffff"
+			default:
+			//DARKGRAY
+				color = "#a9a9a9"
+		}
+		
+		this.style = "-fx-background-color: " + color
+	}
+	
+	def getColor : String{
+		this.style
 	}
 }

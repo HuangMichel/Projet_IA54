@@ -1,0 +1,60 @@
+package utbm.ia54.ant2dgrid.gui
+
+import utbm.ia54.ant2dgrid.gui.fx.FxViewerController
+import javafx.fxml.FXML
+import javafx.scene.control.Button
+import utbm.ia54.ant2dgrid.gui.fx.ConfigureSimulation
+import javafx.scene.layout.GridPane
+import utbm.ia54.ant2dgrid.objects.Cell
+import java.util.List
+import utbm.ia54.ant2dgrid.objects.MapGenerator
+import javafx.scene.Group
+import javafx.scene.layout.Pane
+import javafx.scene.control.TextField
+
+/** 
+ * @author aelez
+ * 
+ */
+
+class Ant2DGridFxViewerController extends FxViewerController{
+
+	@FXML
+	var spawnButton : Button
+	
+	@FXML
+	var gridZone : GridPane
+	
+	@FXML
+	var ant_quantity : TextField
+
+	var grid : List<Cell>
+	
+	var mapCreated = false
+	
+	def getAntQuantity : int {
+		Integer.parseInt(ant_quantity.text)
+	}
+	
+	def getWidth : int{
+		gridZone.rowConstraints.size
+	}
+	
+	def getHeight : int{
+		gridZone.columnConstraints.size
+	}
+	
+	@FXML
+	def actionSpawn{
+		val generator = new MapGenerator(getWidth, getHeight)
+		grid = generator.generateMap
+		for (var i = 0; i < getWidth; i++) {
+			for (var j = 0; j < getHeight; j++) {
+				gridZone.add(grid.get((j*getWidth)+i), i, j)
+			}
+		}
+		var evt = new ConfigureSimulation(getAntQuantity, getWidth, getHeight,grid)
+		emitToAgent(evt)
+	}
+	
+}

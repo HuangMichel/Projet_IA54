@@ -6,6 +6,7 @@ import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
 import java.util.ArrayList;
 import java.util.List;
+import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.objects.Cell;
 
@@ -48,6 +49,14 @@ public class MapGenerator {
     this.height = 45;
   }
   
+  public MapGenerator(final int width, final int height) {
+    ArrayList<Cell> _arrayList = new ArrayList<Cell>();
+    this.grid = _arrayList;
+    this.chanceNormalState = 0.4f;
+    this.width = width;
+    this.height = height;
+  }
+  
   /**
    * Constructor initializing
    * @param grid the 2D grid
@@ -88,14 +97,14 @@ public class MapGenerator {
   public ArrayList<Cell> simulationStep() {
     ArrayList<Cell> _xblockexpression = null;
     {
-      ArrayList<Cell> newGrid = null;
+      ArrayList<Cell> newGrid = new ArrayList<Cell>();
       final int deathLimit = 4;
       final int birthLimit = 3;
       for (int i = 0; (i < this.width); i++) {
-        for (int j = 0; (j < this.height); i++) {
+        for (int j = 0; (j < this.height); j++) {
           {
             int count = this.countNormalStateNeighbours(i, j);
-            CellState _state = this.grid.get(((j * this.width) + i)).getState();
+            CellState _state = this.grid.get(((i * this.height) + j)).getState();
             boolean _equals = Objects.equal(_state, CellState.NORMAL);
             if (_equals) {
               if ((count < deathLimit)) {
@@ -117,7 +126,7 @@ public class MapGenerator {
           }
         }
       }
-      _xblockexpression = this.grid = newGrid;
+      _xblockexpression = newGrid;
     }
     return _xblockexpression;
   }
@@ -137,10 +146,10 @@ public class MapGenerator {
           {
             int temp_x = (x + i);
             int temp_y = (y + j);
-            if (((((temp_x < 0) || (temp_y < 0)) || (temp_x >= this.height)) || (temp_y >= this.width))) {
+            if (((((temp_x < 0) || (temp_y < 0)) || (temp_x > this.height)) || (temp_y > this.width))) {
               count++;
             } else {
-              CellState _state = this.grid.get(((temp_y * this.width) + temp_x)).getState();
+              CellState _state = this.grid.get(((temp_x * this.height) + temp_y)).getState();
               boolean _equals = Objects.equal(_state, CellState.NORMAL);
               if (_equals) {
                 count++;
@@ -156,42 +165,84 @@ public class MapGenerator {
   
   /**
    * Places the nest on the map
+   * @param n
    */
-  public void placeNest() {
-    final int nestLimit = 2;
-    for (int i = 0; (i < this.width); i++) {
-      for (int j = 0; (j < this.height); j++) {
-        CellState _state = this.grid.get(((j * this.width) + i)).getState();
-        boolean _equals = Objects.equal(_state, CellState.NORMAL);
-        if (_equals) {
-          int count = this.countNormalStateNeighbours(i, j);
-          if ((count == nestLimit)) {
-            Cell _get = this.grid.get(((j * this.width) + i));
-            _get.setState(CellState.HOME);
+  public Object placeNest(final int n) {
+    Object _xblockexpression = null;
+    {
+      final int nestLimit = n;
+      ArrayList<Cell> listNest = new ArrayList<Cell>();
+      for (int i = 0; (i < this.width); i++) {
+        for (int j = 0; (j < this.height); j++) {
+          CellState _state = this.grid.get(((i * this.height) + j)).getState();
+          boolean _equals = Objects.equal(_state, CellState.NORMAL);
+          if (_equals) {
+            int count = this.countNormalStateNeighbours(i, j);
+            if ((count == nestLimit)) {
+              listNest.add(this.grid.get(((i * this.height) + j)));
+            }
           }
         }
       }
+      Object _xifexpression = null;
+      boolean _isEmpty = listNest.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        int _x = listNest.get(0).getPosition().getX();
+        int _multiply = (_x * this.height);
+        int _y = listNest.get(0).getPosition().getY();
+        int _plus = (_multiply + _y);
+        Cell _get = this.grid.get(_plus);
+        _get.setState(CellState.HOME);
+      } else {
+        _xifexpression = this.placeNest((n + 1));
+      }
+      _xblockexpression = _xifexpression;
     }
+    return _xblockexpression;
   }
   
   /**
    * Places the food on the map
+   * @param n
    */
-  public void placeFood() {
-    final int foodLimit = 2;
-    for (int i = this.width; (i < 0); i--) {
-      for (int j = this.height; (j < 0); j--) {
-        CellState _state = this.grid.get(((j * this.width) + i)).getState();
-        boolean _equals = Objects.equal(_state, CellState.NORMAL);
-        if (_equals) {
-          int count = this.countNormalStateNeighbours(i, j);
-          if ((count == foodLimit)) {
-            Cell _get = this.grid.get(((j * this.width) + i));
-            _get.setState(CellState.FOOD);
+  public Object placeFood(final int n) {
+    Object _xblockexpression = null;
+    {
+      final int foodLimit = n;
+      ArrayList<Cell> listFood = new ArrayList<Cell>();
+      for (int i = 0; (i < this.width); i++) {
+        for (int j = 0; (j < this.height); j++) {
+          CellState _state = this.grid.get(((i * this.height) + j)).getState();
+          boolean _equals = Objects.equal(_state, CellState.NORMAL);
+          if (_equals) {
+            int count = this.countNormalStateNeighbours(i, j);
+            if ((count == foodLimit)) {
+              listFood.add(this.grid.get(((i * this.height) + j)));
+            }
           }
         }
       }
+      Object _xifexpression = null;
+      boolean _isEmpty = listFood.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        int _size = listFood.size();
+        int _minus = (_size - 1);
+        int _x = this.grid.get(_minus).getPosition().getX();
+        int _multiply = (_x * this.height);
+        int _size_1 = listFood.size();
+        int _minus_1 = (_size_1 - 1);
+        int _y = this.grid.get(_minus_1).getPosition().getY();
+        int _plus = (_multiply + _y);
+        Cell _get = this.grid.get(_plus);
+        _get.setState(CellState.FOOD);
+      } else {
+        _xifexpression = this.placeFood((n + 1));
+      }
+      _xblockexpression = _xifexpression;
     }
+    return _xblockexpression;
   }
   
   /**
@@ -202,17 +253,18 @@ public class MapGenerator {
     ArrayList<Cell> _xblockexpression = null;
     {
       this.initializeMap();
-      for (int i = 0; (i < 3); i++) {
-        this.simulationStep();
+      for (int i = 0; (i < 2); i++) {
+        this.grid = this.simulationStep();
       }
-      this.placeNest();
-      this.placeFood();
+      this.placeNest(4);
+      this.placeFood(4);
       _xblockexpression = this.grid;
     }
     return _xblockexpression;
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -232,6 +284,7 @@ public class MapGenerator {
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();
