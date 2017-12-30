@@ -268,6 +268,20 @@ public class Cell extends Pane {
     return this.getStyle();
   }
   
+  public String toString() {
+    String _string = this.vector.toString();
+    String _plus = ("Cell : " + _string);
+    String _plus_1 = (_plus + ", Ant : ");
+    int _size = this.AntList.size();
+    String _plus_2 = (_plus_1 + Integer.valueOf(_size));
+    String _plus_3 = (_plus_2 + ", food : ");
+    String _string_1 = this.pheromoneFood.toString();
+    String _plus_4 = (_plus_3 + _string_1);
+    String _plus_5 = (_plus_4 + ", home : ");
+    String _string_2 = this.pheromoneHome.toString();
+    return (_plus_5 + _string_2);
+  }
+  
   @Override
   @Pure
   @SyntheticMember

@@ -209,4 +209,8 @@ class Cell extends Pane{
 	def getColor : String{
 		this.style
 	}
+	
+	def toString : String{
+		return "Cell : " + vector.toString + ", Ant : " + AntList.size + ", food : " + pheromoneFood.toString + ", home : " + pheromoneHome.toString
+	}
 }

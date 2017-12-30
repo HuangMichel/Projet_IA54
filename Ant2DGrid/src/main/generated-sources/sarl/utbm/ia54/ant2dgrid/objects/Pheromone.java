@@ -69,6 +69,11 @@ public class Pheromone {
     return this.intensity = (_intensity * this.coefEvaporation);
   }
   
+  @Pure
+  public String toString() {
+    return ("Intensity : " + Float.valueOf(this.intensity));
+  }
+  
   @Override
   @Pure
   @SyntheticMember

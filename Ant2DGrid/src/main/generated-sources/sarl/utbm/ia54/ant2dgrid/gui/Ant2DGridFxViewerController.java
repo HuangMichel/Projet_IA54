@@ -55,24 +55,28 @@ public class Ant2DGridFxViewerController extends FxViewerController {
     int _antQuantity = this.getAntQuantity();
     String _plus = ("Number of Ant : " + Integer.valueOf(_antQuantity));
     InputOutput.<String>println(_plus);
-    InputOutput.<Integer>println(Integer.valueOf(this.getWidth()));
-    InputOutput.<Integer>println(Integer.valueOf(this.getHeight()));
     int _width = this.getWidth();
+    String _plus_1 = ("Width : " + Integer.valueOf(_width));
+    InputOutput.<String>println(_plus_1);
     int _height = this.getHeight();
-    final MapGenerator generator = new MapGenerator(_width, _height);
+    String _plus_2 = ("Height :" + Integer.valueOf(_height));
+    InputOutput.<String>println(_plus_2);
+    int _width_1 = this.getWidth();
+    int _height_1 = this.getHeight();
+    final MapGenerator generator = new MapGenerator(_width_1, _height_1);
     this.grid = generator.generateMap();
     for (int i = 0; (i < this.getWidth()); i++) {
       for (int j = 0; (j < this.getHeight()); j++) {
-        int _height_1 = this.getHeight();
-        int _multiply = (i * _height_1);
-        int _plus_1 = (_multiply + j);
-        this.gridZone.add(this.grid.get(_plus_1), i, j);
+        int _height_2 = this.getHeight();
+        int _multiply = (i * _height_2);
+        int _plus_3 = (_multiply + j);
+        this.gridZone.add(this.grid.get(_plus_3), i, j);
       }
     }
     int _antQuantity_1 = this.getAntQuantity();
-    int _width_1 = this.getWidth();
-    int _height_1 = this.getHeight();
-    ConfigureSimulation evt = new ConfigureSimulation(_antQuantity_1, _width_1, _height_1, this.grid);
+    int _width_2 = this.getWidth();
+    int _height_2 = this.getHeight();
+    ConfigureSimulation evt = new ConfigureSimulation(_antQuantity_1, _width_2, _height_2, this.grid);
     this.emitToAgent(evt);
   }
   

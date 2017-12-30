@@ -41,6 +41,8 @@ import utbm.ia54.ant2dgrid.skills.MotionSkill;
 @SarlElementType(17)
 @SuppressWarnings("all")
 public class Ant extends Agent {
+  private UUID idEnv;
+  
   private Vector2i position;
   
   private float pheromoneHome;
@@ -52,9 +54,12 @@ public class Ant extends Agent {
   @SyntheticMember
   private void $behaviorUnit$Initialize$0(final Initialize occurrence) {
     Logging _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER = this.$castSkill(Logging.class, (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || this.$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING = this.$getSkill(Logging.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LOGGING);
-    _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER.setLoggingName("Ant");
+    UUID _iD = this.getID();
+    String _plus = ("Ant " + _iD);
+    _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER.setLoggingName(_plus);
     Logging _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER_1 = this.$castSkill(Logging.class, (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || this.$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING = this.$getSkill(Logging.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LOGGING);
     _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER_1.info("The agent Ant was started.");
+    this.idEnv = occurrence.spawner;
     this.currentState = AntState.SEARCH_FOOD;
     MotionSkill _motionSkill = new MotionSkill();
     this.<MotionSkill>setSkill(_motionSkill);
@@ -232,6 +237,9 @@ public class Ant extends Agent {
     if (getClass() != obj.getClass())
       return false;
     Ant other = (Ant) obj;
+    if (!java.util.Objects.equals(this.idEnv, other.idEnv)) {
+      return false;
+    }
     if (Float.floatToIntBits(other.pheromoneHome) != Float.floatToIntBits(this.pheromoneHome))
       return false;
     if (Float.floatToIntBits(other.pheromoneFood) != Float.floatToIntBits(this.pheromoneFood))
@@ -245,6 +253,7 @@ public class Ant extends Agent {
   public int hashCode() {
     int result = super.hashCode();
     final int prime = 31;
+    result = prime * result + java.util.Objects.hashCode(this.idEnv);
     result = prime * result + Float.floatToIntBits(this.pheromoneHome);
     result = prime * result + Float.floatToIntBits(this.pheromoneFood);
     return result;

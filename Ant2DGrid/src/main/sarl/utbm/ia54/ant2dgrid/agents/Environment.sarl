@@ -15,12 +15,14 @@ import io.sarl.core.MemberLeft
 import utbm.ia54.ant2dgrid.objects.Cell
 import java.util.List
 import utbm.ia54.ant2dgrid.events.ConfigureSimulation
+import utbm.ia54.ant2dgrid.gui.Ant2DGridFxViewerController
 
 /** 
  * @author Michel
  * 
  */
 agent Environment {
+	
 	uses Logging
 
 	var antQuantity : int
@@ -28,11 +30,14 @@ agent Environment {
 	var width : int
 	var height : int
 	
+	var ctrl : Ant2DGridFxViewerController
+	
 	on Initialize {
-		loggingName = "Environment"
+		loggingName = "Environment " + this.ID
 		// Event trigger before the agent begin to live or to be used.
 		// You should put all the initialization statements in this block of code.
 		info("The agent Environment was started.")
+		ctrl = occurrence.parameters.get(0) as Ant2DGridFxViewerController
 	}
 	
 	on ConfigureSimulation{

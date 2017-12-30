@@ -122,10 +122,12 @@ class MapGenerator {
 			for(var j = -1; j<2; j++){
 				var temp_x = x + i;
 				var temp_y = y + j;
-				if(temp_x<0 || temp_y <0 || temp_x>height || temp_y>width){
-					count++
-				} else if (this.grid.get(temp_x * height + temp_y).state == CellState.NORMAL) {
-					count++
+				if (temp_x * height + temp_y < height * width) {
+					if (temp_x < 0 || temp_y < 0 || temp_x > height || temp_y > width) {
+						count++
+					} else if (this.grid.get(temp_x * height + temp_y).state == CellState.NORMAL) {
+						count++
+					}	
 				}
 			}
 		}

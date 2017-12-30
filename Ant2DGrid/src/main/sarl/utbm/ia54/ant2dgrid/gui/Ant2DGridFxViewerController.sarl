@@ -47,8 +47,8 @@ class Ant2DGridFxViewerController extends FxViewerController{
 	@FXML
 	def actionSpawn{
 		println("Number of Ant : " + getAntQuantity);
-		println(getWidth)
-		println(getHeight)
+		println("Width : " + getWidth)
+		println("Height :" + getHeight)
 		val generator = new MapGenerator(getWidth, getHeight)
 		grid = generator.generateMap
 		for (var i = 0; i < getWidth; i++) {

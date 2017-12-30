@@ -59,4 +59,8 @@ class Pheromone {
 	def evaporation {
 		this.intensity *= this.coefEvaporation
 	}
+	
+	def toString : String{
+		return "Intensity : " + this.intensity
+	}
 }

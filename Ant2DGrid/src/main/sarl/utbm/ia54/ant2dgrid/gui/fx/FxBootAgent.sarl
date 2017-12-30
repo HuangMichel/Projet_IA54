@@ -19,6 +19,7 @@ import javafx.application.Application
 import static utbm.ia54.ant2dgrid.gui.fx.FxApplication.*
 /** Abstract definition of an agent that is able to boot a JavaFX application. 
  */
+ 
 abstract agent FxBootAgent {
 
 	uses Lifecycle, DefaultContextInteractions, Behaviors, Schedules, Logging

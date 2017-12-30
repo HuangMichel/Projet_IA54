@@ -74,6 +74,28 @@ public class Vector2i {
     return _xblockexpression;
   }
   
+  public int plus(final Vector2i v) {
+    int _xblockexpression = (int) 0;
+    {
+      int _x = this.x;
+      this.x = (_x + v.x);
+      int _y = this.y;
+      _xblockexpression = this.y = (_y + v.y);
+    }
+    return _xblockexpression;
+  }
+  
+  public int plus(final int x, final int y) {
+    int _xblockexpression = (int) 0;
+    {
+      int _x = this.x;
+      this.x = (_x + x);
+      int _y = this.y;
+      _xblockexpression = this.y = (_y + y);
+    }
+    return _xblockexpression;
+  }
+  
   @Pure
   public String toString() {
     return ((("X : " + Integer.valueOf(this.x)) + ", Y : ") + Integer.valueOf(this.y));

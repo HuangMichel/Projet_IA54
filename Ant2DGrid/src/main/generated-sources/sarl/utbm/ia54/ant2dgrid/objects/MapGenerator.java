@@ -146,13 +146,15 @@ public class MapGenerator {
           {
             int temp_x = (x + i);
             int temp_y = (y + j);
-            if (((((temp_x < 0) || (temp_y < 0)) || (temp_x > this.height)) || (temp_y > this.width))) {
-              count++;
-            } else {
-              CellState _state = this.grid.get(((temp_x * this.height) + temp_y)).getState();
-              boolean _equals = Objects.equal(_state, CellState.NORMAL);
-              if (_equals) {
+            if ((((temp_x * this.height) + temp_y) < (this.height * this.width))) {
+              if (((((temp_x < 0) || (temp_y < 0)) || (temp_x > this.height)) || (temp_y > this.width))) {
                 count++;
+              } else {
+                CellState _state = this.grid.get(((temp_x * this.height) + temp_y)).getState();
+                boolean _equals = Objects.equal(_state, CellState.NORMAL);
+                if (_equals) {
+                  count++;
+                }
               }
             }
           }
