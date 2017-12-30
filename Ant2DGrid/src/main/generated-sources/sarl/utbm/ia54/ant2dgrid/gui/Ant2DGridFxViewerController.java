@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import org.eclipse.xtext.xbase.lib.InputOutput;
-import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.gui.fx.ConfigureSimulation;
 import utbm.ia54.ant2dgrid.gui.fx.FxViewerController;
 import utbm.ia54.ant2dgrid.objects.Cell;
@@ -35,17 +34,14 @@ public class Ant2DGridFxViewerController extends FxViewerController {
   
   private boolean mapCreated = false;
   
-  @Pure
   public int getAntQuantity() {
     return Integer.parseInt(this.numberOfAnt.getText());
   }
   
-  @Pure
   public int getWidth() {
     return this.gridZone.getRowConstraints().size();
   }
   
-  @Pure
   public int getHeight() {
     return this.gridZone.getColumnConstraints().size();
   }
@@ -78,10 +74,10 @@ public class Ant2DGridFxViewerController extends FxViewerController {
     int _height_2 = this.getHeight();
     ConfigureSimulation evt = new ConfigureSimulation(_antQuantity_1, _width_2, _height_2, this.grid);
     this.emitToAgent(evt);
+    this.spawnButton.setDisable(true);
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -97,7 +93,6 @@ public class Ant2DGridFxViewerController extends FxViewerController {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

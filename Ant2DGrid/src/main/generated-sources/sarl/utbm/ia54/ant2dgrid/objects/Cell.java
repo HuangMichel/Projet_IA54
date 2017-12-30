@@ -8,7 +8,6 @@ import java.util.Collections;
 import java.util.List;
 import javafx.scene.layout.Pane;
 import org.eclipse.xtext.xbase.lib.CollectionExtensions;
-import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.AntState;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.agents.Ant;
@@ -122,7 +121,6 @@ public class Cell extends Pane {
     this.pheromoneFood = _pheromone_1;
   }
   
-  @Pure
   public Vector2i getPosition() {
     return this.vector;
   }
@@ -152,7 +150,6 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
-  @Pure
   public List<Ant> getAntList() {
     List<Ant> _xsynchronizedexpression = null;
     synchronized (this.AntList) {
@@ -161,7 +158,6 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
-  @Pure
   public int getNumberAnt() {
     int _xsynchronizedexpression = (int) 0;
     synchronized (this.AntList) {
@@ -170,7 +166,6 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
-  @Pure
   public CellState getState() {
     return this.state;
   }
@@ -180,7 +175,6 @@ public class Cell extends Pane {
     this.setColor();
   }
   
-  @Pure
   public float getPheromoneHomeIntensity() {
     float _xsynchronizedexpression = (float) 0;
     synchronized (this.pheromoneHome) {
@@ -189,7 +183,6 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
-  @Pure
   public float getPheromoneFoodIntensity() {
     float _xsynchronizedexpression = (float) 0;
     synchronized (this.pheromoneFood) {
@@ -230,7 +223,6 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
-  @Pure
   public boolean removeAllAnt() {
     boolean _xsynchronizedexpression = false;
     synchronized (this.AntList) {
@@ -263,7 +255,6 @@ public class Cell extends Pane {
     this.setStyle(("-fx-background-color: " + color));
   }
   
-  @Pure
   public String getColor() {
     return this.getStyle();
   }
@@ -283,14 +274,12 @@ public class Cell extends Pane {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     return super.equals(obj);
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

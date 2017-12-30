@@ -3,7 +3,6 @@ package utbm.ia54.ant2dgrid.objects;
 import io.sarl.lang.annotation.SarlElementType;
 import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
-import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.AntState;
 
 /**
@@ -37,17 +36,14 @@ public class Pheromone {
     this.coefEvaporation = coefEvaporation;
   }
   
-  @Pure
   public AntState getType() {
     return this.type;
   }
   
-  @Pure
   public float getIntensity() {
     return this.intensity;
   }
   
-  @Pure
   public float getCoefEvaportation() {
     return this.coefEvaporation;
   }
@@ -69,13 +65,11 @@ public class Pheromone {
     return this.intensity = (_intensity * this.coefEvaporation);
   }
   
-  @Pure
   public String toString() {
     return ("Intensity : " + Float.valueOf(this.intensity));
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -93,7 +87,6 @@ public class Pheromone {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

@@ -4,23 +4,17 @@ import io.sarl.lang.annotation.SarlElementType;
 import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
 import io.sarl.lang.core.Event;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
-import utbm.ia54.ant2dgrid.gui.fx.FxViewerController;
+import java.util.List;
+import utbm.ia54.ant2dgrid.objects.Cell;
 
-/**
- * Triggered when the app need to be started
- */
 @SarlSpecification("0.6")
 @SarlElementType(14)
 @SuppressWarnings("all")
-public class AppStart extends Event {
-  public final FxViewerController fxController;
+public class SendGrid extends Event {
+  public List<Cell> grid;
   
-  public final Procedure0 startFeedBack;
-  
-  public AppStart(final FxViewerController fxController, final Procedure0 feedBack) {
-    this.fxController = fxController;
-    this.startFeedBack = feedBack;
+  public SendGrid(final List<Cell> grid) {
+    this.grid = grid;
   }
   
   @Override
@@ -37,16 +31,15 @@ public class AppStart extends Event {
   }
   
   /**
-   * Returns a String representation of the AppStart event's attributes only.
+   * Returns a String representation of the SendGrid event's attributes only.
    */
   @SyntheticMember
   protected String attributesToString() {
     StringBuilder result = new StringBuilder(super.attributesToString());
-    result.append("fxController  = ").append(this.fxController);
-    result.append("startFeedBack  = ").append(this.startFeedBack);
+    result.append("grid  = ").append(this.grid);
     return result.toString();
   }
   
   @SyntheticMember
-  private final static long serialVersionUID = 4562998534L;
+  private final static long serialVersionUID = -2314718677L;
 }

@@ -44,3 +44,11 @@ event ConfigureSimulation {
 	}
 
 }
+
+event SendGrid{
+	var grid : List<Cell>
+	
+	new(grid : List<Cell>){
+		this.grid = grid
+	}
+}

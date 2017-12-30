@@ -17,16 +17,20 @@ import java.util.UUID
 import javafx.application.Application
 
 import static utbm.ia54.ant2dgrid.gui.fx.FxApplication.*
+import utbm.ia54.ant2dgrid.agents.Environment
+import io.sarl.core.InnerContextAccess
+import java.util.ArrayList
+
 /** Abstract definition of an agent that is able to boot a JavaFX application. 
  */
  
 abstract agent FxBootAgent {
 
-	uses Lifecycle, DefaultContextInteractions, Behaviors, Schedules, Logging
+	uses Lifecycle, DefaultContextInteractions, Behaviors, Schedules, Logging, InnerContextAccess
 
 	var launcherID : UUID
 	var startFeedback : ()=>void
-
+	
 	on Initialize {
 		loggingName = "BootAgent"
 		var ^space = defaultContext.createSpace(
@@ -45,12 +49,13 @@ abstract agent FxBootAgent {
 		parameters += occurrence.fxController
 		buildApplicationBootAgentParameters(this.launcherID, occurrence.fxController, parameters)
 		spawnInContextWithID(this.applicationBootAgentType, this.launcherID, defaultContext, parameters.toArray)
+
 	}
 
 	on AgentSpawned [it.agentIdentifiers.contains(this.launcherID)] {
 		var feedback = this.startFeedback
 		this.startFeedback = null
-		feedback?.apply
+		feedback?.apply		
 	}
 
 	on AppExit {
@@ -58,6 +63,14 @@ abstract agent FxBootAgent {
 	}
 	on ConfigureSimulation {
 		info("received conf")
+		val listparam = new ArrayList()
+		listparam.add(occurrence.antQuantity)
+		listparam.add(occurrence.width)
+		listparam.add(occurrence.height)
+		listparam.add(occurrence.grid)
+		spawn(Environment, listparam)		
+		
+
 	}
 	
 	abstract def getFxApplicationType : Class<? extends FxApplication>

@@ -16,6 +16,12 @@ import utbm.ia54.ant2dgrid.objects.Cell
 import java.util.List
 import utbm.ia54.ant2dgrid.events.ConfigureSimulation
 import utbm.ia54.ant2dgrid.gui.Ant2DGridFxViewerController
+import utbm.ia54.ant2dgrid.gui.fx.SendGrid
+import io.sarl.core.InnerContextAccess
+import io.sarl.core.Schedules
+import io.sarl.core.Behaviors
+import io.sarl.core.DefaultContextInteractions
+import io.sarl.core.Lifecycle
 
 /** 
  * @author Michel
@@ -23,7 +29,7 @@ import utbm.ia54.ant2dgrid.gui.Ant2DGridFxViewerController
  */
 agent Environment {
 	
-	uses Logging
+	uses Lifecycle, DefaultContextInteractions, Behaviors, Schedules, Logging, InnerContextAccess
 
 	var antQuantity : int
 	var grid : List<Cell>
@@ -37,7 +43,16 @@ agent Environment {
 		// Event trigger before the agent begin to live or to be used.
 		// You should put all the initialization statements in this block of code.
 		info("The agent Environment was started.")
-		ctrl = occurrence.parameters.get(0) as Ant2DGridFxViewerController
+		// ctrl = occurrence.parameters.get(0) as Ant2DGridFxViewerController
+		val listparam = occurrence.parameters.get(0) as List<Integer>
+		val listparamgrid = occurrence.parameters.get(0) as List<List<Cell>>
+		wake(new SendGrid(listparamgrid.get(3)))
+		antQuantity = listparam.get(0)
+		width = listparam.get(1)
+		height = listparam.get(2)
+		info(antQuantity)
+		info(width)
+		info(height)
 	}
 	
 	on ConfigureSimulation{
@@ -45,8 +60,14 @@ agent Environment {
 		width = occurrence.width
 		height = occurrence.height
 		grid = occurrence.grid
+		info("Environment initialized with param")
 	}
-
+	
+	on SendGrid{
+		grid = occurrence.grid
+		info(grid)
+	}
+	
 	on Destroy {
 		// Event trigger when the agent is destroyed from the system.
 		// You should put all the resource releasing statements in this block of code.

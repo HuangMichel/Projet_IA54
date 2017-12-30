@@ -59,6 +59,7 @@ class Ant2DGridFxViewerController extends FxViewerController{
 		}
 		var evt = new ConfigureSimulation(getAntQuantity, getWidth, getHeight,grid)
 		emitToAgent(evt)
+		spawnButton.disable = true
 	}
-	
+
 }
