@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.List;
 import javafx.scene.layout.Pane;
 import org.eclipse.xtext.xbase.lib.CollectionExtensions;
+import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.AntState;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.agents.Ant;
@@ -121,6 +122,7 @@ public class Cell extends Pane {
     this.pheromoneFood = _pheromone_1;
   }
   
+  @Pure
   public Vector2i getPosition() {
     return this.vector;
   }
@@ -150,6 +152,7 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
+  @Pure
   public List<Ant> getAntList() {
     List<Ant> _xsynchronizedexpression = null;
     synchronized (this.AntList) {
@@ -158,6 +161,7 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
+  @Pure
   public int getNumberAnt() {
     int _xsynchronizedexpression = (int) 0;
     synchronized (this.AntList) {
@@ -166,6 +170,7 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
+  @Pure
   public CellState getState() {
     return this.state;
   }
@@ -175,6 +180,7 @@ public class Cell extends Pane {
     this.setColor();
   }
   
+  @Pure
   public float getPheromoneHomeIntensity() {
     float _xsynchronizedexpression = (float) 0;
     synchronized (this.pheromoneHome) {
@@ -183,6 +189,7 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
+  @Pure
   public float getPheromoneFoodIntensity() {
     float _xsynchronizedexpression = (float) 0;
     synchronized (this.pheromoneFood) {
@@ -223,6 +230,7 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
+  @Pure
   public boolean removeAllAnt() {
     boolean _xsynchronizedexpression = false;
     synchronized (this.AntList) {
@@ -255,6 +263,7 @@ public class Cell extends Pane {
     this.setStyle(("-fx-background-color: " + color));
   }
   
+  @Pure
   public String getColor() {
     return this.getStyle();
   }
@@ -262,24 +271,32 @@ public class Cell extends Pane {
   public String toString() {
     String _string = this.vector.toString();
     String _plus = ("Cell : " + _string);
-    String _plus_1 = (_plus + ", Ant : ");
+    String _plus_1 = (_plus + 
+      "\n Ant : ");
     int _size = this.AntList.size();
     String _plus_2 = (_plus_1 + Integer.valueOf(_size));
-    String _plus_3 = (_plus_2 + ", food : ");
+    String _plus_3 = (_plus_2 + 
+      "\n food : ");
     String _string_1 = this.pheromoneFood.toString();
     String _plus_4 = (_plus_3 + _string_1);
-    String _plus_5 = (_plus_4 + ", home : ");
+    String _plus_5 = (_plus_4 + 
+      "\n home : ");
     String _string_2 = this.pheromoneHome.toString();
-    return (_plus_5 + _string_2);
+    String _plus_6 = (_plus_5 + _string_2);
+    String _plus_7 = (_plus_6 + 
+      "\n state : ");
+    return (_plus_7 + this.state);
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     return super.equals(obj);
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

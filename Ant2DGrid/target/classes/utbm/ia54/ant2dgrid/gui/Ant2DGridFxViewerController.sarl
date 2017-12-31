@@ -8,9 +8,10 @@ import javafx.scene.layout.GridPane
 import utbm.ia54.ant2dgrid.objects.Cell
 import java.util.List
 import utbm.ia54.ant2dgrid.objects.MapGenerator
-import javafx.scene.Group
-import javafx.scene.layout.Pane
 import javafx.scene.control.TextField
+import javafx.scene.input.MouseEvent
+import javafx.^event.EventHandler
+import utbm.ia54.ant2dgrid.Enum.CellState
 
 /** 
  * @author aelez
@@ -28,6 +29,9 @@ class Ant2DGridFxViewerController extends FxViewerController{
 	@FXML
 	var numberOfAnt : TextField
 
+	@FXML
+	var btnMap : Button
+	
 	var grid : List<Cell>
 	
 	var mapCreated = false
@@ -45,21 +49,44 @@ class Ant2DGridFxViewerController extends FxViewerController{
 	}
 	
 	@FXML
+	def createMap {
+		var generator = new MapGenerator(getWidth, getHeight)
+		grid = generator.generateMap
+		for (var i = 0; i < getWidth; i++) {
+			for (var j = 0; j < getHeight; j++) {
+				gridZone.add(grid.get(i * getHeight + j), i, j)
+			}
+		}
+		if (mapCreated === false) {
+			mapCreated = true
+			btnMap.text = "Re-generate Map"
+			spawnButton.disable = false
+		}
+		addCellEvent
+	}
+	
+	@FXML
+	def addCellEvent {
+		gridZone.children.forEach[item | item.onMouseClicked = new EventHandler<MouseEvent>(){
+			def handle(^event : MouseEvent) {
+				if(^event.clickCount===1){
+					println(item.toString)
+				}
+			}
+			
+		}]
+	}
+	
+	@FXML
 	def actionSpawn{
 		println("Number of Ant : " + getAntQuantity);
 		println("Width : " + getWidth)
 		println("Height :" + getHeight)
-		val generator = new MapGenerator(getWidth, getHeight)
-		grid = generator.generateMap
-		for (var i = 0; i < getWidth; i++) {
-			for (var j = 0; j < getHeight; j++) {
-				//System.out.println("position " + grid.get(i*getHeight+j).position + ", state : " + grid.get(i * getHeight + j).state)
-				gridZone.add(grid.get(i*getHeight+j), i, j)
-			}
-		}
 		var evt = new ConfigureSimulation(getAntQuantity, getWidth, getHeight,grid)
 		emitToAgent(evt)
+		btnMap.disable = true
 		spawnButton.disable = true
+		numberOfAnt.disable = true
 	}
 
 }

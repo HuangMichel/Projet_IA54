@@ -61,6 +61,7 @@ abstract agent FxBootAgent {
 	on AppExit {
 		killMe
 	}
+	
 	on ConfigureSimulation {
 		info("received conf")
 		val listparam = new ArrayList()

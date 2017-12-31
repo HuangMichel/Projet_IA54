@@ -211,6 +211,10 @@ class Cell extends Pane{
 	}
 	
 	def toString : String{
-		return "Cell : " + vector.toString + ", Ant : " + AntList.size + ", food : " + pheromoneFood.toString + ", home : " + pheromoneHome.toString
+		return "Cell : " + vector.toString + 
+		"\n Ant : " + AntList.size + 
+		"\n food : " + pheromoneFood.toString + 
+		"\n home : " + pheromoneHome.toString +
+		"\n state : " + state
 	}
 }

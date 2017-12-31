@@ -7,7 +7,7 @@
 
 <Pane fx:id="mainPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="utbm.ia54.ant2dgrid.gui.Ant2DGridFxViewerController">
    <children>
-   		<Button fx:id="spawnButton" layoutX="500.0" layoutY="827.0" mnemonicParsing="false" onAction="#actionSpawn" text="Spawn" />
+   		<Button fx:id="spawnButton" disable="true" layoutX="500.0" layoutY="827.0" mnemonicParsing="false" onAction="#actionSpawn" text="Spawn" />
       	<GridPane fx:id="gridZone" gridLinesVisible="true" hgap="2.0" layoutX="10.0" layoutY="10.0" prefHeight="745.0" prefWidth="978.0" vgap="2.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -46,6 +46,7 @@
       </GridPane>
       <TextField fx:id="numberOfAnt" layoutX="323.0" layoutY="827.0" prefHeight="23.0" prefWidth="66.0" text="100" />
       <Label layoutX="313.0" layoutY="804.0" text="Number of Ant" />
+      <Button fx:id="btnMap" layoutX="32.0" layoutY="781.0" mnemonicParsing="false" onAction="#createMap" text="Generate Map" />
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
