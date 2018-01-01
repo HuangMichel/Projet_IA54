@@ -42,6 +42,16 @@ class Cell extends Pane{
 	 */
 	private var pheromoneFood : Pheromone
 	
+	/*
+	 * Quantity of food in Food place
+	 */
+	private var foodToPick : float
+	
+	/*
+	 * Number of food in Nest place
+	 */
+	private var foodInNest : float
+	
 	new(){
 		this.vector = new Vector2i
 		this.AntList = new ArrayList<Ant>
@@ -140,6 +150,7 @@ class Cell extends Pane{
 	def setState(state : CellState){
 		this.state = state
 		setColor
+		setFood
 	}
 	
 	def getPheromoneHomeIntensity : float {
@@ -210,11 +221,27 @@ class Cell extends Pane{
 		this.style
 	}
 	
+	def setFood{
+		if(this.state === CellState.FOOD){
+			this.foodToPick = 100f
+		}
+	}
+	
+	def getFood : float{
+		this.foodToPick
+	}
+	
+	def setFoodInNest(n : float){
+		this.foodInNest = n
+	}
+	
+	def getFoodInNest : float{
+		this.foodInNest
+	}
+	
 	def toString : String{
-		return "Cell : " + vector.toString + 
-		"\n Ant : " + AntList.size + 
-		"\n food : " + pheromoneFood.toString + 
-		"\n home : " + pheromoneHome.toString +
-		"\n state : " + state
+		var string = "Cell : " + vector.toString + "\n Ant : " + AntList.size + "\n food : " + pheromoneFood.toString +
+			"\n home : " + pheromoneHome.toString + "\n state : " + state
+		string
 	}
 }

@@ -6,6 +6,7 @@ import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
 import java.util.ArrayList;
 import java.util.List;
+import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.objects.Cell;
 
@@ -194,7 +195,7 @@ public class MapGenerator {
         int _y = listNest.get(0).getPosition().getY();
         int _plus = (_multiply + _y);
         Cell _get = this.grid.get(_plus);
-        _get.setState(CellState.HOME);
+        _xifexpression = Float.valueOf(_get.setState(CellState.HOME));
       } else {
         _xifexpression = this.placeNest((n + 1));
       }
@@ -237,7 +238,7 @@ public class MapGenerator {
         int _y = this.grid.get(_minus_1).getPosition().getY();
         int _plus = (_multiply + _y);
         Cell _get = this.grid.get(_plus);
-        _get.setState(CellState.FOOD);
+        _xifexpression = Float.valueOf(_get.setState(CellState.FOOD));
       } else {
         _xifexpression = this.placeFood((n + 1));
       }
@@ -265,6 +266,7 @@ public class MapGenerator {
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -284,6 +286,7 @@ public class MapGenerator {
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

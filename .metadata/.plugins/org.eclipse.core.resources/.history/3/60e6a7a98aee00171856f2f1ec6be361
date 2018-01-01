@@ -1,0 +1,54 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.gui.fx
+
+import java.util.List
+import utbm.ia54.ant2dgrid.objects.Cell
+
+/** 
+ * @author Michel
+ * 
+ */
+ 
+ /*
+  * Triggered when the app need to be started
+  */
+event AppStart{
+	val fxController : FxViewerController
+	val startFeedBack : () => void
+	
+	new(fxController : FxViewerController, feedBack : ()=> void) {
+		this.fxController = fxController
+		this.startFeedBack = feedBack
+	}
+}
+
+/*
+ * Triggered when the app need to be exited
+ */
+event AppExit
+
+
+event ConfigureSimulation {
+	val antQuantity : int
+	val width : int
+	val height : int
+	var grid : List<Cell>
+
+	new(antQuantity : int, width : int, height : int, grid : List<Cell>) {
+		this.antQuantity = antQuantity
+		this.width = width
+		this.height = height
+		this.grid = grid
+	}
+
+}
+
+event SendGrid{
+	var grid : List<Cell>
+	
+	new(grid : List<Cell>){
+		this.grid = grid
+	}
+}

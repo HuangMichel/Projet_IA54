@@ -12,20 +12,9 @@ import java.util.UUID
  * @author Michel
  * 
  */
-event ConfigureSimulation{
-	val antQuantity : int
-	val width : int
-	val height : int
-	var grid : List<Cell>
-	
-	new(antQuantity : int, width : int, height : int, grid : List<Cell>) {
-		this.antQuantity = antQuantity
-		this.width = width
-		this.height = height
-		this.grid = grid
-	}
-	
-}
+event ConfigureSimulation
+
+event StartSimulation 
 
 event Perception{
 	var list : List<Cell>
@@ -36,3 +25,5 @@ event Influence{
 	var id : UUID
 }
 event SpawnEnv
+
+event EndSimulation

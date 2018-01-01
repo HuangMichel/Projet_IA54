@@ -6,15 +6,12 @@ import io.sarl.lang.annotation.SyntheticMember;
 import io.sarl.lang.core.Agent;
 import io.sarl.lang.core.BuiltinCapacitiesProvider;
 import io.sarl.lang.core.DynamicSkillProvider;
-import java.util.List;
 import java.util.UUID;
 import javax.inject.Inject;
-import utbm.ia54.ant2dgrid.agents.Environment;
+import utbm.ia54.ant2dgrid.agents.BootAgent;
 import utbm.ia54.ant2dgrid.gui.Ant2DGridFxApplication;
-import utbm.ia54.ant2dgrid.gui.Ant2DGridFxViewerController;
 import utbm.ia54.ant2dgrid.gui.fx.FxApplication;
 import utbm.ia54.ant2dgrid.gui.fx.FxBootAgent;
-import utbm.ia54.ant2dgrid.gui.fx.FxViewerController;
 
 /**
  * @author aelez
@@ -28,12 +25,7 @@ public class Ant2DGrid extends FxBootAgent {
   }
   
   protected Class<? extends Agent> getApplicationBootAgentType() {
-    return Environment.class;
-  }
-  
-  @Override
-  protected void buildApplicationBootAgentParameters(final UUID launcherID, final FxViewerController controller, final List<Object> parameters) {
-    Ant2DGridFxViewerController ctrl = ((Ant2DGridFxViewerController) controller);
+    return BootAgent.class;
   }
   
   @SyntheticMember

@@ -1,0 +1,100 @@
+package utbm.ia54.ant2dgrid.gui
+
+import utbm.ia54.ant2dgrid.gui.fx.FxViewerController
+import javafx.fxml.FXML
+import javafx.scene.control.Button
+import javafx.scene.layout.GridPane
+import utbm.ia54.ant2dgrid.objects.Cell
+import java.util.List
+import utbm.ia54.ant2dgrid.objects.MapGenerator
+import javafx.scene.control.TextField
+import javafx.scene.input.MouseEvent
+import javafx.^event.EventHandler
+import utbm.ia54.ant2dgrid.events.ConfigureSimulation
+
+/** 
+ * @author aelez
+ * 
+ */
+
+class Ant2DGridFxViewerController extends FxViewerController{
+
+	@FXML
+	var spawnButton : Button
+	
+	@FXML
+	var gridZone : GridPane
+	
+	@FXML
+	var numberOfAnt : TextField
+
+	@FXML
+	var btnMap : Button
+	
+	var grid : List<Cell>
+	
+	var mapCreated = false
+	
+	var launched = false
+	
+	def getGrid : List<Cell>{
+		grid
+	}
+	def getAntQuantity : int {
+		Integer.parseInt(numberOfAnt.text)
+	}
+	
+	def getWidth : int{
+		gridZone.rowConstraints.size
+	}
+	
+	def getHeight : int{
+		gridZone.columnConstraints.size
+	}
+	
+	@FXML
+	def createMap {
+		var generator = new MapGenerator(getWidth, getHeight)
+		grid = generator.generateMap
+		for (var i = 0; i < getWidth; i++) {
+			for (var j = 0; j < getHeight; j++) {
+				gridZone.add(grid.get(i * getHeight + j), i, j)
+			}
+		}
+		if (mapCreated === false) {
+			mapCreated = true
+			btnMap.text = "Re-generate Map"
+			spawnButton.disable = false
+		}
+		addCellEvent
+	}
+	
+	def addCellEvent {
+		gridZone.children.forEach[item | item.onMouseClicked = new EventHandler<MouseEvent>(){
+			def handle(^event : MouseEvent) {
+				if(^event.clickCount===1){
+					println(item.toString)
+				}
+			}
+			
+		}]
+	}
+	
+	@FXML
+	def actionSpawn{
+		println("Number of Ant : " + getAntQuantity);
+		println("Width : " + getWidth)
+		println("Height :" + getHeight)
+		var evt = new ConfigureSimulation
+		if(!launched){
+			startAgentApplication()[emitToAgent(evt)]
+			launched = true
+			btnMap.disable = true
+			spawnButton.disable = true
+			numberOfAnt.disable = true
+		}else{
+			emitToAgent(evt)
+		}
+	}
+
+}

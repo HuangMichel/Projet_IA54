@@ -47,6 +47,16 @@ public class Cell extends Pane {
    */
   private Pheromone pheromoneFood;
   
+  /**
+   * Quantity of food in Food place
+   */
+  private float foodToPick;
+  
+  /**
+   * Number of food in Nest place
+   */
+  private float foodInNest;
+  
   public Cell() {
     Vector2i _vector2i = new Vector2i();
     this.vector = _vector2i;
@@ -175,9 +185,14 @@ public class Cell extends Pane {
     return this.state;
   }
   
-  public void setState(final CellState state) {
-    this.state = state;
-    this.setColor();
+  public float setState(final CellState state) {
+    float _xblockexpression = (float) 0;
+    {
+      this.state = state;
+      this.setColor();
+      _xblockexpression = this.setFood();
+    }
+    return _xblockexpression;
   }
   
   @Pure
@@ -268,30 +283,65 @@ public class Cell extends Pane {
     return this.getStyle();
   }
   
+  public float setFood() {
+    float _xifexpression = (float) 0;
+    if ((this.state == CellState.FOOD)) {
+      _xifexpression = this.foodToPick = 100f;
+    }
+    return _xifexpression;
+  }
+  
+  @Pure
+  public float getFood() {
+    return this.foodToPick;
+  }
+  
+  public void setFoodInNest(final float n) {
+    this.foodInNest = n;
+  }
+  
+  @Pure
+  public float getFoodInNest() {
+    return this.foodInNest;
+  }
+  
   public String toString() {
-    String _string = this.vector.toString();
-    String _plus = ("Cell : " + _string);
-    String _plus_1 = (_plus + 
-      "\n Ant : ");
-    int _size = this.AntList.size();
-    String _plus_2 = (_plus_1 + Integer.valueOf(_size));
-    String _plus_3 = (_plus_2 + 
-      "\n food : ");
-    String _string_1 = this.pheromoneFood.toString();
-    String _plus_4 = (_plus_3 + _string_1);
-    String _plus_5 = (_plus_4 + 
-      "\n home : ");
-    String _string_2 = this.pheromoneHome.toString();
-    String _plus_6 = (_plus_5 + _string_2);
-    String _plus_7 = (_plus_6 + 
-      "\n state : ");
-    return (_plus_7 + this.state);
+    String _xblockexpression = null;
+    {
+      String _string = this.vector.toString();
+      String _plus = ("Cell : " + _string);
+      String _plus_1 = (_plus + "\n Ant : ");
+      int _size = this.AntList.size();
+      String _plus_2 = (_plus_1 + Integer.valueOf(_size));
+      String _plus_3 = (_plus_2 + "\n food : ");
+      String _string_1 = this.pheromoneFood.toString();
+      String _plus_4 = (_plus_3 + _string_1);
+      String _plus_5 = (_plus_4 + 
+        "\n home : ");
+      String _string_2 = this.pheromoneHome.toString();
+      String _plus_6 = (_plus_5 + _string_2);
+      String _plus_7 = (_plus_6 + "\n state : ");
+      String string = (_plus_7 + this.state);
+      _xblockexpression = string;
+    }
+    return _xblockexpression;
   }
   
   @Override
   @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Cell other = (Cell) obj;
+    if (Float.floatToIntBits(other.foodToPick) != Float.floatToIntBits(this.foodToPick))
+      return false;
+    if (Float.floatToIntBits(other.foodInNest) != Float.floatToIntBits(this.foodInNest))
+      return false;
     return super.equals(obj);
   }
   
@@ -300,6 +350,9 @@ public class Cell extends Pane {
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();
+    final int prime = 31;
+    result = prime * result + Float.floatToIntBits(this.foodToPick);
+    result = prime * result + Float.floatToIntBits(this.foodInNest);
     return result;
   }
 }

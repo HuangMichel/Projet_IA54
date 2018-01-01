@@ -13,8 +13,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.eclipse.xtext.xbase.lib.Pure;
-import utbm.ia54.ant2dgrid.gui.fx.ConfigureSimulation;
+import utbm.ia54.ant2dgrid.events.ConfigureSimulation;
 import utbm.ia54.ant2dgrid.gui.fx.FxViewerController;
 import utbm.ia54.ant2dgrid.objects.Cell;
 import utbm.ia54.ant2dgrid.objects.MapGenerator;
@@ -41,6 +42,13 @@ public class Ant2DGridFxViewerController extends FxViewerController {
   private List<Cell> grid;
   
   private boolean mapCreated = false;
+  
+  private boolean launched = false;
+  
+  @Pure
+  public List<Cell> getGrid() {
+    return this.grid;
+  }
   
   @Pure
   public int getAntQuantity() {
@@ -79,7 +87,6 @@ public class Ant2DGridFxViewerController extends FxViewerController {
     this.addCellEvent();
   }
   
-  @FXML
   public void addCellEvent() {
     abstract class __Ant2DGridFxViewerController_0 implements EventHandler<MouseEvent> {
       public abstract void handle(final MouseEvent event);
@@ -102,23 +109,18 @@ public class Ant2DGridFxViewerController extends FxViewerController {
   
   @FXML
   public void actionSpawn() {
-    int _antQuantity = this.getAntQuantity();
-    String _plus = ("Number of Ant : " + Integer.valueOf(_antQuantity));
-    InputOutput.<String>println(_plus);
-    int _width = this.getWidth();
-    String _plus_1 = ("Width : " + Integer.valueOf(_width));
-    InputOutput.<String>println(_plus_1);
-    int _height = this.getHeight();
-    String _plus_2 = ("Height :" + Integer.valueOf(_height));
-    InputOutput.<String>println(_plus_2);
-    int _antQuantity_1 = this.getAntQuantity();
-    int _width_1 = this.getWidth();
-    int _height_1 = this.getHeight();
-    ConfigureSimulation evt = new ConfigureSimulation(_antQuantity_1, _width_1, _height_1, this.grid);
-    this.emitToAgent(evt);
-    this.btnMap.setDisable(true);
-    this.spawnButton.setDisable(true);
-    this.numberOfAnt.setDisable(true);
+    ConfigureSimulation evt = new ConfigureSimulation();
+    if ((!this.launched)) {
+      final Procedure0 _function = () -> {
+        this.emitToAgent(evt);
+      };
+      this.startAgentApplication(_function);
+      this.launched = true;
+      this.btnMap.setDisable(true);
+      this.numberOfAnt.setDisable(true);
+    } else {
+      this.emitToAgent(evt);
+    }
   }
   
   @Override
@@ -134,6 +136,8 @@ public class Ant2DGridFxViewerController extends FxViewerController {
     Ant2DGridFxViewerController other = (Ant2DGridFxViewerController) obj;
     if (other.mapCreated != this.mapCreated)
       return false;
+    if (other.launched != this.launched)
+      return false;
     return super.equals(obj);
   }
   
@@ -144,6 +148,7 @@ public class Ant2DGridFxViewerController extends FxViewerController {
     int result = super.hashCode();
     final int prime = 31;
     result = prime * result + (this.mapCreated ? 1231 : 1237);
+    result = prime * result + (this.launched ? 1231 : 1237);
     return result;
   }
   

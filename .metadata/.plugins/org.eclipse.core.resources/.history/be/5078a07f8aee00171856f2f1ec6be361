@@ -1,0 +1,54 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.events
+
+import java.util.List
+import utbm.ia54.ant2dgrid.objects.Cell
+import utbm.ia54.ant2dgrid.objects.Vector2i
+import java.util.UUID
+
+/** 
+ * @author Michel
+ * 
+ */
+event ConfigureSimulation{
+	val antQuantity : int
+	val width : int
+	val height : int
+	var grid : List<Cell>
+	
+	new(antQuantity : int, width : int, height : int, grid : List<Cell>) {
+		this.antQuantity = antQuantity
+		this.width = width
+		this.height = height
+		this.grid = grid
+	}
+	
+}
+
+event StartSimulation {
+	val antQuantity : int
+	val width : int
+	val height : int
+	var grid : List<Cell>
+
+	new(antQuantity : int, width : int, height : int, grid : List<Cell>) {
+		this.antQuantity = antQuantity
+		this.width = width
+		this.height = height
+		this.grid = grid
+	}	
+}
+
+event Perception{
+	var list : List<Cell>
+}
+
+event Influence{
+	var v : Vector2i
+	var id : UUID
+}
+event SpawnEnv
+
+event EndSimulation

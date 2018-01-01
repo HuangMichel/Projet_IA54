@@ -1,0 +1,84 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.agents
+
+import io.sarl.core.AgentKilled
+import io.sarl.core.AgentSpawned
+import io.sarl.core.ContextJoined
+import io.sarl.core.ContextLeft
+import io.sarl.core.Destroy
+import io.sarl.core.Initialize
+import io.sarl.core.Logging
+import io.sarl.core.MemberJoined
+import io.sarl.core.MemberLeft
+import utbm.ia54.ant2dgrid.objects.Cell
+import java.util.List
+import utbm.ia54.ant2dgrid.events.ConfigureSimulation
+import utbm.ia54.ant2dgrid.gui.Ant2DGridFxViewerController
+import utbm.ia54.ant2dgrid.gui.fx.SendGrid
+import io.sarl.core.InnerContextAccess
+import io.sarl.core.Schedules
+import io.sarl.core.Behaviors
+import io.sarl.core.DefaultContextInteractions
+import io.sarl.core.Lifecycle
+import utbm.ia54.ant2dgrid.events.StartSimulation
+import utbm.ia54.ant2dgrid.events.EndSimulation
+import utbm.ia54.ant2dgrid.Enum.CellState
+
+/** 
+ * @author Michel
+ * 
+ */
+agent Environment {
+	
+	uses Lifecycle, DefaultContextInteractions, Behaviors, Schedules, Logging, InnerContextAccess
+
+	var antQuantity : int
+	var grid : List<Cell>
+	var width : int
+	var height : int
+	var cellHome : Cell
+	var cellFood : Cell
+	
+	var ctrl : Ant2DGridFxViewerController = null
+	
+	on Initialize {
+		loggingName = "Environment " + this.ID
+		// Event trigger before the agent begin to live or to be used.
+		// You should put all the initialization statements in this block of code.
+		if (ctrl === null) {
+			ctrl = occurrence.parameters.get(0) as Ant2DGridFxViewerController
+		}
+		info("The agent Environment was started.")
+	}
+	
+	on StartSimulation{
+		info("StartSimulation")
+		this.antQuantity = occurrence.antQuantity
+		this.width = occurrence.width
+		this.height = occurrence.height
+		this.grid = occurrence.grid
+		info('Ant : ' + antQuantity)
+		info("Width : " + width)
+		info("Height : " + height)
+		for(var i = 0; i<width ; i++){
+			for(var j = 0; i<height; i++){
+				if(grid.get(i*height+j).state === CellState.HOME){
+					cellHome = grid.get(i * height + j)
+				} else if(grid.get(i * height + j).state === CellState.FOOD){
+					cellFood = grid.get(i * height + j)
+				}
+			}
+		}
+		info("CELL HOME :" + cellHome.toString)
+		info("CELL FOOD :" + cellFood.toString)
+		for(var i = 0; i<antQuantity; i++){
+			spawnInContext(typeof(Ant), innerContext,i+1, cellHome.position)
+		}
+	}
+	
+	on EndSimulation[!hasMemberAgent]{
+		killMe
+	}
+}

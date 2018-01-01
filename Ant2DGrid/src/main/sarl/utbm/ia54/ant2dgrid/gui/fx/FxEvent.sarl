@@ -28,27 +28,3 @@ event AppStart{
  * Triggered when the app need to be exited
  */
 event AppExit
-
-
-event ConfigureSimulation {
-	val antQuantity : int
-	val width : int
-	val height : int
-	var grid : List<Cell>
-
-	new(antQuantity : int, width : int, height : int, grid : List<Cell>) {
-		this.antQuantity = antQuantity
-		this.width = width
-		this.height = height
-		this.grid = grid
-	}
-
-}
-
-event SendGrid{
-	var grid : List<Cell>
-	
-	new(grid : List<Cell>){
-		this.grid = grid
-	}
-}

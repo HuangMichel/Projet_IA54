@@ -3,25 +3,17 @@
  */
 package utbm.ia54.ant2dgrid.agents
 
-import io.sarl.core.AgentKilled
-import io.sarl.core.AgentSpawned
-import io.sarl.core.ContextJoined
-import io.sarl.core.ContextLeft
-import io.sarl.core.Destroy
 import io.sarl.core.Initialize
 import io.sarl.core.Logging
-import io.sarl.core.MemberJoined
-import io.sarl.core.MemberLeft
 import utbm.ia54.ant2dgrid.objects.Cell
 import java.util.List
-import utbm.ia54.ant2dgrid.events.ConfigureSimulation
 import utbm.ia54.ant2dgrid.gui.Ant2DGridFxViewerController
-import utbm.ia54.ant2dgrid.gui.fx.SendGrid
 import io.sarl.core.InnerContextAccess
-import io.sarl.core.Schedules
-import io.sarl.core.Behaviors
-import io.sarl.core.DefaultContextInteractions
 import io.sarl.core.Lifecycle
+import utbm.ia54.ant2dgrid.events.StartSimulation
+import utbm.ia54.ant2dgrid.events.EndSimulation
+import utbm.ia54.ant2dgrid.Enum.CellState
+import io.sarl.core.Destroy
 
 /** 
  * @author Michel
@@ -29,76 +21,69 @@ import io.sarl.core.Lifecycle
  */
 agent Environment {
 	
-	uses Lifecycle, DefaultContextInteractions, Behaviors, Schedules, Logging, InnerContextAccess
+	uses Lifecycle, Logging, InnerContextAccess
 
-	var antQuantity : int
-	var grid : List<Cell>
-	var width : int
-	var height : int
+	/*Number of Ant */
+	private var antQuantity : int
 	
-	var ctrl : Ant2DGridFxViewerController
+	/* List of Cell */
+	private var grid : List<Cell>
+	
+	/* The number of colums */
+	private var width : int
+	
+	/* The number of rows */
+	private var height : int
+	
+	/* Variable to store the home cell */
+	private var cellHome : Cell
+	
+	/* Variable to store the food cell */
+	private var cellFood : Cell
+	
+	/* The fx viewer controller */
+	private var ctrl : Ant2DGridFxViewerController = null
 	
 	on Initialize {
 		loggingName = "Environment " + this.ID
-		// Event trigger before the agent begin to live or to be used.
-		// You should put all the initialization statements in this block of code.
+		if (ctrl === null) {
+			ctrl = occurrence.parameters.get(0) as Ant2DGridFxViewerController
+		}
+		this.antQuantity = ctrl.antQuantity
+		this.width = ctrl.width
+		this.height = ctrl.height
+		this.grid = ctrl.grid
+		info('Ant : ' + antQuantity)
+		info("Width : " + width)
+		info("Height : " + height)
+		for (var i = 0; i < width; i++) {
+			for (var j = 0; j < height; j++) {
+				if (grid.get(i * height + j).state === CellState.HOME) {
+					cellHome = grid.get(i * height + j)
+				} else if (grid.get(i * height + j).state === CellState.FOOD) {
+					cellFood = grid.get(i * height + j)
+				}
+			}
+		}
+		info("CELL HOME :" + cellHome.toString)
+		info("CELL FOOD :" + cellFood.toString)
 		info("The agent Environment was started.")
-		// ctrl = occurrence.parameters.get(0) as Ant2DGridFxViewerController
-		val listparam = occurrence.parameters.get(0) as List<Integer>
-		val listparamgrid = occurrence.parameters.get(0) as List<List<Cell>>
-		wake(new SendGrid(listparamgrid.get(3)))
-		antQuantity = listparam.get(0)
-		width = listparam.get(1)
-		height = listparam.get(2)
-		info(antQuantity)
-		info(width)
-		info(height)
 	}
 	
-	on ConfigureSimulation{
-		antQuantity = occurrence.antQuantity
-		width = occurrence.width
-		height = occurrence.height
-		grid = occurrence.grid
-		info("Environment initialized with param")
+	on StartSimulation{
+		info("StartSimulation")
+		for(var i = 0; i<antQuantity; i++){
+			spawnInContext(typeof(Ant), innerContext,#[i+1, cellHome.position])
+			//add ant to the cell
+			//grid.get(cellHome.position.x * height + cellHome.position.y).antList.add()
+		}
 	}
 	
-	on SendGrid{
-		grid = occurrence.grid
-		info(grid)
+	on Destroy{
+		info("Agent Environment gonna die!")
 	}
 	
-	on Destroy {
-		// Event trigger when the agent is destroyed from the system.
-		// You should put all the resource releasing statements in this block of code.
-		info("The agent was stopped.")
-	}
-
-	on AgentSpawned {
-		// A new agent has been spawned in our context.
-	}
-
-	on AgentKilled {
-		// A new agent has been killed in our context.
-	}
-
-	on ContextJoined {
-		// Event trigger when an agent of the level joins a shared context.
-		// Sent to a agent of the same level.
-	}
-
-	on ContextLeft {
-		// Event trigger when an agent of the level jleaves a shared context.
-		// Sent to a agent of the same level.
-	}
-
-	on MemberJoined {
-		// Event trigger when an agent joins one of our shared super-holons.
-		// Sent to all members of the considered super-holon.
-	}
-
-	on MemberLeft {
-		// Event trigger when an agent leaves one of our shared super-holons.
-		// Sent to all members of the considered super-holon.
+	on EndSimulation{
+		killMe
 	}
 }

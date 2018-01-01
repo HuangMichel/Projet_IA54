@@ -1,0 +1,84 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.agents
+
+import io.sarl.core.Destroy
+import io.sarl.core.Initialize
+import io.sarl.core.Logging
+import utbm.ia54.ant2dgrid.objects.Vector2i
+import utbm.ia54.ant2dgrid.events.Perception
+import utbm.ia54.ant2dgrid.skills.MotionSkill
+import utbm.ia54.ant2dgrid.Enum.AntState
+import java.util.UUID
+
+/** 
+ * @author Michel
+ * 
+ */
+agent Ant {
+	uses Logging
+	
+	var idEnv : UUID
+	var selfID : int
+	var position : Vector2i
+	var pheromoneHome : float
+	var pheromoneFood : float
+	var currentState : AntState
+
+	on Initialize {
+		loggingName = "Ant " + this.ID
+		// Event trigger before the agent begin to live or to be used.
+		// You should put all the initialization statements in this block of code.
+		idEnv = occurrence.spawner
+		currentState = AntState.SEARCH_FOOD
+		selfID = occurrence.parameters.get(1) as Integer
+		position = occurrence.parameters.get(2) as Vector2i
+		info(selfID)
+		info(position)
+		
+		info("The agent Ant was started.")
+		
+		setSkill(new MotionSkill)
+	}
+
+	on Destroy {
+		// Event trigger when the agent is destroyed from the system.
+		// You should put all the resource releasing statements in this block of code.
+		info("The agent was stopped.")
+	}
+	
+	def getPosition : Vector2i{
+		this.position
+	}
+	
+	def setPosition(v : Vector2i){
+		this.position = v
+	}
+	
+	on Perception{
+		var listPerception = occurrence.list
+		if (!listPerception.isEmpty) {
+			var tempVector : Vector2i
+			pheromoneFood = 0f
+			pheromoneHome = 0f
+			if (currentState == AntState.SEARCH_FOOD) {
+				for(var i = 0; i<listPerception.length; i++){
+					if(pheromoneFood<listPerception.get(i).pheromoneFoodIntensity){
+						pheromoneFood = listPerception.get(i).pheromoneFoodIntensity
+						tempVector = listPerception.get(i).position
+					}
+				}
+			} else if (currentState == AntState.RETURN_HOME) {
+				for (var i = 0; i < listPerception.length; i++) {
+					if (pheromoneHome < listPerception.get(i).pheromoneHomeIntensity) {
+						pheromoneHome = listPerception.get(i).pheromoneHomeIntensity
+						tempVector = listPerception.get(i).position
+					}
+				}
+			}
+			
+			//move
+		}
+	}
+}

@@ -4,7 +4,6 @@ import io.sarl.core.AgentSpawned;
 import io.sarl.core.Behaviors;
 import io.sarl.core.DefaultContextInteractions;
 import io.sarl.core.Initialize;
-import io.sarl.core.InnerContextAccess;
 import io.sarl.core.Lifecycle;
 import io.sarl.core.Logging;
 import io.sarl.core.Schedules;
@@ -20,25 +19,19 @@ import io.sarl.lang.core.Skill;
 import io.sarl.lang.util.ClearableReference;
 import io.sarl.util.OpenEventSpace;
 import io.sarl.util.OpenEventSpaceSpecification;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 import javafx.application.Application;
 import javax.inject.Inject;
-import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Inline;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.eclipse.xtext.xbase.lib.Pure;
-import utbm.ia54.ant2dgrid.agents.Environment;
 import utbm.ia54.ant2dgrid.gui.fx.AppExit;
 import utbm.ia54.ant2dgrid.gui.fx.AppStart;
-import utbm.ia54.ant2dgrid.gui.fx.ConfigureSimulation;
 import utbm.ia54.ant2dgrid.gui.fx.FxApplication;
-import utbm.ia54.ant2dgrid.gui.fx.FxViewerController;
 
 /**
  * Abstract definition of an agent that is able to boot a JavaFX application.
@@ -54,7 +47,7 @@ public abstract class FxBootAgent extends Agent {
   @SyntheticMember
   private void $behaviorUnit$Initialize$0(final Initialize occurrence) {
     Logging _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER = this.$castSkill(Logging.class, (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || this.$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING = this.$getSkill(Logging.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LOGGING);
-    _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER.setLoggingName("BootAgent");
+    _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER.setLoggingName("FxBootAgent");
     DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
     OpenEventSpace space = _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.getDefaultContext().<OpenEventSpace>createSpace(
       OpenEventSpaceSpecification.class, 
@@ -73,12 +66,9 @@ public abstract class FxBootAgent extends Agent {
   private void $behaviorUnit$AppStart$1(final AppStart occurrence) {
     this.startFeedback = occurrence.startFeedBack;
     this.launcherID = UUID.randomUUID();
-    ArrayList<Object> parameters = CollectionLiterals.<Object>newArrayList();
-    parameters.add(occurrence.fxController);
-    this.buildApplicationBootAgentParameters(this.launcherID, occurrence.fxController, parameters);
     Lifecycle _$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE$CALLER = this.$castSkill(Lifecycle.class, (this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE == null || this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE = this.$getSkill(Lifecycle.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE);
     DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
-    _$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE$CALLER.spawnInContextWithID(this.getApplicationBootAgentType(), this.launcherID, _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.getDefaultContext(), parameters.toArray());
+    _$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE$CALLER.spawnInContextWithID(this.getApplicationBootAgentType(), this.launcherID, _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.getDefaultContext(), occurrence.fxController);
   }
   
   @SyntheticMember
@@ -103,26 +93,9 @@ public abstract class FxBootAgent extends Agent {
     _$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE$CALLER.killMe();
   }
   
-  @SyntheticMember
-  private void $behaviorUnit$ConfigureSimulation$4(final ConfigureSimulation occurrence) {
-    Logging _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER = this.$castSkill(Logging.class, (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || this.$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING = this.$getSkill(Logging.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LOGGING);
-    _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER.info("received conf");
-    final ArrayList<Object> listparam = new ArrayList<Object>();
-    listparam.add(Integer.valueOf(occurrence.antQuantity));
-    listparam.add(Integer.valueOf(occurrence.width));
-    listparam.add(Integer.valueOf(occurrence.height));
-    listparam.add(occurrence.grid);
-    Lifecycle _$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE$CALLER = this.$castSkill(Lifecycle.class, (this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE == null || this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE = this.$getSkill(Lifecycle.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE);
-    _$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE$CALLER.spawn(Environment.class, listparam);
-  }
-  
   protected abstract Class<? extends FxApplication> getFxApplicationType();
   
   protected abstract Class<? extends Agent> getApplicationBootAgentType();
-  
-  @Pure
-  protected void buildApplicationBootAgentParameters(final UUID launcherID, final FxViewerController controller, final List<Object> parameters) {
-  }
   
   @Extension
   @ImportedCapacityFeature(Lifecycle.class)
@@ -199,21 +172,6 @@ public abstract class FxBootAgent extends Agent {
     return $castSkill(Logging.class, this.$CAPACITY_USE$IO_SARL_CORE_LOGGING);
   }
   
-  @Extension
-  @ImportedCapacityFeature(InnerContextAccess.class)
-  @SyntheticMember
-  private transient ClearableReference<Skill> $CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS;
-  
-  @SyntheticMember
-  @Pure
-  @Inline(value = "$castSkill(InnerContextAccess.class, ($0$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS == null || $0$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS.get() == null) ? ($0$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS = $0$getSkill(InnerContextAccess.class)) : $0$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS)", imported = InnerContextAccess.class)
-  private InnerContextAccess $CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS$CALLER() {
-    if (this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS == null || this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS.get() == null) {
-      this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS = $getSkill(InnerContextAccess.class);
-    }
-    return $castSkill(InnerContextAccess.class, this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS);
-  }
-  
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$Initialize(final Initialize occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -246,14 +204,6 @@ public abstract class FxBootAgent extends Agent {
     if ($behaviorUnitGuard$AgentSpawned$2(occurrence, occurrence)) {
       ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$AgentSpawned$2(occurrence));
     }
-  }
-  
-  @SyntheticMember
-  @PerceptGuardEvaluator
-  private void $guardEvaluator$ConfigureSimulation(final ConfigureSimulation occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
-    assert occurrence != null;
-    assert ___SARLlocal_runnableCollection != null;
-    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$ConfigureSimulation$4(occurrence));
   }
   
   @Override

@@ -1,0 +1,83 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.agents
+
+import io.sarl.core.Initialize
+import io.sarl.core.Logging
+import utbm.ia54.ant2dgrid.objects.Cell
+import java.util.List
+import utbm.ia54.ant2dgrid.gui.Ant2DGridFxViewerController
+import io.sarl.core.InnerContextAccess
+import io.sarl.core.Lifecycle
+import utbm.ia54.ant2dgrid.events.StartSimulation
+import utbm.ia54.ant2dgrid.events.EndSimulation
+import utbm.ia54.ant2dgrid.Enum.CellState
+import io.sarl.core.Destroy
+
+/** 
+ * @author Michel
+ * 
+ */
+agent Environment {
+	
+	uses Lifecycle, Logging, InnerContextAccess
+
+	/*Number of Ant */
+	var antQuantity : int
+	/*List of Cell */
+	var grid : List<Cell>
+	/*The number of colums */
+	var width : int
+	/* The number of rows */
+	var height : int
+	/*Variable to store the home cell */
+	var cellHome : Cell
+	/* Variable to store the food cell */
+	var cellFood : Cell
+	/*The fx viewer controller */
+	var ctrl : Ant2DGridFxViewerController = null
+	
+	on Initialize {
+		loggingName = "Environment " + this.ID
+		if (ctrl === null) {
+			ctrl = occurrence.parameters.get(0) as Ant2DGridFxViewerController
+		}
+		this.antQuantity = ctrl.antQuantity
+		this.width = ctrl.width
+		this.height = ctrl.height
+		this.grid = ctrl.grid
+		info('Ant : ' + antQuantity)
+		info("Width : " + width)
+		info("Height : " + height)
+		for (var i = 0; i < width; i++) {
+			for (var j = 0; j < height; j++) {
+				if (grid.get(i * height + j).state === CellState.HOME) {
+					cellHome = grid.get(i * height + j)
+				} else if (grid.get(i * height + j).state === CellState.FOOD) {
+					cellFood = grid.get(i * height + j)
+				}
+			}
+		}
+		info("CELL HOME :" + cellHome.toString)
+		info("CELL FOOD :" + cellFood.toString)
+		info("The agent Environment was started.")
+	}
+	
+	on StartSimulation{
+		info("StartSimulation")
+		for(var i = 0; i<antQuantity; i++){
+			spawnInContext(typeof(Ant), innerContext,#[this.ID, i+1, cellHome.position])
+			//add ant to the cell
+			//grid.get(cellHome.position.x * height + cellHome.position.y).antList.add()
+		}
+	}
+	
+	on Destroy{
+		info("Agent Environment gonna die!")
+	}
+	
+	on EndSimulation{
+		killMe
+	}
+}

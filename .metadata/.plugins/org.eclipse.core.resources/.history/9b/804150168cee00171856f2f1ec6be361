@@ -1,0 +1,52 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.agents
+
+import io.sarl.core.Initialize
+import io.sarl.core.Logging
+import java.util.List
+import utbm.ia54.ant2dgrid.objects.Cell
+import utbm.ia54.ant2dgrid.gui.Ant2DGridFxViewerController
+
+import io.sarl.core.InnerContextAccess
+import io.sarl.core.Lifecycle
+import utbm.ia54.ant2dgrid.events.ConfigureSimulation
+import utbm.ia54.ant2dgrid.events.EndSimulation
+import utbm.ia54.ant2dgrid.events.StartSimulation
+import io.sarl.core.Destroy
+
+/** 
+ * @author Michel
+ * 
+ */
+agent BootAgent {
+	uses Logging, InnerContextAccess, Lifecycle
+
+	var ctrl : Ant2DGridFxViewerController = null
+	
+	on Initialize {
+		loggingName = "BootAgent " + this.ID
+		if (ctrl === null) {
+			ctrl = occurrence.parameters.get(0) as Ant2DGridFxViewerController
+		}
+		// Event trigger before the agent begin to live or to be used.
+		// You should put all the initialization statements in this block of code.
+		info("Starting simulation!")
+		spawnInContext(typeof(Environment),innerContext, ctrl)
+		innerContext.defaultSpace.emit(new StartSimulation)
+	}
+
+	on ConfigureSimulation {
+		var ^event = new StartSimulation
+		innerContext.defaultSpace.emit(this.ID, ^event)
+	}
+
+	on Destroy{
+		info("BootAgent gonna die!")
+	}
+	
+	on EndSimulation{
+		killMe
+	}
+}
