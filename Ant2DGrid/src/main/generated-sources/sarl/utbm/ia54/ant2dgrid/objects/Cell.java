@@ -5,13 +5,16 @@ import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
 import javafx.scene.layout.Pane;
-import org.eclipse.xtext.xbase.lib.CollectionExtensions;
 import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.AntState;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.agents.Ant;
+import utbm.ia54.ant2dgrid.objects.AntBody;
 import utbm.ia54.ant2dgrid.objects.Pheromone;
 import utbm.ia54.ant2dgrid.objects.Vector2i;
 
@@ -30,7 +33,7 @@ public class Cell extends Pane {
   /**
    * A list of ants
    */
-  private final ArrayList<Ant> AntList;
+  private Map<UUID, AntBody> antList;
   
   /**
    * The cell state
@@ -60,9 +63,9 @@ public class Cell extends Pane {
   public Cell() {
     Vector2i _vector2i = new Vector2i();
     this.vector = _vector2i;
-    ArrayList<Ant> _arrayList = new ArrayList<Ant>();
-    this.AntList = _arrayList;
     this.state = CellState.NORMAL;
+    HashMap<UUID, AntBody> _hashMap = new HashMap<UUID, AntBody>();
+    this.antList = _hashMap;
     this.setColor();
     Pheromone _pheromone = new Pheromone(AntState.RETURN_HOME);
     this.pheromoneHome = _pheromone;
@@ -73,8 +76,8 @@ public class Cell extends Pane {
   public Cell(final int x, final int y) {
     Vector2i _vector2i = new Vector2i(x, y);
     this.vector = _vector2i;
-    ArrayList<Ant> _arrayList = new ArrayList<Ant>();
-    this.AntList = _arrayList;
+    HashMap<UUID, AntBody> _hashMap = new HashMap<UUID, AntBody>();
+    this.antList = _hashMap;
     this.state = CellState.NORMAL;
     this.setColor();
     Pheromone _pheromone = new Pheromone(AntState.RETURN_HOME);
@@ -85,8 +88,8 @@ public class Cell extends Pane {
   
   public Cell(final Vector2i v) {
     this.vector = v;
-    ArrayList<Ant> _arrayList = new ArrayList<Ant>();
-    this.AntList = _arrayList;
+    HashMap<UUID, AntBody> _hashMap = new HashMap<UUID, AntBody>();
+    this.antList = _hashMap;
     this.state = CellState.NORMAL;
     this.setColor();
     Pheromone _pheromone = new Pheromone(AntState.RETURN_HOME);
@@ -98,8 +101,8 @@ public class Cell extends Pane {
   public Cell(final int x, final int y, final CellState state) {
     Vector2i _vector2i = new Vector2i(x, y);
     this.vector = _vector2i;
-    ArrayList<Ant> _arrayList = new ArrayList<Ant>();
-    this.AntList = _arrayList;
+    HashMap<UUID, AntBody> _hashMap = new HashMap<UUID, AntBody>();
+    this.antList = _hashMap;
     this.state = state;
     this.setColor();
     Pheromone _pheromone = new Pheromone(AntState.RETURN_HOME);
@@ -111,7 +114,8 @@ public class Cell extends Pane {
   public Cell(final Vector2i v, final ArrayList<Ant> antList, final CellState state) {
     Vector2i _vector2i = new Vector2i(v);
     this.vector = _vector2i;
-    this.AntList = antList;
+    HashMap<UUID, AntBody> _hashMap = new HashMap<UUID, AntBody>();
+    this.antList = _hashMap;
     this.state = state;
     this.setColor();
     Pheromone _pheromone = new Pheromone(AntState.RETURN_HOME);
@@ -120,10 +124,10 @@ public class Cell extends Pane {
     this.pheromoneFood = _pheromone_1;
   }
   
-  public Cell(final int x, final int y, final ArrayList<Ant> antList, final CellState state) {
+  public Cell(final int x, final int y, final Map<UUID, AntBody> antList, final CellState state) {
     Vector2i _vector2i = new Vector2i(x, y);
     this.vector = _vector2i;
-    this.AntList = antList;
+    this.antList = antList;
     this.state = state;
     this.setColor();
     Pheromone _pheromone = new Pheromone(AntState.RETURN_HOME);
@@ -146,27 +150,27 @@ public class Cell extends Pane {
     this.vector.setY(y);
   }
   
-  public boolean addAnt(final Ant ant) {
-    boolean _xsynchronizedexpression = false;
-    synchronized (this.AntList) {
-      _xsynchronizedexpression = this.AntList.add(ant);
+  public AntBody addAnt(final UUID id, final AntBody ant) {
+    AntBody _xsynchronizedexpression = null;
+    synchronized (this.antList) {
+      _xsynchronizedexpression = this.antList.put(id, ant);
     }
     return _xsynchronizedexpression;
   }
   
-  public boolean removeAnt(final Ant ant) {
+  public boolean removeAnt(final UUID id, final AntBody ant) {
     boolean _xsynchronizedexpression = false;
-    synchronized (this.AntList) {
-      _xsynchronizedexpression = this.AntList.remove(ant);
+    synchronized (this.antList) {
+      _xsynchronizedexpression = this.antList.remove(id, ant);
     }
     return _xsynchronizedexpression;
   }
   
   @Pure
-  public List<Ant> getAntList() {
-    List<Ant> _xsynchronizedexpression = null;
-    synchronized (this.AntList) {
-      _xsynchronizedexpression = Collections.<Ant>unmodifiableList(this.AntList);
+  public Map<UUID, AntBody> getAntList() {
+    Map<UUID, AntBody> _xsynchronizedexpression = null;
+    synchronized (this.antList) {
+      _xsynchronizedexpression = Collections.<UUID, AntBody>unmodifiableMap(this.antList);
     }
     return _xsynchronizedexpression;
   }
@@ -174,8 +178,8 @@ public class Cell extends Pane {
   @Pure
   public int getNumberAnt() {
     int _xsynchronizedexpression = (int) 0;
-    synchronized (this.AntList) {
-      _xsynchronizedexpression = this.AntList.size();
+    synchronized (this.antList) {
+      _xsynchronizedexpression = this.antList.size();
     }
     return _xsynchronizedexpression;
   }
@@ -245,13 +249,13 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
-  @Pure
-  public boolean removeAllAnt() {
-    boolean _xsynchronizedexpression = false;
-    synchronized (this.AntList) {
-      _xsynchronizedexpression = CollectionExtensions.<Ant>removeAll(this.AntList);
+  public void removeAllAnt() {
+    synchronized (this.antList) {
+      Set<Map.Entry<UUID, AntBody>> _entrySet = this.antList.entrySet();
+      for (final Map.Entry<UUID, AntBody> body : _entrySet) {
+        this.removeAnt(body.getKey(), body.getValue());
+      }
     }
-    return _xsynchronizedexpression;
   }
   
   public void setColor() {
@@ -311,7 +315,7 @@ public class Cell extends Pane {
       String _string = this.vector.toString();
       String _plus = ("Cell : " + _string);
       String _plus_1 = (_plus + "\n Ant : ");
-      int _size = this.AntList.size();
+      int _size = this.antList.size();
       String _plus_2 = (_plus_1 + Integer.valueOf(_size));
       String _plus_3 = (_plus_2 + "\n food : ");
       String _string_1 = this.pheromoneFood.toString();

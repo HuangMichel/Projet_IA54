@@ -11,6 +11,7 @@ import javafx.scene.control.TextField
 import javafx.scene.input.MouseEvent
 import javafx.^event.EventHandler
 import utbm.ia54.ant2dgrid.events.ConfigureSimulation
+import utbm.ia54.ant2dgrid.Enum.CellState
 
 /** 
  * @author aelez
@@ -72,8 +73,13 @@ class Ant2DGridFxViewerController extends FxViewerController{
 	def addCellEvent {
 		gridZone.children.forEach[item | item.onMouseClicked = new EventHandler<MouseEvent>(){
 			def handle(^event : MouseEvent) {
-				if(^event.clickCount===1){
-					println(item.toString)
+				var cell = item as Cell
+				if (^event.clickCount === 1) {
+					println(cell.toString)
+				}else if(^event.clickCount === 2 && cell.state === CellState.NORMAL){
+					cell.state = CellState.WALL
+				}else if(^event.clickCount === 3 && cell.state === CellState.WALL){
+					cell.state = CellState.NORMAL
 				}
 			}
 			
@@ -87,7 +93,7 @@ class Ant2DGridFxViewerController extends FxViewerController{
 			startAgentApplication()[emitToAgent(evt)]
 			launched = true
 			btnMap.disable = true
-			//spawnButton.disable = true
+			spawnButton.disable = true
 			numberOfAnt.disable = true
 		}else{
 			emitToAgent(evt)

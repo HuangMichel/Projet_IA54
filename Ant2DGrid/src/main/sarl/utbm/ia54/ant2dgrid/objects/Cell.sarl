@@ -9,6 +9,9 @@ import java.util.List
 import utbm.ia54.ant2dgrid.Enum.CellState
 import utbm.ia54.ant2dgrid.Enum.AntState
 import javafx.scene.layout.Pane
+import java.util.UUID
+import java.util.Map
+import java.util.HashMap
 
 /** 
  * 
@@ -25,7 +28,7 @@ class Cell extends Pane{
 	/*
 	 * A list of ants
 	 */
-	private val AntList : ArrayList<Ant>
+	private var antList : Map<UUID, AntBody>
 	
 	/*
 	 * The cell state
@@ -54,8 +57,8 @@ class Cell extends Pane{
 	
 	new(){
 		this.vector = new Vector2i
-		this.AntList = new ArrayList<Ant>
 		this.state = CellState.NORMAL
+		this.antList = new HashMap<UUID, AntBody>
 		setColor
 		this.pheromoneHome = new Pheromone(AntState.RETURN_HOME)
 		this.pheromoneFood = new Pheromone
@@ -63,7 +66,7 @@ class Cell extends Pane{
 	
 	new(x : int, y : int) {
 		this.vector = new Vector2i(x, y)
-		this.AntList = new ArrayList<Ant>
+		this.antList = new HashMap<UUID, AntBody>
 		this.state = CellState.NORMAL
 		setColor
 		this.pheromoneHome = new Pheromone(AntState.RETURN_HOME)
@@ -72,7 +75,7 @@ class Cell extends Pane{
 	
 	new(v : Vector2i) {
 		this.vector = v
-		this.AntList = new ArrayList<Ant>
+		this.antList = new HashMap<UUID, AntBody>
 		this.state = CellState.NORMAL
 		setColor
 		this.pheromoneHome = new Pheromone(AntState.RETURN_HOME)
@@ -81,7 +84,7 @@ class Cell extends Pane{
 
 	new(x : int, y : int, state : CellState) {
 		this.vector = new Vector2i(x, y)
-		this.AntList = new ArrayList<Ant>
+		this.antList = new HashMap<UUID, AntBody>
 		this.state = state
 		setColor
 		this.pheromoneHome = new Pheromone(AntState.RETURN_HOME)
@@ -90,16 +93,16 @@ class Cell extends Pane{
 	
 	new(v : Vector2i, antList : ArrayList<Ant>, state : CellState){
 		this.vector = new Vector2i(v)
-		this.AntList = antList
+		this.antList = new HashMap<UUID, AntBody>
 		this.state = state
 		setColor
 		this.pheromoneHome = new Pheromone(AntState.RETURN_HOME)
 		this.pheromoneFood = new Pheromone
 	}
 	
-	new(x : int, y : int, antList : ArrayList<Ant>, state : CellState) {
+	new(x : int, y : int, antList : Map<UUID, AntBody>, state : CellState) {
 		this.vector = new Vector2i(x, y)
-		this.AntList = antList
+		this.antList = antList
 		this.state = state
 		setColor
 		this.pheromoneHome = new Pheromone(AntState.RETURN_HOME)
@@ -119,27 +122,27 @@ class Cell extends Pane{
 		this.vector.setY(y)
 	}
 	
-	def addAnt(ant : Ant){
-		synchronized(AntList){
-			this.AntList.add(ant)
+	def addAnt(id : UUID, ant : AntBody){
+		synchronized(antList){
+			this.antList.put(id, ant)
 		}
 	}
 	
-	def removeAnt(ant : Ant){
-		synchronized(AntList){
-			this.AntList.remove(ant)
+	def removeAnt(id : UUID, ant : AntBody){
+		synchronized(antList){
+			this.antList.remove(id, ant)
 		}
 	}
 	
-	def getAntList : List<Ant>{
-		synchronized(AntList){
-			this.AntList.unmodifiableView
+	def getAntList : Map<UUID, AntBody>{
+		synchronized(antList){
+			this.antList.unmodifiableView
 		}
 	}
 	
 	def getNumberAnt : int{
-		synchronized(AntList){
-			this.AntList.size
+		synchronized(antList){
+			this.antList.size
 		}
 	}
 	
@@ -190,8 +193,10 @@ class Cell extends Pane{
 	}
 	
 	def removeAllAnt(){
-		synchronized(AntList){
-			AntList.removeAll()
+		synchronized(antList){
+			for(body : antList.entrySet){
+				removeAnt(body.key, body.value)
+			}
 		}
 	}
 
@@ -240,7 +245,7 @@ class Cell extends Pane{
 	}
 	
 	def toString : String{
-		var string = "Cell : " + vector.toString + "\n Ant : " + AntList.size + "\n food : " + pheromoneFood.toString +
+		var string = "Cell : " + vector.toString + "\n Ant : " + antList.size + "\n food : " + pheromoneFood.toString +
 			"\n home : " + pheromoneHome.toString + "\n state : " + state
 		string
 	}

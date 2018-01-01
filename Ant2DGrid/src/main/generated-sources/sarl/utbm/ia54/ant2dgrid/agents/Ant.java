@@ -1,6 +1,7 @@
 package utbm.ia54.ant2dgrid.agents;
 
 import com.google.common.base.Objects;
+import io.sarl.core.DefaultContextInteractions;
 import io.sarl.core.Destroy;
 import io.sarl.core.Initialize;
 import io.sarl.core.Logging;
@@ -23,7 +24,9 @@ import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Inline;
 import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.AntState;
+import utbm.ia54.ant2dgrid.events.AntInitialize;
 import utbm.ia54.ant2dgrid.events.Perception;
+import utbm.ia54.ant2dgrid.objects.AntBody;
 import utbm.ia54.ant2dgrid.objects.Cell;
 import utbm.ia54.ant2dgrid.objects.Vector2i;
 import utbm.ia54.ant2dgrid.skills.MotionSkill;
@@ -43,22 +46,9 @@ public class Ant extends Agent {
   /**
    * ID himself
    */
-  private int selfID;
+  private int selfIDAnt;
   
-  /**
-   * Position
-   */
-  private Vector2i position;
-  
-  /**
-   * Current state of the Ant
-   */
-  private AntState currentState;
-  
-  /**
-   * The capacity of the Ant to pick up food
-   */
-  private float capacity;
+  private AntBody body;
   
   @SyntheticMember
   private void $behaviorUnit$Initialize$0(final Initialize occurrence) {
@@ -66,46 +56,37 @@ public class Ant extends Agent {
     UUID _iD = this.getID();
     String _plus = ("Ant " + _iD);
     _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER.setLoggingName(_plus);
+    UUID _iD_1 = this.getID();
+    Object _get = occurrence.parameters[1];
+    AntBody _antBody = new AntBody(_iD_1, ((Vector2i) _get));
+    this.body = _antBody;
     this.idEnv = occurrence.spawner;
-    this.currentState = AntState.SEARCH_FOOD;
-    Object _get = occurrence.parameters[0];
-    this.selfID = (((Integer) _get)).intValue();
-    Object _get_1 = occurrence.parameters[1];
-    this.position = ((Vector2i) _get_1);
-    this.capacity = 2f;
+    Object _get_1 = occurrence.parameters[0];
+    this.selfIDAnt = (((Integer) _get_1)).intValue();
     Logging _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER_1 = this.$castSkill(Logging.class, (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || this.$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING = this.$getSkill(Logging.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LOGGING);
-    _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER_1.info((("The agent Ant " + Integer.valueOf(this.selfID)) + " was started."));
+    int _selfID = this.getSelfID();
+    String _plus_1 = ("The agent Ant " + Integer.valueOf(_selfID));
+    String _plus_2 = (_plus_1 + " was started.");
+    _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER_1.info(_plus_2);
     MotionSkill _motionSkill = new MotionSkill();
     this.<MotionSkill>setSkill(_motionSkill);
+    DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
+    AntInitialize _antInitialize = new AntInitialize(this.body);
+    _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_antInitialize);
   }
   
   @SyntheticMember
   private void $behaviorUnit$Destroy$1(final Destroy occurrence) {
     Logging _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER = this.$castSkill(Logging.class, (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || this.$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING = this.$getSkill(Logging.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LOGGING);
-    _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER.info((("The agent Ant " + Integer.valueOf(this.selfID)) + " was stopped."));
-  }
-  
-  @Pure
-  protected Vector2i getPosition() {
-    return this.position;
-  }
-  
-  protected void setPosition(final Vector2i v) {
-    this.position = v;
+    int _selfID = this.getSelfID();
+    String _plus = ("The agent Ant " + Integer.valueOf(_selfID));
+    String _plus_1 = (_plus + " was stopped.");
+    _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER.info(_plus_1);
   }
   
   @Pure
   protected int getSelfID() {
-    return this.selfID;
-  }
-  
-  @Pure
-  protected AntState getState() {
-    return this.currentState;
-  }
-  
-  protected void setState(final AntState state) {
-    this.currentState = state;
+    return this.selfIDAnt;
   }
   
   @SyntheticMember
@@ -117,7 +98,8 @@ public class Ant extends Agent {
       Vector2i tempVector = null;
       float pheromoneFood = 0f;
       float pheromoneHome = 0f;
-      boolean _equals = Objects.equal(this.currentState, AntState.SEARCH_FOOD);
+      AntState _state = this.body.getState();
+      boolean _equals = Objects.equal(_state, AntState.SEARCH_FOOD);
       if (_equals) {
         for (int i = 0; (i < ((Object[])Conversions.unwrapArray(listPerception, Object.class)).length); i++) {
           float _pheromoneFoodIntensity = listPerception.get(i).getPheromoneFoodIntensity();
@@ -128,7 +110,8 @@ public class Ant extends Agent {
           }
         }
       } else {
-        boolean _equals_1 = Objects.equal(this.currentState, AntState.RETURN_HOME);
+        AntState _state_1 = this.body.getState();
+        boolean _equals_1 = Objects.equal(_state_1, AntState.RETURN_HOME);
         if (_equals_1) {
           for (int i = 0; (i < ((Object[])Conversions.unwrapArray(listPerception, Object.class)).length); i++) {
             float _pheromoneHomeIntensity = listPerception.get(i).getPheromoneHomeIntensity();
@@ -156,6 +139,21 @@ public class Ant extends Agent {
       this.$CAPACITY_USE$IO_SARL_CORE_LOGGING = $getSkill(Logging.class);
     }
     return $castSkill(Logging.class, this.$CAPACITY_USE$IO_SARL_CORE_LOGGING);
+  }
+  
+  @Extension
+  @ImportedCapacityFeature(DefaultContextInteractions.class)
+  @SyntheticMember
+  private transient ClearableReference<Skill> $CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS;
+  
+  @SyntheticMember
+  @Pure
+  @Inline(value = "$castSkill(DefaultContextInteractions.class, ($0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || $0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? ($0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = $0$getSkill(DefaultContextInteractions.class)) : $0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS)", imported = DefaultContextInteractions.class)
+  private DefaultContextInteractions $CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER() {
+    if (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) {
+      this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = $getSkill(DefaultContextInteractions.class);
+    }
+    return $castSkill(DefaultContextInteractions.class, this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
   }
   
   @SyntheticMember
@@ -196,9 +194,7 @@ public class Ant extends Agent {
     if (!java.util.Objects.equals(this.idEnv, other.idEnv)) {
       return false;
     }
-    if (other.selfID != this.selfID)
-      return false;
-    if (Float.floatToIntBits(other.capacity) != Float.floatToIntBits(this.capacity))
+    if (other.selfIDAnt != this.selfIDAnt)
       return false;
     return super.equals(obj);
   }
@@ -210,8 +206,7 @@ public class Ant extends Agent {
     int result = super.hashCode();
     final int prime = 31;
     result = prime * result + java.util.Objects.hashCode(this.idEnv);
-    result = prime * result + this.selfID;
-    result = prime * result + Float.floatToIntBits(this.capacity);
+    result = prime * result + this.selfIDAnt;
     return result;
   }
   

@@ -1,0 +1,95 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.agents
+
+import io.sarl.core.Initialize
+import io.sarl.core.Logging
+import utbm.ia54.ant2dgrid.objects.Cell
+import java.util.List
+import utbm.ia54.ant2dgrid.gui.Ant2DGridFxViewerController
+import io.sarl.core.InnerContextAccess
+import io.sarl.core.Lifecycle
+import utbm.ia54.ant2dgrid.events.StartSimulation
+import utbm.ia54.ant2dgrid.events.EndSimulation
+import utbm.ia54.ant2dgrid.Enum.CellState
+import io.sarl.core.Destroy
+import utbm.ia54.ant2dgrid.events.AntInitialize
+
+/** 
+ * @author Michel
+ * 
+ */
+agent Environment {
+	
+	uses Lifecycle, Logging, InnerContextAccess
+
+	/*Number of Ant */
+	private var antQuantity : int
+	
+	/* List of Cell */
+	private var grid : List<Cell>
+	
+	/* The number of colums */
+	private var width : int
+	
+	/* The number of rows */
+	private var height : int
+	
+	/* Variable to store the home cell */
+	private var cellHome : Cell
+	
+	/* Variable to store the food cell */
+	private var cellFood : Cell
+	
+	/* The fx viewer controller */
+	private var ctrl : Ant2DGridFxViewerController = null
+	
+	
+	on Initialize {
+		loggingName = "Environment " + this.ID
+		if (ctrl === null) {
+			ctrl = occurrence.parameters.get(0) as Ant2DGridFxViewerController
+		}
+		this.antQuantity = ctrl.antQuantity
+		this.width = ctrl.width
+		this.height = ctrl.height
+		this.grid = ctrl.grid
+		info('Ant : ' + antQuantity)
+		info("Width : " + width)
+		info("Height : " + height)
+		for (var i = 0; i < width; i++) {
+			for (var j = 0; j < height; j++) {
+				if (grid.get(i * height + j).state === CellState.HOME) {
+					cellHome = grid.get(i * height + j)
+				} else if (grid.get(i * height + j).state === CellState.FOOD) {
+					cellFood = grid.get(i * height + j)
+				}
+			}
+		}
+		info("CELL HOME :" + cellHome.toString)
+		info("CELL FOOD :" + cellFood.toString)
+		info("The agent Environment was started.")
+	}
+	
+	on AntInitialize[occurrence.isInInnerDefaultSpace]{
+		info("Ant Initialize")
+		this.grid.get(cellHome.position.x*height+cellHome.position.y).addAnt(occurrence.source.UUID, occurrence.body)
+		cellHome = this.grid.get(cellHome.position.x * height + cellHome.position.y)
+	}
+	
+	on StartSimulation{
+		info("StartSimulation")
+		for(var i = 0; i<antQuantity; i++){
+			spawnInContext(typeof(Ant), innerContext,#[i+1, cellHome.position])
+		}
+	}
+	
+	on Destroy{
+		info("Agent Environment gonna die!")
+	}
+	
+	on EndSimulation{
+		killMe
+	}
+}

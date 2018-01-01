@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.agents.Ant;
+import utbm.ia54.ant2dgrid.objects.AntBody;
 import utbm.ia54.ant2dgrid.objects.Cell;
 import utbm.ia54.ant2dgrid.objects.Vector2i;
 
@@ -25,20 +26,17 @@ public class CellTest {
 	
 	@Test
 	public void testAddAnt(){
-		UUID uuidParent = UUID.randomUUID();
-		UUID uuidChild = UUID.randomUUID();
-		Ant ant = new Ant(uuidParent, uuidChild);
-		cell.addAnt(ant);
+		UUID id = UUID.randomUUID();
+		cell.addAnt(id, new AntBody(id, new Vector2i()));
 		assertEquals(cell.getNumberAnt(), 1);
 	}
 	
 	@Test
 	public void testRemoveAnt() {
-		UUID uuidParent = UUID.randomUUID();
-		UUID uuidChild = UUID.randomUUID();
-		Ant ant = new Ant(uuidParent, uuidChild);
-		cell.addAnt(ant);
-		cell.removeAnt(ant);
+		UUID id = UUID.randomUUID();
+		AntBody body = new AntBody(id, new Vector2i());
+		cell.addAnt(id, body);
+		cell.removeAnt(id, body);
 		assertEquals(cell.getNumberAnt(), 0);
 	}
 	

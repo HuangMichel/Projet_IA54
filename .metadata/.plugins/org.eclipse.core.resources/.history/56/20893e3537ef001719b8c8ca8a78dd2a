@@ -1,0 +1,52 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.objects
+
+import java.util.UUID
+
+/** 
+ * @author Michel
+ * 
+ */
+class AntBody {
+	private var id : UUID
+	private var ^capacity : float
+	private var position : Vector2i
+	
+	new(id : UUID, position : Vector2i){
+		this.id = id
+		this.position = position
+		this.^capacity = 2f
+	}
+	
+	new(body : AntBody){
+		this.id = body.id
+		this.^capacity = body.^capacity
+		this.position = body.position
+	}
+	
+	def getID : UUID{
+		this.id
+	}
+	
+	def getCapacity : float {
+		this.^capacity
+	}
+	
+	def getPosition : Vector2i{
+		this.position
+	}
+	
+	def setID(id : UUID){
+		this.id = id
+	}
+	
+	def setPosition(position : Vector2i){
+		this.position = position
+	}
+	
+	def setCapacity(f : float){
+		this.^capacity = f
+	}
+}

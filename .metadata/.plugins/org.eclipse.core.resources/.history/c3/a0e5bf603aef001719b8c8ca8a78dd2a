@@ -1,0 +1,29 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.events
+
+import java.util.List
+import utbm.ia54.ant2dgrid.objects.Cell
+import utbm.ia54.ant2dgrid.objects.Vector2i
+import java.util.UUID
+
+/** 
+ * @author Michel
+ * 
+ */
+event ConfigureSimulation
+
+event StartSimulation 
+
+event Perception{
+	var list : List<Cell>
+}
+
+event Influence{
+	var v : Vector2i
+	var id : UUID
+}
+event SpawnEnv
+
+event EndSimulation

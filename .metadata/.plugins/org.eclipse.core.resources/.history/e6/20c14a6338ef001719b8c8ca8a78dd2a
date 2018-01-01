@@ -1,0 +1,73 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.agents
+
+import io.sarl.core.Destroy
+import io.sarl.core.Initialize
+import io.sarl.core.Logging
+import utbm.ia54.ant2dgrid.objects.Vector2i
+import utbm.ia54.ant2dgrid.events.Perception
+import utbm.ia54.ant2dgrid.skills.MotionSkill
+import utbm.ia54.ant2dgrid.Enum.AntState
+import java.util.UUID
+import utbm.ia54.ant2dgrid.objects.AntBody
+
+/** 
+ * @author Michel
+ * 
+ */
+agent Ant {
+	uses Logging
+	
+	/* ID of the environment agent */
+	private var idEnv : UUID
+	
+	/* ID himself */
+	private var selfIDAnt : int
+	
+	private var body : AntBody
+	
+	on Initialize {
+		loggingName = "Ant " + this.ID
+		this.body = new AntBody(this.ID, occurrence.parameters.get(1) as Vector2i)
+		idEnv = occurrence.spawner
+		selfIDAnt = occurrence.parameters.get(0) as Integer
+		info("The agent Ant " + selfID + " was started.")
+		setSkill(new MotionSkill)
+	}
+
+	on Destroy {
+		info("The agent Ant " + selfID + " was stopped.")
+	}
+	
+	def getSelfID : int{
+		this.selfID
+	}
+	
+	on Perception{
+		var listPerception = occurrence.list
+		if (!listPerception.isEmpty) {
+			var tempVector : Vector2i
+			var pheromoneFood = 0f
+			var pheromoneHome = 0f
+			if (body.state == AntState.SEARCH_FOOD) {
+				for(var i = 0; i<listPerception.length; i++){
+					if(pheromoneFood<listPerception.get(i).pheromoneFoodIntensity){
+						pheromoneFood = listPerception.get(i).pheromoneFoodIntensity
+						tempVector = listPerception.get(i).position
+					}
+				}
+			} else if (body.state == AntState.RETURN_HOME) {
+				for (var i = 0; i < listPerception.length; i++) {
+					if (pheromoneHome < listPerception.get(i).pheromoneHomeIntensity) {
+						pheromoneHome = listPerception.get(i).pheromoneHomeIntensity
+						tempVector = listPerception.get(i).position
+					}
+				}
+			}
+			
+			//move
+		}
+	}
+}

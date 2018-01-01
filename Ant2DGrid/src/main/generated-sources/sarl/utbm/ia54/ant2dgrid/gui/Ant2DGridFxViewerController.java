@@ -15,6 +15,7 @@ import javafx.scene.layout.GridPane;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.eclipse.xtext.xbase.lib.Pure;
+import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.events.ConfigureSimulation;
 import utbm.ia54.ant2dgrid.gui.fx.FxViewerController;
 import utbm.ia54.ant2dgrid.objects.Cell;
@@ -95,10 +96,19 @@ public class Ant2DGridFxViewerController extends FxViewerController {
     final Consumer<Node> _function = (Node item) -> {
       __Ant2DGridFxViewerController_0 ___Ant2DGridFxViewerController_0 = new __Ant2DGridFxViewerController_0() {
         public void handle(final MouseEvent event) {
+          Cell cell = ((Cell) item);
           int _clickCount = event.getClickCount();
           boolean _tripleEquals = (_clickCount == 1);
           if (_tripleEquals) {
-            InputOutput.<String>println(item.toString());
+            InputOutput.<String>println(cell.toString());
+          } else {
+            if (((event.getClickCount() == 2) && (cell.getState() == CellState.NORMAL))) {
+              cell.setState(CellState.WALL);
+            } else {
+              if (((event.getClickCount() == 3) && (cell.getState() == CellState.WALL))) {
+                cell.setState(CellState.NORMAL);
+              }
+            }
           }
         }
       };
@@ -117,6 +127,7 @@ public class Ant2DGridFxViewerController extends FxViewerController {
       this.startAgentApplication(_function);
       this.launched = true;
       this.btnMap.setDisable(true);
+      this.spawnButton.setDisable(true);
       this.numberOfAnt.setDisable(true);
     } else {
       this.emitToAgent(evt);

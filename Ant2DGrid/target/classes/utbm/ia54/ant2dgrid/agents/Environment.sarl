@@ -14,6 +14,7 @@ import utbm.ia54.ant2dgrid.events.StartSimulation
 import utbm.ia54.ant2dgrid.events.EndSimulation
 import utbm.ia54.ant2dgrid.Enum.CellState
 import io.sarl.core.Destroy
+import utbm.ia54.ant2dgrid.events.AntInitialize
 
 /** 
  * @author Michel
@@ -44,6 +45,7 @@ agent Environment {
 	/* The fx viewer controller */
 	private var ctrl : Ant2DGridFxViewerController = null
 	
+	
 	on Initialize {
 		loggingName = "Environment " + this.ID
 		if (ctrl === null) {
@@ -70,17 +72,25 @@ agent Environment {
 		info("The agent Environment was started.")
 	}
 	
+	on AntInitialize[occurrence.isInInnerDefaultSpace]{
+		info("Ant Initialize " + occurrence.source.UUID)
+		this.grid.get(cellHome.position.x*height+cellHome.position.y).addAnt(occurrence.source.UUID, occurrence.body)
+		cellHome = this.grid.get(cellHome.position.x * height + cellHome.position.y)
+		if(cellHome.numberAnt === antQuantity){
+			//emit for all ant to start to move
+			//for()
+		}
+	}
+	
 	on StartSimulation{
 		info("StartSimulation")
 		for(var i = 0; i<antQuantity; i++){
 			spawnInContext(typeof(Ant), innerContext,#[i+1, cellHome.position])
-			//add ant to the cell
-			//grid.get(cellHome.position.x * height + cellHome.position.y).antList.add()
 		}
 	}
 	
 	on Destroy{
-		info("Agent Environment gonna die!")
+		info("Agent Environment go die!")
 	}
 	
 	on EndSimulation{

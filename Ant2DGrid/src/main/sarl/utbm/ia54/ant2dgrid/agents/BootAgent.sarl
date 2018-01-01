@@ -38,7 +38,7 @@ agent BootAgent {
 	}
 
 	on Destroy{
-		info("BootAgent gonna die!")
+		info("BootAgent go die!")
 	}
 	
 	on EndSimulation{
