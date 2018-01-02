@@ -15,13 +15,14 @@ import utbm.ia54.ant2dgrid.objects.AntBody
 import utbm.ia54.ant2dgrid.events.AntInitialize
 import io.sarl.core.DefaultContextInteractions
 import utbm.ia54.ant2dgrid.capacities.MotionCapacity
+import utbm.ia54.ant2dgrid.capacities.PheromoneCapacity
 
 /** 
  * @author Michel
  * 
  */
 agent Ant {
-	uses Logging, DefaultContextInteractions, MotionCapacity
+	uses Logging, DefaultContextInteractions, MotionCapacity, PheromoneCapacity
 	
 	/* ID of the environment agent */
 	private var idEnv : UUID
@@ -70,7 +71,7 @@ agent Ant {
 					}
 				}
 			}
-			move(body.position, tempVector, body, this.ID)
+			body.position.plus(move(tempVector, body))
 		}
 	}
 }

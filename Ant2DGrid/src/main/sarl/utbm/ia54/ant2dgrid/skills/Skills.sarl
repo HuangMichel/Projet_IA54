@@ -23,6 +23,8 @@ import java.util.ArrayList
 import io.sarl.core.DefaultContextInteractions
 import utbm.ia54.ant2dgrid.events.Influence
 import java.util.concurrent.ThreadLocalRandom
+import utbm.ia54.ant2dgrid.Enum.AntState
+import utbm.ia54.ant2dgrid.capacities.AntCapacity
 
 /** 
  * @author Michel
@@ -31,32 +33,51 @@ import java.util.concurrent.ThreadLocalRandom
 skill MotionSkill implements MotionCapacity{
 	uses DefaultContextInteractions
 	
-	def move(v : Vector2i, newpos : Vector2i, body : AntBody, id : UUID) {
-		emit(new Influence(v,newpos,body,id))
+	def move(newpos : Vector2i, body : AntBody) : Vector2i{
+		emit(new Influence(body.position, newpos, body))
+		newpos.plus(body.position)
+		newpos
 	}
 	
-	def randomMove(v : Vector2i, body : AntBody, id : UUID) {
+	def randomMove(v : Vector2i, body : AntBody) : Vector2i{
 		val randomNum = ThreadLocalRandom.current().nextInt(0, 3 + 1)
+		var newPos : Vector2i
 		switch(randomNum){
+			//DOWN
 			case 0:
-				emit(new Influence(v, new Vector2i(v.x, v.y +1), body, id))
+				newPos = new Vector2i(0,1)
+			//LEFT	
 			case 1:
-				emit(new Influence(v, new Vector2i(v.x - 1, v.y), body, id))
+				newPos = new Vector2i(-1,0)
+			//UP
 			case 2:
-				emit(new Influence(v, new Vector2i(v.x, v.y - 1), body, id))
+				newPos = new Vector2i(0,-1)
+			//RIGHT
 			case 3:
-				emit(new Influence(v, new Vector2i(v.x + 1, v.y), body, id))
-			default:
-				emit(new Influence(v, new Vector2i(v.x - 1, v.y), body, id))
-				
+				newPos = new Vector2i(1,0)
 		}
+		emit(new Influence(v, newPos, body))
+		newPos.plus(body.position)
+		newPos
 	}
 	
 }
 
 skill PheromoneSkill implements PheromoneCapacity{
 	
-	def followPheromone(position : Vector2i) {
+	def followPheromone(list : List<Cell>, state : AntState) : Cell {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+}
+
+skill AntManagerSkill implements AntCapacity{
+	
+	def pickUpFood {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+	def putDownFood {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	

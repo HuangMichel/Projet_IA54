@@ -5,12 +5,12 @@ package utbm.ia54.ant2dgrid.capacities
 
 import utbm.ia54.ant2dgrid.objects.Vector2i
 import java.util.UUID
-import utbm.ia54.ant2dgrid.Enum.Direction
 import java.util.List
 import utbm.ia54.ant2dgrid.objects.Cell
 import utbm.ia54.ant2dgrid.objects.AntBody
 import io.sarl.lang.core.Address
 import java.util.Map
+import utbm.ia54.ant2dgrid.Enum.AntState
 
 /** 
  * @author Michel
@@ -21,12 +21,17 @@ import java.util.Map
   * Capacity to move for an Ant
   */
 capacity MotionCapacity {
-	def move(v : Vector2i, newpos : Vector2i, body : AntBody, id : UUID)
-	def randomMove(v : Vector2i, body : AntBody, id : UUID)
+	def move(newpos : Vector2i, body : AntBody) : Vector2i
+	def randomMove(newpos : Vector2i, body : AntBody) : Vector2i
 }
 
 capacity PheromoneCapacity{
-	def followPheromone(position : Vector2i)
+	def followPheromone(list : List<Cell>, state : AntState) : Cell
+}
+
+capacity AntCapacity{
+	def pickUpFood
+	def putDownFood
 }
 
 /*

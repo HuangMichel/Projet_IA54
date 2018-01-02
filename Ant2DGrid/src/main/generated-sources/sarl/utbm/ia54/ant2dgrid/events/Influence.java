@@ -4,13 +4,7 @@ import io.sarl.lang.annotation.SarlElementType;
 import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
 import io.sarl.lang.core.Event;
-import java.util.Objects;
-import java.util.UUID;
-<<<<<<< HEAD
 import org.eclipse.xtext.xbase.lib.Pure;
-import utbm.ia54.ant2dgrid.Enum.Direction;
-=======
->>>>>>> 9f6603cbbc6d1f10569d862d8aa199d83e2e9442
 import utbm.ia54.ant2dgrid.objects.AntBody;
 import utbm.ia54.ant2dgrid.objects.Vector2i;
 
@@ -24,29 +18,16 @@ public class Influence extends Event {
   
   public AntBody body;
   
-  public UUID id;
-  
-  public Influence(final Vector2i v, final Vector2i newpos, final AntBody body, final UUID id) {
+  public Influence(final Vector2i v, final Vector2i newpos, final AntBody body) {
     this.v = v;
     this.newpos = newpos;
     this.body = body;
-    this.id = id;
   }
   
   @Override
   @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    Influence other = (Influence) obj;
-    if (!Objects.equals(this.id, other.id)) {
-      return false;
-    }
     return super.equals(obj);
   }
   
@@ -55,8 +36,6 @@ public class Influence extends Event {
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();
-    final int prime = 31;
-    result = prime * result + Objects.hashCode(this.id);
     return result;
   }
   
@@ -70,10 +49,9 @@ public class Influence extends Event {
     result.append("v  = ").append(this.v);
     result.append("newpos  = ").append(this.newpos);
     result.append("body  = ").append(this.body);
-    result.append("id  = ").append(this.id);
     return result.toString();
   }
   
   @SyntheticMember
-  private final static long serialVersionUID = 3890678800L;
+  private final static long serialVersionUID = 3621897213L;
 }

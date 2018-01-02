@@ -1,0 +1,61 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.events
+
+import java.util.List
+import utbm.ia54.ant2dgrid.objects.Cell
+import utbm.ia54.ant2dgrid.objects.Vector2i
+import java.util.UUID
+import utbm.ia54.ant2dgrid.objects.AntBody
+import utbm.ia54.ant2dgrid.Enum.Direction
+
+/** 
+ * @author Michel
+ * 
+ */
+event ConfigureSimulation
+
+event StartSimulation 
+
+event AntInitialize{
+	var body : AntBody
+	new(body : AntBody){
+		this.body = body
+	}
+}
+
+event Continue
+
+event Perception{
+	var list : List<Cell>
+	new (list : List<Cell>){
+		this.list = list
+	}
+}
+
+event Influence{
+	//Initial position
+	var v : Vector2i
+	//The direction to move
+	var newpos : Vector2i
+	var body : AntBody
+	var id : UUID
+	new(v : Vector2i, newpos : Vector2i, body : AntBody, id : UUID) {
+		this.v = v
+		this.newpos = newpos
+		this.body = body
+		this.id = id
+	}
+}
+
+event AcceptInfluence{
+	var direction : Direction
+	var accept : boolean
+	new(direction : Direction, accept : boolean){
+		this.direction = direction
+		this.accept = accept
+	}
+}
+
+event EndSimulation

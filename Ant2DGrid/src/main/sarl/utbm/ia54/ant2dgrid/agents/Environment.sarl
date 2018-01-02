@@ -66,7 +66,7 @@ agent Environment {
 		if(!launched){
 			//task every
 			synchronized(grid){
-				//ctrl update
+				ctrl.update(grid)
 				antAddresses.forEach [ id, address |
 					var list = getPerception(id)
 					innerContext.defaultSpace.emit(ID, new Perception(list), Scopes.addresses(address))
@@ -78,15 +78,13 @@ agent Environment {
 	on Influence{
 		var accept = false
 		var oldPosition = occurrence.v
-		//var newPosition = toVector(occurrence.direction)
 		var newPosition = occurrence.newpos
-		var id = occurrence.id
+		newPosition.plus(oldPosition)
 		var body = occurrence.body
-		//newPosition.plus(oldPosition)
 		synchronized(grid){
 			if(getCell(newPosition.x*height+newPosition.y).state===CellState.NORMAL){
-				removeAntCell(oldPosition, id, body)
-				createAnt(newPosition, id, body)
+				removeAntCell(oldPosition, body.ID, body)
+				createAnt(newPosition, body.ID, body)
 				accept = true
 			}
 		}
@@ -106,21 +104,6 @@ agent Environment {
 	
 	on EndSimulation{
 		killMe
-	}
-	
-	def toVector(direction : Direction) : Vector2i{
-		var vector : Vector2i
-		switch(direction){
-			case Direction.UP:
-				vector = new Vector2i(0,-1)
-			case Direction.DOWN:
-				vector = new Vector2i(0, 1)
-			case Direction.LEFT:
-				vector = new Vector2i(-1, 0)
-			case Direction.RIGHT:
-				vector = new Vector2i(1, 0)
-		}
-		vector
 	}
 	
 }

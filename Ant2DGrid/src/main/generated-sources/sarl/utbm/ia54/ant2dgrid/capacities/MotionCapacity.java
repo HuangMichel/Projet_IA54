@@ -4,7 +4,6 @@ import io.sarl.lang.annotation.SarlElementType;
 import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.core.AgentTrait;
 import io.sarl.lang.core.Capacity;
-import java.util.UUID;
 import utbm.ia54.ant2dgrid.objects.AntBody;
 import utbm.ia54.ant2dgrid.objects.Vector2i;
 
@@ -15,28 +14,28 @@ import utbm.ia54.ant2dgrid.objects.Vector2i;
 @SarlElementType(18)
 @SuppressWarnings("all")
 public interface MotionCapacity extends Capacity {
-  public abstract void move(final Vector2i v, final Vector2i newpos, final AntBody body, final UUID id);
+  public abstract Vector2i move(final Vector2i newpos, final AntBody body);
   
-  public abstract void randomMove(final Vector2i v, final AntBody body, final UUID id);
+  public abstract Vector2i randomMove(final Vector2i newpos, final AntBody body);
   
   public static class ContextAwareCapacityWrapper<C extends MotionCapacity> extends Capacity.ContextAwareCapacityWrapper<C> implements MotionCapacity {
     public ContextAwareCapacityWrapper(final C capacity, final AgentTrait caller) {
       super(capacity, caller);
     }
     
-    public void move(final Vector2i v, final Vector2i newpos, final AntBody body, final UUID id) {
+    public Vector2i move(final Vector2i newpos, final AntBody body) {
       try {
         ensureCallerInLocalThread();
-        this.capacity.move(v, newpos, body, id);
+        return this.capacity.move(newpos, body);
       } finally {
         resetCallerInLocalThread();
       }
     }
     
-    public void randomMove(final Vector2i v, final AntBody body, final UUID id) {
+    public Vector2i randomMove(final Vector2i newpos, final AntBody body) {
       try {
         ensureCallerInLocalThread();
-        this.capacity.randomMove(v, body, id);
+        return this.capacity.randomMove(newpos, body);
       } finally {
         resetCallerInLocalThread();
       }
