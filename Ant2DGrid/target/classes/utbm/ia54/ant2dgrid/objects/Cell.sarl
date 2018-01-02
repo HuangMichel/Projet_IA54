@@ -154,11 +154,19 @@ class Cell extends Pane{
 		setColor
 		setFood
 	}
+
+	def getPheromoneHome {
+		this.pheromoneHome
+	}
 	
 	def getPheromoneHomeIntensity : float {
 		synchronized (pheromoneHome) {
 			this.pheromoneHome.intensity
 		}
+	}
+
+	def getPheromoneFood {
+		this.pheromoneFood
 	}
 	
 	def getPheromoneFoodIntensity : float{

@@ -12,6 +12,9 @@ import javafx.scene.input.MouseEvent
 import javafx.^event.EventHandler
 import utbm.ia54.ant2dgrid.events.ConfigureSimulation
 import utbm.ia54.ant2dgrid.Enum.CellState
+import javafx.scene.shape.Rectangle
+import javafx.scene.paint.Color
+import javafx.geometry.Insets
 
 /** 
  * @author aelez
@@ -59,7 +62,10 @@ class Ant2DGridFxViewerController extends FxViewerController{
 		grid = generator.generateMap
 		for (var i = 0; i < getWidth; i++) {
 			for (var j = 0; j < getHeight; j++) {
+				var cell = grid.get(i * getHeight + j)
 				gridZone.add(grid.get(i * getHeight + j), i, j)
+				gridZone.add(cell.pheromoneHome.objfx, cell.position.x, cell.position.y,1,1)
+				gridZone.add(cell.pheromoneFood.objfx, cell.position.x, cell.position.y, 1, 2)				
 			}
 		}
 		if (mapCreated === false) {
@@ -69,15 +75,19 @@ class Ant2DGridFxViewerController extends FxViewerController{
 		}
 		addCellEvent
 	}
-	
+
 	def addCellEvent {
 		gridZone.children.forEach[item | item.onMouseClicked = new EventHandler<MouseEvent>(){
 			def handle(^event : MouseEvent) {
 				var cell = item as Cell
 				if (^event.clickCount === 1) {
 					println(cell.toString)
+					cell.incrementPheromoneHomeIntensity
 				}else if(^event.clickCount === 2 && cell.state === CellState.NORMAL){
-					cell.state = CellState.WALL
+					//cell.state = CellState.WALL
+					cell.incrementPheromoneFoodIntensity
+					
+					
 				}else if(^event.clickCount === 3 && cell.state === CellState.WALL){
 					cell.state = CellState.NORMAL
 				}

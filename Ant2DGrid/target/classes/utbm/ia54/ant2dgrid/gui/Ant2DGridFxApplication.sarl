@@ -22,12 +22,12 @@ class Ant2DGridFxApplication extends FxApplication {
 			typeof(Ant2DGridFxApplication).package.name.replaceAll("\\.", "/") + "/" + simpleName)
 
 		//var location = class.getResource(simpleName + ".fxml")
-		var urlstr = new URL(
-			"file:/C:/Users/Michel/Desktop/Projet_IA54/Ant2DGrid/src/main/resources/utbm/ia54/ant2dgrid/gui/" +
-				simpleName + ".fxml")
 		//var urlstr = new URL(
-			//"file:/D:/GitHub/Projet_IA54/Ant2DGrid/src/main/resources/utbm/ia54/ant2dgrid/gui/" +
-			//	simpleName + ".fxml")		
+			//"file:/C:/Users/Michel/Desktop/Projet_IA54/Ant2DGrid/src/main/resources/utbm/ia54/ant2dgrid/gui/" +
+				//simpleName + ".fxml")
+		var urlstr = new URL(
+			"file:/D:/GitHub/Projet_IA54/Ant2DGrid/src/main/resources/utbm/ia54/ant2dgrid/gui/" +
+				simpleName + ".fxml")		
 				
 		var location =  urlstr
 		var loader = new FXMLLoader
