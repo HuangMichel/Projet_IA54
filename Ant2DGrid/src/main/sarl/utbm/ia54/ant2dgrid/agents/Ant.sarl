@@ -70,12 +70,7 @@ agent Ant {
 					}
 				}
 			}
-<<<<<<< HEAD
-			//move
-=======
-			
 			move(body.position, tempVector, body, this.ID)
->>>>>>> 9f6603cbbc6d1f10569d862d8aa199d83e2e9442
 		}
 	}
 }

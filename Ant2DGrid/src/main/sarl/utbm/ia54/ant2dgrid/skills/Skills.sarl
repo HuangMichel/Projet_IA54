@@ -32,12 +32,10 @@ skill MotionSkill implements MotionCapacity{
 	uses DefaultContextInteractions
 	
 	def move(v : Vector2i, newpos : Vector2i, body : AntBody, id : UUID) {
-		//throw new UnsupportedOperationException("TODO: auto-generated method stub")
 		emit(new Influence(v,newpos,body,id))
 	}
 	
 	def randomMove(v : Vector2i, body : AntBody, id : UUID) {
-		// throw new UnsupportedOperationException("TODO: auto-generated method stub")
 		val randomNum = ThreadLocalRandom.current().nextInt(0, 3 + 1)
 		switch(randomNum){
 			case 0:
