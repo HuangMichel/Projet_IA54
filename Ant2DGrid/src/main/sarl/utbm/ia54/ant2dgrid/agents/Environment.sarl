@@ -22,6 +22,7 @@ import utbm.ia54.ant2dgrid.Enum.Direction
 import utbm.ia54.ant2dgrid.objects.Vector2i
 import utbm.ia54.ant2dgrid.Enum.CellState
 import utbm.ia54.ant2dgrid.events.AcceptInfluence
+import io.sarl.core.DefaultContextInteractions
 
 /** 
  * @author Michel
@@ -29,11 +30,12 @@ import utbm.ia54.ant2dgrid.events.AcceptInfluence
  */
 agent Environment {
 	
-	uses Lifecycle, Logging, InnerContextAccess, EnvironmentManagerCapacity
-	
+	uses Lifecycle, Logging, InnerContextAccess, EnvironmentManagerCapacity, DefaultContextInteractions
+
 	/* The fx viewer controller */
 	private var ctrl : Ant2DGridFxViewerController = null
 	private var launched : Boolean = false
+	private var counter = 0
 	
 	on Initialize {
 		loggingName = "Environment " + this.ID
@@ -57,6 +59,7 @@ agent Environment {
 		for(var i = 0; i<antQuantity; i++){
 			spawnInContext(typeof(Ant), innerContext,#[i+1, homeCell.position])
 		}
+		//emit(new Continue())
 	}
 	
 	on Continue{
@@ -75,10 +78,11 @@ agent Environment {
 	on Influence{
 		var accept = false
 		var oldPosition = occurrence.v
-		var newPosition = toVector(occurrence.direction)
+		//var newPosition = toVector(occurrence.direction)
+		var newPosition = occurrence.newpos
 		var id = occurrence.id
 		var body = occurrence.body
-		newPosition.plus(oldPosition)
+		//newPosition.plus(oldPosition)
 		synchronized(grid){
 			if(getCell(newPosition.x*height+newPosition.y).state===CellState.NORMAL){
 				removeAntCell(oldPosition, id, body)
@@ -86,10 +90,14 @@ agent Environment {
 				accept = true
 			}
 		}
-
-		if (accept) {
-			innerContext.defaultSpace.emit(this.ID, new AcceptInfluence(occurrence.direction, accept), Scopes.addresses(getAddress(id)))
+		counter += 1
+		if (counter === ctrl.antQuantity){
+			emit(new Continue())
+			counter = 0
 		}
+		//if (accept) {
+		//	innerContext.defaultSpace.emit(this.ID, new AcceptInfluence(occurrence.direction, accept), Scopes.addresses(getAddress(id)))
+		//}
 	}
 	
 	on Destroy{

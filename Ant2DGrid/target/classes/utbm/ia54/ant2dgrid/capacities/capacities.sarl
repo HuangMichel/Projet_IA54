@@ -21,8 +21,8 @@ import java.util.Map
   * Capacity to move for an Ant
   */
 capacity MotionCapacity {
-	def move(direction : Direction)
-	def randomMove
+	def move(v : Vector2i, newpos : Vector2i, body : AntBody, id : UUID)
+	def randomMove(v : Vector2i, body : AntBody, id : UUID)
 }
 
 capacity PheromoneCapacity{

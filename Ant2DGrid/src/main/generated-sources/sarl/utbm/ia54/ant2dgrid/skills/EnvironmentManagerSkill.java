@@ -200,15 +200,36 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
   @Override
   @SyntheticMember
   public boolean equals(final Object obj) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe return type is incompatible with equals(Object). Current method has the return type: void. The super method has the return type: boolean."
-      + "\nThe return type is incompatible with equals(Object). Current method has the return type: void. The super method has the return type: boolean.");
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    EnvironmentManagerSkill other = (EnvironmentManagerSkill) obj;
+    if (other.width != this.width)
+      return false;
+    if (other.height != this.height)
+      return false;
+    if (other.antQuantity != this.antQuantity)
+      return false;
+    if (other.homeCellPosition != this.homeCellPosition)
+      return false;
+    if (other.foodCellPosition != this.foodCellPosition)
+      return false;
+    return super.equals(obj);
   }
   
   @Override
   @SyntheticMember
   public int hashCode() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe return type is incompatible with equals(Object). Current method has the return type: void. The super method has the return type: boolean.");
+    int result = super.hashCode();
+    final int prime = 31;
+    result = prime * result + this.width;
+    result = prime * result + this.height;
+    result = prime * result + this.antQuantity;
+    result = prime * result + this.homeCellPosition;
+    result = prime * result + this.foodCellPosition;
+    return result;
   }
 }

@@ -37,7 +37,7 @@ agent Ant {
 		this.idEnv = occurrence.spawner
 		this.selfIDAnt = occurrence.parameters.get(0) as Integer
 		info("The agent Ant " + selfID + " was started.")
-		setSkill(new MotionSkill, typeof(MotionSkill))
+		setSkill(new MotionSkill, typeof(MotionCapacity))
 		emit(new AntInitialize(this.body))
 	}
 
@@ -71,7 +71,7 @@ agent Ant {
 				}
 			}
 			
-			//move
+			move(body.position, tempVector, body, this.ID)
 		}
 	}
 }
