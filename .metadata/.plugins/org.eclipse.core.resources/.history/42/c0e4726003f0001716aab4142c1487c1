@@ -1,0 +1,96 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.objects
+
+import java.util.UUID
+import utbm.ia54.ant2dgrid.Enum.AntState
+import javafx.scene.shape.Shape
+import javafx.scene.shape.Polygon
+import javafx.scene.paint.Color
+
+/** 
+ * @author Michel
+ * 
+ */
+class AntBody {
+	private var id : UUID
+	private var ^capacity : float
+	private var position : Vector2i
+	private var state : AntState
+	private var shape : Shape
+	 var color : Color
+	
+	new(id : UUID, position : Vector2i){
+		this.id = id
+		this.position = position
+		this.^capacity = 2f
+		this.state = AntState.SEARCH_FOOD
+		setShape
+	}
+	
+	new(body : AntBody){
+		this.id = body.id
+		this.^capacity = body.^capacity
+		this.position = body.position
+		this.state = AntState.SEARCH_FOOD
+		setShape
+	}
+	
+	def setShape {
+		this.color = new Color(0f, 0f, 0f, 0)
+		this.shape = new Polygon(
+			10,
+			10,
+			20,
+			10,
+			10,
+			20
+		)
+		this.shape.fill = this.color
+	}
+	
+	def getShape : Shape{
+		this.shape
+	}
+	
+	def getID : UUID{
+		this.id
+	}
+	
+	def getCapacity : float {
+		this.^capacity
+	}
+	
+	def getPosition : Vector2i{
+		this.position
+	}
+	
+	def getState : AntState{
+		this.state
+	}
+	
+	def setID(id : UUID){
+		this.id = id
+	}
+	
+	def setPosition(position : Vector2i){
+		this.position = position
+	}
+	
+	def setCapacity(f : float){
+		this.^capacity = f
+	}
+	
+	def setState(state : AntState){
+		this.state = state
+	}
+	
+	def toString : String {
+		var string = "id : " + id +
+		"\n position : " + position.toString +
+		"\n capacity : " + ^capacity +
+		"\n state : " + state
+		string
+	}
+}

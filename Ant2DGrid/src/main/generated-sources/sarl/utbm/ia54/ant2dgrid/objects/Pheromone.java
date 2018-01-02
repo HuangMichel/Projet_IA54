@@ -7,6 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
+import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.AntState;
 
 /**
@@ -70,14 +71,17 @@ public class Pheromone {
     }
   }
   
+  @Pure
   public AntState getType() {
     return this.type;
   }
   
+  @Pure
   public float getIntensity() {
     return this.intensity;
   }
   
+  @Pure
   public float getCoefEvaportation() {
     return this.coefEvaporation;
   }
@@ -92,30 +96,49 @@ public class Pheromone {
   
   public void incrementIntensity() {
     this.intensity++;
-    double _red = this.color.getRed();
-    double _green = this.color.getGreen();
-    double _blue = this.color.getBlue();
     double _opacity = this.color.getOpacity();
-    double _plus = (_opacity + 0.05);
-    Color _color = new Color(_red, _green, _blue, _plus);
-    this.color = _color;
-    this.objfx.setFill(this.color);
+    boolean _lessThan = (_opacity < 0.9f);
+    if (_lessThan) {
+      double _red = this.color.getRed();
+      double _green = this.color.getGreen();
+      double _blue = this.color.getBlue();
+      double _opacity_1 = this.color.getOpacity();
+      double _plus = (_opacity_1 + 0.05);
+      Color _color = new Color(_red, _green, _blue, _plus);
+      this.color = _color;
+      this.objfx.setFill(this.color);
+    }
   }
   
-  public float evaporation() {
+  public void evaporation() {
     float _intensity = this.intensity;
-    return this.intensity = (_intensity * this.coefEvaporation);
+    this.intensity = (_intensity * this.coefEvaporation);
+    double _opacity = this.color.getOpacity();
+    boolean _greaterThan = (_opacity > 0f);
+    if (_greaterThan) {
+      double _red = this.color.getRed();
+      double _green = this.color.getGreen();
+      double _blue = this.color.getBlue();
+      double _opacity_1 = this.color.getOpacity();
+      double _minus = (_opacity_1 - 0.05);
+      Color _color = new Color(_red, _green, _blue, _minus);
+      this.color = _color;
+      this.objfx.setFill(this.color);
+    }
   }
   
+  @Pure
   public Shape getObjfx() {
     return this.objfx;
   }
   
+  @Pure
   public String toString() {
     return ("Intensity : " + Float.valueOf(this.intensity));
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -133,6 +156,7 @@ public class Pheromone {
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

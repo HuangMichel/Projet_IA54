@@ -5,6 +5,9 @@ package utbm.ia54.ant2dgrid.objects
 
 import java.util.UUID
 import utbm.ia54.ant2dgrid.Enum.AntState
+import javafx.scene.shape.Shape
+import javafx.scene.shape.Polygon
+import javafx.scene.paint.Color
 
 /** 
  * @author Michel
@@ -15,6 +18,7 @@ class AntBody {
 	private var ^capacity : float
 	private var position : Vector2i
 	private var state : AntState
+	
 	
 	new(id : UUID, position : Vector2i){
 		this.id = id

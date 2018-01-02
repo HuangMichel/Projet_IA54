@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
+import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.events.ConfigureSimulation;
 import utbm.ia54.ant2dgrid.gui.fx.FxViewerController;
@@ -45,18 +46,22 @@ public class Ant2DGridFxViewerController extends FxViewerController {
   
   private boolean launched = false;
   
+  @Pure
   public List<Cell> getGrid() {
     return this.grid;
   }
   
+  @Pure
   public int getAntQuantity() {
     return Integer.parseInt(this.numberOfAnt.getText());
   }
   
+  @Pure
   public int getWidth() {
     return this.gridZone.getRowConstraints().size();
   }
   
+  @Pure
   public int getHeight() {
     return this.gridZone.getColumnConstraints().size();
   }
@@ -74,12 +79,14 @@ public class Ant2DGridFxViewerController extends FxViewerController {
           int _multiply = (i * _height_1);
           int _plus = (_multiply + j);
           Cell cell = this.grid.get(_plus);
-          int _height_2 = this.getHeight();
-          int _multiply_1 = (i * _height_2);
-          int _plus_1 = (_multiply_1 + j);
-          this.gridZone.add(this.grid.get(_plus_1), i, j);
+          this.gridZone.add(cell, i, j);
           this.gridZone.add(cell.getPheromoneHome().getObjfx(), cell.getPosition().getX(), cell.getPosition().getY(), 1, 1);
           this.gridZone.add(cell.getPheromoneFood().getObjfx(), cell.getPosition().getX(), cell.getPosition().getY(), 1, 2);
+          CellState _state = cell.getState();
+          boolean _tripleEquals = (_state == CellState.NORMAL);
+          if (_tripleEquals) {
+            this.gridZone.add(cell.getShapeAnt(), cell.getPosition().getX(), cell.getPosition().getY(), 2, 1);
+          }
         }
       }
     }
@@ -104,10 +111,9 @@ public class Ant2DGridFxViewerController extends FxViewerController {
           boolean _tripleEquals = (_clickCount == 1);
           if (_tripleEquals) {
             InputOutput.<String>println(cell.toString());
-            cell.incrementPheromoneHomeIntensity();
+            cell.decrementOpacity();
           } else {
             if (((event.getClickCount() == 2) && (cell.getState() == CellState.NORMAL))) {
-              cell.incrementPheromoneFoodIntensity();
             } else {
               if (((event.getClickCount() == 3) && (cell.getState() == CellState.WALL))) {
                 cell.setState(CellState.NORMAL);
@@ -138,7 +144,12 @@ public class Ant2DGridFxViewerController extends FxViewerController {
     }
   }
   
+  @Pure
+  public void update(final List<Cell> list) {
+  }
+  
   @Override
+  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -156,6 +167,7 @@ public class Ant2DGridFxViewerController extends FxViewerController {
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

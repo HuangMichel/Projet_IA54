@@ -10,6 +10,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Shape;
+import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.AntState;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.agents.Ant;
@@ -59,6 +63,10 @@ public class Cell extends Pane {
    */
   private float foodInNest;
   
+  private Shape shapeAnt;
+  
+  private Color color;
+  
   public Cell() {
     Vector2i _vector2i = new Vector2i();
     this.vector = _vector2i;
@@ -70,6 +78,7 @@ public class Cell extends Pane {
     this.pheromoneHome = _pheromone;
     Pheromone _pheromone_1 = new Pheromone();
     this.pheromoneFood = _pheromone_1;
+    this.setShapeAnt();
   }
   
   public Cell(final int x, final int y) {
@@ -83,6 +92,7 @@ public class Cell extends Pane {
     this.pheromoneHome = _pheromone;
     Pheromone _pheromone_1 = new Pheromone();
     this.pheromoneFood = _pheromone_1;
+    this.setShapeAnt();
   }
   
   public Cell(final Vector2i v) {
@@ -95,6 +105,7 @@ public class Cell extends Pane {
     this.pheromoneHome = _pheromone;
     Pheromone _pheromone_1 = new Pheromone();
     this.pheromoneFood = _pheromone_1;
+    this.setShapeAnt();
   }
   
   public Cell(final int x, final int y, final CellState state) {
@@ -108,6 +119,7 @@ public class Cell extends Pane {
     this.pheromoneHome = _pheromone;
     Pheromone _pheromone_1 = new Pheromone();
     this.pheromoneFood = _pheromone_1;
+    this.setShapeAnt();
   }
   
   public Cell(final Vector2i v, final ArrayList<Ant> antList, final CellState state) {
@@ -121,6 +133,7 @@ public class Cell extends Pane {
     this.pheromoneHome = _pheromone;
     Pheromone _pheromone_1 = new Pheromone();
     this.pheromoneFood = _pheromone_1;
+    this.setShapeAnt();
   }
   
   public Cell(final int x, final int y, final Map<UUID, AntBody> antList, final CellState state) {
@@ -133,8 +146,10 @@ public class Cell extends Pane {
     this.pheromoneHome = _pheromone;
     Pheromone _pheromone_1 = new Pheromone();
     this.pheromoneFood = _pheromone_1;
+    this.setShapeAnt();
   }
   
+  @Pure
   public Vector2i getPosition() {
     return this.vector;
   }
@@ -148,22 +163,21 @@ public class Cell extends Pane {
     this.vector.setY(y);
   }
   
-  public AntBody addAnt(final UUID id, final AntBody ant) {
-    AntBody _xsynchronizedexpression = null;
+  public void addAnt(final UUID id, final AntBody ant) {
     synchronized (this.antList) {
-      _xsynchronizedexpression = this.antList.put(id, ant);
+      this.antList.put(id, ant);
+      this.incrementOpacity();
     }
-    return _xsynchronizedexpression;
   }
   
-  public boolean removeAnt(final UUID id, final AntBody ant) {
-    boolean _xsynchronizedexpression = false;
+  public void removeAnt(final UUID id, final AntBody ant) {
     synchronized (this.antList) {
-      _xsynchronizedexpression = this.antList.remove(id, ant);
+      this.antList.remove(id, ant);
+      this.decrementOpacity();
     }
-    return _xsynchronizedexpression;
   }
   
+  @Pure
   public Map<UUID, AntBody> getAntList() {
     Map<UUID, AntBody> _xsynchronizedexpression = null;
     synchronized (this.antList) {
@@ -172,6 +186,7 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
+  @Pure
   public int getNumberAnt() {
     int _xsynchronizedexpression = (int) 0;
     synchronized (this.antList) {
@@ -180,6 +195,7 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
+  @Pure
   public CellState getState() {
     return this.state;
   }
@@ -194,10 +210,12 @@ public class Cell extends Pane {
     return _xblockexpression;
   }
   
+  @Pure
   public Pheromone getPheromoneHome() {
     return this.pheromoneHome;
   }
   
+  @Pure
   public float getPheromoneHomeIntensity() {
     float _xsynchronizedexpression = (float) 0;
     synchronized (this.pheromoneHome) {
@@ -206,10 +224,12 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
+  @Pure
   public Pheromone getPheromoneFood() {
     return this.pheromoneFood;
   }
   
+  @Pure
   public float getPheromoneFoodIntensity() {
     float _xsynchronizedexpression = (float) 0;
     synchronized (this.pheromoneFood) {
@@ -230,20 +250,16 @@ public class Cell extends Pane {
     }
   }
   
-  public float evaporationPheromoneFood() {
-    float _xsynchronizedexpression = (float) 0;
+  public void evaporationPheromoneFood() {
     synchronized (this.pheromoneFood) {
-      _xsynchronizedexpression = this.pheromoneFood.evaporation();
+      this.pheromoneFood.evaporation();
     }
-    return _xsynchronizedexpression;
   }
   
-  public float evaporationPheromoneHome() {
-    float _xsynchronizedexpression = (float) 0;
+  public void evaporationPheromoneHome() {
     synchronized (this.pheromoneHome) {
-      _xsynchronizedexpression = this.pheromoneHome.evaporation();
+      this.pheromoneHome.evaporation();
     }
-    return _xsynchronizedexpression;
   }
   
   public void removeAllAnt() {
@@ -279,6 +295,7 @@ public class Cell extends Pane {
     this.setStyle(("-fx-background-color: " + color));
   }
   
+  @Pure
   public String getColor() {
     return this.getStyle();
   }
@@ -291,6 +308,7 @@ public class Cell extends Pane {
     return _xifexpression;
   }
   
+  @Pure
   public float getFood() {
     return this.foodToPick;
   }
@@ -299,8 +317,58 @@ public class Cell extends Pane {
     this.foodInNest = n;
   }
   
+  @Pure
   public float getFoodInNest() {
     return this.foodInNest;
+  }
+  
+  private void setShapeAnt() {
+    Color _color = new Color(0f, 0f, 1f, 0);
+    this.color = _color;
+    Polygon _polygon = new Polygon(
+      30, 
+      30, 
+      40, 
+      40, 
+      20, 
+      40);
+    this.shapeAnt = _polygon;
+    this.shapeAnt.setFill(this.color);
+  }
+  
+  public void decrementOpacity() {
+    double _opacity = this.color.getOpacity();
+    boolean _greaterThan = (_opacity > 0f);
+    if (_greaterThan) {
+      double _red = this.color.getRed();
+      double _green = this.color.getGreen();
+      double _blue = this.color.getBlue();
+      double _opacity_1 = this.color.getOpacity();
+      double _minus = (_opacity_1 - 0.05);
+      Color _color = new Color(_red, _green, _blue, _minus);
+      this.color = _color;
+      this.shapeAnt.setFill(this.color);
+    }
+  }
+  
+  public void incrementOpacity() {
+    double _opacity = this.color.getOpacity();
+    boolean _lessThan = (_opacity < 0.9f);
+    if (_lessThan) {
+      double _red = this.color.getRed();
+      double _green = this.color.getGreen();
+      double _blue = this.color.getBlue();
+      double _opacity_1 = this.color.getOpacity();
+      double _plus = (_opacity_1 + 0.05);
+      Color _color = new Color(_red, _green, _blue, _plus);
+      this.color = _color;
+      this.shapeAnt.setFill(this.color);
+    }
+  }
+  
+  @Pure
+  public Shape getShapeAnt() {
+    return this.shapeAnt;
   }
   
   public String toString() {
@@ -326,6 +394,7 @@ public class Cell extends Pane {
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -343,6 +412,7 @@ public class Cell extends Pane {
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

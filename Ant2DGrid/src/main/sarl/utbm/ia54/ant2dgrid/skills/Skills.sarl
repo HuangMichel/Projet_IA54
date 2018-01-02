@@ -94,7 +94,7 @@ skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
 		this.antQuantity
 	}
 	
-	def createAnt (position : Vector2i, id : UUID, body : AntBody): AntBody {
+	def createAnt (position : Vector2i, id : UUID, body : AntBody){
 		this.grid.get(position.x * height + position.y).addAnt(id, body)
 	}
 	

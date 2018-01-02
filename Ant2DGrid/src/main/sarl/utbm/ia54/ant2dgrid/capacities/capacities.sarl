@@ -36,7 +36,7 @@ capacity EnvironmentManagerCapacity{
 	def getWidth : int
 	def getHeight : int
 	def getGrid : List<Cell>
-	def createAnt(position : Vector2i, id : UUID, body : AntBody) : AntBody
+	def createAnt(position : Vector2i, id : UUID, body : AntBody)
 	def getAntQuantity : int
 	def getHomeCell : Cell
 	def getFoodCell : Cell

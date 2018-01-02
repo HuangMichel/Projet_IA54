@@ -16,6 +16,7 @@ import java.util.Map;
 import java.util.UUID;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Inline;
+import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.capacities.EnvironmentManagerCapacity;
 import utbm.ia54.ant2dgrid.events.Perception;
@@ -85,12 +86,12 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
     return this.antQuantity;
   }
   
-  public AntBody createAnt(final Vector2i position, final UUID id, final AntBody body) {
+  public void createAnt(final Vector2i position, final UUID id, final AntBody body) {
     int _x = position.getX();
     int _multiply = (_x * this.height);
     int _y = position.getY();
     int _plus = (_multiply + _y);
-    return this.grid.get(_plus).addAnt(id, body);
+    this.grid.get(_plus).addAnt(id, body);
   }
   
   public void sendPerception(final UUID sender, final UUID id, final List<Cell> list) {
@@ -157,6 +158,7 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
     return this.antAddresses;
   }
   
+  @Pure
   private Vector2i getAntPosition(final UUID id) {
     Vector2i _xblockexpression = null;
     {
@@ -189,6 +191,7 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
   private transient ClearableReference<Skill> $CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS;
   
   @SyntheticMember
+  @Pure
   @Inline(value = "$castSkill(InnerContextAccess.class, ($0$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS == null || $0$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS.get() == null) ? ($0$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS = $0$getSkill(InnerContextAccess.class)) : $0$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS)", imported = InnerContextAccess.class)
   private InnerContextAccess $CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS$CALLER() {
     if (this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS == null || this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS.get() == null) {
@@ -198,17 +201,40 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe return type is incompatible with equals(Object). Current method has the return type: void. The super method has the return type: boolean."
-      + "\nThe return type is incompatible with equals(Object). Current method has the return type: void. The super method has the return type: boolean.");
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    EnvironmentManagerSkill other = (EnvironmentManagerSkill) obj;
+    if (other.width != this.width)
+      return false;
+    if (other.height != this.height)
+      return false;
+    if (other.antQuantity != this.antQuantity)
+      return false;
+    if (other.homeCellPosition != this.homeCellPosition)
+      return false;
+    if (other.foodCellPosition != this.foodCellPosition)
+      return false;
+    return super.equals(obj);
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public int hashCode() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe return type is incompatible with equals(Object). Current method has the return type: void. The super method has the return type: boolean.");
+    int result = super.hashCode();
+    final int prime = 31;
+    result = prime * result + this.width;
+    result = prime * result + this.height;
+    result = prime * result + this.antQuantity;
+    result = prime * result + this.homeCellPosition;
+    result = prime * result + this.foodCellPosition;
+    return result;
   }
 }

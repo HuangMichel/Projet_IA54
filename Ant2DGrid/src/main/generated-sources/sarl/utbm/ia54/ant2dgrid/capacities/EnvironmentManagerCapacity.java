@@ -25,7 +25,7 @@ public interface EnvironmentManagerCapacity extends Capacity {
   
   public abstract List<Cell> getGrid();
   
-  public abstract AntBody createAnt(final Vector2i position, final UUID id, final AntBody body);
+  public abstract void createAnt(final Vector2i position, final UUID id, final AntBody body);
   
   public abstract int getAntQuantity();
   
@@ -79,10 +79,10 @@ public interface EnvironmentManagerCapacity extends Capacity {
       }
     }
     
-    public AntBody createAnt(final Vector2i position, final UUID id, final AntBody body) {
+    public void createAnt(final Vector2i position, final UUID id, final AntBody body) {
       try {
         ensureCallerInLocalThread();
-        return this.capacity.createAnt(position, id, body);
+        this.capacity.createAnt(position, id, body);
       } finally {
         resetCallerInLocalThread();
       }

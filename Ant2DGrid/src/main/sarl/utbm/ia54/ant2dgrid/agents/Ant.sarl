@@ -70,7 +70,6 @@ agent Ant {
 					}
 				}
 			}
-			
 			//move
 		}
 	}

@@ -1,0 +1,72 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.objects
+
+import java.util.UUID
+import utbm.ia54.ant2dgrid.Enum.AntState
+
+/** 
+ * @author Michel
+ * 
+ */
+class AntBody {
+	private var id : UUID
+	private var ^capacity : float
+	private var position : Vector2i
+	private var state : AntState
+	
+	new(id : UUID, position : Vector2i){
+		this.id = id
+		this.position = position
+		this.^capacity = 2f
+		this.state = AntState.SEARCH_FOOD
+	}
+	
+	new(body : AntBody){
+		this.id = body.id
+		this.^capacity = body.^capacity
+		this.position = body.position
+		this.state = AntState.SEARCH_FOOD
+	}
+	
+	def getID : UUID{
+		this.id
+	}
+	
+	def getCapacity : float {
+		this.^capacity
+	}
+	
+	def getPosition : Vector2i{
+		this.position
+	}
+	
+	def getState : AntState{
+		this.state
+	}
+	
+	def setID(id : UUID){
+		this.id = id
+	}
+	
+	def setPosition(position : Vector2i){
+		this.position = position
+	}
+	
+	def setCapacity(f : float){
+		this.^capacity = f
+	}
+	
+	def setState(state : AntState){
+		this.state = state
+	}
+	
+	def toString : String {
+		var string = "id : " + id +
+		"\n position : " + position.toString +
+		"\n capacity : " + ^capacity +
+		"\n state : " + state
+		string
+	}
+}

@@ -74,15 +74,21 @@ class Pheromone {
 	
 	def incrementIntensity{
 		this.intensity++
-		this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity+0.05)
-		this.objfx.setFill(color)
+		if (this.color.opacity < 0.9f) {
+			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity + 0.05)
+			this.objfx.fill = this.color
+		}
 	}
 
 	def evaporation {
 		this.intensity *= this.coefEvaporation
+		if (this.color.opacity > 0f) {
+			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity - 0.05)
+			this.objfx.fill = this.color
+		}
 	}
 	
-	def getObjfx(){
+	def getObjfx : Shape{
 		this.objfx
 	}
 	
