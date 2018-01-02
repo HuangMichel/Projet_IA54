@@ -86,10 +86,10 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
     return this.antQuantity;
   }
   
-  public AntBody createAnt(final UUID id, final AntBody body) {
-    int _x = this.getHomeCell().getPosition().getX();
+  public AntBody createAnt(final Vector2i position, final UUID id, final AntBody body) {
+    int _x = position.getX();
     int _multiply = (_x * this.height);
-    int _y = this.getHomeCell().getPosition().getY();
+    int _y = position.getY();
     int _plus = (_multiply + _y);
     return this.grid.get(_plus).addAnt(id, body);
   }
@@ -116,8 +116,7 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
     this.antAddresses.put(id, address);
   }
   
-  @Pure
-  private Address getAddress(final UUID id) {
+  public Address getAddress(final UUID id) {
     return this.antAddresses.get(id);
   }
   
@@ -178,6 +177,14 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
     return _xblockexpression;
   }
   
+  public void removeAntCell(final Vector2i position, final UUID id, final AntBody body) {
+    int _x = position.getX();
+    int _multiply = (_x * this.height);
+    int _y = position.getY();
+    int _plus = (_multiply + _y);
+    this.getCell(_plus).removeAnt(id, body);
+  }
+  
   @Extension
   @ImportedCapacityFeature(InnerContextAccess.class)
   @SyntheticMember
@@ -197,37 +204,16 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
   @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    EnvironmentManagerSkill other = (EnvironmentManagerSkill) obj;
-    if (other.width != this.width)
-      return false;
-    if (other.height != this.height)
-      return false;
-    if (other.antQuantity != this.antQuantity)
-      return false;
-    if (other.homeCellPosition != this.homeCellPosition)
-      return false;
-    if (other.foodCellPosition != this.foodCellPosition)
-      return false;
-    return super.equals(obj);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe return type is incompatible with equals(Object). Current method has the return type: void. The super method has the return type: boolean."
+      + "\nThe return type is incompatible with equals(Object). Current method has the return type: void. The super method has the return type: boolean.");
   }
   
   @Override
   @Pure
   @SyntheticMember
   public int hashCode() {
-    int result = super.hashCode();
-    final int prime = 31;
-    result = prime * result + this.width;
-    result = prime * result + this.height;
-    result = prime * result + this.antQuantity;
-    result = prime * result + this.homeCellPosition;
-    result = prime * result + this.foodCellPosition;
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe return type is incompatible with equals(Object). Current method has the return type: void. The super method has the return type: boolean.");
   }
 }

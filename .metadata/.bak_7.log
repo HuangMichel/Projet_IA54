@@ -6,9 +6,9 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
 Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 This is a continuation of log file C:\Users\Michel\Desktop\Projet_IA54\.metadata\.bak_6.log
-Created Time: 2018-01-02 15:58:50.561
+Created Time: 2018-01-02 17:10:50.939
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:50.561
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:10:50.939
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -108,7 +108,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:50.561
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:10:50.939
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -208,395 +208,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:52.436
-!MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
-
-!STACK 0
-java.lang.Exception
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.validateResourceState(AbstractBatchTypeResolver.java:77)
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:65)
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:55)
-	at org.eclipse.xtext.xbase.validation.XbaseValidator.getActualType(XbaseValidator.java:224)
-	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2261)
-	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2313)
-	at sun.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.validation.AbstractDeclarativeValidator$MethodWrapper.invoke(AbstractDeclarativeValidator.java:118)
-	at org.eclipse.xtext.validation.AbstractDeclarativeValidator.internalValidate(AbstractDeclarativeValidator.java:312)
-	at org.eclipse.xtext.validation.AbstractInjectableValidator.validate(AbstractInjectableValidator.java:71)
-	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
-	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
-	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
-	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
-	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
-	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
-	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createChildren(SARLOutlineTreeProvider.java:106)
-	at sun.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createChildren(DefaultOutlineTreeProvider.java:115)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:102)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:1)
-	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:63)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode.readOnly(DocumentRootNode.java:59)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode.getChildren(AbstractOutlineNode.java:99)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.restoreChildrenSelectionAndExpansion(OutlineRefreshJob.java:120)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:93)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:1)
-	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.internalRefreshOutlineModel(OutlineRefreshJob.java:89)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:78)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:1)
-	at org.eclipse.xtext.ui.util.DisplayRunnableWithResult$1.run(DisplayRunnableWithResult.java:26)
-	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:58)
-	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:168)
-	at org.eclipse.ui.internal.UISynchronizer.lambda$0(UISynchronizer.java:150)
-	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
-	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1044)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
-	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
-
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:52.437
-!MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
-
-!STACK 0
-java.lang.Exception
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.validateResourceState(AbstractBatchTypeResolver.java:77)
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:65)
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:55)
-	at org.eclipse.xtext.xbase.validation.XbaseValidator.getActualType(XbaseValidator.java:224)
-	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2261)
-	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2313)
-	at sun.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.validation.AbstractDeclarativeValidator$MethodWrapper.invoke(AbstractDeclarativeValidator.java:118)
-	at org.eclipse.xtext.validation.AbstractDeclarativeValidator.internalValidate(AbstractDeclarativeValidator.java:312)
-	at org.eclipse.xtext.validation.AbstractInjectableValidator.validate(AbstractInjectableValidator.java:71)
-	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
-	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
-	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
-	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
-	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
-	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
-	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createChildren(SARLOutlineTreeProvider.java:106)
-	at sun.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createChildren(DefaultOutlineTreeProvider.java:115)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:102)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:1)
-	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:63)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode.readOnly(DocumentRootNode.java:59)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode.getChildren(AbstractOutlineNode.java:99)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.restoreChildrenSelectionAndExpansion(OutlineRefreshJob.java:120)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:93)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:1)
-	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.internalRefreshOutlineModel(OutlineRefreshJob.java:89)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:78)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:1)
-	at org.eclipse.xtext.ui.util.DisplayRunnableWithResult$1.run(DisplayRunnableWithResult.java:26)
-	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:58)
-	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:168)
-	at org.eclipse.ui.internal.UISynchronizer.lambda$0(UISynchronizer.java:150)
-	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
-	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1044)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
-	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
-
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:52.438
-!MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
-
-!STACK 0
-java.lang.Exception
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.validateResourceState(AbstractBatchTypeResolver.java:77)
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:65)
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:55)
-	at org.eclipse.xtext.xbase.validation.XbaseValidator.getActualType(XbaseValidator.java:224)
-	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2261)
-	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2313)
-	at sun.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.validation.AbstractDeclarativeValidator$MethodWrapper.invoke(AbstractDeclarativeValidator.java:118)
-	at org.eclipse.xtext.validation.AbstractDeclarativeValidator.internalValidate(AbstractDeclarativeValidator.java:312)
-	at org.eclipse.xtext.validation.AbstractInjectableValidator.validate(AbstractInjectableValidator.java:71)
-	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
-	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
-	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
-	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
-	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
-	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
-	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createChildren(SARLOutlineTreeProvider.java:106)
-	at sun.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createChildren(DefaultOutlineTreeProvider.java:115)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:102)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:1)
-	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:63)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode.readOnly(DocumentRootNode.java:59)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode.getChildren(AbstractOutlineNode.java:99)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.restoreChildrenSelectionAndExpansion(OutlineRefreshJob.java:120)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:93)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:1)
-	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.internalRefreshOutlineModel(OutlineRefreshJob.java:89)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:78)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:1)
-	at org.eclipse.xtext.ui.util.DisplayRunnableWithResult$1.run(DisplayRunnableWithResult.java:26)
-	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:58)
-	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:168)
-	at org.eclipse.ui.internal.UISynchronizer.lambda$0(UISynchronizer.java:150)
-	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
-	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1044)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
-	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
-
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:52.439
-!MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
-
-!STACK 0
-java.lang.Exception
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.validateResourceState(AbstractBatchTypeResolver.java:77)
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:65)
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:55)
-	at org.eclipse.xtext.xbase.validation.XbaseValidator.getActualType(XbaseValidator.java:224)
-	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2261)
-	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2313)
-	at sun.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.validation.AbstractDeclarativeValidator$MethodWrapper.invoke(AbstractDeclarativeValidator.java:118)
-	at org.eclipse.xtext.validation.AbstractDeclarativeValidator.internalValidate(AbstractDeclarativeValidator.java:312)
-	at org.eclipse.xtext.validation.AbstractInjectableValidator.validate(AbstractInjectableValidator.java:71)
-	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
-	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
-	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
-	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
-	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
-	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
-	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createChildren(SARLOutlineTreeProvider.java:106)
-	at sun.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createChildren(DefaultOutlineTreeProvider.java:115)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:102)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:1)
-	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:63)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode.readOnly(DocumentRootNode.java:59)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode.getChildren(AbstractOutlineNode.java:99)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.restoreChildrenSelectionAndExpansion(OutlineRefreshJob.java:120)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:93)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:1)
-	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.internalRefreshOutlineModel(OutlineRefreshJob.java:89)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:78)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:1)
-	at org.eclipse.xtext.ui.util.DisplayRunnableWithResult$1.run(DisplayRunnableWithResult.java:26)
-	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:58)
-	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:168)
-	at org.eclipse.ui.internal.UISynchronizer.lambda$0(UISynchronizer.java:150)
-	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
-	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1044)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
-	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
-
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:52.446
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:10:50.954
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -696,7 +308,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:52.446
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:10:50.954
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -796,207 +408,264 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:52.446
-!MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:10:51.173
+!MESSAGE org.eclipse.xtext.xbase.resource.BatchLinkableResource  - resolution of uriFragment '/3/@members.14/@returnType' failed.
 
 !STACK 0
-java.lang.Exception
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.validateResourceState(AbstractBatchTypeResolver.java:77)
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:65)
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:55)
-	at org.eclipse.xtext.xbase.validation.XbaseValidator.getActualType(XbaseValidator.java:224)
-	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2261)
-	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2313)
-	at sun.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.validation.AbstractDeclarativeValidator$MethodWrapper.invoke(AbstractDeclarativeValidator.java:118)
-	at org.eclipse.xtext.validation.AbstractDeclarativeValidator.internalValidate(AbstractDeclarativeValidator.java:312)
-	at org.eclipse.xtext.validation.AbstractInjectableValidator.validate(AbstractInjectableValidator.java:71)
-	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
-	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
-	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
-	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
-	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
-	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createChildren(SARLOutlineTreeProvider.java:106)
-	at sun.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createChildren(DefaultOutlineTreeProvider.java:115)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:102)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:1)
+java.lang.IllegalArgumentException: The feature 'returnType' is not a valid feature
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eStructuralFeature(BasicEObjectImpl.java:733)
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eObjectForURIFragmentSegment(BasicEObjectImpl.java:551)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.getEObject(ResourceImpl.java:766)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.getEObject(ResourceImpl.java:742)
+	at org.eclipse.xtext.resource.XtextResource.access$101(XtextResource.java:63)
+	at org.eclipse.xtext.resource.XtextResource$1.getEObject(XtextResource.java:119)
+	at org.eclipse.xtext.resource.DefaultFragmentProvider.getEObject(DefaultFragmentProvider.java:28)
+	at org.eclipse.xtext.resource.XtextResource.basicGetEObject(XtextResource.java:363)
+	at org.eclipse.xtext.resource.XtextResource.getEObject(XtextResource.java:349)
+	at org.eclipse.xtext.linking.lazy.LazyLinkingResource.getEObject(LazyLinkingResource.java:232)
+	at org.eclipse.xtext.resource.persistence.StorageAwareResource.getEObject(StorageAwareResource.java:120)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.getEObject(BatchLinkableResource.java:124)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.lambda$null$4(BatchLinkableResourceStorageLoadable.java:114)
+	at org.eclipse.xtext.xbase.lib.internal.FunctionDelegate.apply(FunctionDelegate.java:42)
+	at com.google.common.collect.Iterators$7.transform(Iterators.java:750)
+	at com.google.common.collect.TransformedIterator.next(TransformedIterator.java:47)
+	at com.google.common.collect.Iterators.addAll(Iterators.java:367)
+	at com.google.common.collect.Iterables.addAll(Iterables.java:332)
+	at com.google.common.collect.Sets.newLinkedHashSet(Sets.java:383)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.lambda$readAssociationsAdapter$5(BatchLinkableResourceStorageLoadable.java:116)
+	at java.util.LinkedHashMap$LinkedEntrySet.forEach(Unknown Source)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.readAssociationsAdapter(BatchLinkableResourceStorageLoadable.java:118)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.loadEntries(BatchLinkableResourceStorageLoadable.java:45)
+	at org.eclipse.xtext.resource.persistence.ResourceStorageLoadable.loadIntoResource(ResourceStorageLoadable.java:53)
+	at org.eclipse.xtext.resource.persistence.StorageAwareResource.loadFromStorage(StorageAwareResource.java:92)
+	at org.eclipse.xtext.resource.persistence.StorageAwareResource.load(StorageAwareResource.java:67)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoad(ResourceSetImpl.java:259)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoadHelper(ResourceSetImpl.java:274)
+	at org.eclipse.xtext.resource.XtextResourceSet.getResource(XtextResourceSet.java:265)
+	at org.eclipse.xtext.resource.SynchronizedXtextResourceSet.getResource(SynchronizedXtextResourceSet.java:25)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getEObject(ResourceSetImpl.java:220)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:201)
+	at org.eclipse.xtext.common.types.access.impl.IndexedJvmTypeAccess.getAccessibleType(IndexedJvmTypeAccess.java:142)
+	at org.eclipse.xtext.common.types.xtext.ui.JdtIndexedJvmTypeAccess.findAccessibleType(JdtIndexedJvmTypeAccess.java:64)
+	at org.eclipse.xtext.common.types.access.impl.IndexedJvmTypeAccess.getIndexedJvmType(IndexedJvmTypeAccess.java:110)
+	at org.eclipse.xtext.common.types.access.impl.IndexedJvmTypeAccess.getIndexedJvmType(IndexedJvmTypeAccess.java:93)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findObjectTypeInIndex(JdtTypeProvider.java:578)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findLoadedOrDerivedObjectType(JdtTypeProvider.java:255)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.doFindObjectType(JdtTypeProvider.java:203)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findObjectType(JdtTypeProvider.java:191)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.doFindTypeByName(JdtTypeProvider.java:149)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findTypeByName(JdtTypeProvider.java:158)
+	at org.eclipse.xtext.common.types.xtext.AbstractTypeScope.getSingleElement(AbstractTypeScope.java:59)
+	at org.eclipse.xtext.common.types.xtext.AbstractTypeScope.getSingleElement(AbstractTypeScope.java:54)
+	at org.eclipse.xtend.core.scoping.LocalResourceFilteringTypeScope.getSingleElement(LocalResourceFilteringTypeScope.java:42)
+	at org.eclipse.xtend.core.scoping.RecordingTypeScope.getSingleElement(RecordingTypeScope.java:51)
+	at org.eclipse.xtext.scoping.impl.AbstractScope.getSingleElement(AbstractScope.java:108)
+	at org.eclipse.xtext.linking.impl.DefaultLinkingService.getLinkedObjects(DefaultLinkingService.java:122)
+	at org.eclipse.xtext.linking.lazy.LazyLinkingResource.getEObject(LazyLinkingResource.java:247)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.getEObject(BatchLinkableResource.java:119)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getEObject(ResourceSetImpl.java:223)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:201)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:261)
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eResolveProxy(BasicEObjectImpl.java:1477)
+	at org.eclipse.xtext.xtype.impl.XImportDeclarationImpl.getImportedType(XImportDeclarationImpl.java:253)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider.getImportScope(XtendImportedNamespaceScopeProvider.java:285)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider.access$2(XtendImportedNamespaceScopeProvider.java:263)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider$1.get(XtendImportedNamespaceScopeProvider.java:132)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider$1.get(XtendImportedNamespaceScopeProvider.java:1)
+	at org.eclipse.xtext.util.OnChangeEvictingCache.get(OnChangeEvictingCache.java:77)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider.getScope(XtendImportedNamespaceScopeProvider.java:120)
+	at org.eclipse.xtext.xbase.scoping.batch.TypeScopes.createTypeScope(TypeScopes.java:59)
+	at org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider.getScope(XbaseBatchScopeProvider.java:105)
+	at org.eclipse.xtext.xbase.annotations.typesystem.XbaseWithAnnotationsBatchScopeProvider.getScope(XbaseWithAnnotationsBatchScopeProvider.java:53)
+	at org.eclipse.xtext.linking.impl.DefaultLinkingService.getScope(DefaultLinkingService.java:59)
+	at org.eclipse.xtext.linking.impl.DefaultLinkingService.getLinkedObjects(DefaultLinkingService.java:120)
+	at org.eclipse.xtext.linking.lazy.LazyLinkingResource.getEObject(LazyLinkingResource.java:247)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.getEObject(BatchLinkableResource.java:119)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getEObject(ResourceSetImpl.java:223)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:201)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:261)
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eResolveProxy(BasicEObjectImpl.java:1477)
+	at org.eclipse.xtext.common.types.impl.JvmTypeReferenceImplCustom.eResolveProxy(JvmTypeReferenceImplCustom.java:31)
+	at org.eclipse.xtext.common.types.impl.JvmParameterizedTypeReferenceImpl.getType(JvmParameterizedTypeReferenceImpl.java:111)
+	at org.eclipse.xtext.common.types.impl.NameConcatHelper.appendType(NameConcatHelper.java:118)
+	at org.eclipse.xtext.common.types.impl.NameConcatHelper.computeFor(NameConcatHelper.java:107)
+	at org.eclipse.xtext.common.types.impl.NameConcatHelper.computeFor(NameConcatHelper.java:84)
+	at org.eclipse.xtext.common.types.impl.JvmParameterizedTypeReferenceImplCustom.getIdentifier(JvmParameterizedTypeReferenceImplCustom.java:22)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer.transform(SARLJvmModelInferrer.java:1571)
+	at org.eclipse.xtend.core.jvmmodel.XtendJvmModelInferrer.transform(XtendJvmModelInferrer.java:568)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer.transform(SARLJvmModelInferrer.java:1428)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer.appendAOPMembers(SARLJvmModelInferrer.java:2232)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer.initialize(SARLJvmModelInferrer.java:1085)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer.lambda$3(SARLJvmModelInferrer.java:669)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer$2$SafeRunnable.run(SARLJvmModelInferrer.java:655)
+	at org.eclipse.xtend.core.jvmmodel.XtendJvmModelInferrer$3.run(XtendJvmModelInferrer.java:218)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.ensureJvmMembersInitialized(BatchLinkableResource.java:231)
+	at org.eclipse.xtext.xbase.jvmmodel.JvmModelAssociator.getOrInstall(JvmModelAssociator.java:112)
+	at org.eclipse.xtext.xbase.jvmmodel.JvmModelAssociator.getLogicalContainerMapping(JvmModelAssociator.java:127)
+	at org.eclipse.xtext.xbase.jvmmodel.JvmModelAssociator.getAssociatedExpression(JvmModelAssociator.java:134)
+	at org.eclipse.xtext.xbase.typesystem.internal.LogicalContainerAwareReentrantTypeResolver.recordExpressions(LogicalContainerAwareReentrantTypeResolver.java:414)
+	at org.eclipse.xtext.xbase.typesystem.internal.LogicalContainerAwareReentrantTypeResolver.prepare(LogicalContainerAwareReentrantTypeResolver.java:408)
+	at org.eclipse.xtext.xbase.typesystem.internal.LogicalContainerAwareReentrantTypeResolver.computeTypes(LogicalContainerAwareReentrantTypeResolver.java:696)
+	at org.eclipse.xtend.core.typesystem.XtendReentrantTypeResolver.computeTypes(XtendReentrantTypeResolver.java:382)
+	at org.eclipse.xtext.xbase.typesystem.internal.DefaultReentrantTypeResolver.resolve(DefaultReentrantTypeResolver.java:163)
+	at org.eclipse.xtext.xbase.typesystem.internal.DefaultReentrantTypeResolver.reentrantResolve(DefaultReentrantTypeResolver.java:139)
+	at org.eclipse.xtext.xbase.typesystem.internal.CompoundReentrantTypeResolver.reentrantResolve(CompoundReentrantTypeResolver.java:79)
+	at org.eclipse.xtext.xbase.typesystem.internal.CachingBatchTypeResolver$LazyResolvedTypes.resolveTypes(CachingBatchTypeResolver.java:80)
+	at org.eclipse.xtext.xbase.typesystem.internal.CachingBatchTypeResolver$2.process(CachingBatchTypeResolver.java:57)
+	at org.eclipse.xtext.xbase.typesystem.internal.CachingBatchTypeResolver$2.process(CachingBatchTypeResolver.java:53)
 	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:63)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode.readOnly(DocumentRootNode.java:59)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode.getChildren(AbstractOutlineNode.java:99)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.restoreChildrenSelectionAndExpansion(OutlineRefreshJob.java:120)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:93)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:1)
-	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.internalRefreshOutlineModel(OutlineRefreshJob.java:89)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:78)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:1)
-	at org.eclipse.xtext.ui.util.DisplayRunnableWithResult$1.run(DisplayRunnableWithResult.java:26)
-	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:58)
-	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:168)
-	at org.eclipse.ui.internal.UISynchronizer.lambda$0(UISynchronizer.java:150)
-	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
-	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1044)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
-	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
+	at org.eclipse.xtext.util.OnChangeEvictingCache.execWithoutCacheClear(OnChangeEvictingCache.java:129)
+	at org.eclipse.xtext.xbase.typesystem.internal.CachingBatchTypeResolver.doResolveTypes(CachingBatchTypeResolver.java:53)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:69)
+	at org.eclipse.xtext.xbase.resource.BatchLinkingService.resolveBatched(BatchLinkingService.java:71)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.resolveLazyCrossReferences(BatchLinkableResource.java:165)
+	at org.eclipse.xtext.EcoreUtil2.resolveLazyCrossReferences(EcoreUtil2.java:498)
+	at org.eclipse.xtext.builder.clustering.ClusteringBuilderState.doUpdate(ClusteringBuilderState.java:230)
+	at org.eclipse.xtext.builder.builderState.AbstractBuilderState.update(AbstractBuilderState.java:116)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:287)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:267)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:161)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:142)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:232)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:52.446
-!MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:01.569
+!MESSAGE org.eclipse.xtext.xbase.resource.BatchLinkableResource  - resolution of uriFragment '/3/@members.14/@returnType' failed.
 
 !STACK 0
-java.lang.Exception
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.validateResourceState(AbstractBatchTypeResolver.java:77)
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:65)
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:55)
-	at org.eclipse.xtext.xbase.validation.XbaseValidator.getActualType(XbaseValidator.java:224)
-	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2261)
-	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2313)
-	at sun.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.validation.AbstractDeclarativeValidator$MethodWrapper.invoke(AbstractDeclarativeValidator.java:118)
-	at org.eclipse.xtext.validation.AbstractDeclarativeValidator.internalValidate(AbstractDeclarativeValidator.java:312)
-	at org.eclipse.xtext.validation.AbstractInjectableValidator.validate(AbstractInjectableValidator.java:71)
-	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
-	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
-	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
-	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
-	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
-	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createChildren(SARLOutlineTreeProvider.java:106)
-	at sun.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createChildren(DefaultOutlineTreeProvider.java:115)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:102)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:1)
+java.lang.IllegalArgumentException: The feature 'returnType' is not a valid feature
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eStructuralFeature(BasicEObjectImpl.java:733)
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eObjectForURIFragmentSegment(BasicEObjectImpl.java:551)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.getEObject(ResourceImpl.java:766)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.getEObject(ResourceImpl.java:742)
+	at org.eclipse.xtext.resource.XtextResource.access$101(XtextResource.java:63)
+	at org.eclipse.xtext.resource.XtextResource$1.getEObject(XtextResource.java:119)
+	at org.eclipse.xtext.resource.DefaultFragmentProvider.getEObject(DefaultFragmentProvider.java:28)
+	at org.eclipse.xtext.resource.XtextResource.basicGetEObject(XtextResource.java:363)
+	at org.eclipse.xtext.resource.XtextResource.getEObject(XtextResource.java:349)
+	at org.eclipse.xtext.linking.lazy.LazyLinkingResource.getEObject(LazyLinkingResource.java:232)
+	at org.eclipse.xtext.resource.persistence.StorageAwareResource.getEObject(StorageAwareResource.java:120)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.getEObject(BatchLinkableResource.java:124)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.lambda$null$4(BatchLinkableResourceStorageLoadable.java:114)
+	at org.eclipse.xtext.xbase.lib.internal.FunctionDelegate.apply(FunctionDelegate.java:42)
+	at com.google.common.collect.Iterators$7.transform(Iterators.java:750)
+	at com.google.common.collect.TransformedIterator.next(TransformedIterator.java:47)
+	at com.google.common.collect.Iterators.addAll(Iterators.java:367)
+	at com.google.common.collect.Iterables.addAll(Iterables.java:332)
+	at com.google.common.collect.Sets.newLinkedHashSet(Sets.java:383)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.lambda$readAssociationsAdapter$5(BatchLinkableResourceStorageLoadable.java:116)
+	at java.util.LinkedHashMap$LinkedEntrySet.forEach(Unknown Source)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.readAssociationsAdapter(BatchLinkableResourceStorageLoadable.java:118)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.loadEntries(BatchLinkableResourceStorageLoadable.java:45)
+	at org.eclipse.xtext.resource.persistence.ResourceStorageLoadable.loadIntoResource(ResourceStorageLoadable.java:53)
+	at org.eclipse.xtext.resource.persistence.StorageAwareResource.loadFromStorage(StorageAwareResource.java:92)
+	at org.eclipse.xtext.resource.persistence.StorageAwareResource.load(StorageAwareResource.java:67)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoad(ResourceSetImpl.java:259)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoadHelper(ResourceSetImpl.java:274)
+	at org.eclipse.xtext.resource.XtextResourceSet.getResource(XtextResourceSet.java:265)
+	at org.eclipse.xtext.resource.SynchronizedXtextResourceSet.getResource(SynchronizedXtextResourceSet.java:25)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getEObject(ResourceSetImpl.java:220)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:201)
+	at org.eclipse.xtext.common.types.access.impl.IndexedJvmTypeAccess.getAccessibleType(IndexedJvmTypeAccess.java:142)
+	at org.eclipse.xtext.common.types.xtext.ui.JdtIndexedJvmTypeAccess.findAccessibleType(JdtIndexedJvmTypeAccess.java:64)
+	at org.eclipse.xtext.common.types.access.impl.IndexedJvmTypeAccess.getIndexedJvmType(IndexedJvmTypeAccess.java:110)
+	at org.eclipse.xtext.common.types.access.impl.IndexedJvmTypeAccess.getIndexedJvmType(IndexedJvmTypeAccess.java:93)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findObjectTypeInIndex(JdtTypeProvider.java:578)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findLoadedOrDerivedObjectType(JdtTypeProvider.java:255)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.doFindObjectType(JdtTypeProvider.java:203)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findObjectType(JdtTypeProvider.java:191)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.doFindTypeByName(JdtTypeProvider.java:149)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findTypeByName(JdtTypeProvider.java:158)
+	at org.eclipse.xtext.common.types.xtext.AbstractTypeScope.getSingleElement(AbstractTypeScope.java:59)
+	at org.eclipse.xtext.common.types.xtext.AbstractTypeScope.getSingleElement(AbstractTypeScope.java:54)
+	at org.eclipse.xtend.core.scoping.LocalResourceFilteringTypeScope.getSingleElement(LocalResourceFilteringTypeScope.java:42)
+	at org.eclipse.xtend.core.scoping.RecordingTypeScope.getSingleElement(RecordingTypeScope.java:51)
+	at org.eclipse.xtext.scoping.impl.AbstractScope.getSingleElement(AbstractScope.java:108)
+	at org.eclipse.xtext.linking.impl.DefaultLinkingService.getLinkedObjects(DefaultLinkingService.java:122)
+	at org.eclipse.xtext.linking.lazy.LazyLinkingResource.getEObject(LazyLinkingResource.java:247)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.getEObject(BatchLinkableResource.java:119)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getEObject(ResourceSetImpl.java:223)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:201)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:261)
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eResolveProxy(BasicEObjectImpl.java:1477)
+	at org.eclipse.xtext.xtype.impl.XImportDeclarationImpl.getImportedType(XImportDeclarationImpl.java:253)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider.getImportScope(XtendImportedNamespaceScopeProvider.java:285)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider.access$2(XtendImportedNamespaceScopeProvider.java:263)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider$1.get(XtendImportedNamespaceScopeProvider.java:132)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider$1.get(XtendImportedNamespaceScopeProvider.java:1)
+	at org.eclipse.xtext.util.OnChangeEvictingCache.get(OnChangeEvictingCache.java:77)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider.getScope(XtendImportedNamespaceScopeProvider.java:120)
+	at org.eclipse.xtext.xbase.scoping.batch.TypeScopes.createTypeScope(TypeScopes.java:59)
+	at org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider.getScope(XbaseBatchScopeProvider.java:105)
+	at org.eclipse.xtext.xbase.annotations.typesystem.XbaseWithAnnotationsBatchScopeProvider.getScope(XbaseWithAnnotationsBatchScopeProvider.java:53)
+	at org.eclipse.xtext.linking.impl.DefaultLinkingService.getScope(DefaultLinkingService.java:59)
+	at org.eclipse.xtext.linking.impl.DefaultLinkingService.getLinkedObjects(DefaultLinkingService.java:120)
+	at org.eclipse.xtext.linking.lazy.LazyLinkingResource.getEObject(LazyLinkingResource.java:247)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.getEObject(BatchLinkableResource.java:119)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getEObject(ResourceSetImpl.java:223)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:201)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:261)
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eResolveProxy(BasicEObjectImpl.java:1477)
+	at org.eclipse.xtext.common.types.impl.JvmTypeReferenceImplCustom.eResolveProxy(JvmTypeReferenceImplCustom.java:31)
+	at org.eclipse.xtext.common.types.impl.JvmParameterizedTypeReferenceImpl.getType(JvmParameterizedTypeReferenceImpl.java:111)
+	at org.eclipse.xtext.common.types.impl.NameConcatHelper.appendType(NameConcatHelper.java:118)
+	at org.eclipse.xtext.common.types.impl.NameConcatHelper.computeFor(NameConcatHelper.java:107)
+	at org.eclipse.xtext.common.types.impl.NameConcatHelper.computeFor(NameConcatHelper.java:84)
+	at org.eclipse.xtext.common.types.impl.JvmParameterizedTypeReferenceImplCustom.getIdentifier(JvmParameterizedTypeReferenceImplCustom.java:22)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer.appendConstrainedImplements(SARLJvmModelInferrer.java:2479)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer.initialize(SARLJvmModelInferrer.java:1288)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer.lambda$6(SARLJvmModelInferrer.java:693)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer$2$SafeRunnable.run(SARLJvmModelInferrer.java:655)
+	at org.eclipse.xtend.core.jvmmodel.XtendJvmModelInferrer$3.run(XtendJvmModelInferrer.java:218)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.ensureJvmMembersInitialized(BatchLinkableResource.java:231)
+	at org.eclipse.xtext.xbase.jvmmodel.JvmModelAssociator.getOrInstall(JvmModelAssociator.java:112)
+	at org.eclipse.xtext.xbase.jvmmodel.JvmModelAssociator.getLogicalContainerMapping(JvmModelAssociator.java:127)
+	at org.eclipse.xtext.xbase.jvmmodel.JvmModelAssociator.getAssociatedExpression(JvmModelAssociator.java:134)
+	at org.eclipse.xtext.xbase.typesystem.internal.LogicalContainerAwareReentrantTypeResolver.recordExpressions(LogicalContainerAwareReentrantTypeResolver.java:414)
+	at org.eclipse.xtext.xbase.typesystem.internal.LogicalContainerAwareReentrantTypeResolver.prepare(LogicalContainerAwareReentrantTypeResolver.java:408)
+	at org.eclipse.xtext.xbase.typesystem.internal.LogicalContainerAwareReentrantTypeResolver.computeTypes(LogicalContainerAwareReentrantTypeResolver.java:696)
+	at org.eclipse.xtend.core.typesystem.XtendReentrantTypeResolver.computeTypes(XtendReentrantTypeResolver.java:382)
+	at org.eclipse.xtext.xbase.typesystem.internal.DefaultReentrantTypeResolver.resolve(DefaultReentrantTypeResolver.java:163)
+	at org.eclipse.xtext.xbase.typesystem.internal.DefaultReentrantTypeResolver.reentrantResolve(DefaultReentrantTypeResolver.java:139)
+	at org.eclipse.xtext.xbase.typesystem.internal.CompoundReentrantTypeResolver.reentrantResolve(CompoundReentrantTypeResolver.java:79)
+	at org.eclipse.xtext.xbase.typesystem.internal.CachingBatchTypeResolver$LazyResolvedTypes.resolveTypes(CachingBatchTypeResolver.java:80)
+	at org.eclipse.xtext.xbase.typesystem.internal.CachingBatchTypeResolver$2.process(CachingBatchTypeResolver.java:57)
+	at org.eclipse.xtext.xbase.typesystem.internal.CachingBatchTypeResolver$2.process(CachingBatchTypeResolver.java:53)
 	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:63)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode.readOnly(DocumentRootNode.java:59)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode.getChildren(AbstractOutlineNode.java:99)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.restoreChildrenSelectionAndExpansion(OutlineRefreshJob.java:120)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:93)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:1)
-	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.internalRefreshOutlineModel(OutlineRefreshJob.java:89)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:78)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:1)
-	at org.eclipse.xtext.ui.util.DisplayRunnableWithResult$1.run(DisplayRunnableWithResult.java:26)
-	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:58)
-	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:168)
-	at org.eclipse.ui.internal.UISynchronizer.lambda$0(UISynchronizer.java:150)
-	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
-	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1044)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
-	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
+	at org.eclipse.xtext.util.OnChangeEvictingCache.execWithoutCacheClear(OnChangeEvictingCache.java:129)
+	at org.eclipse.xtext.xbase.typesystem.internal.CachingBatchTypeResolver.doResolveTypes(CachingBatchTypeResolver.java:53)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:69)
+	at org.eclipse.xtext.xbase.resource.BatchLinkingService.resolveBatched(BatchLinkingService.java:71)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.resolveLazyCrossReferences(BatchLinkableResource.java:165)
+	at org.eclipse.xtext.EcoreUtil2.resolveLazyCrossReferences(EcoreUtil2.java:498)
+	at org.eclipse.xtext.builder.clustering.ClusteringBuilderState.doUpdate(ClusteringBuilderState.java:230)
+	at org.eclipse.xtext.builder.builderState.AbstractBuilderState.update(AbstractBuilderState.java:116)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:287)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:267)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:161)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:142)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:232)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:53.821
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:02.515
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1093,7 +762,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:53.821
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:02.515
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1190,7 +859,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:53.821
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:02.515
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1287,7 +956,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:53.821
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:02.515
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1384,7 +1053,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:53.836
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:02.531
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1484,7 +1153,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:53.836
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:02.531
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1584,7 +1253,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:53.836
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:02.547
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1684,7 +1353,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:53.836
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:02.547
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1784,7 +1453,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:55.528
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:03.187
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1881,7 +1550,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:55.528
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:03.187
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1978,7 +1647,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:55.528
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:03.187
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2075,7 +1744,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:55.528
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:03.187
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2172,7 +1841,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:55.544
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:03.203
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2272,7 +1941,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:55.544
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:03.203
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2372,7 +2041,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:55.544
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:03.203
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2472,7 +2141,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:55.544
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:03.203
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2572,7 +2241,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:57.320
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:10.452
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2669,7 +2338,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:57.336
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:10.452
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2766,7 +2435,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:57.336
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:10.468
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2863,7 +2532,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:57.336
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:10.468
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2960,7 +2629,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:57.336
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:10.468
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -3060,7 +2729,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:57.336
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:10.468
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -3160,7 +2829,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:57.336
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:10.468
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -3260,7 +2929,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:58:57.336
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:10.484
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -3360,7 +3029,134 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:00.756
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:16.166
+!MESSAGE org.eclipse.xtext.xbase.resource.BatchLinkableResource  - resolution of uriFragment '/3/@members.14/@returnType' failed.
+
+!STACK 0
+java.lang.IllegalArgumentException: The feature 'returnType' is not a valid feature
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eStructuralFeature(BasicEObjectImpl.java:733)
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eObjectForURIFragmentSegment(BasicEObjectImpl.java:551)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.getEObject(ResourceImpl.java:766)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.getEObject(ResourceImpl.java:742)
+	at org.eclipse.xtext.resource.XtextResource.access$101(XtextResource.java:63)
+	at org.eclipse.xtext.resource.XtextResource$1.getEObject(XtextResource.java:119)
+	at org.eclipse.xtext.resource.DefaultFragmentProvider.getEObject(DefaultFragmentProvider.java:28)
+	at org.eclipse.xtext.resource.XtextResource.basicGetEObject(XtextResource.java:363)
+	at org.eclipse.xtext.resource.XtextResource.getEObject(XtextResource.java:349)
+	at org.eclipse.xtext.linking.lazy.LazyLinkingResource.getEObject(LazyLinkingResource.java:232)
+	at org.eclipse.xtext.resource.persistence.StorageAwareResource.getEObject(StorageAwareResource.java:120)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.getEObject(BatchLinkableResource.java:124)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.lambda$null$4(BatchLinkableResourceStorageLoadable.java:114)
+	at org.eclipse.xtext.xbase.lib.internal.FunctionDelegate.apply(FunctionDelegate.java:42)
+	at com.google.common.collect.Iterators$7.transform(Iterators.java:750)
+	at com.google.common.collect.TransformedIterator.next(TransformedIterator.java:47)
+	at com.google.common.collect.Iterators.addAll(Iterators.java:367)
+	at com.google.common.collect.Iterables.addAll(Iterables.java:332)
+	at com.google.common.collect.Sets.newLinkedHashSet(Sets.java:383)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.lambda$readAssociationsAdapter$5(BatchLinkableResourceStorageLoadable.java:116)
+	at java.util.LinkedHashMap$LinkedEntrySet.forEach(Unknown Source)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.readAssociationsAdapter(BatchLinkableResourceStorageLoadable.java:118)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.loadEntries(BatchLinkableResourceStorageLoadable.java:45)
+	at org.eclipse.xtext.resource.persistence.ResourceStorageLoadable.loadIntoResource(ResourceStorageLoadable.java:53)
+	at org.eclipse.xtext.resource.persistence.StorageAwareResource.loadFromStorage(StorageAwareResource.java:92)
+	at org.eclipse.xtext.resource.persistence.StorageAwareResource.load(StorageAwareResource.java:67)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoad(ResourceSetImpl.java:259)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoadHelper(ResourceSetImpl.java:274)
+	at org.eclipse.xtext.resource.XtextResourceSet.getResource(XtextResourceSet.java:265)
+	at org.eclipse.xtext.resource.SynchronizedXtextResourceSet.getResource(SynchronizedXtextResourceSet.java:25)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getEObject(ResourceSetImpl.java:220)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:201)
+	at org.eclipse.xtext.common.types.access.impl.IndexedJvmTypeAccess.getAccessibleType(IndexedJvmTypeAccess.java:142)
+	at org.eclipse.xtext.common.types.xtext.ui.JdtIndexedJvmTypeAccess.findAccessibleType(JdtIndexedJvmTypeAccess.java:64)
+	at org.eclipse.xtext.common.types.access.impl.IndexedJvmTypeAccess.getIndexedJvmType(IndexedJvmTypeAccess.java:110)
+	at org.eclipse.xtext.common.types.access.impl.IndexedJvmTypeAccess.getIndexedJvmType(IndexedJvmTypeAccess.java:93)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findObjectTypeInIndex(JdtTypeProvider.java:578)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findLoadedOrDerivedObjectType(JdtTypeProvider.java:255)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.doFindObjectType(JdtTypeProvider.java:203)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findObjectType(JdtTypeProvider.java:191)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.doFindTypeByName(JdtTypeProvider.java:149)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findTypeByName(JdtTypeProvider.java:158)
+	at org.eclipse.xtext.common.types.xtext.AbstractTypeScope.getSingleElement(AbstractTypeScope.java:59)
+	at org.eclipse.xtext.common.types.xtext.AbstractTypeScope.getSingleElement(AbstractTypeScope.java:54)
+	at org.eclipse.xtend.core.scoping.LocalResourceFilteringTypeScope.getSingleElement(LocalResourceFilteringTypeScope.java:42)
+	at org.eclipse.xtend.core.scoping.RecordingTypeScope.getSingleElement(RecordingTypeScope.java:51)
+	at org.eclipse.xtext.scoping.impl.AbstractScope.getSingleElement(AbstractScope.java:108)
+	at org.eclipse.xtext.linking.impl.DefaultLinkingService.getLinkedObjects(DefaultLinkingService.java:122)
+	at org.eclipse.xtext.linking.lazy.LazyLinkingResource.getEObject(LazyLinkingResource.java:247)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.getEObject(BatchLinkableResource.java:119)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getEObject(ResourceSetImpl.java:223)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:201)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:261)
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eResolveProxy(BasicEObjectImpl.java:1477)
+	at org.eclipse.xtext.xtype.impl.XImportDeclarationImpl.getImportedType(XImportDeclarationImpl.java:253)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider.getImportScope(XtendImportedNamespaceScopeProvider.java:285)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider.access$2(XtendImportedNamespaceScopeProvider.java:263)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider$1.get(XtendImportedNamespaceScopeProvider.java:132)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider$1.get(XtendImportedNamespaceScopeProvider.java:1)
+	at org.eclipse.xtext.util.OnChangeEvictingCache.get(OnChangeEvictingCache.java:77)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider.getScope(XtendImportedNamespaceScopeProvider.java:120)
+	at org.eclipse.xtext.xbase.scoping.batch.TypeScopes.createTypeScope(TypeScopes.java:59)
+	at org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider.getScope(XbaseBatchScopeProvider.java:105)
+	at org.eclipse.xtext.xbase.annotations.typesystem.XbaseWithAnnotationsBatchScopeProvider.getScope(XbaseWithAnnotationsBatchScopeProvider.java:53)
+	at org.eclipse.xtext.linking.impl.DefaultLinkingService.getScope(DefaultLinkingService.java:59)
+	at org.eclipse.xtext.linking.impl.DefaultLinkingService.getLinkedObjects(DefaultLinkingService.java:120)
+	at org.eclipse.xtext.linking.lazy.LazyLinkingResource.getEObject(LazyLinkingResource.java:247)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.getEObject(BatchLinkableResource.java:119)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getEObject(ResourceSetImpl.java:223)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:201)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:261)
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eResolveProxy(BasicEObjectImpl.java:1477)
+	at org.eclipse.xtext.common.types.impl.JvmTypeReferenceImplCustom.eResolveProxy(JvmTypeReferenceImplCustom.java:31)
+	at org.eclipse.xtext.common.types.impl.JvmParameterizedTypeReferenceImpl.getType(JvmParameterizedTypeReferenceImpl.java:111)
+	at org.eclipse.xtext.common.types.impl.NameConcatHelper.appendType(NameConcatHelper.java:118)
+	at org.eclipse.xtext.common.types.impl.NameConcatHelper.computeFor(NameConcatHelper.java:107)
+	at org.eclipse.xtext.common.types.impl.NameConcatHelper.computeFor(NameConcatHelper.java:84)
+	at org.eclipse.xtext.common.types.impl.JvmParameterizedTypeReferenceImplCustom.getIdentifier(JvmParameterizedTypeReferenceImplCustom.java:22)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer.appendConstrainedImplements(SARLJvmModelInferrer.java:2479)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer.initialize(SARLJvmModelInferrer.java:1288)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer.lambda$6(SARLJvmModelInferrer.java:693)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer$2$SafeRunnable.run(SARLJvmModelInferrer.java:655)
+	at org.eclipse.xtend.core.jvmmodel.XtendJvmModelInferrer$3.run(XtendJvmModelInferrer.java:218)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.ensureJvmMembersInitialized(BatchLinkableResource.java:231)
+	at org.eclipse.xtext.xbase.jvmmodel.JvmModelAssociator.getOrInstall(JvmModelAssociator.java:112)
+	at org.eclipse.xtext.xbase.jvmmodel.JvmModelAssociator.getLogicalContainerMapping(JvmModelAssociator.java:127)
+	at org.eclipse.xtext.xbase.jvmmodel.JvmModelAssociator.getAssociatedExpression(JvmModelAssociator.java:134)
+	at org.eclipse.xtext.xbase.typesystem.internal.LogicalContainerAwareReentrantTypeResolver.recordExpressions(LogicalContainerAwareReentrantTypeResolver.java:414)
+	at org.eclipse.xtext.xbase.typesystem.internal.LogicalContainerAwareReentrantTypeResolver.prepare(LogicalContainerAwareReentrantTypeResolver.java:408)
+	at org.eclipse.xtext.xbase.typesystem.internal.LogicalContainerAwareReentrantTypeResolver.computeTypes(LogicalContainerAwareReentrantTypeResolver.java:696)
+	at org.eclipse.xtend.core.typesystem.XtendReentrantTypeResolver.computeTypes(XtendReentrantTypeResolver.java:382)
+	at org.eclipse.xtext.xbase.typesystem.internal.DefaultReentrantTypeResolver.resolve(DefaultReentrantTypeResolver.java:163)
+	at org.eclipse.xtext.xbase.typesystem.internal.DefaultReentrantTypeResolver.reentrantResolve(DefaultReentrantTypeResolver.java:139)
+	at org.eclipse.xtext.xbase.typesystem.internal.CompoundReentrantTypeResolver.reentrantResolve(CompoundReentrantTypeResolver.java:79)
+	at org.eclipse.xtext.xbase.typesystem.internal.CachingBatchTypeResolver$LazyResolvedTypes.resolveTypes(CachingBatchTypeResolver.java:80)
+	at org.eclipse.xtext.xbase.typesystem.internal.CachingBatchTypeResolver$2.process(CachingBatchTypeResolver.java:57)
+	at org.eclipse.xtext.xbase.typesystem.internal.CachingBatchTypeResolver$2.process(CachingBatchTypeResolver.java:53)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
+	at org.eclipse.xtext.util.OnChangeEvictingCache.execWithoutCacheClear(OnChangeEvictingCache.java:129)
+	at org.eclipse.xtext.xbase.typesystem.internal.CachingBatchTypeResolver.doResolveTypes(CachingBatchTypeResolver.java:53)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:69)
+	at org.eclipse.xtext.xbase.resource.BatchLinkingService.resolveBatched(BatchLinkingService.java:71)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.resolveLazyCrossReferences(BatchLinkableResource.java:165)
+	at org.eclipse.xtext.EcoreUtil2.resolveLazyCrossReferences(EcoreUtil2.java:498)
+	at org.eclipse.xtext.builder.clustering.ClusteringBuilderState.doUpdate(ClusteringBuilderState.java:230)
+	at org.eclipse.xtext.builder.builderState.AbstractBuilderState.update(AbstractBuilderState.java:116)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:287)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:267)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:161)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:142)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:232)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:17.604
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -3457,7 +3253,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:00.771
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:17.604
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -3554,7 +3350,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:00.771
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:17.604
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -3651,7 +3447,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:00.771
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:17.619
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -3748,7 +3544,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:00.771
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:17.619
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -3848,7 +3644,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:00.771
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:17.619
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -3948,7 +3744,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:00.771
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:17.619
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4048,7 +3844,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:00.771
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:11:17.635
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4148,7 +3944,96 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:04.225
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:26.797
+!MESSAGE org.eclipse.xtext.xbase.resource.BatchLinkableResource  - resolution of uriFragment '/3/@members.14/@returnType' failed.
+
+!STACK 0
+java.lang.IllegalArgumentException: The feature 'returnType' is not a valid feature
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eStructuralFeature(BasicEObjectImpl.java:733)
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eObjectForURIFragmentSegment(BasicEObjectImpl.java:551)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.getEObject(ResourceImpl.java:766)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.getEObject(ResourceImpl.java:742)
+	at org.eclipse.xtext.resource.XtextResource.access$101(XtextResource.java:63)
+	at org.eclipse.xtext.resource.XtextResource$1.getEObject(XtextResource.java:119)
+	at org.eclipse.xtext.resource.DefaultFragmentProvider.getEObject(DefaultFragmentProvider.java:28)
+	at org.eclipse.xtext.resource.XtextResource.basicGetEObject(XtextResource.java:363)
+	at org.eclipse.xtext.resource.XtextResource.getEObject(XtextResource.java:349)
+	at org.eclipse.xtext.linking.lazy.LazyLinkingResource.getEObject(LazyLinkingResource.java:232)
+	at org.eclipse.xtext.resource.persistence.StorageAwareResource.getEObject(StorageAwareResource.java:120)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.getEObject(BatchLinkableResource.java:124)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.lambda$null$4(BatchLinkableResourceStorageLoadable.java:114)
+	at org.eclipse.xtext.xbase.lib.internal.FunctionDelegate.apply(FunctionDelegate.java:42)
+	at com.google.common.collect.Iterators$7.transform(Iterators.java:750)
+	at com.google.common.collect.TransformedIterator.next(TransformedIterator.java:47)
+	at com.google.common.collect.Iterators.addAll(Iterators.java:367)
+	at com.google.common.collect.Iterables.addAll(Iterables.java:332)
+	at com.google.common.collect.Sets.newLinkedHashSet(Sets.java:383)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.lambda$readAssociationsAdapter$5(BatchLinkableResourceStorageLoadable.java:116)
+	at java.util.LinkedHashMap$LinkedEntrySet.forEach(Unknown Source)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.readAssociationsAdapter(BatchLinkableResourceStorageLoadable.java:118)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.loadEntries(BatchLinkableResourceStorageLoadable.java:45)
+	at org.eclipse.xtext.resource.persistence.ResourceStorageLoadable.loadIntoResource(ResourceStorageLoadable.java:53)
+	at org.eclipse.xtext.resource.persistence.StorageAwareResource.loadFromStorage(StorageAwareResource.java:92)
+	at org.eclipse.xtext.resource.persistence.StorageAwareResource.load(StorageAwareResource.java:67)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoad(ResourceSetImpl.java:259)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoadHelper(ResourceSetImpl.java:274)
+	at org.eclipse.xtext.resource.XtextResourceSet.getResource(XtextResourceSet.java:265)
+	at org.eclipse.xtext.resource.SynchronizedXtextResourceSet.getResource(SynchronizedXtextResourceSet.java:25)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getEObject(ResourceSetImpl.java:220)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:201)
+	at org.eclipse.xtext.common.types.access.impl.IndexedJvmTypeAccess.getAccessibleType(IndexedJvmTypeAccess.java:142)
+	at org.eclipse.xtext.common.types.xtext.ui.JdtIndexedJvmTypeAccess.findAccessibleType(JdtIndexedJvmTypeAccess.java:64)
+	at org.eclipse.xtext.common.types.access.impl.IndexedJvmTypeAccess.getIndexedJvmType(IndexedJvmTypeAccess.java:110)
+	at org.eclipse.xtext.common.types.access.impl.IndexedJvmTypeAccess.getIndexedJvmType(IndexedJvmTypeAccess.java:93)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findObjectTypeInIndex(JdtTypeProvider.java:578)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findLoadedOrDerivedObjectType(JdtTypeProvider.java:255)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.doFindObjectType(JdtTypeProvider.java:203)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findObjectType(JdtTypeProvider.java:191)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.doFindTypeByName(JdtTypeProvider.java:149)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findTypeByName(JdtTypeProvider.java:158)
+	at org.eclipse.xtext.common.types.xtext.AbstractTypeScope.getSingleElement(AbstractTypeScope.java:59)
+	at org.eclipse.xtext.common.types.xtext.AbstractTypeScope.getSingleElement(AbstractTypeScope.java:54)
+	at org.eclipse.xtext.common.types.xtext.AbstractTypeScope.getElements(AbstractTypeScope.java:73)
+	at org.eclipse.xtext.resource.persistence.PortableURIs.resolve(PortableURIs.java:171)
+	at org.eclipse.xtext.resource.persistence.StorageAwareResource.getEObject(StorageAwareResource.java:118)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.getEObject(BatchLinkableResource.java:124)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getEObject(ResourceSetImpl.java:223)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:201)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:261)
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eResolveProxy(BasicEObjectImpl.java:1477)
+	at org.eclipse.xtext.common.types.impl.JvmTypeReferenceImplCustom.eResolveProxy(JvmTypeReferenceImplCustom.java:31)
+	at org.eclipse.xtext.common.types.impl.JvmParameterizedTypeReferenceImpl.getType(JvmParameterizedTypeReferenceImpl.java:111)
+	at org.eclipse.xtext.common.types.impl.JvmDeclaredTypeImplCustom$2.apply(JvmDeclaredTypeImplCustom.java:184)
+	at org.eclipse.xtext.common.types.impl.JvmDeclaredTypeImplCustom$2.apply(JvmDeclaredTypeImplCustom.java:181)
+	at com.google.common.base.Predicate.test(Predicate.java:80)
+	at com.google.common.collect.Iterables$4.lambda$forEach$0(Iterables.java:580)
+	at java.lang.Iterable.forEach(Unknown Source)
+	at com.google.common.collect.Iterables$4.forEach(Iterables.java:578)
+	at org.eclipse.xtend.core.resource.XtendResourceDescription.registerAllTypes(XtendResourceDescription.java:185)
+	at org.eclipse.xtend.core.resource.XtendResourceDescription.getImportedNames(XtendResourceDescription.java:124)
+	at org.eclipse.xtext.resource.persistence.SerializableResourceDescription.lambda$createCopy$2(SerializableResourceDescription.java:57)
+	at org.eclipse.xtext.xbase.lib.ObjectExtensions.operator_doubleArrow(ObjectExtensions.java:139)
+	at org.eclipse.xtext.resource.persistence.SerializableResourceDescription.createCopy(SerializableResourceDescription.java:59)
+	at org.eclipse.xtext.resource.persistence.ResourceStorageWritable.writeResourceDescription(ResourceStorageWritable.java:131)
+	at org.eclipse.xtext.resource.persistence.ResourceStorageWritable.writeEntries(ResourceStorageWritable.java:74)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageWritable.writeEntries(BatchLinkableResourceStorageWritable.java:55)
+	at org.eclipse.xtext.resource.persistence.ResourceStorageWritable.writeResource(ResourceStorageWritable.java:51)
+	at org.eclipse.xtext.ui.editor.DirtyStateEditorSupport.announceDirtyState(DirtyStateEditorSupport.java:555)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.postParse(XtextDocumentReconcileStrategy.java:179)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.doReconcile(XtextDocumentReconcileStrategy.java:153)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextDocumentReconcileStrategy.reconcile(XtextDocumentReconcileStrategy.java:67)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.doRun(XtextReconciler.java:449)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.access$3(XtextReconciler.java:429)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:363)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler$1.process(XtextReconciler.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:428)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.internalModify(XtextDocument.java:162)
+	at org.eclipse.xtext.ui.editor.reconciler.XtextReconciler.run(XtextReconciler.java:360)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:27.884
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4245,7 +4130,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:04.225
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:27.884
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4342,7 +4227,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:04.225
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:27.884
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4439,7 +4324,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:04.225
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:27.884
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4536,7 +4421,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:04.240
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:27.900
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4636,7 +4521,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:04.240
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:27.900
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4736,7 +4621,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:04.240
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:27.915
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4836,7 +4721,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:04.240
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:27.915
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4936,7 +4821,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:07.386
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:30.810
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5033,7 +4918,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:07.386
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:30.810
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5130,7 +5015,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:07.386
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:30.810
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5227,7 +5112,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:07.386
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:30.810
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5324,7 +5209,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:07.386
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:30.825
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5424,7 +5309,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:07.386
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:30.825
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5524,7 +5409,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:07.386
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:30.825
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5624,7 +5509,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:07.386
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:30.825
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5724,7 +5609,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:09.855
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:31.792
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5821,7 +5706,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:09.855
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:31.808
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5918,7 +5803,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:09.855
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:31.808
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6015,7 +5900,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:09.855
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:31.808
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6112,7 +5997,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:09.855
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:31.808
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6212,7 +6097,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:09.871
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:31.808
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6312,7 +6197,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:09.871
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:31.823
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6412,7 +6297,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:09.871
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:31.823
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6512,7 +6397,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:11.419
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:34.600
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6609,7 +6494,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:11.419
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:34.600
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6706,7 +6591,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:11.419
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:34.616
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6803,7 +6688,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:11.419
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:34.616
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6900,7 +6785,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:11.434
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:34.663
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7000,7 +6885,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:11.434
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:34.663
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7100,7 +6985,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:11.434
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:34.663
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7200,7 +7085,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:11.450
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:34.663
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7300,7 +7185,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:12.638
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:41.163
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7397,7 +7282,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:12.638
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:41.163
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7494,7 +7379,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:12.638
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:41.163
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7591,7 +7476,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:12.653
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:41.179
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7688,7 +7573,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:12.653
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:41.179
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7788,7 +7673,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:12.653
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:41.194
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7888,7 +7773,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:12.653
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:41.194
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7988,7 +7873,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:12.653
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:41.194
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8088,7 +7973,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:14.294
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:42.460
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8185,7 +8070,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:14.294
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:42.460
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8282,7 +8167,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:14.294
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:42.476
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8379,7 +8264,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:14.294
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:42.476
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8476,7 +8361,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:14.294
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:42.476
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8576,7 +8461,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:14.294
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:42.476
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8676,7 +8561,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:14.294
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:42.476
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8776,7 +8661,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:14.294
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:42.491
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8876,7 +8761,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:17.591
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:49.637
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8973,7 +8858,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:17.607
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:49.637
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9070,7 +8955,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:17.607
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:49.637
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9167,7 +9052,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:17.607
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:49.637
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9264,7 +9149,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:17.607
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:49.652
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9364,7 +9249,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:17.607
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:49.652
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9464,7 +9349,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:17.607
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:49.652
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9564,7 +9449,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:17.607
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:49.652
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9664,7 +9549,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:19.373
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:50.263
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9761,7 +9646,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:19.373
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:50.263
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9858,7 +9743,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:19.373
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:50.263
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9955,7 +9840,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:19.373
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:50.263
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10052,7 +9937,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:19.373
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:50.279
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10152,7 +10037,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:19.373
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:50.279
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10252,7 +10137,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:19.388
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:50.279
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10352,7 +10237,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:19.388
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:50.279
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10452,7 +10337,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:20.560
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:53.560
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10549,7 +10434,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:20.560
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:53.560
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10646,7 +10531,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:20.560
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:53.560
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10743,7 +10628,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:20.560
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:53.560
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10840,7 +10725,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:20.576
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:53.576
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10940,7 +10825,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:20.576
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:53.576
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -11040,7 +10925,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:20.576
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:53.576
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -11140,7 +11025,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:20.576
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:53.576
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -11240,7 +11125,137 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:23.156
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:53.654
+!MESSAGE org.eclipse.xtext.xbase.resource.BatchLinkableResource  - resolution of uriFragment '/3/@members.14/@returnType' failed.
+
+!STACK 0
+java.lang.IllegalArgumentException: The feature 'returnType' is not a valid feature
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eStructuralFeature(BasicEObjectImpl.java:733)
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eObjectForURIFragmentSegment(BasicEObjectImpl.java:551)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.getEObject(ResourceImpl.java:766)
+	at org.eclipse.emf.ecore.resource.impl.ResourceImpl.getEObject(ResourceImpl.java:742)
+	at org.eclipse.xtext.resource.XtextResource.access$101(XtextResource.java:63)
+	at org.eclipse.xtext.resource.XtextResource$1.getEObject(XtextResource.java:119)
+	at org.eclipse.xtext.resource.DefaultFragmentProvider.getEObject(DefaultFragmentProvider.java:28)
+	at org.eclipse.xtext.resource.XtextResource.basicGetEObject(XtextResource.java:363)
+	at org.eclipse.xtext.resource.XtextResource.getEObject(XtextResource.java:349)
+	at org.eclipse.xtext.linking.lazy.LazyLinkingResource.getEObject(LazyLinkingResource.java:232)
+	at org.eclipse.xtext.resource.persistence.StorageAwareResource.getEObject(StorageAwareResource.java:120)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.getEObject(BatchLinkableResource.java:124)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.lambda$null$4(BatchLinkableResourceStorageLoadable.java:114)
+	at org.eclipse.xtext.xbase.lib.internal.FunctionDelegate.apply(FunctionDelegate.java:42)
+	at com.google.common.collect.Iterators$7.transform(Iterators.java:750)
+	at com.google.common.collect.TransformedIterator.next(TransformedIterator.java:47)
+	at com.google.common.collect.Iterators.addAll(Iterators.java:367)
+	at com.google.common.collect.Iterables.addAll(Iterables.java:332)
+	at com.google.common.collect.Sets.newLinkedHashSet(Sets.java:383)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.lambda$readAssociationsAdapter$5(BatchLinkableResourceStorageLoadable.java:116)
+	at java.util.LinkedHashMap$LinkedEntrySet.forEach(Unknown Source)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.readAssociationsAdapter(BatchLinkableResourceStorageLoadable.java:118)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResourceStorageLoadable.loadEntries(BatchLinkableResourceStorageLoadable.java:45)
+	at org.eclipse.xtext.resource.persistence.ResourceStorageLoadable.loadIntoResource(ResourceStorageLoadable.java:53)
+	at org.eclipse.xtext.resource.persistence.StorageAwareResource.loadFromStorage(StorageAwareResource.java:92)
+	at org.eclipse.xtext.resource.persistence.StorageAwareResource.load(StorageAwareResource.java:67)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoad(ResourceSetImpl.java:259)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.demandLoadHelper(ResourceSetImpl.java:274)
+	at org.eclipse.xtext.resource.XtextResourceSet.getResource(XtextResourceSet.java:265)
+	at org.eclipse.xtext.resource.SynchronizedXtextResourceSet.getResource(SynchronizedXtextResourceSet.java:25)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getEObject(ResourceSetImpl.java:220)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:201)
+	at org.eclipse.xtext.common.types.access.impl.IndexedJvmTypeAccess.getAccessibleType(IndexedJvmTypeAccess.java:142)
+	at org.eclipse.xtext.common.types.xtext.ui.JdtIndexedJvmTypeAccess.findAccessibleType(JdtIndexedJvmTypeAccess.java:64)
+	at org.eclipse.xtext.common.types.access.impl.IndexedJvmTypeAccess.getIndexedJvmType(IndexedJvmTypeAccess.java:110)
+	at org.eclipse.xtext.common.types.access.impl.IndexedJvmTypeAccess.getIndexedJvmType(IndexedJvmTypeAccess.java:93)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findObjectTypeInIndex(JdtTypeProvider.java:578)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findLoadedOrDerivedObjectType(JdtTypeProvider.java:255)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.doFindObjectType(JdtTypeProvider.java:203)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findObjectType(JdtTypeProvider.java:191)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.doFindTypeByName(JdtTypeProvider.java:149)
+	at org.eclipse.xtext.common.types.access.jdt.JdtTypeProvider.findTypeByName(JdtTypeProvider.java:158)
+	at org.eclipse.xtext.common.types.xtext.AbstractTypeScope.getSingleElement(AbstractTypeScope.java:59)
+	at org.eclipse.xtext.common.types.xtext.AbstractTypeScope.getSingleElement(AbstractTypeScope.java:54)
+	at org.eclipse.xtend.core.scoping.LocalResourceFilteringTypeScope.getSingleElement(LocalResourceFilteringTypeScope.java:42)
+	at org.eclipse.xtend.core.scoping.RecordingTypeScope.getSingleElement(RecordingTypeScope.java:51)
+	at org.eclipse.xtext.scoping.impl.AbstractScope.getSingleElement(AbstractScope.java:108)
+	at org.eclipse.xtext.linking.impl.DefaultLinkingService.getLinkedObjects(DefaultLinkingService.java:122)
+	at org.eclipse.xtext.linking.lazy.LazyLinkingResource.getEObject(LazyLinkingResource.java:247)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.getEObject(BatchLinkableResource.java:119)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getEObject(ResourceSetImpl.java:223)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:201)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:261)
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eResolveProxy(BasicEObjectImpl.java:1477)
+	at org.eclipse.xtext.xtype.impl.XImportDeclarationImpl.getImportedType(XImportDeclarationImpl.java:253)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider.getImportScope(XtendImportedNamespaceScopeProvider.java:285)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider.access$2(XtendImportedNamespaceScopeProvider.java:263)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider$1.get(XtendImportedNamespaceScopeProvider.java:132)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider$1.get(XtendImportedNamespaceScopeProvider.java:1)
+	at org.eclipse.xtext.util.OnChangeEvictingCache.get(OnChangeEvictingCache.java:77)
+	at org.eclipse.xtend.core.scoping.XtendImportedNamespaceScopeProvider.getScope(XtendImportedNamespaceScopeProvider.java:120)
+	at org.eclipse.xtext.xbase.scoping.batch.TypeScopes.createTypeScope(TypeScopes.java:59)
+	at org.eclipse.xtext.xbase.scoping.batch.XbaseBatchScopeProvider.getScope(XbaseBatchScopeProvider.java:105)
+	at org.eclipse.xtext.xbase.annotations.typesystem.XbaseWithAnnotationsBatchScopeProvider.getScope(XbaseWithAnnotationsBatchScopeProvider.java:53)
+	at org.eclipse.xtext.linking.impl.DefaultLinkingService.getScope(DefaultLinkingService.java:59)
+	at org.eclipse.xtext.linking.impl.DefaultLinkingService.getLinkedObjects(DefaultLinkingService.java:120)
+	at org.eclipse.xtext.linking.lazy.LazyLinkingResource.getEObject(LazyLinkingResource.java:247)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.getEObject(BatchLinkableResource.java:119)
+	at org.eclipse.emf.ecore.resource.impl.ResourceSetImpl.getEObject(ResourceSetImpl.java:223)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:201)
+	at org.eclipse.emf.ecore.util.EcoreUtil.resolve(EcoreUtil.java:261)
+	at org.eclipse.emf.ecore.impl.BasicEObjectImpl.eResolveProxy(BasicEObjectImpl.java:1477)
+	at org.eclipse.xtext.common.types.impl.JvmTypeReferenceImplCustom.eResolveProxy(JvmTypeReferenceImplCustom.java:31)
+	at org.eclipse.xtext.common.types.impl.JvmParameterizedTypeReferenceImpl.getType(JvmParameterizedTypeReferenceImpl.java:111)
+	at org.eclipse.xtext.common.types.impl.NameConcatHelper.appendType(NameConcatHelper.java:118)
+	at org.eclipse.xtext.common.types.impl.NameConcatHelper.computeFor(NameConcatHelper.java:107)
+	at org.eclipse.xtext.common.types.impl.NameConcatHelper.computeFor(NameConcatHelper.java:84)
+	at org.eclipse.xtext.common.types.impl.JvmParameterizedTypeReferenceImplCustom.getIdentifier(JvmParameterizedTypeReferenceImplCustom.java:22)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer.transform(SARLJvmModelInferrer.java:1571)
+	at org.eclipse.xtend.core.jvmmodel.XtendJvmModelInferrer.transform(XtendJvmModelInferrer.java:568)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer.transform(SARLJvmModelInferrer.java:1428)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer.appendAOPMembers(SARLJvmModelInferrer.java:2232)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer.initialize(SARLJvmModelInferrer.java:1085)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer.lambda$3(SARLJvmModelInferrer.java:669)
+	at io.sarl.lang.jvmmodel.SARLJvmModelInferrer$2$SafeRunnable.run(SARLJvmModelInferrer.java:655)
+	at org.eclipse.xtend.core.jvmmodel.XtendJvmModelInferrer$3.run(XtendJvmModelInferrer.java:218)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.ensureJvmMembersInitialized(BatchLinkableResource.java:231)
+	at org.eclipse.xtext.xbase.jvmmodel.JvmModelAssociator.getOrInstall(JvmModelAssociator.java:112)
+	at org.eclipse.xtext.xbase.jvmmodel.JvmModelAssociator.getLogicalContainerMapping(JvmModelAssociator.java:127)
+	at org.eclipse.xtext.xbase.jvmmodel.JvmModelAssociator.getAssociatedExpression(JvmModelAssociator.java:134)
+	at org.eclipse.xtext.xbase.typesystem.internal.LogicalContainerAwareReentrantTypeResolver.recordExpressions(LogicalContainerAwareReentrantTypeResolver.java:414)
+	at org.eclipse.xtext.xbase.typesystem.internal.LogicalContainerAwareReentrantTypeResolver.prepare(LogicalContainerAwareReentrantTypeResolver.java:408)
+	at org.eclipse.xtext.xbase.typesystem.internal.LogicalContainerAwareReentrantTypeResolver.computeTypes(LogicalContainerAwareReentrantTypeResolver.java:696)
+	at org.eclipse.xtend.core.typesystem.XtendReentrantTypeResolver.computeTypes(XtendReentrantTypeResolver.java:382)
+	at org.eclipse.xtext.xbase.typesystem.internal.DefaultReentrantTypeResolver.resolve(DefaultReentrantTypeResolver.java:163)
+	at org.eclipse.xtext.xbase.typesystem.internal.DefaultReentrantTypeResolver.reentrantResolve(DefaultReentrantTypeResolver.java:139)
+	at org.eclipse.xtext.xbase.typesystem.internal.CompoundReentrantTypeResolver.reentrantResolve(CompoundReentrantTypeResolver.java:79)
+	at org.eclipse.xtext.xbase.typesystem.internal.CachingBatchTypeResolver$LazyResolvedTypes.resolveTypes(CachingBatchTypeResolver.java:80)
+	at org.eclipse.xtext.xbase.typesystem.internal.CachingBatchTypeResolver$2.process(CachingBatchTypeResolver.java:57)
+	at org.eclipse.xtext.xbase.typesystem.internal.CachingBatchTypeResolver$2.process(CachingBatchTypeResolver.java:53)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
+	at org.eclipse.xtext.util.OnChangeEvictingCache.execWithoutCacheClear(OnChangeEvictingCache.java:129)
+	at org.eclipse.xtext.xbase.typesystem.internal.CachingBatchTypeResolver.doResolveTypes(CachingBatchTypeResolver.java:53)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:69)
+	at org.eclipse.xtext.xbase.resource.BatchLinkingService.resolveBatched(BatchLinkingService.java:71)
+	at org.eclipse.xtext.xbase.resource.BatchLinkableResource.resolveLazyCrossReferences(BatchLinkableResource.java:165)
+	at org.eclipse.xtext.EcoreUtil2.resolveLazyCrossReferences(EcoreUtil2.java:498)
+	at org.eclipse.xtext.builder.clustering.ClusteringBuilderState.doUpdate(ClusteringBuilderState.java:230)
+	at org.eclipse.xtext.builder.builderState.AbstractBuilderState.update(AbstractBuilderState.java:116)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.doBuild(XtextBuilder.java:287)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.incrementalBuild(XtextBuilder.java:267)
+	at org.eclipse.xtext.builder.impl.XtextBuilder.build(XtextBuilder.java:161)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:142)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:232)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:54.560
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -11337,7 +11352,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:23.172
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:54.560
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -11434,7 +11449,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:23.172
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:54.560
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -11531,7 +11546,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:23.172
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:54.560
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -11628,7 +11643,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:23.172
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:54.576
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -11728,107 +11743,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:23.172
-!MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
-
-!STACK 0
-java.lang.Exception
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.validateResourceState(AbstractBatchTypeResolver.java:77)
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:65)
-	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:55)
-	at org.eclipse.xtext.xbase.validation.XbaseValidator.getActualType(XbaseValidator.java:224)
-	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2261)
-	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2313)
-	at sun.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.validation.AbstractDeclarativeValidator$MethodWrapper.invoke(AbstractDeclarativeValidator.java:118)
-	at org.eclipse.xtext.validation.AbstractDeclarativeValidator.internalValidate(AbstractDeclarativeValidator.java:312)
-	at org.eclipse.xtext.validation.AbstractInjectableValidator.validate(AbstractInjectableValidator.java:71)
-	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
-	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
-	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
-	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
-	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
-	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
-	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createChildren(SARLOutlineTreeProvider.java:106)
-	at sun.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createChildren(DefaultOutlineTreeProvider.java:115)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:102)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:1)
-	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:63)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode.readOnly(DocumentRootNode.java:59)
-	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode.getChildren(AbstractOutlineNode.java:99)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.restoreChildrenSelectionAndExpansion(OutlineRefreshJob.java:120)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:93)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:1)
-	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.internalRefreshOutlineModel(OutlineRefreshJob.java:89)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:78)
-	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:1)
-	at org.eclipse.xtext.ui.util.DisplayRunnableWithResult$1.run(DisplayRunnableWithResult.java:26)
-	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:58)
-	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:168)
-	at org.eclipse.ui.internal.UISynchronizer.lambda$0(UISynchronizer.java:150)
-	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
-	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1044)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
-	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
-
-!ENTRY org.apache.log4j 4 0 2018-01-02 15:59:23.172
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:15:54.576
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0

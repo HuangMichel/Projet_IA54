@@ -94,8 +94,8 @@ skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
 		this.antQuantity
 	}
 	
-	def createAnt (id : UUID, body : AntBody): AntBody {
-		this.grid.get(homeCell.position.x * height + homeCell.position.y).addAnt(id, body)
+	def createAnt (position : Vector2i, id : UUID, body : AntBody): AntBody {
+		this.grid.get(position.x * height + position.y).addAnt(id, body)
 	}
 	
 	def sendPerception(sender : UUID, id : UUID, list : List<Cell>) {
@@ -118,7 +118,7 @@ skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
 		this.antAddresses.put(id, address)
 	}
 	
-	private def getAddress(id : UUID){
+	def getAddress(id : UUID): Address {
 		this.antAddresses.get(id)
 	}
 	
@@ -157,4 +157,9 @@ skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
 		}
 		v
 	}
+	
+	def removeAntCell(position : Vector2i, id : UUID, body: AntBody) {
+		getCell(position.x*height+position.y).removeAnt(id, body)
+	}
+	
 }

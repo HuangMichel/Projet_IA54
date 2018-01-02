@@ -36,7 +36,7 @@ capacity EnvironmentManagerCapacity{
 	def getWidth : int
 	def getHeight : int
 	def getGrid : List<Cell>
-	def createAnt(id : UUID, body : AntBody) : AntBody
+	def createAnt(position : Vector2i, id : UUID, body : AntBody) : AntBody
 	def getAntQuantity : int
 	def getHomeCell : Cell
 	def getFoodCell : Cell
@@ -45,4 +45,6 @@ capacity EnvironmentManagerCapacity{
 	def sendPerception(sender : UUID, id : UUID, list : List<Cell>)
 	def getPerception(id : UUID) : List<Cell>
 	def getAntAddresses : Map<UUID, Address>
+	def getAddress(id : UUID) : Address
+	def removeAntCell(position : Vector2i, id : UUID, body:AntBody)
 }

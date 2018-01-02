@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.UUID;
 import utbm.ia54.ant2dgrid.objects.AntBody;
 import utbm.ia54.ant2dgrid.objects.Cell;
+import utbm.ia54.ant2dgrid.objects.Vector2i;
 
 /**
  * Capacity to manage the environment
@@ -24,7 +25,7 @@ public interface EnvironmentManagerCapacity extends Capacity {
   
   public abstract List<Cell> getGrid();
   
-  public abstract AntBody createAnt(final UUID id, final AntBody body);
+  public abstract AntBody createAnt(final Vector2i position, final UUID id, final AntBody body);
   
   public abstract int getAntQuantity();
   
@@ -41,6 +42,10 @@ public interface EnvironmentManagerCapacity extends Capacity {
   public abstract List<Cell> getPerception(final UUID id);
   
   public abstract Map<UUID, Address> getAntAddresses();
+  
+  public abstract Address getAddress(final UUID id);
+  
+  public abstract void removeAntCell(final Vector2i position, final UUID id, final AntBody body);
   
   public static class ContextAwareCapacityWrapper<C extends EnvironmentManagerCapacity> extends Capacity.ContextAwareCapacityWrapper<C> implements EnvironmentManagerCapacity {
     public ContextAwareCapacityWrapper(final C capacity, final AgentTrait caller) {
@@ -74,10 +79,10 @@ public interface EnvironmentManagerCapacity extends Capacity {
       }
     }
     
-    public AntBody createAnt(final UUID id, final AntBody body) {
+    public AntBody createAnt(final Vector2i position, final UUID id, final AntBody body) {
       try {
         ensureCallerInLocalThread();
-        return this.capacity.createAnt(id, body);
+        return this.capacity.createAnt(position, id, body);
       } finally {
         resetCallerInLocalThread();
       }
@@ -150,6 +155,24 @@ public interface EnvironmentManagerCapacity extends Capacity {
       try {
         ensureCallerInLocalThread();
         return this.capacity.getAntAddresses();
+      } finally {
+        resetCallerInLocalThread();
+      }
+    }
+    
+    public Address getAddress(final UUID id) {
+      try {
+        ensureCallerInLocalThread();
+        return this.capacity.getAddress(id);
+      } finally {
+        resetCallerInLocalThread();
+      }
+    }
+    
+    public void removeAntCell(final Vector2i position, final UUID id, final AntBody body) {
+      try {
+        ensureCallerInLocalThread();
+        this.capacity.removeAntCell(position, id, body);
       } finally {
         resetCallerInLocalThread();
       }

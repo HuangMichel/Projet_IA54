@@ -8,6 +8,8 @@ import io.sarl.lang.core.Event;
 import java.util.Objects;
 import java.util.UUID;
 import org.eclipse.xtext.xbase.lib.Pure;
+import utbm.ia54.ant2dgrid.Enum.Direction;
+import utbm.ia54.ant2dgrid.objects.AntBody;
 import utbm.ia54.ant2dgrid.objects.Vector2i;
 
 @SarlSpecification("0.6")
@@ -15,6 +17,10 @@ import utbm.ia54.ant2dgrid.objects.Vector2i;
 @SuppressWarnings("all")
 public class Influence extends Event {
   public Vector2i v;
+  
+  public Direction direction;
+  
+  public AntBody body;
   
   public UUID id;
   
@@ -63,10 +69,12 @@ public class Influence extends Event {
   protected String attributesToString() {
     StringBuilder result = new StringBuilder(super.attributesToString());
     result.append("v  = ").append(this.v);
+    result.append("direction  = ").append(this.direction);
+    result.append("body  = ").append(this.body);
     result.append("id  = ").append(this.id);
     return result.toString();
   }
   
   @SyntheticMember
-  private final static long serialVersionUID = 2657391728L;
+  private final static long serialVersionUID = -138724910L;
 }

@@ -14,13 +14,14 @@ import java.util.UUID
 import utbm.ia54.ant2dgrid.objects.AntBody
 import utbm.ia54.ant2dgrid.events.AntInitialize
 import io.sarl.core.DefaultContextInteractions
+import utbm.ia54.ant2dgrid.capacities.MotionCapacity
 
 /** 
  * @author Michel
  * 
  */
 agent Ant {
-	uses Logging, DefaultContextInteractions
+	uses Logging, DefaultContextInteractions, MotionCapacity
 	
 	/* ID of the environment agent */
 	private var idEnv : UUID
@@ -36,7 +37,7 @@ agent Ant {
 		this.idEnv = occurrence.spawner
 		this.selfIDAnt = occurrence.parameters.get(0) as Integer
 		info("The agent Ant " + selfID + " was started.")
-		setSkill(new MotionSkill)
+		setSkill(new MotionSkill, typeof(MotionSkill))
 		emit(new AntInitialize(this.body))
 	}
 

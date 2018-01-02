@@ -6,9 +6,9 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
 Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 This is a continuation of log file C:\Users\Michel\Desktop\Projet_IA54\.metadata\.bak_3.log
-Created Time: 2018-01-02 16:31:31.614
+Created Time: 2018-01-02 17:00:44.157
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:31:31.614
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:00:44.157
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -108,7 +108,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:31:44.432
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:00:44.157
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -208,7 +208,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:31:44.432
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:00:44.157
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -308,7 +308,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:31:44.432
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:00:44.157
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -408,7 +408,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:31:44.432
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:00:47.970
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -429,21 +429,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -508,7 +505,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:31:47.026
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:00:47.970
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -528,22 +525,19 @@ java.lang.Exception
 	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -608,7 +602,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:31:47.026
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:00:47.970
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -629,21 +623,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -708,7 +699,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:31:47.026
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:00:47.970
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -729,21 +720,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -808,7 +796,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:31:47.026
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:00:47.970
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -908,7 +896,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:01.772
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:00:47.970
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1008,7 +996,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:01.772
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:00:47.985
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1108,7 +1096,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:01.772
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:00:47.985
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1208,7 +1196,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:01.772
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:07.209
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1228,22 +1216,19 @@ java.lang.Exception
 	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -1308,7 +1293,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:12.155
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:07.209
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1329,21 +1314,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -1408,7 +1390,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:12.155
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:07.209
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1428,6 +1410,9 @@ java.lang.Exception
 	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
@@ -1437,13 +1422,7 @@ java.lang.Exception
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -1508,7 +1487,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:12.155
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:07.224
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1529,21 +1508,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -1608,7 +1584,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:12.155
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:07.224
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1708,7 +1684,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:14.983
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:07.224
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1808,7 +1784,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:14.983
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:07.224
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -1908,7 +1884,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:14.983
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:07.224
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2008,7 +1984,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:14.983
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:07.287
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2029,21 +2005,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -2108,7 +2081,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:18.798
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:07.287
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2129,21 +2102,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -2208,7 +2178,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:18.814
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:07.287
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2229,21 +2199,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -2308,7 +2275,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:18.814
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:07.287
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2328,22 +2295,19 @@ java.lang.Exception
 	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -2408,7 +2372,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:18.814
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:07.302
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2508,7 +2472,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:18.876
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:07.302
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2608,7 +2572,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:18.876
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:07.302
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2708,7 +2672,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:18.876
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:07.302
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2808,7 +2772,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:18.876
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:50.307
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2828,22 +2792,19 @@ java.lang.Exception
 	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -2908,7 +2869,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:41.924
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:50.307
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -2928,6 +2889,9 @@ java.lang.Exception
 	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
@@ -2937,13 +2901,7 @@ java.lang.Exception
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -3008,7 +2966,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:41.924
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:50.307
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -3029,21 +2987,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -3108,7 +3063,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:41.924
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:50.307
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -3129,21 +3084,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -3208,7 +3160,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:41.924
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:50.322
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -3308,7 +3260,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:46.032
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:50.322
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -3408,7 +3360,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:46.032
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:50.322
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -3508,7 +3460,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:46.032
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:50.322
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -3608,7 +3560,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:46.032
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:52.262
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -3708,7 +3660,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:47.079
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:52.277
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -3808,7 +3760,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:47.079
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:52.277
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -3908,7 +3860,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:47.079
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:52.277
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4008,7 +3960,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:47.079
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:55.787
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4028,6 +3980,9 @@ java.lang.Exception
 	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
@@ -4037,13 +3992,7 @@ java.lang.Exception
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -4108,7 +4057,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:53.438
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:55.787
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4129,21 +4078,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -4208,7 +4154,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:53.438
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:55.787
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4229,21 +4175,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -4308,7 +4251,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:53.438
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:55.787
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4329,21 +4272,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -4408,7 +4348,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:53.438
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:55.803
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4508,7 +4448,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:56.360
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:55.803
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4608,7 +4548,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:56.360
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:55.803
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4708,7 +4648,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:56.360
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:55.803
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4808,7 +4748,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:32:56.375
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:57.419
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -4908,7 +4848,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:00.048
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:57.419
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5008,7 +4948,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:00.063
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:57.419
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5108,7 +5048,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:00.063
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:57.419
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5208,7 +5148,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:00.063
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:59.549
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5308,7 +5248,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:03.517
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:59.549
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5408,7 +5348,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:03.517
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:59.549
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5508,7 +5448,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:03.517
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:01:59.549
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5608,7 +5548,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:03.517
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:08.492
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5708,7 +5648,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:03.548
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:08.492
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5808,7 +5748,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:03.548
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:08.492
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -5908,7 +5848,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:03.548
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:08.508
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6008,7 +5948,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:03.548
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:11.837
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6108,7 +6048,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:04.611
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:11.837
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6208,7 +6148,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:04.611
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:11.837
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6308,7 +6248,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:04.611
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:11.837
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6408,7 +6348,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:04.611
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:12.618
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6508,7 +6448,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:14.063
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:12.618
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6608,7 +6548,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:14.063
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:12.634
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6708,7 +6648,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:14.063
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:12.634
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6808,7 +6748,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:14.063
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:15.118
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6829,21 +6769,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -6908,7 +6845,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:15.313
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:15.118
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -6928,22 +6865,19 @@ java.lang.Exception
 	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -7008,7 +6942,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:15.313
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:15.118
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7029,21 +6963,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -7108,7 +7039,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:15.313
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:15.118
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7128,6 +7059,9 @@ java.lang.Exception
 	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
@@ -7137,13 +7071,7 @@ java.lang.Exception
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -7208,7 +7136,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:15.313
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:15.118
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7308,7 +7236,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:16.110
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:15.134
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7408,7 +7336,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:16.126
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:15.134
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7508,7 +7436,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:16.126
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:02:15.134
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7608,7 +7536,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:16.126
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:09.891
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7708,7 +7636,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:19.850
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:09.891
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7808,7 +7736,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:19.850
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:09.891
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -7908,7 +7836,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:19.850
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:09.891
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8008,7 +7936,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:19.866
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:21.070
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8108,7 +8036,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:24.221
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:21.070
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8208,7 +8136,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:24.221
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:21.070
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8308,7 +8236,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:24.221
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:21.070
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8408,7 +8336,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:24.221
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:37.411
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8429,21 +8357,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -8508,7 +8433,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:27.787
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:37.411
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8528,22 +8453,19 @@ java.lang.Exception
 	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -8608,7 +8530,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:27.787
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:37.411
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8629,21 +8551,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -8708,7 +8627,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:27.787
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:37.411
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8729,21 +8648,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -8808,7 +8724,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:27.787
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:37.426
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -8908,7 +8824,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:48.347
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:37.426
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9008,7 +8924,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:48.347
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:37.426
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9108,7 +9024,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:48.347
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:37.442
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9208,7 +9124,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:48.347
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:39.603
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9228,22 +9144,19 @@ java.lang.Exception
 	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -9308,7 +9221,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:52.160
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:39.603
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9329,21 +9242,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -9408,7 +9318,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:52.160
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:39.603
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9429,21 +9339,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -9508,7 +9415,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:52.160
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:39.603
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9529,21 +9436,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -9608,7 +9512,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:52.176
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:39.618
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9708,7 +9612,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:53.749
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:39.618
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9808,7 +9712,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:53.749
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:39.618
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -9908,7 +9812,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:53.765
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:39.618
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10008,7 +9912,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:53.765
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:42.194
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10029,21 +9933,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -10108,7 +10009,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:54.531
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:42.194
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10128,6 +10029,9 @@ java.lang.Exception
 	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
@@ -10137,13 +10041,7 @@ java.lang.Exception
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -10208,7 +10106,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:54.531
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:42.194
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10229,21 +10127,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -10308,7 +10203,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:54.531
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:42.210
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10328,22 +10223,19 @@ java.lang.Exception
 	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -10408,7 +10300,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:54.531
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:42.210
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10508,7 +10400,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:58.164
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:42.210
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10608,7 +10500,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:58.164
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:42.210
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10708,7 +10600,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:58.164
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:42.210
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10808,7 +10700,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:33:58.164
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:43.946
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10829,21 +10721,18 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
 	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -10908,7 +10797,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:34:04.654
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:43.946
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -10928,6 +10817,9 @@ java.lang.Exception
 	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
@@ -10937,13 +10829,7 @@ java.lang.Exception
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -11008,7 +10894,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:34:04.654
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:43.946
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -11029,6 +10915,9 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
@@ -11037,13 +10926,104 @@ java.lang.Exception
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
+	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
 	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createChildren(SARLOutlineTreeProvider.java:106)
+	at sun.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createChildren(DefaultOutlineTreeProvider.java:115)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:102)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:63)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:1)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode.readOnly(DocumentRootNode.java:59)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode.getChildren(AbstractOutlineNode.java:99)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.restoreChildrenSelectionAndExpansion(OutlineRefreshJob.java:120)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:93)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:1)
+	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.internalRefreshOutlineModel(OutlineRefreshJob.java:89)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:78)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:1)
+	at org.eclipse.xtext.ui.util.DisplayRunnableWithResult$1.run(DisplayRunnableWithResult.java:26)
+	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:58)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:168)
+	at org.eclipse.ui.internal.UISynchronizer.lambda$0(UISynchronizer.java:150)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1044)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
+
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:43.946
+!MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
+
+!STACK 0
+java.lang.Exception
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.validateResourceState(AbstractBatchTypeResolver.java:77)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:65)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:55)
+	at org.eclipse.xtext.xbase.validation.XbaseValidator.getActualType(XbaseValidator.java:224)
+	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2261)
+	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2313)
+	at sun.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.validation.AbstractDeclarativeValidator$MethodWrapper.invoke(AbstractDeclarativeValidator.java:118)
+	at org.eclipse.xtext.validation.AbstractDeclarativeValidator.internalValidate(AbstractDeclarativeValidator.java:312)
+	at org.eclipse.xtext.validation.AbstractInjectableValidator.validate(AbstractInjectableValidator.java:71)
+	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
+	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
+	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
+	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
 	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
@@ -11108,7 +11088,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:34:04.654
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:43.961
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -11208,7 +11188,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:34:04.654
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:43.961
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -11308,7 +11288,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:34:06.483
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:43.961
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -11408,7 +11388,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:34:06.483
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:43.961
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -11508,7 +11488,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:34:06.498
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:45.290
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -11608,7 +11588,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:34:06.498
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:45.290
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -11708,7 +11688,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:34:09.808
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:45.290
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -11808,7 +11788,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 16:34:09.808
+!ENTRY org.apache.log4j 4 0 2018-01-02 17:04:45.290
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0

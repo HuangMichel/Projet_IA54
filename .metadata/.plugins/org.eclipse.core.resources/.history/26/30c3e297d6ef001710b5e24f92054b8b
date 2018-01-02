@@ -1,0 +1,111 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.agents
+
+import io.sarl.core.Initialize
+import io.sarl.core.Logging
+import utbm.ia54.ant2dgrid.gui.Ant2DGridFxViewerController
+import io.sarl.core.InnerContextAccess
+import io.sarl.core.Lifecycle
+import utbm.ia54.ant2dgrid.events.StartSimulation
+import utbm.ia54.ant2dgrid.events.EndSimulation
+import io.sarl.core.Destroy
+import utbm.ia54.ant2dgrid.events.AntInitialize
+import utbm.ia54.ant2dgrid.capacities.EnvironmentManagerCapacity
+import utbm.ia54.ant2dgrid.skills.EnvironmentManagerSkill
+import utbm.ia54.ant2dgrid.events.Continue
+import io.sarl.util.Scopes
+import utbm.ia54.ant2dgrid.events.Perception
+import utbm.ia54.ant2dgrid.events.Influence
+import utbm.ia54.ant2dgrid.Enum.Direction
+import utbm.ia54.ant2dgrid.objects.Vector2i
+import utbm.ia54.ant2dgrid.Enum.CellState
+
+/** 
+ * @author Michel
+ * 
+ */
+agent Environment {
+	
+	uses Lifecycle, Logging, InnerContextAccess, EnvironmentManagerCapacity
+	
+	/* The fx viewer controller */
+	private var ctrl : Ant2DGridFxViewerController = null
+	private var launched : Boolean = false
+	
+	on Initialize {
+		loggingName = "Environment " + this.ID
+		if (ctrl === null) {
+			ctrl = occurrence.parameters.get(0) as Ant2DGridFxViewerController
+		}
+		setSkill(new EnvironmentManagerSkill(ctrl.width, ctrl.height, ctrl.grid, ctrl.antQuantity), typeof(EnvironmentManagerCapacity))
+		info("CELL HOME :" + homeCell.toString)
+		info("CELL FOOD :" + foodCell.toString)
+		info("The agent Environment was started.")
+	}
+	
+	on AntInitialize[occurrence.isInInnerDefaultSpace]{
+		info("Ant created " + occurrence.source.UUID)
+		setAddress(occurrence.source.UUID, occurrence.source)
+		createAnt(homeCell.position, occurrence.source.UUID, occurrence.body)
+	}
+	
+	on StartSimulation{
+		info("StartSimulation")
+		for(var i = 0; i<antQuantity; i++){
+			spawnInContext(typeof(Ant), innerContext,#[i+1, homeCell.position])
+		}
+	}
+	
+	on Continue{
+		if(!launched){
+			//task every
+			synchronized(grid){
+				//ctrl update
+				antAddresses.forEach [ id, address |
+					var list = getPerception(id)
+					innerContext.defaultSpace.emit(ID, new Perception(list), Scopes.addresses(address))
+				]
+			}
+		}
+	}
+	
+	on Influence{
+		var accept = false
+		var oldPosition = occurrence.v
+		var newPosition = toVector(occurrence.direction)
+		var id = occurrence.id
+		var body = occurrence.body
+		newPosition.plus(oldPosition)
+		synchronized(grid){
+			if(getCell(newPosition.x*height+newPosition.y).state===CellState.NORMAL){
+				createAnt(id, body)
+			}
+		}
+	}
+	
+	on Destroy{
+		info("Agent Environment go die!")
+	}
+	
+	on EndSimulation{
+		killMe
+	}
+	
+	def toVector(direction : Direction) : Vector2i{
+		var vector : Vector2i
+		switch(direction){
+			case Direction.UP:
+				vector = new Vector2i(0,-1)
+			case Direction.DOWN:
+				vector = new Vector2i(0, 1)
+			case Direction.LEFT:
+				vector = new Vector2i(-1, 0)
+			case Direction.RIGHT:
+				vector = new Vector2i(1, 0)
+		}
+		vector
+	}
+	
+}
