@@ -1,0 +1,70 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.skills
+
+import utbm.ia54.ant2dgrid.capacities.PheromoneCapacity
+import utbm.ia54.ant2dgrid.objects.Vector2i
+import utbm.ia54.ant2dgrid.capacities.MotionCapacity
+import java.util.UUID
+import java.util.List
+import utbm.ia54.ant2dgrid.Enum.Direction
+import utbm.ia54.ant2dgrid.capacities.EnvironmentPerceptionCapacity
+import utbm.ia54.ant2dgrid.objects.Cell
+import io.sarl.core.DefaultContextInteractions
+import io.sarl.core.Behaviors
+import io.sarl.core.Lifecycle
+
+/** 
+ * @author Michel
+ * 
+ */
+skill MotionSkill implements MotionCapacity{
+	
+	uses DefaultContextInteractions, Behaviors
+	
+	def install{
+		
+	}
+	
+	def move(direction : Direction) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+	def uninstall{
+		
+	}
+}
+
+skill PheromoneSkill implements PheromoneCapacity{
+	
+	def install{
+		
+	}
+	
+	def uninstall{
+		
+	}
+	
+	def followPheromone(position : Vector2i) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+}
+
+skill EnvironmentPerceptionSkill implements EnvironmentPerceptionCapacity{
+	
+	uses DefaultContextInteractions, Behaviors, Lifecycle
+	
+	def install{
+		
+	}
+	
+	def uninstall{
+		
+	}
+	def sendPerception(id : UUID, list : List<Cell>) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+}

@@ -1,0 +1,18 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.Enum
+/** 
+ * @author Michel
+ * 
+ */
+enum Direction {
+	val UP = new Vector2i(0, -1)
+	val DOWN = new Vector2i(0, 1)
+	val LEFT = new Vector2i(-1, 0)
+	val RIGHT = new Vector2i(1, 0)
+	
+	def random : Direction{
+		values[(int) Math.random*4]
+	}
+}

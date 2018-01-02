@@ -1,0 +1,14 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.Enum
+/** 
+ * @author Michel
+ * 
+ */
+enum Direction {
+	var final UP = new Vector2i(0, -1)
+	var final DOWN = new Vector2i(0, 1)
+	var final LEFT = new Vector2i(-1, 0)
+	var final RIGHT = new Vector2i(1, 0)
+}

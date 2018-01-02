@@ -6,14 +6,13 @@ package utbm.ia54.ant2dgrid.skills
 import utbm.ia54.ant2dgrid.capacities.PheromoneCapacity
 import utbm.ia54.ant2dgrid.objects.Vector2i
 import utbm.ia54.ant2dgrid.capacities.MotionCapacity
-import utbm.ia54.ant2dgrid.capacities.PerceptionProviderCapacity
-import java.util.Map
 import java.util.UUID
-import utbm.ia54.ant2dgrid.events.Perception
-import utbm.ia54.ant2dgrid.capacities.InfluenceSolverCapacity
 import java.util.List
 import utbm.ia54.ant2dgrid.Enum.Direction
-import utbm.ia54.ant2dgrid.capacities.StateUpdaterCapacity
+import utbm.ia54.ant2dgrid.objects.Cell
+import utbm.ia54.ant2dgrid.capacities.EnvironmentManagerCapacity
+import utbm.ia54.ant2dgrid.objects.AntBody
+import utbm.ia54.ant2dgrid.Enum.CellState
 
 /** 
  * @author Michel
@@ -21,7 +20,11 @@ import utbm.ia54.ant2dgrid.capacities.StateUpdaterCapacity
  */
 skill MotionSkill implements MotionCapacity{
 	
-	def move(v : Vector2i) {
+	def move(direction : Direction) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+	def randomMove {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
@@ -35,30 +38,69 @@ skill PheromoneSkill implements PheromoneCapacity{
 	
 }
 
-skill PerceptionSkill implements PerceptionProviderCapacity{
+skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
 	
-	def compute : Map<UUID, Perception> {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	val width : int
+	val height : int
+	var grid : List<Cell>
+	val antQuantity : int
+	var homeCellPosition : int
+	var foodCellPosition : int
+	
+	new(width : int, height : int, grid : List<Cell>, quantity : int) {
+		this.width = width
+		this.height = height
+		this.grid = grid
+		this.antQuantity = quantity
+		defineCell	
 	}
 	
-	def emit(l : Map<UUID, Perception>) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	private def defineCell {
+		for (var i = 0; i < width; i++) {
+			for (var j = 0; j < height; j++) {
+				if (grid.get(i * height + j).state === CellState.HOME) {
+					homeCellPosition = (i * height + j)
+				} else if (grid.get(i * height + j).state === CellState.FOOD) {
+					foodCellPosition = (i * height + j)
+				}
+			}
+		}
 	}
 	
-}
-
-skill InfluenceSolverSkill implements InfluenceSolverCapacity{
-	
-	def solve : List<Direction> {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	def getWidth : int {
+		this.width
 	}
 	
-}
-
-skill StateUpdaterSkill implements StateUpdaterCapacity{
+	def getHeight : int {
+		this.height
+	}
 	
-	def update(l : List<Direction>) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	def getGrid : List<Cell> {
+		this.grid
+	}
+	
+	def getAntQuantity : int{
+		this.antQuantity
+	}
+	
+	def createAnt (id : UUID, body : AntBody): AntBody {
+		this.grid.get(homeCell.position.x * height + homeCell.position.y).addAnt(id, body)
+	}
+	
+	def sendPerception(id : UUID, list : List<Cell>) {
+		
+	}
+	
+	def getHomeCell : Cell {
+		getCell(homeCellPosition)
+	}
+	
+	def getFoodCell : Cell {
+		getCell(foodCellPosition)
+	}
+	
+	def getCell(i : int) : Cell {
+		this.grid.get(i)
 	}
 	
 }

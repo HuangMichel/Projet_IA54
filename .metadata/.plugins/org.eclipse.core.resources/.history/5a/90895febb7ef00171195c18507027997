@@ -1,0 +1,26 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.capacities
+
+import utbm.ia54.ant2dgrid.objects.Vector2i
+import java.util.UUID
+import utbm.ia54.ant2dgrid.Enum.Direction
+import java.util.List
+import utbm.ia54.ant2dgrid.objects.Cell
+
+/** 
+ * @author Michel
+ * 
+ */
+capacity MotionCapacity {
+	def move(direction : Direction)
+}
+
+capacity PheromoneCapacity{
+	def followPheromone(position : Vector2i)
+}
+
+capacity EnvironmentPerceptionCapacity{
+	def sendPerception(id : UUID, list : List<Cell>)
+}

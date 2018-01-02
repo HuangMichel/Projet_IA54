@@ -1,0 +1,67 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.skills
+
+import utbm.ia54.ant2dgrid.capacities.PheromoneCapacity
+import utbm.ia54.ant2dgrid.objects.Vector2i
+import utbm.ia54.ant2dgrid.capacities.MotionCapacity
+import utbm.ia54.ant2dgrid.capacities.PerceptionProviderCapacity
+import java.util.Map
+import java.util.UUID
+import utbm.ia54.ant2dgrid.events.Perception
+import utbm.ia54.ant2dgrid.capacities.InfluenceSolverCapacity
+import java.util.List
+import utbm.ia54.ant2dgrid.Enum.Direction
+import utbm.ia54.ant2dgrid.capacities.StateUpdaterCapacity
+
+/** 
+ * @author Michel
+ * 
+ */
+skill MotionSkill implements MotionCapacity{
+	
+	def move(v : Vector2i) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+	def move(direction : Direction) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+}
+
+skill PheromoneSkill implements PheromoneCapacity{
+	
+	def followPheromone(position : Vector2i) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+}
+
+skill PerceptionSkill implements PerceptionProviderCapacity{
+	
+	def compute : Map<UUID, Perception> {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+	def emit(l : Map<UUID, Perception>) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+}
+
+skill InfluenceSolverSkill implements InfluenceSolverCapacity{
+	
+	def solve : List<Direction> {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+}
+
+skill StateUpdaterSkill implements StateUpdaterCapacity{
+	
+	def update(l : List<Direction>) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+}

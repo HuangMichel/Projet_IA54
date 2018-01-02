@@ -1,0 +1,5 @@
+package utbm.ia54.ant2dgrid.objects;
+
+public enum Direction {
+
+}

@@ -7,8 +7,5 @@ package utbm.ia54.ant2dgrid.Enum
  * 
  */
 enum Direction {
-	UP,
-	DOWN,
-	LEFT,
-	RIGHT
+	UP, DOWN, LEFT, RIGHT
 }
