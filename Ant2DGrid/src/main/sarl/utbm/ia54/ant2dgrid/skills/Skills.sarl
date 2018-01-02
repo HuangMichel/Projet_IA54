@@ -13,6 +13,13 @@ import utbm.ia54.ant2dgrid.objects.Cell
 import utbm.ia54.ant2dgrid.capacities.EnvironmentManagerCapacity
 import utbm.ia54.ant2dgrid.objects.AntBody
 import utbm.ia54.ant2dgrid.Enum.CellState
+import io.sarl.core.InnerContextAccess
+import utbm.ia54.ant2dgrid.events.Perception
+import io.sarl.util.Scopes
+import io.sarl.lang.core.Address
+import java.util.Map
+import java.util.HashMap
+import java.util.ArrayList
 
 /** 
  * @author Michel
@@ -40,18 +47,22 @@ skill PheromoneSkill implements PheromoneCapacity{
 
 skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
 	
+	uses InnerContextAccess
+	
 	val width : int
 	val height : int
 	var grid : List<Cell>
 	val antQuantity : int
 	var homeCellPosition : int
 	var foodCellPosition : int
+	var antAddresses : Map<UUID, Address>
 	
 	new(width : int, height : int, grid : List<Cell>, quantity : int) {
 		this.width = width
 		this.height = height
 		this.grid = grid
 		this.antQuantity = quantity
+		this.antAddresses = new HashMap<UUID, Address>
 		defineCell	
 	}
 	
@@ -87,8 +98,8 @@ skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
 		this.grid.get(homeCell.position.x * height + homeCell.position.y).addAnt(id, body)
 	}
 	
-	def sendPerception(id : UUID, list : List<Cell>) {
-		
+	def sendPerception(sender : UUID, id : UUID, list : List<Cell>) {
+		innerContext.defaultSpace.emit(sender, new Perception(list), Scopes.addresses(getAddress(id)))
 	}
 	
 	def getHomeCell : Cell {
@@ -103,4 +114,47 @@ skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
 		this.grid.get(i)
 	}
 	
+	def setAddress(id : UUID, address : Address) {
+		this.antAddresses.put(id, address)
+	}
+	
+	private def getAddress(id : UUID){
+		this.antAddresses.get(id)
+	}
+	
+	def getPerception(id : UUID) : List<Cell> {
+		var list = new ArrayList<Cell>
+		var vector = getAntPosition(id)
+		for (var i = -1; i < 2; i++) {
+			for (var j = -1; j < 2; j++) {
+				var temp_vector = new Vector2i(i, j)
+				temp_vector.plus(vector)
+				if (temp_vector.x*height+temp_vector.y<height*width) {
+					if(temp_vector.x < 0 || temp_vector.y<0 || temp_vector.x>height || temp_vector.y>width){
+						if ((i===0 && (j===-1 || j===1)) || (j ===0 && (i===-1 || i===1))) {
+							list.add(grid.get(temp_vector.x * height + temp_vector.y))
+						}
+					}
+				}
+				
+			}
+		}
+		list
+	}
+	
+	def getAntAddresses : Map<UUID, Address> {
+		this.antAddresses
+	}
+	
+	private def getAntPosition(id : UUID) : Vector2i {
+		var v : Vector2i
+		for (var i = 0; i < width; i++) {
+			for (var j = 0; j < height; j++) {
+				if(grid.get(i*height+j).antList.containsKey(id)){
+					v = new Vector2i(i,j)
+				}
+			}
+		}
+		v
+	}
 }

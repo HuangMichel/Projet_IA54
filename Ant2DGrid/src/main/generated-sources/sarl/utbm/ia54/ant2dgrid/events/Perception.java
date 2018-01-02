@@ -3,7 +3,6 @@ package utbm.ia54.ant2dgrid.events;
 import io.sarl.lang.annotation.SarlElementType;
 import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
-import io.sarl.lang.core.Address;
 import io.sarl.lang.core.Event;
 import java.util.List;
 import org.eclipse.xtext.xbase.lib.Pure;
@@ -15,14 +14,8 @@ import utbm.ia54.ant2dgrid.objects.Cell;
 public class Perception extends Event {
   public List<Cell> list;
   
-  @SyntheticMember
-  public Perception() {
-    super();
-  }
-  
-  @SyntheticMember
-  public Perception(final Address source) {
-    super(source);
+  public Perception(final List<Cell> list) {
+    this.list = list;
   }
   
   @Override
@@ -52,5 +45,5 @@ public class Perception extends Event {
   }
   
   @SyntheticMember
-  private final static long serialVersionUID = -1243960978L;
+  private final static long serialVersionUID = -2314578045L;
 }

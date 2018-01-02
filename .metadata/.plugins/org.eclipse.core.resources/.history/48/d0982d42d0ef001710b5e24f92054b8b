@@ -1,0 +1,46 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.capacities
+
+import utbm.ia54.ant2dgrid.objects.Vector2i
+import java.util.UUID
+import utbm.ia54.ant2dgrid.Enum.Direction
+import java.util.List
+import utbm.ia54.ant2dgrid.objects.Cell
+import utbm.ia54.ant2dgrid.objects.AntBody
+import io.sarl.lang.core.Address
+
+/** 
+ * @author Michel
+ * 
+ */
+ 
+ /*
+  * Capacity to move for an Ant
+  */
+capacity MotionCapacity {
+	def move(direction : Direction)
+	def randomMove
+}
+
+capacity PheromoneCapacity{
+	def followPheromone(position : Vector2i)
+}
+
+/*
+ * Capacity to manage the environment
+ */
+capacity EnvironmentManagerCapacity{
+	def getWidth : int
+	def getHeight : int
+	def getGrid : List<Cell>
+	def createAnt(id : UUID, body : AntBody) : AntBody
+	def getAntQuantity : int
+	def getHomeCell : Cell
+	def getFoodCell : Cell
+	def getCell(i : int) : Cell
+	def setAddress(id : UUID, address : Address)
+	def sendPerception(sender : UUID, id : UUID, list : List<Cell>)
+	def getPerception(cell : Cell) : List<Cell>
+}

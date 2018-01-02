@@ -5,7 +5,6 @@ package utbm.ia54.ant2dgrid.objects
 
 import java.util.ArrayList
 import utbm.ia54.ant2dgrid.agents.Ant
-import java.util.List
 import utbm.ia54.ant2dgrid.Enum.CellState
 import utbm.ia54.ant2dgrid.Enum.AntState
 import javafx.scene.layout.Pane

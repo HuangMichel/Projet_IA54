@@ -1,14 +1,14 @@
-!SESSION 2018-01-02 13:02:47.448 -----------------------------------------------
+!SESSION 2018-01-02 15:28:58.126 -----------------------------------------------
 eclipse.buildId=unknown
 java.version=1.8.0_152
 java.vendor=Oracle Corporation
 BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
 Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
-This is a continuation of log file C:\Users\Michel\Desktop\Projet_IA54\.metadata\.bak_2.log
-Created Time: 2018-01-02 14:45:18.888
+This is a continuation of log file C:\Users\Michel\Desktop\Projet_IA54\.metadata\.bak_5.log
+Created Time: 2018-01-02 16:37:27.289
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 14:45:18.888
+!ENTRY org.apache.log4j 4 0 2018-01-02 16:37:27.289
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -19,7 +19,974 @@ java.lang.Exception
 	at org.eclipse.xtext.xbase.validation.XbaseValidator.getActualType(XbaseValidator.java:224)
 	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2261)
 	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2313)
-	at sun.reflect.GeneratedMethodAccessor222.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.validation.AbstractDeclarativeValidator$MethodWrapper.invoke(AbstractDeclarativeValidator.java:118)
+	at org.eclipse.xtext.validation.AbstractDeclarativeValidator.internalValidate(AbstractDeclarativeValidator.java:312)
+	at org.eclipse.xtext.validation.AbstractInjectableValidator.validate(AbstractInjectableValidator.java:71)
+	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
+	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
+	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
+	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
+	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createChildren(SARLOutlineTreeProvider.java:106)
+	at sun.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createChildren(DefaultOutlineTreeProvider.java:115)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:102)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:63)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:1)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode.readOnly(DocumentRootNode.java:59)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode.getChildren(AbstractOutlineNode.java:99)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.restoreChildrenSelectionAndExpansion(OutlineRefreshJob.java:120)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:93)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:1)
+	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.internalRefreshOutlineModel(OutlineRefreshJob.java:89)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:78)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:1)
+	at org.eclipse.xtext.ui.util.DisplayRunnableWithResult$1.run(DisplayRunnableWithResult.java:26)
+	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:58)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:168)
+	at org.eclipse.ui.internal.UISynchronizer.lambda$0(UISynchronizer.java:150)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1044)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
+
+!ENTRY org.apache.log4j 4 0 2018-01-02 16:37:27.289
+!MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
+
+!STACK 0
+java.lang.Exception
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.validateResourceState(AbstractBatchTypeResolver.java:77)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:65)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:55)
+	at org.eclipse.xtext.xbase.validation.XbaseValidator.getActualType(XbaseValidator.java:224)
+	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2261)
+	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2313)
+	at sun.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.validation.AbstractDeclarativeValidator$MethodWrapper.invoke(AbstractDeclarativeValidator.java:118)
+	at org.eclipse.xtext.validation.AbstractDeclarativeValidator.internalValidate(AbstractDeclarativeValidator.java:312)
+	at org.eclipse.xtext.validation.AbstractInjectableValidator.validate(AbstractInjectableValidator.java:71)
+	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
+	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
+	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
+	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
+	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createChildren(SARLOutlineTreeProvider.java:106)
+	at sun.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createChildren(DefaultOutlineTreeProvider.java:115)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:102)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:63)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:1)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode.readOnly(DocumentRootNode.java:59)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode.getChildren(AbstractOutlineNode.java:99)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.restoreChildrenSelectionAndExpansion(OutlineRefreshJob.java:120)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:93)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:1)
+	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.internalRefreshOutlineModel(OutlineRefreshJob.java:89)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:78)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:1)
+	at org.eclipse.xtext.ui.util.DisplayRunnableWithResult$1.run(DisplayRunnableWithResult.java:26)
+	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:58)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:168)
+	at org.eclipse.ui.internal.UISynchronizer.lambda$0(UISynchronizer.java:150)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1044)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
+
+!ENTRY org.apache.log4j 4 0 2018-01-02 16:37:27.289
+!MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
+
+!STACK 0
+java.lang.Exception
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.validateResourceState(AbstractBatchTypeResolver.java:77)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:65)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:55)
+	at org.eclipse.xtext.xbase.validation.XbaseValidator.getActualType(XbaseValidator.java:224)
+	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2261)
+	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2313)
+	at sun.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.validation.AbstractDeclarativeValidator$MethodWrapper.invoke(AbstractDeclarativeValidator.java:118)
+	at org.eclipse.xtext.validation.AbstractDeclarativeValidator.internalValidate(AbstractDeclarativeValidator.java:312)
+	at org.eclipse.xtext.validation.AbstractInjectableValidator.validate(AbstractInjectableValidator.java:71)
+	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
+	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
+	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
+	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
+	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createChildren(SARLOutlineTreeProvider.java:106)
+	at sun.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createChildren(DefaultOutlineTreeProvider.java:115)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:102)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:63)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:1)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode.readOnly(DocumentRootNode.java:59)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode.getChildren(AbstractOutlineNode.java:99)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.restoreChildrenSelectionAndExpansion(OutlineRefreshJob.java:120)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:93)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:1)
+	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.internalRefreshOutlineModel(OutlineRefreshJob.java:89)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:78)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:1)
+	at org.eclipse.xtext.ui.util.DisplayRunnableWithResult$1.run(DisplayRunnableWithResult.java:26)
+	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:58)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:168)
+	at org.eclipse.ui.internal.UISynchronizer.lambda$0(UISynchronizer.java:150)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1044)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
+
+!ENTRY org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+SHIFT+CR:
+Binding(CTRL+SHIFT+CR,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.smartEnterInverse,Insert Line Above Current Line,
+		Adds a new line above the current line,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@14667bb2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+CR,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.smartEnterInverse,Insert Line Above Current Line,
+		Adds a new line above the current line,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@14667bb2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for HOME:
+Binding(HOME,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.lineStart,Line Start,
+		Go to the start of the line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1fa938d2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(HOME,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.lineStart,Line Start,
+		Go to the start of the line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1fa938d2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for END:
+Binding(END,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.lineEnd,Line End,
+		Go to the end of the line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3a836904,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(END,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.lineEnd,Line End,
+		Go to the end of the line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3a836904,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+L:
+Binding(CTRL+L,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.line,Go to Line,
+		Go to a specified line of text,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@359cd8e8,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+L,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.line,Go to Line,
+		Go to a specified line of text,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@359cd8e8,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+HOME:
+Binding(CTRL+HOME,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.textStart,Text Start,
+		Go to the beginning of the text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@12008e02,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+HOME,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.textStart,Text Start,
+		Go to the beginning of the text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@12008e02,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for SHIFT+END:
+Binding(SHIFT+END,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.select.lineEnd,Select Line End,
+		Select to the end of the line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@44b94b38,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(SHIFT+END,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.select.lineEnd,Select Line End,
+		Select to the end of the line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@44b94b38,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for SHIFT+HOME:
+Binding(SHIFT+HOME,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.select.lineStart,Select Line Start,
+		Select to the beginning of the line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6553d1e2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(SHIFT+HOME,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.select.lineStart,Select Line Start,
+		Select to the beginning of the line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6553d1e2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+END:
+Binding(CTRL+END,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.textEnd,Text End,
+		Go to the end of the text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@36db0e38,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+END,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.textEnd,Text End,
+		Go to the end of the text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@36db0e38,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+BS:
+Binding(CTRL+BS,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.deletePreviousWord,Delete Previous Word,
+		Delete the previous word,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@20bde67f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+BS,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.deletePreviousWord,Delete Previous Word,
+		Delete the previous word,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@20bde67f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for ALT+CTRL+J:
+Binding(ALT+CTRL+J,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.join.lines,Join Lines,
+		Join lines of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2e5389db,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(ALT+CTRL+J,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.join.lines,Join Lines,
+		Join lines of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2e5389db,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+SHIFT+Y:
+Binding(CTRL+SHIFT+Y,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.lowerCase,To Lower Case,
+		Changes the selection to lower case,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@55f49132,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+Y,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.lowerCase,To Lower Case,
+		Changes the selection to lower case,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@55f49132,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+SHIFT+K:
+Binding(CTRL+SHIFT+K,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.findPrevious,Find Previous,
+		Find previous item,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3bb0ff7a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+K,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.findPrevious,Find Previous,
+		Find previous item,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3bb0ff7a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for SHIFT+CR:
+Binding(SHIFT+CR,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.smartEnter,Insert Line Below Current Line,
+		Adds a new line below the current line,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@74f1786d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(SHIFT+CR,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.smartEnter,Insert Line Below Current Line,
+		Adds a new line below the current line,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@74f1786d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+K:
+Binding(CTRL+K,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.findNext,Find Next,
+		Find next item,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@465e3a79,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+K,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.findNext,Find Next,
+		Find next item,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@465e3a79,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for ALT+CTRL+/:
+Binding(ALT+CTRL+/,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.hippieCompletion,Word Completion,
+		Context insensitive completion,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@37d25e81,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,zh,,system)
+Binding(ALT+CTRL+/,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.hippieCompletion,Word Completion,
+		Context insensitive completion,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@37d25e81,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,zh,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+J:
+Binding(CTRL+J,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.findIncremental,Incremental Find,
+		Incremental find,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@ba53c2e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+J,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.findIncremental,Incremental Find,
+		Incremental find,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@ba53c2e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for F2:
+Binding(F2,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
+		Rename the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@74681f27,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(F2,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.showInformation,Show Tooltip Description,
+		Displays information for the current caret location in a focused hover,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@43d27e21,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(F2,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.showInformation,Show Tooltip Description,
+		Displays information for the current caret location in a focused hover,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@43d27e21,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+ARROW_LEFT:
+Binding(CTRL+ARROW_LEFT,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.wordPrevious,Previous Word,
+		Go to the previous word,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6651168c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+ARROW_LEFT,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.wordPrevious,Previous Word,
+		Go to the previous word,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6651168c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+ARROW_DOWN:
+Binding(CTRL+ARROW_DOWN,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.scroll.lineDown,Scroll Line Down,
+		Scroll down one line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@44371224,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+ARROW_DOWN,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.scroll.lineDown,Scroll Line Down,
+		Scroll down one line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@44371224,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+F10:
+Binding(CTRL+F10,
+	ParameterizedCommand(Command(org.eclipse.ui.window.showViewMenu,Show View Menu,
+		Show the view menu,
+		Category(org.eclipse.ui.category.window,Window,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7012aca2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+Binding(CTRL+F10,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.showRulerContextMenu,Show Ruler Context Menu,
+		Show the context menu for the ruler,
+		Category(org.eclipse.ui.category.window,Window,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2061e7f7,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+F10,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.showRulerContextMenu,Show Ruler Context Menu,
+		Show the context menu for the ruler,
+		Category(org.eclipse.ui.category.window,Window,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2061e7f7,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+SHIFT+X:
+Binding(CTRL+SHIFT+X,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.upperCase,To Upper Case,
+		Changes the selection to upper case,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4e6a6001,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+X,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.upperCase,To Upper Case,
+		Changes the selection to upper case,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4e6a6001,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for INSERT:
+Binding(INSERT,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.toggleOverwrite,Toggle Overwrite,
+		Toggle overwrite mode,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3230fdda,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(INSERT,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.toggleOverwrite,Toggle Overwrite,
+		Toggle overwrite mode,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3230fdda,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+D:
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line,Delete Line,
+		Delete a line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@57222082,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line,Delete Line,
+		Delete a line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@57222082,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+SHIFT+ARROW_RIGHT:
+Binding(CTRL+SHIFT+ARROW_RIGHT,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.select.wordNext,Select Next Word,
+		Select the next word,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@78d33bce,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+ARROW_RIGHT,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.select.wordNext,Select Next Word,
+		Select the next word,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@78d33bce,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+SHIFT+ARROW_LEFT:
+Binding(CTRL+SHIFT+ARROW_LEFT,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.select.wordPrevious,Select Previous Word,
+		Select the previous word,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@65a436bd,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+ARROW_LEFT,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.select.wordPrevious,Select Previous Word,
+		Select the previous word,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@65a436bd,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+ARROW_RIGHT:
+Binding(CTRL+ARROW_RIGHT,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.wordNext,Next Word,
+		Go to the next word,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@504fc9fe,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+ARROW_RIGHT,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.wordNext,Next Word,
+		Go to the next word,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@504fc9fe,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+SHIFT+J:
+Binding(CTRL+SHIFT+J,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.findIncrementalReverse,Incremental Find Reverse,
+		Incremental find reverse,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@16afd545,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+J,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.findIncrementalReverse,Incremental Find Reverse,
+		Incremental find reverse,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@16afd545,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+SHIFT+INSERT:
+Binding(CTRL+SHIFT+INSERT,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.toggleInsertMode,Toggle Insert Mode,
+		Toggle insert mode,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@77438115,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+INSERT,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.toggleInsertMode,Toggle Insert Mode,
+		Toggle insert mode,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@77438115,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for ALT+ARROW_UP:
+Binding(ALT+ARROW_UP,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.moveLineUp,Move Lines Up,
+		Moves the selected lines up,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3316409e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(ALT+ARROW_UP,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.moveLineUp,Move Lines Up,
+		Moves the selected lines up,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3316409e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+DEL:
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.deleteNextWord,Delete Next Word,
+		Delete the next word,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1d387f3b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+DEL,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.deleteNextWord,Delete Next Word,
+		Delete the next word,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1d387f3b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+ARROW_UP:
+Binding(CTRL+ARROW_UP,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.scroll.lineUp,Scroll Line Up,
+		Scroll up one line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@75d58424,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+ARROW_UP,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.scroll.lineUp,Scroll Line Up,
+		Scroll up one line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@75d58424,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for ALT+CTRL+ARROW_UP:
+Binding(ALT+CTRL+ARROW_UP,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.copyLineUp,Duplicate Lines,
+		Duplicates the selected lines and leaves the selection unchanged,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1ef5f8a2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(ALT+CTRL+ARROW_UP,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.copyLineUp,Duplicate Lines,
+		Duplicates the selected lines and leaves the selection unchanged,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1ef5f8a2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for ALT+ARROW_DOWN:
+Binding(ALT+ARROW_DOWN,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.moveLineDown,Move Lines Down,
+		Moves the selected lines down,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1f664952,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(ALT+ARROW_DOWN,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.moveLineDown,Move Lines Down,
+		Moves the selected lines down,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1f664952,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for ALT+CTRL+ARROW_DOWN:
+Binding(ALT+CTRL+ARROW_DOWN,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.copyLineDown,Copy Lines,
+		Duplicates the selected lines and moves the selection to the copy,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@41792c22,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(ALT+CTRL+ARROW_DOWN,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.copyLineDown,Copy Lines,
+		Duplicates the selected lines and moves the selection to the copy,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@41792c22,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for CTRL+SHIFT+DEL:
+Binding(CTRL+SHIFT+DEL,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line.to.end,Delete to End of Line,
+		Delete to the end of a line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@18d4648d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+DEL,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line.to.end,Delete to End of Line,
+		Delete to the end of a line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@18d4648d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-01-02 16:37:32.367
+!MESSAGE A conflict occurred for ALT+SHIFT+A:
+Binding(ALT+SHIFT+A,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.toggleBlockSelectionMode,Toggle Block Selection,
+		Toggle block / column selection in the current text editor,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@29d5afdd,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(ALT+SHIFT+A,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.toggleBlockSelectionMode,Toggle Block Selection,
+		Toggle block / column selection in the current text editor,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@29d5afdd,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
+
+!ENTRY org.apache.log4j 4 0 2018-01-02 16:37:40.885
+!MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
+
+!STACK 0
+java.lang.Exception
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.validateResourceState(AbstractBatchTypeResolver.java:77)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:65)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:55)
+	at org.eclipse.xtext.xbase.validation.XbaseValidator.getActualType(XbaseValidator.java:224)
+	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2261)
+	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2313)
+	at sun.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.validation.AbstractDeclarativeValidator$MethodWrapper.invoke(AbstractDeclarativeValidator.java:118)
@@ -36,18 +1003,18 @@ java.lang.Exception
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
-	at sun.reflect.GeneratedMethodAccessor98.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
-	at sun.reflect.GeneratedMethodAccessor114.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
 	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createChildren(SARLOutlineTreeProvider.java:106)
-	at sun.reflect.GeneratedMethodAccessor137.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
@@ -105,7 +1072,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 14:45:18.904
+!ENTRY org.apache.log4j 4 0 2018-01-02 16:37:40.885
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -116,7 +1083,7 @@ java.lang.Exception
 	at org.eclipse.xtext.xbase.validation.XbaseValidator.getActualType(XbaseValidator.java:224)
 	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2261)
 	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2313)
-	at sun.reflect.GeneratedMethodAccessor222.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.validation.AbstractDeclarativeValidator$MethodWrapper.invoke(AbstractDeclarativeValidator.java:118)
@@ -126,28 +1093,25 @@ java.lang.Exception
 	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
 	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
-	at sun.reflect.GeneratedMethodAccessor98.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor49.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
-	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
-	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
-	at sun.reflect.GeneratedMethodAccessor114.invoke(Unknown Source)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
+	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
 	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createChildren(SARLOutlineTreeProvider.java:106)
-	at sun.reflect.GeneratedMethodAccessor137.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
@@ -205,7 +1169,7 @@ java.lang.Exception
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
 
-!ENTRY org.apache.log4j 4 0 2018-01-02 14:45:18.904
+!ENTRY org.apache.log4j 4 0 2018-01-02 16:37:40.885
 !MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
 
 !STACK 0
@@ -216,7 +1180,201 @@ java.lang.Exception
 	at org.eclipse.xtext.xbase.validation.XbaseValidator.getActualType(XbaseValidator.java:224)
 	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2261)
 	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2313)
-	at sun.reflect.GeneratedMethodAccessor222.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.validation.AbstractDeclarativeValidator$MethodWrapper.invoke(AbstractDeclarativeValidator.java:118)
+	at org.eclipse.xtext.validation.AbstractDeclarativeValidator.internalValidate(AbstractDeclarativeValidator.java:312)
+	at org.eclipse.xtext.validation.AbstractInjectableValidator.validate(AbstractInjectableValidator.java:71)
+	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
+	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
+	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
+	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
+	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createChildren(SARLOutlineTreeProvider.java:106)
+	at sun.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createChildren(DefaultOutlineTreeProvider.java:115)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:102)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:63)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:1)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode.readOnly(DocumentRootNode.java:59)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode.getChildren(AbstractOutlineNode.java:99)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.restoreChildrenSelectionAndExpansion(OutlineRefreshJob.java:120)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:93)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:1)
+	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.internalRefreshOutlineModel(OutlineRefreshJob.java:89)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:78)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:1)
+	at org.eclipse.xtext.ui.util.DisplayRunnableWithResult$1.run(DisplayRunnableWithResult.java:26)
+	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:58)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:168)
+	at org.eclipse.ui.internal.UISynchronizer.lambda$0(UISynchronizer.java:150)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1044)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
+
+!ENTRY org.apache.log4j 4 0 2018-01-02 16:37:40.885
+!MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
+
+!STACK 0
+java.lang.Exception
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.validateResourceState(AbstractBatchTypeResolver.java:77)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:65)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:55)
+	at org.eclipse.xtext.xbase.validation.XbaseValidator.getActualType(XbaseValidator.java:224)
+	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2261)
+	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2313)
+	at sun.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.validation.AbstractDeclarativeValidator$MethodWrapper.invoke(AbstractDeclarativeValidator.java:118)
+	at org.eclipse.xtext.validation.AbstractDeclarativeValidator.internalValidate(AbstractDeclarativeValidator.java:312)
+	at org.eclipse.xtext.validation.AbstractInjectableValidator.validate(AbstractInjectableValidator.java:71)
+	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidateContents(Diagnostician.java:185)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:161)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
+	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
+	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
+	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:127)
+	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createChildren(SARLOutlineTreeProvider.java:106)
+	at sun.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createChildren(DefaultOutlineTreeProvider.java:115)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:102)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:63)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:1)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode.readOnly(DocumentRootNode.java:59)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode.getChildren(AbstractOutlineNode.java:99)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.restoreChildrenSelectionAndExpansion(OutlineRefreshJob.java:120)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:93)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:1)
+	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.internalRefreshOutlineModel(OutlineRefreshJob.java:89)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:78)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:1)
+	at org.eclipse.xtext.ui.util.DisplayRunnableWithResult$1.run(DisplayRunnableWithResult.java:26)
+	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:58)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:168)
+	at org.eclipse.ui.internal.UISynchronizer.lambda$0(UISynchronizer.java:150)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1044)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
+
+!ENTRY org.apache.log4j 4 0 2018-01-02 16:37:40.885
+!MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
+
+!STACK 0
+java.lang.Exception
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.validateResourceState(AbstractBatchTypeResolver.java:77)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:65)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:55)
+	at org.eclipse.xtext.xbase.validation.XbaseValidator.getActualType(XbaseValidator.java:224)
+	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2261)
+	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2313)
+	at sun.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.validation.AbstractDeclarativeValidator$MethodWrapper.invoke(AbstractDeclarativeValidator.java:118)
@@ -230,24 +1388,324 @@ java.lang.Exception
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
 	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
-	at sun.reflect.GeneratedMethodAccessor98.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
 	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
-	at sun.reflect.GeneratedMethodAccessor49.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
 	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
-	at sun.reflect.GeneratedMethodAccessor114.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
 	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
 	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createChildren(SARLOutlineTreeProvider.java:106)
-	at sun.reflect.GeneratedMethodAccessor137.invoke(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createChildren(DefaultOutlineTreeProvider.java:115)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:102)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:63)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:1)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode.readOnly(DocumentRootNode.java:59)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode.getChildren(AbstractOutlineNode.java:99)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.restoreChildrenSelectionAndExpansion(OutlineRefreshJob.java:120)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:93)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:1)
+	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.internalRefreshOutlineModel(OutlineRefreshJob.java:89)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:78)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:1)
+	at org.eclipse.xtext.ui.util.DisplayRunnableWithResult$1.run(DisplayRunnableWithResult.java:26)
+	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:58)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:168)
+	at org.eclipse.ui.internal.UISynchronizer.lambda$0(UISynchronizer.java:150)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1044)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
+
+!ENTRY org.apache.log4j 4 0 2018-01-02 16:37:40.885
+!MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
+
+!STACK 0
+java.lang.Exception
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.validateResourceState(AbstractBatchTypeResolver.java:77)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:65)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:55)
+	at org.eclipse.xtext.xbase.validation.XbaseValidator.getActualType(XbaseValidator.java:224)
+	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2261)
+	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2313)
+	at sun.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.validation.AbstractDeclarativeValidator$MethodWrapper.invoke(AbstractDeclarativeValidator.java:118)
+	at org.eclipse.xtext.validation.AbstractDeclarativeValidator.internalValidate(AbstractDeclarativeValidator.java:312)
+	at org.eclipse.xtext.validation.AbstractInjectableValidator.validate(AbstractInjectableValidator.java:71)
+	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
+	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
+	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
+	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
+	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createChildren(SARLOutlineTreeProvider.java:106)
+	at sun.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createChildren(DefaultOutlineTreeProvider.java:115)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:102)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:63)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:1)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode.readOnly(DocumentRootNode.java:59)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode.getChildren(AbstractOutlineNode.java:99)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.restoreChildrenSelectionAndExpansion(OutlineRefreshJob.java:120)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:93)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:1)
+	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.internalRefreshOutlineModel(OutlineRefreshJob.java:89)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:78)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:1)
+	at org.eclipse.xtext.ui.util.DisplayRunnableWithResult$1.run(DisplayRunnableWithResult.java:26)
+	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:58)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:168)
+	at org.eclipse.ui.internal.UISynchronizer.lambda$0(UISynchronizer.java:150)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1044)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
+
+!ENTRY org.apache.log4j 4 0 2018-01-02 16:37:40.900
+!MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
+
+!STACK 0
+java.lang.Exception
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.validateResourceState(AbstractBatchTypeResolver.java:77)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:65)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:55)
+	at org.eclipse.xtext.xbase.validation.XbaseValidator.getActualType(XbaseValidator.java:224)
+	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2261)
+	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2313)
+	at sun.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.validation.AbstractDeclarativeValidator$MethodWrapper.invoke(AbstractDeclarativeValidator.java:118)
+	at org.eclipse.xtext.validation.AbstractDeclarativeValidator.internalValidate(AbstractDeclarativeValidator.java:312)
+	at org.eclipse.xtext.validation.AbstractInjectableValidator.validate(AbstractInjectableValidator.java:71)
+	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
+	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
+	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
+	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
+	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createChildren(SARLOutlineTreeProvider.java:106)
+	at sun.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createChildren(DefaultOutlineTreeProvider.java:115)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:102)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode$1.process(AbstractOutlineNode.java:1)
+	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:37)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:63)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode$1.exec(DocumentRootNode.java:1)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode.readOnly(DocumentRootNode.java:59)
+	at org.eclipse.xtext.ui.editor.outline.impl.AbstractOutlineNode.getChildren(AbstractOutlineNode.java:99)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.restoreChildrenSelectionAndExpansion(OutlineRefreshJob.java:120)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:93)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$2.exec(OutlineRefreshJob.java:1)
+	at org.eclipse.xtext.util.concurrent.CancelableUnitOfWork.exec(CancelableUnitOfWork.java:26)
+	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:91)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.internalReadOnly(XtextDocument.java:520)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.readOnly(XtextDocument.java:492)
+	at org.eclipse.xtext.ui.editor.model.XtextDocument.readOnly(XtextDocument.java:133)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob.internalRefreshOutlineModel(OutlineRefreshJob.java:89)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:78)
+	at org.eclipse.xtext.ui.editor.outline.impl.OutlineRefreshJob$1.run(OutlineRefreshJob.java:1)
+	at org.eclipse.xtext.ui.util.DisplayRunnableWithResult$1.run(DisplayRunnableWithResult.java:26)
+	at org.eclipse.ui.internal.PendingSyncExec.run(PendingSyncExec.java:58)
+	at org.eclipse.ui.internal.UILockListener.doPendingWork(UILockListener.java:168)
+	at org.eclipse.ui.internal.UISynchronizer.lambda$0(UISynchronizer.java:150)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1044)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
+
+!ENTRY org.apache.log4j 4 0 2018-01-02 16:37:40.900
+!MESSAGE org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver  - Discouraged attempt to compute types for resource that was loaded from storage. Resource was : platform:/resource/Ant2DGrid/src/main/sarl/utbm/ia54/ant2dgrid/capacities/capacities.sarl
+
+!STACK 0
+java.lang.Exception
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.validateResourceState(AbstractBatchTypeResolver.java:77)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:65)
+	at org.eclipse.xtext.xbase.typesystem.internal.AbstractBatchTypeResolver.resolveTypes(AbstractBatchTypeResolver.java:55)
+	at org.eclipse.xtext.xbase.validation.XbaseValidator.getActualType(XbaseValidator.java:224)
+	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2261)
+	at io.sarl.lang.validation.SARLValidator.checkUnmodifiableEventAccess(SARLValidator.java:2313)
+	at sun.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.validation.AbstractDeclarativeValidator$MethodWrapper.invoke(AbstractDeclarativeValidator.java:118)
+	at org.eclipse.xtext.validation.AbstractDeclarativeValidator.internalValidate(AbstractDeclarativeValidator.java:312)
+	at org.eclipse.xtext.validation.AbstractInjectableValidator.validate(AbstractInjectableValidator.java:71)
+	at org.eclipse.xtext.validation.CompositeEValidator.validate(CompositeEValidator.java:151)
+	at org.eclipse.emf.ecore.util.Diagnostician.doValidate(Diagnostician.java:171)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:158)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:137)
+	at org.eclipse.emf.ecore.util.Diagnostician.validate(Diagnostician.java:108)
+	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.getIssueAdornment(SARLDiagnosticLabelDecorator.java:141)
+	at io.sarl.lang.ui.labeling.SARLDiagnosticLabelDecorator.decorateImage(SARLDiagnosticLabelDecorator.java:168)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._image(SARLOutlineTreeProvider.java:297)
+	at sun.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider._createNode(DefaultOutlineTreeProvider.java:163)
+	at sun.reflect.GeneratedMethodAccessor131.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createNode(SARLOutlineTreeProvider.java:148)
+	at sun.reflect.GeneratedMethodAccessor181.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)
+	at org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider.createNode(DefaultOutlineTreeProvider.java:143)
+	at io.sarl.lang.ui.outline.SARLOutlineTreeProvider._createChildren(SARLOutlineTreeProvider.java:106)
+	at sun.reflect.GeneratedMethodAccessor206.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.xtext.util.PolymorphicDispatcher.invoke(PolymorphicDispatcher.java:302)

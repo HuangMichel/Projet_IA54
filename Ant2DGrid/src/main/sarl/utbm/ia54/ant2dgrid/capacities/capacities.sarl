@@ -9,6 +9,8 @@ import utbm.ia54.ant2dgrid.Enum.Direction
 import java.util.List
 import utbm.ia54.ant2dgrid.objects.Cell
 import utbm.ia54.ant2dgrid.objects.AntBody
+import io.sarl.lang.core.Address
+import java.util.Map
 
 /** 
  * @author Michel
@@ -39,5 +41,8 @@ capacity EnvironmentManagerCapacity{
 	def getHomeCell : Cell
 	def getFoodCell : Cell
 	def getCell(i : int) : Cell
-	def sendPerception(id : UUID, list : List<Cell>)
+	def setAddress(id : UUID, address : Address)
+	def sendPerception(sender : UUID, id : UUID, list : List<Cell>)
+	def getPerception(id : UUID) : List<Cell>
+	def getAntAddresses : Map<UUID, Address>
 }

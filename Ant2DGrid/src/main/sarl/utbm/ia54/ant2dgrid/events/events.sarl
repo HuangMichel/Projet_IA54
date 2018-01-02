@@ -24,8 +24,13 @@ event AntInitialize{
 	}
 }
 
+event Continue
+
 event Perception{
 	var list : List<Cell>
+	new (list : List<Cell>){
+		this.list = list
+	}
 }
 
 event Influence{

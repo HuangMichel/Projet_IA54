@@ -2,9 +2,11 @@ package utbm.ia54.ant2dgrid.capacities;
 
 import io.sarl.lang.annotation.SarlElementType;
 import io.sarl.lang.annotation.SarlSpecification;
+import io.sarl.lang.core.Address;
 import io.sarl.lang.core.AgentTrait;
 import io.sarl.lang.core.Capacity;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import utbm.ia54.ant2dgrid.objects.AntBody;
 import utbm.ia54.ant2dgrid.objects.Cell;
@@ -32,7 +34,13 @@ public interface EnvironmentManagerCapacity extends Capacity {
   
   public abstract Cell getCell(final int i);
   
-  public abstract void sendPerception(final UUID id, final List<Cell> list);
+  public abstract void setAddress(final UUID id, final Address address);
+  
+  public abstract void sendPerception(final UUID sender, final UUID id, final List<Cell> list);
+  
+  public abstract List<Cell> getPerception(final UUID id);
+  
+  public abstract Map<UUID, Address> getAntAddresses();
   
   public static class ContextAwareCapacityWrapper<C extends EnvironmentManagerCapacity> extends Capacity.ContextAwareCapacityWrapper<C> implements EnvironmentManagerCapacity {
     public ContextAwareCapacityWrapper(final C capacity, final AgentTrait caller) {
@@ -111,10 +119,37 @@ public interface EnvironmentManagerCapacity extends Capacity {
       }
     }
     
-    public void sendPerception(final UUID id, final List<Cell> list) {
+    public void setAddress(final UUID id, final Address address) {
       try {
         ensureCallerInLocalThread();
-        this.capacity.sendPerception(id, list);
+        this.capacity.setAddress(id, address);
+      } finally {
+        resetCallerInLocalThread();
+      }
+    }
+    
+    public void sendPerception(final UUID sender, final UUID id, final List<Cell> list) {
+      try {
+        ensureCallerInLocalThread();
+        this.capacity.sendPerception(sender, id, list);
+      } finally {
+        resetCallerInLocalThread();
+      }
+    }
+    
+    public List<Cell> getPerception(final UUID id) {
+      try {
+        ensureCallerInLocalThread();
+        return this.capacity.getPerception(id);
+      } finally {
+        resetCallerInLocalThread();
+      }
+    }
+    
+    public Map<UUID, Address> getAntAddresses() {
+      try {
+        ensureCallerInLocalThread();
+        return this.capacity.getAntAddresses();
       } finally {
         resetCallerInLocalThread();
       }
