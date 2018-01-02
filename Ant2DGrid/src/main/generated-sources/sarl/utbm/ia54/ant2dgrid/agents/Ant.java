@@ -70,7 +70,11 @@ public class Ant extends Agent {
     String _plus_2 = (_plus_1 + " was started.");
     _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER_1.info(_plus_2);
     MotionSkill _motionSkill = new MotionSkill();
+<<<<<<< HEAD
     this.<MotionSkill>setSkill(_motionSkill, MotionSkill.class);
+=======
+    this.<MotionSkill>setSkill(_motionSkill, MotionCapacity.class);
+>>>>>>> 9f6603cbbc6d1f10569d862d8aa199d83e2e9442
     DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
     AntInitialize _antInitialize = new AntInitialize(this.body);
     _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_antInitialize);
@@ -124,6 +128,8 @@ public class Ant extends Agent {
           }
         }
       }
+      MotionCapacity _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY$CALLER = this.$castSkill(MotionCapacity.class, (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY.get() == null) ? (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY = this.$getSkill(MotionCapacity.class)) : this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY);
+      _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY$CALLER.move(this.body.getPosition(), tempVector, this.body, this.getID());
     }
   }
   

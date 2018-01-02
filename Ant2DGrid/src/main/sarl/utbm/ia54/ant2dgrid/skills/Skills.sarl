@@ -20,19 +20,38 @@ import io.sarl.lang.core.Address
 import java.util.Map
 import java.util.HashMap
 import java.util.ArrayList
+import io.sarl.core.DefaultContextInteractions
+import utbm.ia54.ant2dgrid.events.Influence
+import java.util.concurrent.ThreadLocalRandom
 
 /** 
  * @author Michel
  * 
  */
 skill MotionSkill implements MotionCapacity{
+	uses DefaultContextInteractions
 	
-	def move(direction : Direction) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	def move(v : Vector2i, newpos : Vector2i, body : AntBody, id : UUID) {
+		//throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		emit(new Influence(v,newpos,body,id))
 	}
 	
-	def randomMove {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	def randomMove(v : Vector2i, body : AntBody, id : UUID) {
+		// throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		val randomNum = ThreadLocalRandom.current().nextInt(0, 3 + 1)
+		switch(randomNum){
+			case 0:
+				emit(new Influence(v, new Vector2i(v.x, v.y +1), body, id))
+			case 1:
+				emit(new Influence(v, new Vector2i(v.x - 1, v.y), body, id))
+			case 2:
+				emit(new Influence(v, new Vector2i(v.x, v.y - 1), body, id))
+			case 3:
+				emit(new Influence(v, new Vector2i(v.x + 1, v.y), body, id))
+			default:
+				emit(new Influence(v, new Vector2i(v.x - 1, v.y), body, id))
+				
+		}
 	}
 	
 }

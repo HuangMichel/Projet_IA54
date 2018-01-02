@@ -3,12 +3,14 @@ package utbm.ia54.ant2dgrid.events;
 import io.sarl.lang.annotation.SarlElementType;
 import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
-import io.sarl.lang.core.Address;
 import io.sarl.lang.core.Event;
 import java.util.Objects;
 import java.util.UUID;
+<<<<<<< HEAD
 import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.Direction;
+=======
+>>>>>>> 9f6603cbbc6d1f10569d862d8aa199d83e2e9442
 import utbm.ia54.ant2dgrid.objects.AntBody;
 import utbm.ia54.ant2dgrid.objects.Vector2i;
 
@@ -18,20 +20,17 @@ import utbm.ia54.ant2dgrid.objects.Vector2i;
 public class Influence extends Event {
   public Vector2i v;
   
-  public Direction direction;
+  public Vector2i newpos;
   
   public AntBody body;
   
   public UUID id;
   
-  @SyntheticMember
-  public Influence() {
-    super();
-  }
-  
-  @SyntheticMember
-  public Influence(final Address source) {
-    super(source);
+  public Influence(final Vector2i v, final Vector2i newpos, final AntBody body, final UUID id) {
+    this.v = v;
+    this.newpos = newpos;
+    this.body = body;
+    this.id = id;
   }
   
   @Override
@@ -69,12 +68,12 @@ public class Influence extends Event {
   protected String attributesToString() {
     StringBuilder result = new StringBuilder(super.attributesToString());
     result.append("v  = ").append(this.v);
-    result.append("direction  = ").append(this.direction);
+    result.append("newpos  = ").append(this.newpos);
     result.append("body  = ").append(this.body);
     result.append("id  = ").append(this.id);
     return result.toString();
   }
   
   @SyntheticMember
-  private final static long serialVersionUID = -138724910L;
+  private final static long serialVersionUID = 3890678800L;
 }

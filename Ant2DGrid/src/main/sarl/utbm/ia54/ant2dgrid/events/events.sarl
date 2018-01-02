@@ -38,9 +38,15 @@ event Influence{
 	//Initial position
 	var v : Vector2i
 	//The direction to move
-	var direction : Direction
+	var newpos : Vector2i
 	var body : AntBody
 	var id : UUID
+	new(v : Vector2i, newpos : Vector2i, body : AntBody, id : UUID) {
+		this.v = v
+		this.newpos = newpos
+		this.body = body
+		this.id = id
+	}
 }
 
 event AcceptInfluence{
