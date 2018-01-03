@@ -4,7 +4,6 @@ import io.sarl.lang.annotation.SarlElementType;
 import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
 import io.sarl.lang.core.Event;
-import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.objects.AntBody;
 import utbm.ia54.ant2dgrid.objects.Vector2i;
 
@@ -22,14 +21,12 @@ public class Influence extends Event {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     return super.equals(obj);
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();
@@ -40,7 +37,6 @@ public class Influence extends Event {
    * Returns a String representation of the Influence event's attributes only.
    */
   @SyntheticMember
-  @Pure
   protected String attributesToString() {
     StringBuilder result = new StringBuilder(super.attributesToString());
     result.append("newpos  = ").append(this.newpos);

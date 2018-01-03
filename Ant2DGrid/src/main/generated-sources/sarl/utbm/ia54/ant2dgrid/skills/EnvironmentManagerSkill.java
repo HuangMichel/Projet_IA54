@@ -15,7 +15,6 @@ import java.util.Map;
 import java.util.UUID;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Inline;
-import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.capacities.EnvironmentManagerCapacity;
 import utbm.ia54.ant2dgrid.objects.AntBody;
@@ -122,28 +121,48 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
       Vector2i vector = this.getAntPosition(id);
       int _x = vector.getX();
       int _plus = (_x + 1);
-      int _multiply = (_plus * this.height);
-      int _y = vector.getY();
-      int _plus_1 = (_multiply + _y);
-      list.add(this.grid.get(_plus_1));
-      int _x_1 = vector.getX();
-      int _multiply_1 = (_x_1 * this.height);
+      boolean _lessThan = (_plus < this.width);
+      if (_lessThan) {
+        int _x_1 = vector.getX();
+        int _plus_1 = (_x_1 + 1);
+        int _multiply = (_plus_1 * this.height);
+        int _y = vector.getY();
+        int _plus_2 = (_multiply + _y);
+        list.add(this.grid.get(_plus_2));
+      }
       int _y_1 = vector.getY();
-      int _plus_2 = (_y_1 + 1);
-      int _plus_3 = (_multiply_1 + _plus_2);
-      list.add(this.grid.get(_plus_3));
-      int _x_2 = vector.getX();
-      int _minus = (_x_2 - 1);
-      int _multiply_2 = (_minus * this.height);
-      int _y_2 = vector.getY();
-      int _plus_4 = (_multiply_2 + _y_2);
-      list.add(this.grid.get(_plus_4));
+      int _plus_3 = (_y_1 + 1);
+      boolean _lessThan_1 = (_plus_3 < this.height);
+      if (_lessThan_1) {
+        int _x_2 = vector.getX();
+        int _multiply_1 = (_x_2 * this.height);
+        int _y_2 = vector.getY();
+        int _plus_4 = (_y_2 + 1);
+        int _plus_5 = (_multiply_1 + _plus_4);
+        list.add(this.grid.get(_plus_5));
+      }
       int _x_3 = vector.getX();
-      int _multiply_3 = (_x_3 * this.height);
-      int _y_3 = vector.getY();
-      int _minus_1 = (_y_3 - 1);
-      int _plus_5 = (_multiply_3 + _minus_1);
-      list.add(this.grid.get(_plus_5));
+      int _minus = (_x_3 - 1);
+      boolean _greaterThan = (_minus > (-1));
+      if (_greaterThan) {
+        int _x_4 = vector.getX();
+        int _minus_1 = (_x_4 - 1);
+        int _multiply_2 = (_minus_1 * this.height);
+        int _y_3 = vector.getY();
+        int _plus_6 = (_multiply_2 + _y_3);
+        list.add(this.grid.get(_plus_6));
+      }
+      int _y_4 = vector.getY();
+      int _minus_2 = (_y_4 - 1);
+      boolean _greaterThan_1 = (_minus_2 > (-1));
+      if (_greaterThan_1) {
+        int _x_5 = vector.getX();
+        int _multiply_3 = (_x_5 * this.height);
+        int _y_5 = vector.getY();
+        int _minus_3 = (_y_5 - 1);
+        int _plus_7 = (_multiply_3 + _minus_3);
+        list.add(this.grid.get(_plus_7));
+      }
       _xblockexpression = list;
     }
     return _xblockexpression;
@@ -153,7 +172,6 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
     return this.antAddresses;
   }
   
-  @Pure
   private Vector2i getAntPosition(final UUID id) {
     Vector2i _xblockexpression = null;
     {
@@ -186,7 +204,6 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
   private transient ClearableReference<Skill> $CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS;
   
   @SyntheticMember
-  @Pure
   @Inline(value = "$castSkill(InnerContextAccess.class, ($0$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS == null || $0$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS.get() == null) ? ($0$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS = $0$getSkill(InnerContextAccess.class)) : $0$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS)", imported = InnerContextAccess.class)
   private InnerContextAccess $CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS$CALLER() {
     if (this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS == null || this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS.get() == null) {
@@ -196,7 +213,6 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -220,7 +236,6 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

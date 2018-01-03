@@ -67,7 +67,7 @@ agent Environment {
 	}
 	
 	on Continue{
-		info("continues")
+		//info("continues")
 		if(!launched){
 			//task every
 			synchronized(grid){

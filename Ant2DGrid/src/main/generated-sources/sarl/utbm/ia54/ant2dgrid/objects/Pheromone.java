@@ -7,7 +7,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
-import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.AntState;
 
 /**
@@ -71,17 +70,14 @@ public class Pheromone {
     }
   }
   
-  @Pure
   public AntState getType() {
     return this.type;
   }
   
-  @Pure
   public float getIntensity() {
     return this.intensity;
   }
   
-  @Pure
   public float getCoefEvaportation() {
     return this.coefEvaporation;
   }
@@ -127,18 +123,15 @@ public class Pheromone {
     }
   }
   
-  @Pure
   public Shape getObjfx() {
     return this.objfx;
   }
   
-  @Pure
   public String toString() {
     return ("Intensity : " + Float.valueOf(this.intensity));
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -156,7 +149,6 @@ public class Pheromone {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

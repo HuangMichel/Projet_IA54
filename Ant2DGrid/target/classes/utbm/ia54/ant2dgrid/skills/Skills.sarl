@@ -176,10 +176,19 @@ skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
 	def getPerception(id : UUID) : List<Cell> {
 		var list = new ArrayList<Cell>
 		var vector = getAntPosition(id)
-		list.add(grid.get((vector.x + 1) * height + vector.y))
-		list.add(grid.get(vector.x * height + (vector.y + 1)))
-		list.add(grid.get((vector.x - 1) * height + vector.y))
-		list.add(grid.get(vector.x * height + (vector.y - 1)))
+		if((vector.x + 1) < width){
+			list.add(grid.get((vector.x + 1) * height + vector.y))
+		}
+		if((vector.y + 1) < height){
+			list.add(grid.get(vector.x * height + (vector.y + 1)))
+		}
+		if((vector.x - 1 )>-1){
+			list.add(grid.get((vector.x - 1) * height + vector.y))
+		}
+		if((vector.y - 1) > -1){
+			list.add(grid.get(vector.x * height + (vector.y - 1)))
+		}
+		
 		/*
 		for (var i = -1; i < 2; i++) {
 			for (var j = -1; j < 2; j++) {
