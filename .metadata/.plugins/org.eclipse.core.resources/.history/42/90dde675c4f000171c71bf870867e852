@@ -1,0 +1,69 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.objects
+
+import javafx.scene.shape.Shape
+import javafx.scene.paint.Color
+import javafx.scene.shape.Arc
+import utbm.ia54.ant2dgrid.Enum.CellState
+
+/** 
+ * @author Michel
+ * 
+ */
+class Food{
+	
+	private var shape : Shape
+	private var color: Color
+	private var food : float
+	
+	new(state : CellState){
+		this.shape = new Arc(30, 55, 10, 10, 9, 9)
+		if (state === CellState.FOOD) {
+			this.food = 1000f
+			this.color = new Color(0, 0, 0, 1)
+		}else{
+			this.food = 0
+			this.color = new Color(0, 0, 0, 0)
+		}
+		this.shape.fill = this.color
+	}
+	
+	def getFood : float{
+		this.food
+	}
+	
+	def setFood(f : float){
+		this.food = f
+	}
+	
+	def incrementFood(f : float){
+		this.food += f
+		incrementOpacity
+	}
+	
+	def decrementFood(f : float) {
+		this.food -= f
+		decrementOpacity
+	}
+	
+	def incrementOpacity{
+		if (this.color.opacity < 0.9f) {
+			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity + 0.1)
+			this.shape.fill = this.color
+		}
+	}
+	
+	def decrementOpacity{
+		if (this.food > 100f && this.color.opacity>0.1f) {
+			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity - 0.1)
+			this.shape.fill = this.color
+		}
+	}
+	
+	def getShape : Shape{
+		this.shape
+	}
+	
+}

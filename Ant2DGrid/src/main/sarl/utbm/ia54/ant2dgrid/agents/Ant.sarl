@@ -70,11 +70,13 @@ agent Ant {
 		}
 	}
 	
-	on AcceptInfluence{
+	on AcceptInfluence {
+		info(body.position + " move to " + occurrence.newpos)
 		body.position = occurrence.newpos
 	}
 	
 	on ChangeState{
+		info(body.state + " change state to " + occurrence.newState)
 		body.state = occurrence.newState
 				
 	}

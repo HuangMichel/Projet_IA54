@@ -1,0 +1,42 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.objects
+
+import javafx.scene.shape.Shape
+import javafx.scene.paint.Color
+import javafx.scene.shape.Polygon
+import javafx.scene.shape.Rectangle
+import javafx.scene.shape.Circle
+
+/** 
+ * @author Michel
+ * 
+ */
+class Form {
+	private var shape : Shape
+	private var color : Color
+	
+	new(s : String){
+		switch(s){
+			case "Triangle":
+				this.color = new Color(0f, 0f, 1f, 0f)
+				this.shape = new Polygon(
+					30,
+					30,
+					40,
+					40,
+					20,
+					40
+				)
+				this.shape.fill = this.color
+			/*case "Rectangle":
+				this.color = new Color(1f, 0f, 0f, 0f)
+				this.shape = new Rectangle(10, 10, this.color)
+			case "Circle":
+				this.color = new Color(0f, 1f, 0f, 0f)
+				this.shape = new Circle()*/
+		}
+	}
+	
+}

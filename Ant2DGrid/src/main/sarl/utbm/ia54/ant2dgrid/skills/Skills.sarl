@@ -98,6 +98,8 @@ skill PheromoneSkill implements PheromoneCapacity{
 			tempCell = homeCell
 		}
 		tempCell
+		
+		
 	}	
 }
 

@@ -18,7 +18,6 @@ import utbm.ia54.ant2dgrid.events.Continue
 import io.sarl.util.Scopes
 import utbm.ia54.ant2dgrid.events.Perception
 import utbm.ia54.ant2dgrid.events.Influence
-import utbm.ia54.ant2dgrid.objects.Vector2i
 import utbm.ia54.ant2dgrid.Enum.CellState
 import utbm.ia54.ant2dgrid.events.AcceptInfluence
 import io.sarl.core.DefaultContextInteractions
@@ -54,6 +53,7 @@ agent Environment {
 		setAddress(occurrence.source.UUID, occurrence.source)
 		createAnt(homeCell.position, occurrence.source.UUID, occurrence.body)
 		counter += 1
+		info(counter)
 		if (counter === ctrl.antQuantity){
 			emit(new Continue())
 			counter = 0
@@ -65,15 +65,11 @@ agent Environment {
 		for(var i = 0; i<antQuantity; i++){
 			spawnInContext(typeof(Ant), innerContext,#[i+1, homeCell.position])
 		}
-
 	}
 	
 	on Continue{
-		//info("continues")
 		if(!launched){
-			//task every
 			synchronized(grid){
-				//ctrl.update(grid)
 				antAddresses.forEach [ id, address |
 					var list = getPerception(id)
 					innerContext.defaultSpace.emit(ID, new Perception(list), Scopes.addresses(address))
@@ -89,7 +85,7 @@ agent Environment {
 		var newPosition = occurrence.newpos
 	
 		if (oldPosition.equals(newPosition)) {
-			//do somethings
+			
 		} else {
 			synchronized (grid) {
 				if (getCell(newPosition.x * height + newPosition.y).state === CellState.NORMAL ||
@@ -115,6 +111,7 @@ agent Environment {
 				new AcceptInfluence(newPosition, accept),
 				Scopes.addresses(occurrence.source))
 			counter += 1
+			info(counter)
 			if (counter === ctrl.antQuantity) {
 				emit(new Continue())
 				counter = 0
