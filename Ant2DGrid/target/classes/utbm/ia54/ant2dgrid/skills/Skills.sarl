@@ -40,7 +40,7 @@ skill MotionSkill implements MotionCapacity{
 	}
 	
 	def randomMove(listPerception : List<Cell>, body : AntBody){
-		val randomNum = ThreadLocalRandom.current().nextInt(0, listPerception.length + 1)
+		val randomNum = ThreadLocalRandom.current().nextInt(0, listPerception.length)
 		var newPos : Vector2i
 		if (listPerception.get(randomNum).state === CellState.NORMAL){
 			newPos = listPerception.get(randomNum).position
@@ -58,6 +58,7 @@ skill MotionSkill implements MotionCapacity{
 skill PheromoneSkill implements PheromoneCapacity{
 	
 	def followPheromone(listPerception : List<Cell>, state : AntState) : Cell {
+<<<<<<< HEAD
 		var tempCell : Cell
 		var bool = false
 		var pheromoneFood = 0f
@@ -69,6 +70,17 @@ skill PheromoneSkill implements PheromoneCapacity{
 					tempCell = listPerception.get(i)
 					bool = true
 				}
+=======
+		// throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	var tempCell = new Cell()
+	var pheromoneFood = 0f
+	var pheromoneHome = 0f
+	if (state == AntState.SEARCH_FOOD) {
+		for (var i = 0; i < listPerception.length; i++) {
+			if (pheromoneFood < listPerception.get(i).pheromoneFoodIntensity) {
+				pheromoneFood = listPerception.get(i).pheromoneFoodIntensity
+				tempCell = listPerception.get(i)
+>>>>>>> 0353e32b6a4fb200237fd621a6a895365921459a
 			}
 		} else if (state == AntState.RETURN_HOME) {
 			for (var i = 0; i < listPerception.length; i++) {
@@ -79,11 +91,16 @@ skill PheromoneSkill implements PheromoneCapacity{
 				}
 			}
 		}
+<<<<<<< HEAD
 		if(bool === false){
 			tempCell = new Cell(-1, -1)
 		}
 		
 		tempCell
+=======
+	}
+	tempCell
+>>>>>>> 0353e32b6a4fb200237fd621a6a895365921459a
 	}	
 }
 
@@ -179,6 +196,11 @@ skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
 	def getPerception(id : UUID) : List<Cell> {
 		var list = new ArrayList<Cell>
 		var vector = getAntPosition(id)
+		list.add(grid.get((vector.x + 1) * height + vector.y))
+		list.add(grid.get(vector.x * height + (vector.y + 1)))
+		list.add(grid.get((vector.x - 1) * height + vector.y))
+		list.add(grid.get(vector.x * height + (vector.y - 1)))
+		/*
 		for (var i = -1; i < 2; i++) {
 			for (var j = -1; j < 2; j++) {
 				var temp_vector = new Vector2i(i, j)
@@ -192,7 +214,7 @@ skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
 				}
 				
 			}
-		}
+		}*/
 		list
 	}
 	

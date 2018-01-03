@@ -120,30 +120,30 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
     {
       ArrayList<Cell> list = new ArrayList<Cell>();
       Vector2i vector = this.getAntPosition(id);
-      for (int i = (-1); (i < 2); i++) {
-        for (int j = (-1); (j < 2); j++) {
-          {
-            Vector2i temp_vector = new Vector2i(i, j);
-            temp_vector.plus(vector);
-            int _x = temp_vector.getX();
-            int _multiply = (_x * this.height);
-            int _y = temp_vector.getY();
-            int _plus = (_multiply + _y);
-            boolean _lessThan = (_plus < (this.height * this.width));
-            if (_lessThan) {
-              if (((((temp_vector.getX() < 0) || (temp_vector.getY() < 0)) || (temp_vector.getX() > this.height)) || (temp_vector.getY() > this.width))) {
-                if ((((i == 0) && ((j == (-1)) || (j == 1))) || ((j == 0) && ((i == (-1)) || (i == 1))))) {
-                  int _x_1 = temp_vector.getX();
-                  int _multiply_1 = (_x_1 * this.height);
-                  int _y_1 = temp_vector.getY();
-                  int _plus_1 = (_multiply_1 + _y_1);
-                  list.add(this.grid.get(_plus_1));
-                }
-              }
-            }
-          }
-        }
-      }
+      int _x = vector.getX();
+      int _plus = (_x + 1);
+      int _multiply = (_plus * this.height);
+      int _y = vector.getY();
+      int _plus_1 = (_multiply + _y);
+      list.add(this.grid.get(_plus_1));
+      int _x_1 = vector.getX();
+      int _multiply_1 = (_x_1 * this.height);
+      int _y_1 = vector.getY();
+      int _plus_2 = (_y_1 + 1);
+      int _plus_3 = (_multiply_1 + _plus_2);
+      list.add(this.grid.get(_plus_3));
+      int _x_2 = vector.getX();
+      int _minus = (_x_2 - 1);
+      int _multiply_2 = (_minus * this.height);
+      int _y_2 = vector.getY();
+      int _plus_4 = (_multiply_2 + _y_2);
+      list.add(this.grid.get(_plus_4));
+      int _x_3 = vector.getX();
+      int _multiply_3 = (_x_3 * this.height);
+      int _y_3 = vector.getY();
+      int _minus_1 = (_y_3 - 1);
+      int _plus_5 = (_multiply_3 + _minus_1);
+      list.add(this.grid.get(_plus_5));
       _xblockexpression = list;
     }
     return _xblockexpression;

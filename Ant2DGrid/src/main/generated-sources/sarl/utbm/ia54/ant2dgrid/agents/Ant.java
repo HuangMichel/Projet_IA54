@@ -32,6 +32,7 @@ import utbm.ia54.ant2dgrid.objects.AntBody;
 import utbm.ia54.ant2dgrid.objects.Cell;
 import utbm.ia54.ant2dgrid.objects.Vector2i;
 import utbm.ia54.ant2dgrid.skills.MotionSkill;
+import utbm.ia54.ant2dgrid.skills.PheromoneSkill;
 
 /**
  * @author Michel
@@ -72,6 +73,8 @@ public class Ant extends Agent {
     _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER_1.info(_plus_2);
     MotionSkill _motionSkill = new MotionSkill();
     this.<MotionSkill>setSkill(_motionSkill, MotionCapacity.class);
+    PheromoneSkill _pheromoneSkill = new PheromoneSkill();
+    this.<PheromoneSkill>setSkill(_pheromoneSkill, PheromoneCapacity.class);
     DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
     AntInitialize _antInitialize = new AntInitialize(this.body);
     _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_antInitialize);
@@ -99,13 +102,20 @@ public class Ant extends Agent {
     boolean _not = (!_isEmpty);
     if (_not) {
       PheromoneCapacity _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY$CALLER = this.$castSkill(PheromoneCapacity.class, (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY.get() == null) ? (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY = this.$getSkill(PheromoneCapacity.class)) : this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY);
+<<<<<<< HEAD
       tempVector = _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY$CALLER.followPheromone(listPerception, this.body.getState()).getPosition();
       Vector2i _vector2i = new Vector2i((-1), (-1));
       boolean _equals = tempVector.equals(_vector2i);
       if (_equals) {
+=======
+      boolean _isEmpty_1 = _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY$CALLER.followPheromone(listPerception, this.body.getState()).getAntList().isEmpty();
+      if (_isEmpty_1) {
+>>>>>>> 0353e32b6a4fb200237fd621a6a895365921459a
         MotionCapacity _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY$CALLER = this.$castSkill(MotionCapacity.class, (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY.get() == null) ? (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY = this.$getSkill(MotionCapacity.class)) : this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY);
         _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY$CALLER.randomMove(listPerception, this.body);
       } else {
+        PheromoneCapacity _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY$CALLER_1 = this.$castSkill(PheromoneCapacity.class, (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY.get() == null) ? (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY = this.$getSkill(PheromoneCapacity.class)) : this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY);
+        tempVector = _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY$CALLER_1.followPheromone(listPerception, this.body.getState()).getPosition();
         MotionCapacity _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY$CALLER_1 = this.$castSkill(MotionCapacity.class, (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY.get() == null) ? (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY = this.$getSkill(MotionCapacity.class)) : this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY);
         _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY$CALLER_1.move(tempVector, this.body);
       }

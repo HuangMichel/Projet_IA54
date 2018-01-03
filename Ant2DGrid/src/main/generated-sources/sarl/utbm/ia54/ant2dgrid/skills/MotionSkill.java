@@ -36,10 +36,7 @@ public class MotionSkill extends Skill implements MotionCapacity {
   }
   
   public void randomMove(final List<Cell> listPerception, final AntBody body) {
-    ThreadLocalRandom _current = ThreadLocalRandom.current();
-    int _length = ((Object[])Conversions.unwrapArray(listPerception, Object.class)).length;
-    int _plus = (_length + 1);
-    final int randomNum = _current.nextInt(0, _plus);
+    final int randomNum = ThreadLocalRandom.current().nextInt(0, ((Object[])Conversions.unwrapArray(listPerception, Object.class)).length);
     Vector2i newPos = null;
     CellState _state = listPerception.get(randomNum).getState();
     boolean _tripleEquals = (_state == CellState.NORMAL);

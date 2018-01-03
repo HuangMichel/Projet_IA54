@@ -18,6 +18,7 @@ import utbm.ia54.ant2dgrid.capacities.MotionCapacity
 import utbm.ia54.ant2dgrid.capacities.PheromoneCapacity
 import utbm.ia54.ant2dgrid.events.AcceptInfluence
 import utbm.ia54.ant2dgrid.events.Influence
+import utbm.ia54.ant2dgrid.skills.PheromoneSkill
 
 /** 
  * @author Michel
@@ -41,6 +42,7 @@ agent Ant {
 		this.selfIDAnt = occurrence.parameters.get(0) as Integer
 		info("The agent Ant " + selfID + " was started.")
 		setSkill(new MotionSkill, typeof(MotionCapacity))
+		setSkill(new PheromoneSkill, typeof(PheromoneCapacity))
 		emit(new AntInitialize(this.body))
 	}
 
@@ -60,6 +62,7 @@ agent Ant {
 			if (tempVector.equals(new Vector2i(-1, -1))) {
 				randomMove(listPerception, body)
 			} else {
+				tempVector = followPheromone(listPerception, body.state).position
 				move(tempVector, body)
 			}
 		} else {

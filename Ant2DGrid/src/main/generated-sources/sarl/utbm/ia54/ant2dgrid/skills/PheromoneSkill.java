@@ -19,8 +19,12 @@ public class PheromoneSkill extends Skill implements PheromoneCapacity {
   public Cell followPheromone(final List<Cell> listPerception, final AntState state) {
     Cell _xblockexpression = null;
     {
+<<<<<<< HEAD
       Cell tempCell = null;
       boolean bool = false;
+=======
+      Cell tempCell = new Cell();
+>>>>>>> 0353e32b6a4fb200237fd621a6a895365921459a
       float pheromoneFood = 0f;
       float pheromoneHome = 0f;
       boolean _equals = Objects.equal(state, AntState.SEARCH_FOOD);
@@ -48,10 +52,13 @@ public class PheromoneSkill extends Skill implements PheromoneCapacity {
           }
         }
       }
+<<<<<<< HEAD
       if ((Boolean.valueOf(bool) == Boolean.valueOf(false))) {
         Cell _cell = new Cell((-1), (-1));
         tempCell = _cell;
       }
+=======
+>>>>>>> 0353e32b6a4fb200237fd621a6a895365921459a
       _xblockexpression = tempCell;
     }
     return _xblockexpression;
