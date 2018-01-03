@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
+import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.events.ConfigureSimulation;
 import utbm.ia54.ant2dgrid.events.Continue;
@@ -46,18 +47,22 @@ public class Ant2DGridFxViewerController extends FxViewerController {
   
   private boolean launched = false;
   
+  @Pure
   public List<Cell> getGrid() {
     return this.grid;
   }
   
+  @Pure
   public int getAntQuantity() {
     return Integer.parseInt(this.numberOfAnt.getText());
   }
   
+  @Pure
   public int getWidth() {
     return this.gridZone.getRowConstraints().size();
   }
   
+  @Pure
   public int getHeight() {
     return this.gridZone.getColumnConstraints().size();
   }
@@ -142,9 +147,22 @@ public class Ant2DGridFxViewerController extends FxViewerController {
   }
   
   public void update(final List<Cell> list) {
+    for (final Cell cell : list) {
+      {
+        this.gridZone.add(cell, cell.getPosition().getX(), cell.getPosition().getY());
+        this.gridZone.add(cell.getPheromoneHome().getObjfx(), cell.getPosition().getX(), cell.getPosition().getY(), 1, 1);
+        this.gridZone.add(cell.getPheromoneFood().getObjfx(), cell.getPosition().getX(), cell.getPosition().getY(), 1, 2);
+        CellState _state = cell.getState();
+        boolean _tripleEquals = (_state == CellState.NORMAL);
+        if (_tripleEquals) {
+          this.gridZone.add(cell.getShapeAnt(), cell.getPosition().getX(), cell.getPosition().getY(), 2, 1);
+        }
+      }
+    }
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -162,6 +180,7 @@ public class Ant2DGridFxViewerController extends FxViewerController {
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

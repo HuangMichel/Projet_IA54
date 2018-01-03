@@ -29,10 +29,8 @@ event Continue
 
 event Perception{
 	var list : List<Cell>
-	//var newpos : Vector2i
 	new (list : List<Cell>) {
 		this.list = list
-		//this.newpos = newpos
 	}
 }
 

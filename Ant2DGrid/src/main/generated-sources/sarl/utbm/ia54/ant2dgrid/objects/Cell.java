@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Shape;
+import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.AntState;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.agents.Ant;
@@ -148,6 +149,7 @@ public class Cell extends Pane {
     this.setShapeAnt();
   }
   
+  @Pure
   public Vector2i getPosition() {
     return this.vector;
   }
@@ -175,6 +177,7 @@ public class Cell extends Pane {
     }
   }
   
+  @Pure
   public Map<UUID, AntBody> getAntList() {
     Map<UUID, AntBody> _xsynchronizedexpression = null;
     synchronized (this.antList) {
@@ -183,6 +186,7 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
+  @Pure
   public int getNumberAnt() {
     int _xsynchronizedexpression = (int) 0;
     synchronized (this.antList) {
@@ -191,6 +195,7 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
+  @Pure
   public CellState getState() {
     return this.state;
   }
@@ -205,10 +210,12 @@ public class Cell extends Pane {
     return _xblockexpression;
   }
   
+  @Pure
   public Pheromone getPheromoneHome() {
     return this.pheromoneHome;
   }
   
+  @Pure
   public float getPheromoneHomeIntensity() {
     float _xsynchronizedexpression = (float) 0;
     synchronized (this.pheromoneHome) {
@@ -217,10 +224,12 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
+  @Pure
   public Pheromone getPheromoneFood() {
     return this.pheromoneFood;
   }
   
+  @Pure
   public float getPheromoneFoodIntensity() {
     float _xsynchronizedexpression = (float) 0;
     synchronized (this.pheromoneFood) {
@@ -286,6 +295,7 @@ public class Cell extends Pane {
     this.setStyle(("-fx-background-color: " + color));
   }
   
+  @Pure
   public String getColor() {
     return this.getStyle();
   }
@@ -298,6 +308,7 @@ public class Cell extends Pane {
     return _xifexpression;
   }
   
+  @Pure
   public float getFood() {
     return this.foodToPick;
   }
@@ -306,6 +317,7 @@ public class Cell extends Pane {
     this.foodInNest = n;
   }
   
+  @Pure
   public float getFoodInNest() {
     return this.foodInNest;
   }
@@ -354,8 +366,26 @@ public class Cell extends Pane {
     }
   }
   
+  @Pure
   public Shape getShapeAnt() {
     return this.shapeAnt;
+  }
+  
+  @Pure
+  public boolean equals(final Object obj) {
+    boolean _xblockexpression = false;
+    {
+      boolean bool = false;
+      if ((obj instanceof Cell)) {
+        Cell cell = ((Cell) obj);
+        boolean _equals = cell.vector.equals(this.getPosition());
+        if (_equals) {
+          bool = true;
+        }
+      }
+      _xblockexpression = bool;
+    }
+    return _xblockexpression;
   }
   
   public String toString() {
@@ -381,23 +411,7 @@ public class Cell extends Pane {
   }
   
   @Override
-  @SyntheticMember
-  public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    Cell other = (Cell) obj;
-    if (Float.floatToIntBits(other.foodToPick) != Float.floatToIntBits(this.foodToPick))
-      return false;
-    if (Float.floatToIntBits(other.foodInNest) != Float.floatToIntBits(this.foodInNest))
-      return false;
-    return super.equals(obj);
-  }
-  
-  @Override
+  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

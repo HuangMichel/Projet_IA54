@@ -18,13 +18,10 @@ import utbm.ia54.ant2dgrid.events.Continue
 import io.sarl.util.Scopes
 import utbm.ia54.ant2dgrid.events.Perception
 import utbm.ia54.ant2dgrid.events.Influence
-import utbm.ia54.ant2dgrid.Enum.Direction
 import utbm.ia54.ant2dgrid.objects.Vector2i
 import utbm.ia54.ant2dgrid.Enum.CellState
 import utbm.ia54.ant2dgrid.events.AcceptInfluence
 import io.sarl.core.DefaultContextInteractions
-import java.util.UUID
-import java.util.Map
 
 /** 
  * @author Michel
@@ -86,19 +83,21 @@ agent Environment {
 		var accept = false
 		var oldPosition = occurrence.v
 		var newPosition = occurrence.newpos
-		//newPosition.plus(oldPosition)
 		var body = occurrence.body
 		synchronized(grid){
 			if(getCell(newPosition.x*height+newPosition.y).state===CellState.NORMAL){
 				removeAntCell(oldPosition, body.ID, body)
-				createAnt(newPosition, body.ID, body)
+				createAnt(new Vector2i(oldPosition.x + newPosition.x, oldPosition.y+newPosition.y), body.ID, body)
 				accept = true
 			}
 		}
 		
 		if (accept) {
-			innerContext.defaultSpace.emit(this.ID, new AcceptInfluence(occurrence.newpos, accept), Scopes.addresses(occurrence.source))
+			innerContext.defaultSpace.emit(this.ID,
+				new AcceptInfluence(new Vector2i(oldPosition.x + newPosition.x, oldPosition.y + newPosition.y), accept),
+				Scopes.addresses(occurrence.source))
 		}
+		
 		counter += 1
 		if (counter === ctrl.antQuantity){
 			emit(new Continue())

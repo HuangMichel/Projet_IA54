@@ -57,7 +57,7 @@ agent Ant {
 		var tempVector : Vector2i
 		if (!listPerception.isEmpty) {
 			tempVector = followPheromone(listPerception, body.state).position
-			if (tempVector.equals(null)) {
+			if (tempVector.equals(new Vector2i(-1, -1))) {
 				randomMove(listPerception, body)
 			} else {
 				move(tempVector, body)
@@ -65,7 +65,6 @@ agent Ant {
 		} else {
 			emit(new Influence(body.position, body.position, body))
 		}
-
 			
 		}
 	

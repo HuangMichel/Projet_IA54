@@ -3,6 +3,7 @@ package utbm.ia54.ant2dgrid.objects;
 import io.sarl.lang.annotation.SarlElementType;
 import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
+import org.eclipse.xtext.xbase.lib.Pure;
 
 /**
  * Simple 2D Vector contains x and y position
@@ -37,10 +38,12 @@ public class Vector2i {
     this.y = v.getY();
   }
   
+  @Pure
   public int getX() {
     return this.x;
   }
   
+  @Pure
   public int getY() {
     return this.y;
   }
@@ -93,28 +96,29 @@ public class Vector2i {
     return _xblockexpression;
   }
   
+  @Pure
+  public boolean equals(final Object obj) {
+    boolean _xblockexpression = false;
+    {
+      boolean bool = false;
+      if ((obj instanceof Vector2i)) {
+        Vector2i v = ((Vector2i) obj);
+        if ((Integer.valueOf(v.x).equals(Integer.valueOf(this.x)) && Integer.valueOf(v.y).equals(Integer.valueOf(this.y)))) {
+          bool = true;
+        }
+      }
+      _xblockexpression = bool;
+    }
+    return _xblockexpression;
+  }
+  
+  @Pure
   public String toString() {
     return ((("X : " + Integer.valueOf(this.x)) + ", Y : ") + Integer.valueOf(this.y));
   }
   
   @Override
-  @SyntheticMember
-  public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    Vector2i other = (Vector2i) obj;
-    if (other.x != this.x)
-      return false;
-    if (other.y != this.y)
-      return false;
-    return super.equals(obj);
-  }
-  
-  @Override
+  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

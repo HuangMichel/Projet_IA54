@@ -295,6 +295,18 @@ class Cell extends Pane{
 		this.shapeAnt
 	}
 		
+
+	def equals(obj : Object): boolean{
+		var bool = false
+		if(obj instanceof Cell){
+			var cell = obj as Cell
+			if(cell.vector.equals(position)){
+				bool = true
+			}
+		}
+		bool
+	}
+	
 	def toString : String{
 		var string = "Cell : " + vector.toString + "\n Ant : " + antList.size + "\n food : " + pheromoneFood.toString +
 			"\n home : " + pheromoneHome.toString + "\n state : " + state

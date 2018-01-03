@@ -113,6 +113,13 @@ class Ant2DGridFxViewerController extends FxViewerController{
 	}
 
 	def update(list : List<Cell>){
-		
+		for(cell : list){
+			gridZone.add(cell, cell.position.x, cell.position.y)
+			gridZone.add(cell.pheromoneHome.objfx, cell.position.x, cell.position.y, 1, 1)
+			gridZone.add(cell.pheromoneFood.objfx, cell.position.x, cell.position.y, 1, 2)
+			if (cell.state === CellState.NORMAL) {
+				gridZone.add(cell.shapeAnt, cell.position.x, cell.position.y, 2, 1)
+			}
+		}
 	}
 }
