@@ -40,7 +40,7 @@ skill MotionSkill implements MotionCapacity{
 	}
 	
 	def randomMove(listPerception : List<Cell>, body : AntBody){
-		val randomNum = ThreadLocalRandom.current().nextInt(0, listPerception.length + 1)
+		val randomNum = ThreadLocalRandom.current().nextInt(0, listPerception.length)
 		var newPos : Vector2i
 		if (listPerception.get(randomNum).state === CellState.NORMAL){
 			newPos = listPerception.get(randomNum).position
@@ -59,7 +59,7 @@ skill PheromoneSkill implements PheromoneCapacity{
 	
 	def followPheromone(listPerception : List<Cell>, state : AntState) : Cell {
 		// throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	var tempCell : Cell
+	var tempCell = new Cell()
 	var pheromoneFood = 0f
 	var pheromoneHome = 0f
 	if (state == AntState.SEARCH_FOOD) {
@@ -77,6 +77,7 @@ skill PheromoneSkill implements PheromoneCapacity{
 			}
 		}
 	}
+	tempCell
 	}	
 }
 
@@ -172,6 +173,11 @@ skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
 	def getPerception(id : UUID) : List<Cell> {
 		var list = new ArrayList<Cell>
 		var vector = getAntPosition(id)
+		list.add(grid.get((vector.x + 1) * height + vector.y))
+		list.add(grid.get(vector.x * height + (vector.y + 1)))
+		list.add(grid.get((vector.x - 1) * height + vector.y))
+		list.add(grid.get(vector.x * height + (vector.y - 1)))
+		/*
 		for (var i = -1; i < 2; i++) {
 			for (var j = -1; j < 2; j++) {
 				var temp_vector = new Vector2i(i, j)
@@ -185,7 +191,7 @@ skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
 				}
 				
 			}
-		}
+		}*/
 		list
 	}
 	

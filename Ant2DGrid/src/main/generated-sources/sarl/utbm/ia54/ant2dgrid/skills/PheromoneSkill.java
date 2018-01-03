@@ -17,12 +17,11 @@ import utbm.ia54.ant2dgrid.objects.Cell;
 @SuppressWarnings("all")
 public class PheromoneSkill extends Skill implements PheromoneCapacity {
   public Cell followPheromone(final List<Cell> listPerception, final AntState state) {
-    Object _xblockexpression = null;
+    Cell _xblockexpression = null;
     {
-      Cell tempCell = null;
+      Cell tempCell = new Cell();
       float pheromoneFood = 0f;
       float pheromoneHome = 0f;
-      Object _xifexpression = null;
       boolean _equals = Objects.equal(state, AntState.SEARCH_FOOD);
       if (_equals) {
         for (int i = 0; (i < ((Object[])Conversions.unwrapArray(listPerception, Object.class)).length); i++) {
@@ -34,7 +33,6 @@ public class PheromoneSkill extends Skill implements PheromoneCapacity {
           }
         }
       } else {
-        Object _xifexpression_1 = null;
         boolean _equals_1 = Objects.equal(state, AntState.RETURN_HOME);
         if (_equals_1) {
           for (int i = 0; (i < ((Object[])Conversions.unwrapArray(listPerception, Object.class)).length); i++) {
@@ -46,11 +44,10 @@ public class PheromoneSkill extends Skill implements PheromoneCapacity {
             }
           }
         }
-        _xifexpression = _xifexpression_1;
       }
-      _xblockexpression = _xifexpression;
+      _xblockexpression = tempCell;
     }
-    return ((Cell)_xblockexpression);
+    return _xblockexpression;
   }
   
   @SyntheticMember
