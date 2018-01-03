@@ -16,13 +16,26 @@ import utbm.ia54.ant2dgrid.objects.Vector2i;
 @SarlElementType(18)
 @SuppressWarnings("all")
 public interface MotionCapacity extends Capacity {
+  public abstract void setPositionBefore(final Vector2i pos);
+  
   public abstract void move(final Vector2i newpos, final AntBody body);
   
   public abstract void randomMove(final List<Cell> listPerception, final AntBody body);
   
+  public abstract void stay(final AntBody body);
+  
   public static class ContextAwareCapacityWrapper<C extends MotionCapacity> extends Capacity.ContextAwareCapacityWrapper<C> implements MotionCapacity {
     public ContextAwareCapacityWrapper(final C capacity, final AgentTrait caller) {
       super(capacity, caller);
+    }
+    
+    public void setPositionBefore(final Vector2i pos) {
+      try {
+        ensureCallerInLocalThread();
+        this.capacity.setPositionBefore(pos);
+      } finally {
+        resetCallerInLocalThread();
+      }
     }
     
     public void move(final Vector2i newpos, final AntBody body) {
@@ -38,6 +51,15 @@ public interface MotionCapacity extends Capacity {
       try {
         ensureCallerInLocalThread();
         this.capacity.randomMove(listPerception, body);
+      } finally {
+        resetCallerInLocalThread();
+      }
+    }
+    
+    public void stay(final AntBody body) {
+      try {
+        ensureCallerInLocalThread();
+        this.capacity.stay(body);
       } finally {
         resetCallerInLocalThread();
       }

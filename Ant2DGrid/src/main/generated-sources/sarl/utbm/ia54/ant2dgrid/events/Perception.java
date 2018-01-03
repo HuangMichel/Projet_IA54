@@ -5,6 +5,8 @@ import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
 import io.sarl.lang.core.Event;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.objects.Cell;
 
@@ -12,9 +14,9 @@ import utbm.ia54.ant2dgrid.objects.Cell;
 @SarlElementType(14)
 @SuppressWarnings("all")
 public class Perception extends Event {
-  public List<Cell> list;
+  public Map<UUID, List<Cell>> list;
   
-  public Perception(final List<Cell> list) {
+  public Perception(final Map<UUID, List<Cell>> list) {
     this.list = list;
   }
   
@@ -45,5 +47,5 @@ public class Perception extends Event {
   }
   
   @SyntheticMember
-  private final static long serialVersionUID = -2314578045L;
+  private final static long serialVersionUID = 2934127843L;
 }

@@ -28,6 +28,8 @@ import utbm.ia54.ant2dgrid.objects.Vector2i;
 @SarlElementType(20)
 @SuppressWarnings("all")
 public class MotionSkill extends Skill implements MotionCapacity {
+  private Vector2i positionBefore;
+  
   public void move(final Vector2i newpos, final AntBody body) {
     DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
     Influence _influence = new Influence(newpos, body);
@@ -37,16 +39,37 @@ public class MotionSkill extends Skill implements MotionCapacity {
   public void randomMove(final List<Cell> listPerception, final AntBody body) {
     final int randomNum = ThreadLocalRandom.current().nextInt(0, ((Object[])Conversions.unwrapArray(listPerception, Object.class)).length);
     Vector2i newPos = null;
-    CellState _state = listPerception.get(randomNum).getState();
-    boolean _tripleEquals = (_state == CellState.NORMAL);
-    if (_tripleEquals) {
-      newPos = listPerception.get(randomNum).getPosition();
-      DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
-      Influence _influence = new Influence(newPos, body);
-      _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_influence);
+    if ((((listPerception.get(randomNum).getState() == CellState.NORMAL) || 
+      (listPerception.get(randomNum).getState() == CellState.HOME)) || 
+      (listPerception.get(randomNum).getState() == CellState.FOOD))) {
+      boolean _isEquals = this.isEquals(listPerception.get(randomNum).getPosition());
+      boolean _tripleEquals = (Boolean.valueOf(_isEquals) == Boolean.valueOf(false));
+      if (_tripleEquals) {
+        newPos = listPerception.get(randomNum).getPosition();
+        DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
+        Influence _influence = new Influence(newPos, body);
+        _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_influence);
+        this.setPositionBefore(newPos);
+      }
     } else {
       this.randomMove(listPerception, body);
     }
+  }
+  
+  public void stay(final AntBody body) {
+    DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
+    Vector2i _position = body.getPosition();
+    Influence _influence = new Influence(_position, body);
+    _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_influence);
+  }
+  
+  public void setPositionBefore(final Vector2i pos) {
+    this.positionBefore = pos;
+  }
+  
+  @Pure
+  private boolean isEquals(final Vector2i pos) {
+    return this.positionBefore.equals(pos);
   }
   
   @Extension
@@ -62,6 +85,21 @@ public class MotionSkill extends Skill implements MotionCapacity {
       this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = $getSkill(DefaultContextInteractions.class);
     }
     return $castSkill(DefaultContextInteractions.class, this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
+  }
+  
+  @Override
+  @Pure
+  @SyntheticMember
+  public boolean equals(final Object obj) {
+    return super.equals(obj);
+  }
+  
+  @Override
+  @Pure
+  @SyntheticMember
+  public int hashCode() {
+    int result = super.hashCode();
+    return result;
   }
   
   @SyntheticMember

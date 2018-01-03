@@ -111,18 +111,20 @@ public class Ant2DGridFxViewerController extends FxViewerController {
     final Consumer<Node> _function = (Node item) -> {
       __Ant2DGridFxViewerController_0 ___Ant2DGridFxViewerController_0 = new __Ant2DGridFxViewerController_0() {
         public void handle(final MouseEvent event) {
-          Cell cell = ((Cell) item);
-          int _clickCount = event.getClickCount();
-          boolean _tripleEquals = (_clickCount == 1);
-          if (_tripleEquals) {
-            InputOutput.<String>println(cell.toString());
-            Continue _continue = new Continue();
-            Ant2DGridFxViewerController.this.emitToAgent(_continue);
-          } else {
-            if (((event.getClickCount() == 2) && (cell.getState() == CellState.NORMAL))) {
+          if ((item instanceof Cell)) {
+            Cell cell = ((Cell) item);
+            int _clickCount = event.getClickCount();
+            boolean _tripleEquals = (_clickCount == 1);
+            if (_tripleEquals) {
+              InputOutput.<String>println(cell.toString());
+              Continue _continue = new Continue();
+              Ant2DGridFxViewerController.this.emitToAgent(_continue);
             } else {
-              if (((event.getClickCount() == 3) && (cell.getState() == CellState.WALL))) {
-                cell.setState(CellState.NORMAL);
+              if (((event.getClickCount() == 2) && (cell.getState() == CellState.NORMAL))) {
+              } else {
+                if (((event.getClickCount() == 3) && (cell.getState() == CellState.WALL))) {
+                  cell.setState(CellState.NORMAL);
+                }
               }
             }
           }

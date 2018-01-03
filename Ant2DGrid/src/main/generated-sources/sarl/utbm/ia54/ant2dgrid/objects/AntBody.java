@@ -24,6 +24,8 @@ public class AntBody {
   
   private AntState state;
   
+  private boolean take = false;
+  
   public AntBody(final UUID id, final Vector2i position) {
     this.id = id;
     this.position = position;
@@ -75,6 +77,19 @@ public class AntBody {
   }
   
   @Pure
+  public boolean isTake() {
+    return this.take;
+  }
+  
+  public void setTake() {
+    this.take = true;
+  }
+  
+  public void put() {
+    this.take = false;
+  }
+  
+  @Pure
   public String toString() {
     String _xblockexpression = null;
     {
@@ -108,6 +123,8 @@ public class AntBody {
     }
     if (Float.floatToIntBits(other.capacity) != Float.floatToIntBits(this.capacity))
       return false;
+    if (other.take != this.take)
+      return false;
     return super.equals(obj);
   }
   
@@ -119,6 +136,7 @@ public class AntBody {
     final int prime = 31;
     result = prime * result + Objects.hashCode(this.id);
     result = prime * result + Float.floatToIntBits(this.capacity);
+    result = prime * result + (this.take ? 1231 : 1237);
     return result;
   }
 }

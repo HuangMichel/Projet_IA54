@@ -1,0 +1,57 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.capacities
+
+import utbm.ia54.ant2dgrid.objects.Vector2i
+import java.util.UUID
+import java.util.List
+import utbm.ia54.ant2dgrid.objects.Cell
+import utbm.ia54.ant2dgrid.objects.AntBody
+import io.sarl.lang.core.Address
+import java.util.Map
+import utbm.ia54.ant2dgrid.Enum.AntState
+
+/** 
+ * @author Michel
+ * 
+ */
+ 
+ /*
+  * Capacity to move for an Ant
+  */
+capacity MotionCapacity {
+	def positionBefore(pos : Vector2i)
+	def move(newpos : Vector2i, body : AntBody)
+	def randomMove(listPerception : List<Cell>, body : AntBody)
+	def stay(body : AntBody)
+}
+
+capacity PheromoneCapacity{
+	def followPheromone(list : List<Cell>, state : AntState) : Cell
+}
+
+capacity AntCapacity{
+	def pickUpFood(body : AntBody)
+	def putDownFood(body : AntBody)
+}
+
+/*
+ * Capacity to manage the environment
+ */
+capacity EnvironmentManagerCapacity{
+	def getWidth : int
+	def getHeight : int
+	def getGrid : List<Cell>
+	def createAnt(position : Vector2i, id : UUID, body : AntBody)
+	def getAntQuantity : int
+	def getHomeCell : Cell
+	def getFoodCell : Cell
+	def getCell(i : int) : Cell
+	def setAddress(id : UUID, address : Address)
+	def sendPerception(sender : UUID, id : UUID, list : List<Cell>)
+	def getPerception(id : UUID) : List<Cell>
+	def getAntAddresses : Map<UUID, Address>
+	def getAddress(id : UUID) : Address
+	def removeAntCell(position : Vector2i, id : UUID, body:AntBody)
+}
