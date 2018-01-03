@@ -89,6 +89,16 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
     int _y = position.getY();
     int _plus = (_multiply + _y);
     this.grid.get(_plus).addAnt(id, body);
+    int _x_1 = position.getX();
+    int _multiply_1 = (_x_1 * this.height);
+    int _y_1 = position.getY();
+    int _plus_1 = (_multiply_1 + _y_1);
+    this.grid.get(_plus_1).evaporationPheromoneFood();
+    int _x_2 = position.getX();
+    int _multiply_2 = (_x_2 * this.height);
+    int _y_2 = position.getY();
+    int _plus_2 = (_multiply_2 + _y_2);
+    this.grid.get(_plus_2).evaporationPheromoneHome();
   }
   
   public void sendPerception(final UUID sender, final UUID id, final List<Cell> list) {

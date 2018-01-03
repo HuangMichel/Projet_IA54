@@ -9,6 +9,7 @@ import utbm.ia54.ant2dgrid.objects.Vector2i
 import java.util.UUID
 import utbm.ia54.ant2dgrid.objects.AntBody
 import utbm.ia54.ant2dgrid.Enum.Direction
+import utbm.ia54.ant2dgrid.Enum.AntState
 
 /** 
  * @author Michel
@@ -49,6 +50,13 @@ event AcceptInfluence{
 	new(newpos : Vector2i, accept : boolean) {
 		this.newpos = newpos
 		this.accept = accept
+	}
+}
+
+event ChangeState{
+	var newState : AntState
+	new(newState : AntState){
+		this.newState = newState
 	}
 }
 

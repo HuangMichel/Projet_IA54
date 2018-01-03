@@ -9,6 +9,7 @@ import io.sarl.lang.core.Skill;
 import java.util.List;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import utbm.ia54.ant2dgrid.Enum.AntState;
+import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.capacities.PheromoneCapacity;
 import utbm.ia54.ant2dgrid.objects.Cell;
 
@@ -20,30 +21,50 @@ public class PheromoneSkill extends Skill implements PheromoneCapacity {
     Cell _xblockexpression = null;
     {
       Cell tempCell = null;
+      Cell foodCell = null;
+      Cell homeCell = null;
       boolean bool = false;
+      boolean food = false;
+      boolean home = false;
       float pheromoneFood = 0f;
       float pheromoneHome = 0f;
       boolean _equals = Objects.equal(state, AntState.SEARCH_FOOD);
       if (_equals) {
         for (int i = 0; (i < ((Object[])Conversions.unwrapArray(listPerception, Object.class)).length); i++) {
-          float _pheromoneFoodIntensity = listPerception.get(i).getPheromoneFoodIntensity();
-          boolean _lessThan = (pheromoneFood < _pheromoneFoodIntensity);
-          if (_lessThan) {
-            pheromoneFood = listPerception.get(i).getPheromoneFoodIntensity();
-            tempCell = listPerception.get(i);
-            bool = true;
+          {
+            float _pheromoneFoodIntensity = listPerception.get(i).getPheromoneFoodIntensity();
+            boolean _lessThan = (pheromoneFood < _pheromoneFoodIntensity);
+            if (_lessThan) {
+              pheromoneFood = listPerception.get(i).getPheromoneFoodIntensity();
+              tempCell = listPerception.get(i);
+              bool = true;
+            }
+            CellState _state = listPerception.get(i).getState();
+            boolean _tripleEquals = (_state == CellState.FOOD);
+            if (_tripleEquals) {
+              foodCell = listPerception.get(i);
+              food = true;
+            }
           }
         }
       } else {
         boolean _equals_1 = Objects.equal(state, AntState.RETURN_HOME);
         if (_equals_1) {
           for (int i = 0; (i < ((Object[])Conversions.unwrapArray(listPerception, Object.class)).length); i++) {
-            float _pheromoneHomeIntensity = listPerception.get(i).getPheromoneHomeIntensity();
-            boolean _lessThan = (pheromoneHome < _pheromoneHomeIntensity);
-            if (_lessThan) {
-              pheromoneHome = listPerception.get(i).getPheromoneHomeIntensity();
-              tempCell = listPerception.get(i);
-              bool = true;
+            {
+              float _pheromoneHomeIntensity = listPerception.get(i).getPheromoneHomeIntensity();
+              boolean _lessThan = (pheromoneHome < _pheromoneHomeIntensity);
+              if (_lessThan) {
+                pheromoneHome = listPerception.get(i).getPheromoneHomeIntensity();
+                tempCell = listPerception.get(i);
+                bool = true;
+              }
+              CellState _state = listPerception.get(i).getState();
+              boolean _tripleEquals = (_state == CellState.HOME);
+              if (_tripleEquals) {
+                homeCell = listPerception.get(i);
+                home = true;
+              }
             }
           }
         }
@@ -51,6 +72,12 @@ public class PheromoneSkill extends Skill implements PheromoneCapacity {
       if ((Boolean.valueOf(bool) == Boolean.valueOf(false))) {
         Cell _cell = new Cell((-1), (-1));
         tempCell = _cell;
+      }
+      if ((Boolean.valueOf(food) == Boolean.valueOf(true))) {
+        tempCell = foodCell;
+      }
+      if ((Boolean.valueOf(home) == Boolean.valueOf(true))) {
+        tempCell = homeCell;
       }
       _xblockexpression = tempCell;
     }

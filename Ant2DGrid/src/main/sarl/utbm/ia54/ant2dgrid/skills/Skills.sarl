@@ -55,7 +55,11 @@ skill PheromoneSkill implements PheromoneCapacity{
 	def followPheromone(listPerception : List<Cell>, state : AntState) : Cell {
 
 		var tempCell : Cell
+		var foodCell : Cell
+		var homeCell : Cell
 		var bool = false
+		var food = false
+		var home = false
 		var pheromoneFood = 0f
 		var pheromoneHome = 0f
 		if (state == AntState.SEARCH_FOOD) {
@@ -65,6 +69,10 @@ skill PheromoneSkill implements PheromoneCapacity{
 					tempCell = listPerception.get(i)
 					bool = true
 				}
+				if (listPerception.get(i).state === CellState.FOOD){
+					foodCell = listPerception.get(i)
+					food = true
+				}
 			}
 		} else if (state == AntState.RETURN_HOME) {
 			for (var i = 0; i < listPerception.length; i++) {
@@ -73,13 +81,22 @@ skill PheromoneSkill implements PheromoneCapacity{
 					tempCell = listPerception.get(i)
 					bool = true
 				}
+				if (listPerception.get(i).state === CellState.HOME) {
+					homeCell = listPerception.get(i)
+					home = true
+				}
 			}
 		}
 		
 		if(bool === false){
 			tempCell = new Cell(-1, -1)
 		}
-		
+		if(food === true){
+			tempCell = foodCell
+		}
+		if(home === true){
+			tempCell = homeCell
+		}
 		tempCell
 	}	
 }
@@ -147,6 +164,8 @@ skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
 	
 	def createAnt (position : Vector2i, id : UUID, body : AntBody){
 		this.grid.get(position.x * height + position.y).addAnt(id, body)
+		this.grid.get(position.x * height + position.y).evaporationPheromoneFood
+		this.grid.get(position.x * height + position.y).evaporationPheromoneHome
 	}
 
 	def sendPerception(sender : UUID, id : UUID, list : List<Cell>) {

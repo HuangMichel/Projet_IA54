@@ -22,6 +22,8 @@ import utbm.ia54.ant2dgrid.objects.Vector2i
 import utbm.ia54.ant2dgrid.Enum.CellState
 import utbm.ia54.ant2dgrid.events.AcceptInfluence
 import io.sarl.core.DefaultContextInteractions
+import utbm.ia54.ant2dgrid.Enum.AntState
+import utbm.ia54.ant2dgrid.events.ChangeState
 
 /** 
  * @author Michel
@@ -90,10 +92,19 @@ agent Environment {
 			//do somethings
 		} else {
 			synchronized (grid) {
-				if (getCell(newPosition.x * height + newPosition.y).state === CellState.NORMAL) {
+				if (getCell(newPosition.x * height + newPosition.y).state === CellState.NORMAL ||
+					getCell(newPosition.x * height + newPosition.y).state === CellState.FOOD ||
+					getCell(newPosition.x * height + newPosition.y).state === CellState.HOME) {
 					removeAntCell(oldPosition, body.ID, body)
 					createAnt(newPosition, body.ID, body)
 					accept = true
+					if (getCell(newPosition.x * height + newPosition.y).state === CellState.FOOD) {
+						innerContext.defaultSpace.emit(this.ID, new ChangeState(AntState.RETURN_HOME), Scopes.addresses(occurrence.source))
+					}
+					if (getCell(newPosition.x * height + newPosition.y).state === CellState.HOME) {
+						innerContext.defaultSpace.emit(this.ID, new ChangeState(AntState.SEARCH_FOOD), Scopes.addresses(occurrence.source))
+					}
+					
 				}
 			}
 		}

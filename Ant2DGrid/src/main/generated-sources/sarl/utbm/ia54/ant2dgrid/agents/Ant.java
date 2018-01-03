@@ -25,6 +25,7 @@ import utbm.ia54.ant2dgrid.capacities.MotionCapacity;
 import utbm.ia54.ant2dgrid.capacities.PheromoneCapacity;
 import utbm.ia54.ant2dgrid.events.AcceptInfluence;
 import utbm.ia54.ant2dgrid.events.AntInitialize;
+import utbm.ia54.ant2dgrid.events.ChangeState;
 import utbm.ia54.ant2dgrid.events.Perception;
 import utbm.ia54.ant2dgrid.objects.AntBody;
 import utbm.ia54.ant2dgrid.objects.Cell;
@@ -119,6 +120,11 @@ public class Ant extends Agent {
     this.body.setPosition(occurrence.newpos);
   }
   
+  @SyntheticMember
+  private void $behaviorUnit$ChangeState$4(final ChangeState occurrence) {
+    this.body.setState(occurrence.newState);
+  }
+  
   @Extension
   @ImportedCapacityFeature(Logging.class)
   @SyntheticMember
@@ -189,6 +195,14 @@ public class Ant extends Agent {
     assert occurrence != null;
     assert ___SARLlocal_runnableCollection != null;
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Destroy$1(occurrence));
+  }
+  
+  @SyntheticMember
+  @PerceptGuardEvaluator
+  private void $guardEvaluator$ChangeState(final ChangeState occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
+    assert occurrence != null;
+    assert ___SARLlocal_runnableCollection != null;
+    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$ChangeState$4(occurrence));
   }
   
   @SyntheticMember
