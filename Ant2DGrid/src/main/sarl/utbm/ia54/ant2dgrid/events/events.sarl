@@ -29,8 +29,10 @@ event Continue
 
 event Perception{
 	var list : List<Cell>
-	new (list : List<Cell>){
+	//var newpos : Vector2i
+	new (list : List<Cell>) {
 		this.list = list
+		//this.newpos = newpos
 	}
 }
 
@@ -47,10 +49,10 @@ event Influence{
 }
 
 event AcceptInfluence{
-	var direction : Direction
+	var newpos : Vector2i
 	var accept : boolean
-	new(direction : Direction, accept : boolean){
-		this.direction = direction
+	new(newpos : Vector2i, accept : boolean) {
+		this.newpos = newpos
 		this.accept = accept
 	}
 }

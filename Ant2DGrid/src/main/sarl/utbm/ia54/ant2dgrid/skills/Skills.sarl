@@ -33,42 +33,51 @@ import utbm.ia54.ant2dgrid.capacities.AntCapacity
 skill MotionSkill implements MotionCapacity{
 	uses DefaultContextInteractions
 	
-	def move(newpos : Vector2i, body : AntBody) : Vector2i{
+	def move(newpos : Vector2i, body : AntBody){
 		emit(new Influence(body.position, newpos, body))
-		newpos.plus(body.position)
-		newpos
+		//newpos.plus(body.position)
+		//newpos
 	}
 	
-	def randomMove(v : Vector2i, body : AntBody) : Vector2i{
-		val randomNum = ThreadLocalRandom.current().nextInt(0, 3 + 1)
+	def randomMove(listPerception : List<Cell>, body : AntBody){
+		val randomNum = ThreadLocalRandom.current().nextInt(0, listPerception.length + 1)
 		var newPos : Vector2i
-		switch(randomNum){
-			//DOWN
-			case 0:
-				newPos = new Vector2i(0,1)
-			//LEFT	
-			case 1:
-				newPos = new Vector2i(-1,0)
-			//UP
-			case 2:
-				newPos = new Vector2i(0,-1)
-			//RIGHT
-			case 3:
-				newPos = new Vector2i(1,0)
+		if (listPerception.get(randomNum).state === CellState.NORMAL){
+			newPos = listPerception.get(randomNum).position
+			emit(new Influence(body.position, newPos, body))
+		}else{
+			randomMove(listPerception, body)
 		}
-		emit(new Influence(v, newPos, body))
-		newPos.plus(body.position)
-		newPos
+		
+		//newPos.plus(body.position)
+		//newPos
 	}
 	
 }
 
 skill PheromoneSkill implements PheromoneCapacity{
 	
-	def followPheromone(list : List<Cell>, state : AntState) : Cell {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	def followPheromone(listPerception : List<Cell>, state : AntState) : Cell {
+		// throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	var tempCell : Cell
+	var pheromoneFood = 0f
+	var pheromoneHome = 0f
+	if (state == AntState.SEARCH_FOOD) {
+		for (var i = 0; i < listPerception.length; i++) {
+			if (pheromoneFood < listPerception.get(i).pheromoneFoodIntensity) {
+				pheromoneFood = listPerception.get(i).pheromoneFoodIntensity
+				tempCell = listPerception.get(i)
+			}
+		}
+	} else if (state == AntState.RETURN_HOME) {
+		for (var i = 0; i < listPerception.length; i++) {
+			if (pheromoneHome < listPerception.get(i).pheromoneHomeIntensity) {
+				pheromoneHome = listPerception.get(i).pheromoneHomeIntensity
+				tempCell = listPerception.get(i)
+			}
+		}
 	}
-	
+	}	
 }
 
 skill AntManagerSkill implements AntCapacity{
@@ -135,9 +144,9 @@ skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
 	def createAnt (position : Vector2i, id : UUID, body : AntBody){
 		this.grid.get(position.x * height + position.y).addAnt(id, body)
 	}
-	
+
 	def sendPerception(sender : UUID, id : UUID, list : List<Cell>) {
-		innerContext.defaultSpace.emit(sender, new Perception(list), Scopes.addresses(getAddress(id)))
+		//innerContext.defaultSpace.emit(sender, new Perception(list), Scopes.addresses(getAddress(id)))
 	}
 	
 	def getHomeCell : Cell {

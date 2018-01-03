@@ -23,6 +23,8 @@ import utbm.ia54.ant2dgrid.objects.Vector2i
 import utbm.ia54.ant2dgrid.Enum.CellState
 import utbm.ia54.ant2dgrid.events.AcceptInfluence
 import io.sarl.core.DefaultContextInteractions
+import java.util.UUID
+import java.util.Map
 
 /** 
  * @author Michel
@@ -52,6 +54,11 @@ agent Environment {
 		info("Ant created " + occurrence.source.UUID)
 		setAddress(occurrence.source.UUID, occurrence.source)
 		createAnt(homeCell.position, occurrence.source.UUID, occurrence.body)
+		counter += 1
+		if (counter === ctrl.antQuantity){
+			emit(new Continue())
+			counter = 0
+		}
 	}
 	
 	on StartSimulation{
@@ -59,7 +66,7 @@ agent Environment {
 		for(var i = 0; i<antQuantity; i++){
 			spawnInContext(typeof(Ant), innerContext,#[i+1, homeCell.position])
 		}
-		//emit(new Continue())
+
 	}
 	
 	on Continue{
@@ -79,7 +86,7 @@ agent Environment {
 		var accept = false
 		var oldPosition = occurrence.v
 		var newPosition = occurrence.newpos
-		newPosition.plus(oldPosition)
+		//newPosition.plus(oldPosition)
 		var body = occurrence.body
 		synchronized(grid){
 			if(getCell(newPosition.x*height+newPosition.y).state===CellState.NORMAL){
@@ -88,14 +95,16 @@ agent Environment {
 				accept = true
 			}
 		}
+		
+		if (accept) {
+			innerContext.defaultSpace.emit(this.ID, new AcceptInfluence(occurrence.newpos, accept), Scopes.addresses(occurrence.source))
+		}
 		counter += 1
 		if (counter === ctrl.antQuantity){
 			emit(new Continue())
 			counter = 0
 		}
-		//if (accept) {
-		//	innerContext.defaultSpace.emit(this.ID, new AcceptInfluence(occurrence.direction, accept), Scopes.addresses(getAddress(id)))
-		//}
+
 	}
 	
 	on Destroy{

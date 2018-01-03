@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent
 import javafx.^event.EventHandler
 import utbm.ia54.ant2dgrid.events.ConfigureSimulation
 import utbm.ia54.ant2dgrid.Enum.CellState
+import utbm.ia54.ant2dgrid.events.Continue
 
 /** 
  * @author aelez
@@ -83,7 +84,7 @@ class Ant2DGridFxViewerController extends FxViewerController{
 				if (^event.clickCount === 1) {
 					println(cell.toString)
 					// cell.incrementPheromoneHomeIntensity
-						cell.decrementOpacity
+						emitToAgent(new Continue())
 				}else if(^event.clickCount === 2 && cell.state === CellState.NORMAL){
 					//cell.state = CellState.WALL
 					//cell.incrementPheromoneFoodIntensity

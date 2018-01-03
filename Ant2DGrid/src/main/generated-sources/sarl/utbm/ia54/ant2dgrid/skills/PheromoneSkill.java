@@ -1,11 +1,13 @@
 package utbm.ia54.ant2dgrid.skills;
 
+import com.google.common.base.Objects;
 import io.sarl.lang.annotation.SarlElementType;
 import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
 import io.sarl.lang.core.Agent;
 import io.sarl.lang.core.Skill;
 import java.util.List;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import utbm.ia54.ant2dgrid.Enum.AntState;
 import utbm.ia54.ant2dgrid.capacities.PheromoneCapacity;
 import utbm.ia54.ant2dgrid.objects.Cell;
@@ -14,8 +16,41 @@ import utbm.ia54.ant2dgrid.objects.Cell;
 @SarlElementType(20)
 @SuppressWarnings("all")
 public class PheromoneSkill extends Skill implements PheromoneCapacity {
-  public Cell followPheromone(final List<Cell> list, final AntState state) {
-    throw new UnsupportedOperationException("TODO: auto-generated method stub");
+  public Cell followPheromone(final List<Cell> listPerception, final AntState state) {
+    Object _xblockexpression = null;
+    {
+      Cell tempCell = null;
+      float pheromoneFood = 0f;
+      float pheromoneHome = 0f;
+      Object _xifexpression = null;
+      boolean _equals = Objects.equal(state, AntState.SEARCH_FOOD);
+      if (_equals) {
+        for (int i = 0; (i < ((Object[])Conversions.unwrapArray(listPerception, Object.class)).length); i++) {
+          float _pheromoneFoodIntensity = listPerception.get(i).getPheromoneFoodIntensity();
+          boolean _lessThan = (pheromoneFood < _pheromoneFoodIntensity);
+          if (_lessThan) {
+            pheromoneFood = listPerception.get(i).getPheromoneFoodIntensity();
+            tempCell = listPerception.get(i);
+          }
+        }
+      } else {
+        Object _xifexpression_1 = null;
+        boolean _equals_1 = Objects.equal(state, AntState.RETURN_HOME);
+        if (_equals_1) {
+          for (int i = 0; (i < ((Object[])Conversions.unwrapArray(listPerception, Object.class)).length); i++) {
+            float _pheromoneHomeIntensity = listPerception.get(i).getPheromoneHomeIntensity();
+            boolean _lessThan = (pheromoneHome < _pheromoneHomeIntensity);
+            if (_lessThan) {
+              pheromoneHome = listPerception.get(i).getPheromoneHomeIntensity();
+              tempCell = listPerception.get(i);
+            }
+          }
+        }
+        _xifexpression = _xifexpression_1;
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return ((Cell)_xblockexpression);
   }
   
   @SyntheticMember

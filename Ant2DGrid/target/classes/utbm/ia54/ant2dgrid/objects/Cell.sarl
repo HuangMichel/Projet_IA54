@@ -280,14 +280,14 @@ class Cell extends Pane{
 	
 	def decrementOpacity : void {
 		if (this.color.opacity > 0f) {
-			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity - 0.05)
+			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity - 0.3)
 			this.shapeAnt.fill = this.color
 		}
 	}
 	
 	def incrementOpacity : void {
 		if (this.color.opacity < 0.9f) {
-			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity + 0.05)
+			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity + 0.3)
 			this.shapeAnt.fill = this.color
 		}
 	}

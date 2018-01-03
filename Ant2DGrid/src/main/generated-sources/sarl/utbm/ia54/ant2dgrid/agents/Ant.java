@@ -1,6 +1,5 @@
 package utbm.ia54.ant2dgrid.agents;
 
-import com.google.common.base.Objects;
 import io.sarl.core.DefaultContextInteractions;
 import io.sarl.core.Destroy;
 import io.sarl.core.Initialize;
@@ -17,16 +16,16 @@ import io.sarl.lang.core.Skill;
 import io.sarl.lang.util.ClearableReference;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 import javax.inject.Inject;
-import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Inline;
-import org.eclipse.xtext.xbase.lib.Pure;
-import utbm.ia54.ant2dgrid.Enum.AntState;
 import utbm.ia54.ant2dgrid.capacities.MotionCapacity;
 import utbm.ia54.ant2dgrid.capacities.PheromoneCapacity;
+import utbm.ia54.ant2dgrid.events.AcceptInfluence;
 import utbm.ia54.ant2dgrid.events.AntInitialize;
+import utbm.ia54.ant2dgrid.events.Influence;
 import utbm.ia54.ant2dgrid.events.Perception;
 import utbm.ia54.ant2dgrid.objects.AntBody;
 import utbm.ia54.ant2dgrid.objects.Cell;
@@ -86,7 +85,6 @@ public class Ant extends Agent {
     _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER.info(_plus_1);
   }
   
-  @Pure
   protected int getSelfID() {
     return this.selfIDAnt;
   }
@@ -94,40 +92,32 @@ public class Ant extends Agent {
   @SyntheticMember
   private void $behaviorUnit$Perception$2(final Perception occurrence) {
     List<Cell> listPerception = occurrence.list;
+    Vector2i tempVector = null;
     boolean _isEmpty = listPerception.isEmpty();
     boolean _not = (!_isEmpty);
     if (_not) {
-      Vector2i tempVector = null;
-      float pheromoneFood = 0f;
-      float pheromoneHome = 0f;
-      AntState _state = this.body.getState();
-      boolean _equals = Objects.equal(_state, AntState.SEARCH_FOOD);
+      PheromoneCapacity _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY$CALLER = this.$castSkill(PheromoneCapacity.class, (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY.get() == null) ? (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY = this.$getSkill(PheromoneCapacity.class)) : this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY);
+      tempVector = _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY$CALLER.followPheromone(listPerception, this.body.getState()).getPosition();
+      boolean _equals = tempVector.equals(null);
       if (_equals) {
-        for (int i = 0; (i < ((Object[])Conversions.unwrapArray(listPerception, Object.class)).length); i++) {
-          float _pheromoneFoodIntensity = listPerception.get(i).getPheromoneFoodIntensity();
-          boolean _lessThan = (pheromoneFood < _pheromoneFoodIntensity);
-          if (_lessThan) {
-            pheromoneFood = listPerception.get(i).getPheromoneFoodIntensity();
-            tempVector = listPerception.get(i).getPosition();
-          }
-        }
+        MotionCapacity _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY$CALLER = this.$castSkill(MotionCapacity.class, (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY.get() == null) ? (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY = this.$getSkill(MotionCapacity.class)) : this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY);
+        _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY$CALLER.randomMove(listPerception, this.body);
       } else {
-        AntState _state_1 = this.body.getState();
-        boolean _equals_1 = Objects.equal(_state_1, AntState.RETURN_HOME);
-        if (_equals_1) {
-          for (int i = 0; (i < ((Object[])Conversions.unwrapArray(listPerception, Object.class)).length); i++) {
-            float _pheromoneHomeIntensity = listPerception.get(i).getPheromoneHomeIntensity();
-            boolean _lessThan = (pheromoneHome < _pheromoneHomeIntensity);
-            if (_lessThan) {
-              pheromoneHome = listPerception.get(i).getPheromoneHomeIntensity();
-              tempVector = listPerception.get(i).getPosition();
-            }
-          }
-        }
+        MotionCapacity _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY$CALLER_1 = this.$castSkill(MotionCapacity.class, (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY.get() == null) ? (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY = this.$getSkill(MotionCapacity.class)) : this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY);
+        _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY$CALLER_1.move(tempVector, this.body);
       }
-      MotionCapacity _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY$CALLER = this.$castSkill(MotionCapacity.class, (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY.get() == null) ? (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY = this.$getSkill(MotionCapacity.class)) : this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY);
-      this.body.getPosition().plus(_$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY$CALLER.move(tempVector, this.body));
+    } else {
+      DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
+      Vector2i _position = this.body.getPosition();
+      Vector2i _position_1 = this.body.getPosition();
+      Influence _influence = new Influence(_position, _position_1, this.body);
+      _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_influence);
     }
+  }
+  
+  @SyntheticMember
+  private void $behaviorUnit$AcceptInfluence$3(final AcceptInfluence occurrence) {
+    this.body.setPosition(occurrence.newpos);
   }
   
   @Extension
@@ -136,7 +126,6 @@ public class Ant extends Agent {
   private transient ClearableReference<Skill> $CAPACITY_USE$IO_SARL_CORE_LOGGING;
   
   @SyntheticMember
-  @Pure
   @Inline(value = "$castSkill(Logging.class, ($0$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || $0$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) ? ($0$CAPACITY_USE$IO_SARL_CORE_LOGGING = $0$getSkill(Logging.class)) : $0$CAPACITY_USE$IO_SARL_CORE_LOGGING)", imported = Logging.class)
   private Logging $CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER() {
     if (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || this.$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) {
@@ -151,7 +140,6 @@ public class Ant extends Agent {
   private transient ClearableReference<Skill> $CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS;
   
   @SyntheticMember
-  @Pure
   @Inline(value = "$castSkill(DefaultContextInteractions.class, ($0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || $0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? ($0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = $0$getSkill(DefaultContextInteractions.class)) : $0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS)", imported = DefaultContextInteractions.class)
   private DefaultContextInteractions $CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER() {
     if (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) {
@@ -166,7 +154,6 @@ public class Ant extends Agent {
   private transient ClearableReference<Skill> $CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY;
   
   @SyntheticMember
-  @Pure
   @Inline(value = "$castSkill(MotionCapacity.class, ($0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY == null || $0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY.get() == null) ? ($0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY = $0$getSkill(MotionCapacity.class)) : $0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY)", imported = MotionCapacity.class)
   private MotionCapacity $CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY$CALLER() {
     if (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY.get() == null) {
@@ -181,7 +168,6 @@ public class Ant extends Agent {
   private transient ClearableReference<Skill> $CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY;
   
   @SyntheticMember
-  @Pure
   @Inline(value = "$castSkill(PheromoneCapacity.class, ($0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY == null || $0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY.get() == null) ? ($0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY = $0$getSkill(PheromoneCapacity.class)) : $0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY)", imported = PheromoneCapacity.class)
   private PheromoneCapacity $CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY$CALLER() {
     if (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY.get() == null) {
@@ -214,8 +200,15 @@ public class Ant extends Agent {
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Perception$2(occurrence));
   }
   
+  @SyntheticMember
+  @PerceptGuardEvaluator
+  private void $guardEvaluator$AcceptInfluence(final AcceptInfluence occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
+    assert occurrence != null;
+    assert ___SARLlocal_runnableCollection != null;
+    ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$AcceptInfluence$3(occurrence));
+  }
+  
   @Override
-  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -225,7 +218,7 @@ public class Ant extends Agent {
     if (getClass() != obj.getClass())
       return false;
     Ant other = (Ant) obj;
-    if (!java.util.Objects.equals(this.idEnv, other.idEnv)) {
+    if (!Objects.equals(this.idEnv, other.idEnv)) {
       return false;
     }
     if (other.selfIDAnt != this.selfIDAnt)
@@ -234,12 +227,11 @@ public class Ant extends Agent {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();
     final int prime = 31;
-    result = prime * result + java.util.Objects.hashCode(this.idEnv);
+    result = prime * result + Objects.hashCode(this.idEnv);
     result = prime * result + this.selfIDAnt;
     return result;
   }

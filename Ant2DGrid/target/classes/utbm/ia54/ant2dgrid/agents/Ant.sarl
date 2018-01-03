@@ -16,6 +16,8 @@ import utbm.ia54.ant2dgrid.events.AntInitialize
 import io.sarl.core.DefaultContextInteractions
 import utbm.ia54.ant2dgrid.capacities.MotionCapacity
 import utbm.ia54.ant2dgrid.capacities.PheromoneCapacity
+import utbm.ia54.ant2dgrid.events.AcceptInfluence
+import utbm.ia54.ant2dgrid.events.Influence
 
 /** 
  * @author Michel
@@ -52,26 +54,23 @@ agent Ant {
 	
 	on Perception{
 		var listPerception = occurrence.list
+		var tempVector : Vector2i
 		if (!listPerception.isEmpty) {
-			var tempVector : Vector2i
-			var pheromoneFood = 0f
-			var pheromoneHome = 0f
-			if (body.state == AntState.SEARCH_FOOD) {
-				for(var i = 0; i<listPerception.length; i++){
-					if(pheromoneFood<listPerception.get(i).pheromoneFoodIntensity){
-						pheromoneFood = listPerception.get(i).pheromoneFoodIntensity
-						tempVector = listPerception.get(i).position
-					}
-				}
-			} else if (body.state == AntState.RETURN_HOME) {
-				for (var i = 0; i < listPerception.length; i++) {
-					if (pheromoneHome < listPerception.get(i).pheromoneHomeIntensity) {
-						pheromoneHome = listPerception.get(i).pheromoneHomeIntensity
-						tempVector = listPerception.get(i).position
-					}
-				}
+			tempVector = followPheromone(listPerception, body.state).position
+			if (tempVector.equals(null)) {
+				randomMove(listPerception, body)
+			} else {
+				move(tempVector, body)
 			}
-			body.position.plus(move(tempVector, body))
+		} else {
+			emit(new Influence(body.position, body.position, body))
 		}
+
+			
+		}
+	
+	on AcceptInfluence{
+		body.position = occurrence.newpos
 	}
+	
 }

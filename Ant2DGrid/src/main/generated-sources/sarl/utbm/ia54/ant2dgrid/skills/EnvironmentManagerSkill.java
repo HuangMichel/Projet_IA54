@@ -8,7 +8,6 @@ import io.sarl.lang.annotation.SyntheticMember;
 import io.sarl.lang.core.Address;
 import io.sarl.lang.core.Skill;
 import io.sarl.lang.util.ClearableReference;
-import io.sarl.util.Scopes;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,10 +15,8 @@ import java.util.Map;
 import java.util.UUID;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Inline;
-import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.capacities.EnvironmentManagerCapacity;
-import utbm.ia54.ant2dgrid.events.Perception;
 import utbm.ia54.ant2dgrid.objects.AntBody;
 import utbm.ia54.ant2dgrid.objects.Cell;
 import utbm.ia54.ant2dgrid.objects.Vector2i;
@@ -95,9 +92,6 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
   }
   
   public void sendPerception(final UUID sender, final UUID id, final List<Cell> list) {
-    InnerContextAccess _$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS$CALLER = this.$castSkill(InnerContextAccess.class, (this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS == null || this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS = this.$getSkill(InnerContextAccess.class)) : this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS);
-    Perception _perception = new Perception(list);
-    _$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS$CALLER.getInnerContext().getDefaultSpace().emit(sender, _perception, Scopes.addresses(this.getAddress(id)));
   }
   
   public Cell getHomeCell() {
@@ -158,7 +152,6 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
     return this.antAddresses;
   }
   
-  @Pure
   private Vector2i getAntPosition(final UUID id) {
     Vector2i _xblockexpression = null;
     {
@@ -191,7 +184,6 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
   private transient ClearableReference<Skill> $CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS;
   
   @SyntheticMember
-  @Pure
   @Inline(value = "$castSkill(InnerContextAccess.class, ($0$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS == null || $0$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS.get() == null) ? ($0$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS = $0$getSkill(InnerContextAccess.class)) : $0$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS)", imported = InnerContextAccess.class)
   private InnerContextAccess $CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS$CALLER() {
     if (this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS == null || this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS.get() == null) {
@@ -201,7 +193,6 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -225,7 +216,6 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

@@ -4,7 +4,9 @@ import io.sarl.lang.annotation.SarlElementType;
 import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.core.AgentTrait;
 import io.sarl.lang.core.Capacity;
+import java.util.List;
 import utbm.ia54.ant2dgrid.objects.AntBody;
+import utbm.ia54.ant2dgrid.objects.Cell;
 import utbm.ia54.ant2dgrid.objects.Vector2i;
 
 /**
@@ -14,28 +16,28 @@ import utbm.ia54.ant2dgrid.objects.Vector2i;
 @SarlElementType(18)
 @SuppressWarnings("all")
 public interface MotionCapacity extends Capacity {
-  public abstract Vector2i move(final Vector2i newpos, final AntBody body);
+  public abstract void move(final Vector2i newpos, final AntBody body);
   
-  public abstract Vector2i randomMove(final Vector2i newpos, final AntBody body);
+  public abstract void randomMove(final List<Cell> listPerception, final AntBody body);
   
   public static class ContextAwareCapacityWrapper<C extends MotionCapacity> extends Capacity.ContextAwareCapacityWrapper<C> implements MotionCapacity {
     public ContextAwareCapacityWrapper(final C capacity, final AgentTrait caller) {
       super(capacity, caller);
     }
     
-    public Vector2i move(final Vector2i newpos, final AntBody body) {
+    public void move(final Vector2i newpos, final AntBody body) {
       try {
         ensureCallerInLocalThread();
-        return this.capacity.move(newpos, body);
+        this.capacity.move(newpos, body);
       } finally {
         resetCallerInLocalThread();
       }
     }
     
-    public Vector2i randomMove(final Vector2i newpos, final AntBody body) {
+    public void randomMove(final List<Cell> listPerception, final AntBody body) {
       try {
         ensureCallerInLocalThread();
-        return this.capacity.randomMove(newpos, body);
+        this.capacity.randomMove(listPerception, body);
       } finally {
         resetCallerInLocalThread();
       }
