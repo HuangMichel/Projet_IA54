@@ -36,9 +36,9 @@ public class MotionSkill extends Skill implements MotionCapacity {
   public void randomMove(final List<Cell> listPerception, final AntBody body) {
     final int randomNum = ThreadLocalRandom.current().nextInt(0, ((Object[])Conversions.unwrapArray(listPerception, Object.class)).length);
     Vector2i newPos = null;
-    CellState _state = listPerception.get(randomNum).getState();
-    boolean _tripleEquals = (_state == CellState.NORMAL);
-    if (_tripleEquals) {
+    if ((((listPerception.get(randomNum).getState() == CellState.NORMAL) || 
+      (listPerception.get(randomNum).getState() == CellState.HOME)) || 
+      (listPerception.get(randomNum).getState() == CellState.FOOD))) {
       newPos = listPerception.get(randomNum).getPosition();
       DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
       Influence _influence = new Influence(newPos, body);
@@ -46,6 +46,13 @@ public class MotionSkill extends Skill implements MotionCapacity {
     } else {
       this.randomMove(listPerception, body);
     }
+  }
+  
+  public void stay(final AntBody body) {
+    DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
+    Vector2i _position = body.getPosition();
+    Influence _influence = new Influence(_position, body);
+    _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_influence);
   }
   
   @Extension

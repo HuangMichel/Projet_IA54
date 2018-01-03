@@ -23,6 +23,7 @@ import utbm.ia54.ant2dgrid.Enum.AntState
 capacity MotionCapacity {
 	def move(newpos : Vector2i, body : AntBody)
 	def randomMove(listPerception : List<Cell>, body : AntBody)
+	def stay(body : AntBody)
 }
 
 capacity PheromoneCapacity{

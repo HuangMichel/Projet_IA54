@@ -40,12 +40,18 @@ skill MotionSkill implements MotionCapacity{
 	def randomMove(listPerception : List<Cell>, body : AntBody){
 		val randomNum = ThreadLocalRandom.current().nextInt(0, listPerception.length)
 		var newPos : Vector2i
-		if (listPerception.get(randomNum).state === CellState.NORMAL){
+		if (listPerception.get(randomNum).state === CellState.NORMAL ||
+			listPerception.get(randomNum).state === CellState.HOME ||
+			listPerception.get(randomNum).state === CellState.FOOD){
 			newPos = listPerception.get(randomNum).position
 			emit(new Influence(newPos, body))
 		}else{
 			randomMove(listPerception, body)
 		}
+	}
+	
+	def stay(body: AntBody){
+		emit(new Influence(body.position, body))
 	}
 	
 }

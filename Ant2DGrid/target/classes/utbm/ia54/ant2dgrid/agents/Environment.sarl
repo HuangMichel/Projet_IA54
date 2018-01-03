@@ -24,6 +24,11 @@ import utbm.ia54.ant2dgrid.events.AcceptInfluence
 import io.sarl.core.DefaultContextInteractions
 import utbm.ia54.ant2dgrid.Enum.AntState
 import utbm.ia54.ant2dgrid.events.ChangeState
+import utbm.ia54.ant2dgrid.objects.Cell
+import java.util.List
+import java.util.UUID
+import java.util.Map
+import java.util.HashMap
 
 /** 
  * @author Michel
@@ -37,6 +42,7 @@ agent Environment {
 	private var ctrl : Ant2DGridFxViewerController = null
 	private var launched : Boolean = false
 	private var counter = 0
+	private var perception = new HashMap<UUID,List<Cell>>
 	
 	on Initialize {
 		loggingName = "Environment " + this.ID
@@ -55,6 +61,7 @@ agent Environment {
 		createAnt(homeCell.position, occurrence.source.UUID, occurrence.body)
 		counter += 1
 		if (counter === ctrl.antQuantity){
+			info("reset counter")
 			emit(new Continue())
 			counter = 0
 		}
@@ -76,9 +83,11 @@ agent Environment {
 				//ctrl.update(grid)
 				antAddresses.forEach [ id, address |
 					var list = getPerception(id)
-					innerContext.defaultSpace.emit(ID, new Perception(list), Scopes.addresses(address))
+					perception.put(id,list) //create map of perception for each ant
+					//innerContext.defaultSpace.emit(ID, new Perception(list), Scopes.addresses(address))
 				]
 			}
+			innerContext.defaultSpace.emit(ID, new Perception(perception))
 		}
 	}
 	
@@ -108,16 +117,18 @@ agent Environment {
 				}
 			}
 		}
-		
-		
+
+		counter += 1
 		if (accept) {
 			innerContext.defaultSpace.emit(this.ID,
 				new AcceptInfluence(newPosition, accept),
 				Scopes.addresses(occurrence.source))
-			counter += 1
+			
 			if (counter === ctrl.antQuantity) {
-				emit(new Continue())
 				counter = 0
+				perception.clear
+				emit(new Continue())
+				//counter = 0
 			}
 		}
 	}

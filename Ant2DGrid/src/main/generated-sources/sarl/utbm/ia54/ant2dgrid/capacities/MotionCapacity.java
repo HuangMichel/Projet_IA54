@@ -20,6 +20,8 @@ public interface MotionCapacity extends Capacity {
   
   public abstract void randomMove(final List<Cell> listPerception, final AntBody body);
   
+  public abstract void stay(final AntBody body);
+  
   public static class ContextAwareCapacityWrapper<C extends MotionCapacity> extends Capacity.ContextAwareCapacityWrapper<C> implements MotionCapacity {
     public ContextAwareCapacityWrapper(final C capacity, final AgentTrait caller) {
       super(capacity, caller);
@@ -38,6 +40,15 @@ public interface MotionCapacity extends Capacity {
       try {
         ensureCallerInLocalThread();
         this.capacity.randomMove(listPerception, body);
+      } finally {
+        resetCallerInLocalThread();
+      }
+    }
+    
+    public void stay(final AntBody body) {
+      try {
+        ensureCallerInLocalThread();
+        this.capacity.stay(body);
       } finally {
         resetCallerInLocalThread();
       }
