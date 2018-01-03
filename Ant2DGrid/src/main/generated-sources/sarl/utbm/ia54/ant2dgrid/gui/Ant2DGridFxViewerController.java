@@ -146,19 +146,8 @@ public class Ant2DGridFxViewerController extends FxViewerController {
     }
   }
   
+  @Pure
   public void update(final List<Cell> list) {
-    for (final Cell cell : list) {
-      {
-        this.gridZone.add(cell, cell.getPosition().getX(), cell.getPosition().getY());
-        this.gridZone.add(cell.getPheromoneHome().getObjfx(), cell.getPosition().getX(), cell.getPosition().getY(), 1, 1);
-        this.gridZone.add(cell.getPheromoneFood().getObjfx(), cell.getPosition().getX(), cell.getPosition().getY(), 1, 2);
-        CellState _state = cell.getState();
-        boolean _tripleEquals = (_state == CellState.NORMAL);
-        if (_tripleEquals) {
-          this.gridZone.add(cell.getShapeAnt(), cell.getPosition().getX(), cell.getPosition().getY(), 2, 1);
-        }
-      }
-    }
   }
   
   @Override

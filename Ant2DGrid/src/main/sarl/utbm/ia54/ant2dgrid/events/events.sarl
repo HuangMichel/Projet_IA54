@@ -35,12 +35,9 @@ event Perception{
 }
 
 event Influence{
-	//Initial position
-	var v : Vector2i
 	var newpos : Vector2i
 	var body : AntBody
-	new(v : Vector2i, newpos : Vector2i, body : AntBody) {
-		this.v = v
+	new(newpos : Vector2i, body : AntBody) {
 		this.newpos = newpos
 		this.body = body
 	}

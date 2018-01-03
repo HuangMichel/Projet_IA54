@@ -67,10 +67,11 @@ agent Environment {
 	}
 	
 	on Continue{
+		info("continues")
 		if(!launched){
 			//task every
 			synchronized(grid){
-				ctrl.update(grid)
+				//ctrl.update(grid)
 				antAddresses.forEach [ id, address |
 					var list = getPerception(id)
 					innerContext.defaultSpace.emit(ID, new Perception(list), Scopes.addresses(address))
@@ -81,29 +82,33 @@ agent Environment {
 	
 	on Influence{
 		var accept = false
-		var oldPosition = occurrence.v
-		var newPosition = occurrence.newpos
 		var body = occurrence.body
-		synchronized(grid){
-			if(getCell(newPosition.x*height+newPosition.y).state===CellState.NORMAL){
-				removeAntCell(oldPosition, body.ID, body)
-				createAnt(new Vector2i(oldPosition.x + newPosition.x, oldPosition.y+newPosition.y), body.ID, body)
-				accept = true
+		var oldPosition = occurrence.body.position
+		var newPosition = occurrence.newpos
+	
+		if (oldPosition.equals(newPosition)) {
+			//do somethings
+		} else {
+			synchronized (grid) {
+				if (getCell(newPosition.x * height + newPosition.y).state === CellState.NORMAL) {
+					removeAntCell(oldPosition, body.ID, body)
+					createAnt(newPosition, body.ID, body)
+					accept = true
+				}
 			}
 		}
 		
+		
 		if (accept) {
 			innerContext.defaultSpace.emit(this.ID,
-				new AcceptInfluence(new Vector2i(oldPosition.x + newPosition.x, oldPosition.y + newPosition.y), accept),
+				new AcceptInfluence(newPosition, accept),
 				Scopes.addresses(occurrence.source))
+			counter += 1
+			if (counter === ctrl.antQuantity) {
+				emit(new Continue())
+				counter = 0
+			}
 		}
-		
-		counter += 1
-		if (counter === ctrl.antQuantity){
-			emit(new Continue())
-			counter = 0
-		}
-
 	}
 	
 	on Destroy{

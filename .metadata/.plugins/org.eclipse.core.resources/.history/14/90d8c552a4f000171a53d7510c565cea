@@ -1,0 +1,126 @@
+package utbm.ia54.ant2dgrid.gui
+
+import utbm.ia54.ant2dgrid.gui.fx.FxViewerController
+import javafx.fxml.FXML
+import javafx.scene.control.Button
+import javafx.scene.layout.GridPane
+import utbm.ia54.ant2dgrid.objects.Cell
+import java.util.List
+import utbm.ia54.ant2dgrid.objects.MapGenerator
+import javafx.scene.control.TextField
+import javafx.scene.input.MouseEvent
+import javafx.^event.EventHandler
+import utbm.ia54.ant2dgrid.events.ConfigureSimulation
+import utbm.ia54.ant2dgrid.Enum.CellState
+import utbm.ia54.ant2dgrid.events.Continue
+
+/** 
+ * @author aelez
+ * 
+ */
+
+class Ant2DGridFxViewerController extends FxViewerController{
+
+	@FXML
+	private var spawnButton : Button
+	
+	@FXML
+	private var gridZone : GridPane
+	
+	@FXML
+	private var numberOfAnt : TextField
+
+	@FXML
+	private var btnMap : Button
+	
+	private var grid : List<Cell>
+	
+	private var mapCreated = false
+	
+	private var launched = false
+	
+	def getGrid : List<Cell>{
+		grid
+	}
+	def getAntQuantity : int {
+		Integer.parseInt(numberOfAnt.text)
+	}
+	
+	def getWidth : int{
+		gridZone.rowConstraints.size
+	}
+	
+	def getHeight : int{
+		gridZone.columnConstraints.size
+	}
+	
+	@FXML
+	def createMap {
+		var generator = new MapGenerator(getWidth, getHeight)
+		grid = generator.generateMap
+		for (var i = 0; i < getWidth; i++) {
+			for (var j = 0; j < getHeight; j++) {
+				var cell = grid.get(i * getHeight + j)
+				gridZone.add(cell, i, j)
+				gridZone.add(cell.pheromoneHome.objfx, cell.position.x, cell.position.y, 1, 1)
+				gridZone.add(cell.pheromoneFood.objfx, cell.position.x, cell.position.y, 1, 2)
+				if (cell.state === CellState.NORMAL) {
+					gridZone.add(cell.shapeAnt, cell.position.x, cell.position.y, 2, 1)
+				}
+			}
+		}
+		if (mapCreated === false) {
+			mapCreated = true
+			btnMap.text = "Re-generate Map"
+			spawnButton.disable = false
+		}
+		addCellEvent
+	}
+
+	def addCellEvent {
+		gridZone.children.forEach[item | item.onMouseClicked = new EventHandler<MouseEvent>(){
+			def handle(^event : MouseEvent) {
+				var cell = item as Cell
+				if (^event.clickCount === 1) {
+					println(cell.toString)
+					// cell.incrementPheromoneHomeIntensity
+						emitToAgent(new Continue())
+				}else if(^event.clickCount === 2 && cell.state === CellState.NORMAL){
+					//cell.state = CellState.WALL
+					//cell.incrementPheromoneFoodIntensity
+					
+					
+				}else if(^event.clickCount === 3 && cell.state === CellState.WALL){
+					cell.state = CellState.NORMAL
+				}
+			}
+			
+		}]
+	}
+	
+	@FXML
+	def actionSpawn{
+		var evt = new ConfigureSimulation
+		if(!launched){
+			startAgentApplication()[emitToAgent(evt)]
+			launched = true
+			btnMap.disable = true
+			spawnButton.disable = true
+			numberOfAnt.disable = true
+		}else{
+			emitToAgent(evt)
+		}
+	}
+
+	def update(list : List<Cell>){
+		for(cell : list){
+			gridZone.add(cell, cell.position.x, cell.position.y)
+			gridZone.add(cell.pheromoneHome.objfx, cell.position.x, cell.position.y, 1, 1)
+			gridZone.add(cell.pheromoneFood.objfx, cell.position.x, cell.position.y, 1, 2)
+			if (cell.state === CellState.NORMAL) {
+				gridZone.add(cell.shapeAnt, cell.position.x, cell.position.y, 2, 1)
+			}
+		}
+		addCellEvent
+	}
+}

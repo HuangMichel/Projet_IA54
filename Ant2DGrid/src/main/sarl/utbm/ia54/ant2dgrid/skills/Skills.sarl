@@ -34,9 +34,7 @@ skill MotionSkill implements MotionCapacity{
 	uses DefaultContextInteractions
 	
 	def move(newpos : Vector2i, body : AntBody){
-		emit(new Influence(body.position, newpos, body))
-		//newpos.plus(body.position)
-		//newpos
+		emit(new Influence(newpos, body))
 	}
 	
 	def randomMove(listPerception : List<Cell>, body : AntBody){
@@ -44,13 +42,10 @@ skill MotionSkill implements MotionCapacity{
 		var newPos : Vector2i
 		if (listPerception.get(randomNum).state === CellState.NORMAL){
 			newPos = listPerception.get(randomNum).position
-			emit(new Influence(body.position, newPos, body))
+			emit(new Influence(newPos, body))
 		}else{
 			randomMove(listPerception, body)
 		}
-		
-		//newPos.plus(body.position)
-		//newPos
 	}
 	
 }
@@ -80,7 +75,7 @@ skill PheromoneSkill implements PheromoneCapacity{
 				}
 			}
 		}
-
+		
 		if(bool === false){
 			tempCell = new Cell(-1, -1)
 		}

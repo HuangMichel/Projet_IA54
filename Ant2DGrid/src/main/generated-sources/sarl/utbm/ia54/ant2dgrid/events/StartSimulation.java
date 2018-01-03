@@ -19,7 +19,4 @@ public class StartSimulation extends Event {
   public StartSimulation(final Address source) {
     super(source);
   }
-  
-  @SyntheticMember
-  private final static long serialVersionUID = 588368462L;
 }

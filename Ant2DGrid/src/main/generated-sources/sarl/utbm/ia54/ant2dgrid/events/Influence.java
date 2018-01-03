@@ -12,14 +12,11 @@ import utbm.ia54.ant2dgrid.objects.Vector2i;
 @SarlElementType(14)
 @SuppressWarnings("all")
 public class Influence extends Event {
-  public Vector2i v;
-  
   public Vector2i newpos;
   
   public AntBody body;
   
-  public Influence(final Vector2i v, final Vector2i newpos, final AntBody body) {
-    this.v = v;
+  public Influence(final Vector2i newpos, final AntBody body) {
     this.newpos = newpos;
     this.body = body;
   }
@@ -46,12 +43,8 @@ public class Influence extends Event {
   @Pure
   protected String attributesToString() {
     StringBuilder result = new StringBuilder(super.attributesToString());
-    result.append("v  = ").append(this.v);
     result.append("newpos  = ").append(this.newpos);
     result.append("body  = ").append(this.body);
     return result.toString();
   }
-  
-  @SyntheticMember
-  private final static long serialVersionUID = 3621897213L;
 }

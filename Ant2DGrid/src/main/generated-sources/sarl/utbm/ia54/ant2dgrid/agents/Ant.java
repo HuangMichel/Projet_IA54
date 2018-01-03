@@ -26,7 +26,6 @@ import utbm.ia54.ant2dgrid.capacities.MotionCapacity;
 import utbm.ia54.ant2dgrid.capacities.PheromoneCapacity;
 import utbm.ia54.ant2dgrid.events.AcceptInfluence;
 import utbm.ia54.ant2dgrid.events.AntInitialize;
-import utbm.ia54.ant2dgrid.events.Influence;
 import utbm.ia54.ant2dgrid.events.Perception;
 import utbm.ia54.ant2dgrid.objects.AntBody;
 import utbm.ia54.ant2dgrid.objects.Cell;
@@ -102,15 +101,10 @@ public class Ant extends Agent {
     boolean _not = (!_isEmpty);
     if (_not) {
       PheromoneCapacity _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY$CALLER = this.$castSkill(PheromoneCapacity.class, (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY.get() == null) ? (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY = this.$getSkill(PheromoneCapacity.class)) : this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY);
-<<<<<<< HEAD
       tempVector = _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY$CALLER.followPheromone(listPerception, this.body.getState()).getPosition();
       Vector2i _vector2i = new Vector2i((-1), (-1));
       boolean _equals = tempVector.equals(_vector2i);
       if (_equals) {
-=======
-      boolean _isEmpty_1 = _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_PHEROMONECAPACITY$CALLER.followPheromone(listPerception, this.body.getState()).getAntList().isEmpty();
-      if (_isEmpty_1) {
->>>>>>> 0353e32b6a4fb200237fd621a6a895365921459a
         MotionCapacity _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY$CALLER = this.$castSkill(MotionCapacity.class, (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY.get() == null) ? (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY = this.$getSkill(MotionCapacity.class)) : this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY);
         _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY$CALLER.randomMove(listPerception, this.body);
       } else {
@@ -119,12 +113,6 @@ public class Ant extends Agent {
         MotionCapacity _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY$CALLER_1 = this.$castSkill(MotionCapacity.class, (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY.get() == null) ? (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY = this.$getSkill(MotionCapacity.class)) : this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY);
         _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_MOTIONCAPACITY$CALLER_1.move(tempVector, this.body);
       }
-    } else {
-      DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
-      Vector2i _position = this.body.getPosition();
-      Vector2i _position_1 = this.body.getPosition();
-      Influence _influence = new Influence(_position, _position_1, this.body);
-      _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_influence);
     }
   }
   

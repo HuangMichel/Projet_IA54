@@ -57,6 +57,7 @@ agent Ant {
 	on Perception{
 		var listPerception = occurrence.list
 		var tempVector : Vector2i
+		//Impossible qu'il est vide
 		if (!listPerception.isEmpty) {
 			tempVector = followPheromone(listPerception, body.state).position
 			if (tempVector.equals(new Vector2i(-1, -1))) {
@@ -65,11 +66,8 @@ agent Ant {
 				tempVector = followPheromone(listPerception, body.state).position
 				move(tempVector, body)
 			}
-		} else {
-			emit(new Influence(body.position, body.position, body))
 		}
-			
-		}
+	}
 	
 	on AcceptInfluence{
 		body.position = occurrence.newpos
