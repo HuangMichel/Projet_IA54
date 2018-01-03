@@ -136,6 +136,9 @@ class Cell extends Pane{
 	def addAnt(id : UUID, ant : AntBody){
 		synchronized(antList){
 			this.antList.put(id, ant)
+			if (this.state != CellState.HOME) {
+				incrementPheromone(ant.state)
+			}
 			incrementOpacity
 		}
 	}
@@ -279,23 +282,32 @@ class Cell extends Pane{
 	}
 	
 	def decrementOpacity : void {
-		if (this.color.opacity > 0f) {
+		if (this.color.opacity > 0.1) {
 			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity - 0.3)
 			this.shapeAnt.fill = this.color
 		}
 	}
 	
 	def incrementOpacity : void {
-		if (this.color.opacity < 0.9f) {
+		if (this.color.opacity < 0.9) {
 			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity + 0.3)
 			this.shapeAnt.fill = this.color
 		}
 	}
+	
 	def getShapeAnt : Shape {
 		this.shapeAnt
 	}
 		
-
+	def incrementPheromone(antState : AntState){
+		switch(antState){
+			case AntState.RETURN_HOME:
+				incrementPheromoneFoodIntensity
+			case AntState.SEARCH_FOOD:
+				incrementPheromoneHomeIntensity
+		}
+	}
+	
 	def equals(obj : Object): boolean{
 		var bool = false
 		if(obj instanceof Cell){

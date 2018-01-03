@@ -1,5 +1,6 @@
 package utbm.ia54.ant2dgrid.objects;
 
+import com.google.common.base.Objects;
 import io.sarl.lang.annotation.SarlElementType;
 import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
@@ -166,6 +167,10 @@ public class Cell extends Pane {
   public void addAnt(final UUID id, final AntBody ant) {
     synchronized (this.antList) {
       this.antList.put(id, ant);
+      boolean _notEquals = (!Objects.equal(this.state, CellState.HOME));
+      if (_notEquals) {
+        this.incrementPheromone(ant.getState());
+      }
       this.incrementOpacity();
     }
   }
@@ -338,7 +343,7 @@ public class Cell extends Pane {
   
   public void decrementOpacity() {
     double _opacity = this.color.getOpacity();
-    boolean _greaterThan = (_opacity > 0f);
+    boolean _greaterThan = (_opacity > 0.1);
     if (_greaterThan) {
       double _red = this.color.getRed();
       double _green = this.color.getGreen();
@@ -353,7 +358,7 @@ public class Cell extends Pane {
   
   public void incrementOpacity() {
     double _opacity = this.color.getOpacity();
-    boolean _lessThan = (_opacity < 0.9f);
+    boolean _lessThan = (_opacity < 0.9);
     if (_lessThan) {
       double _red = this.color.getRed();
       double _green = this.color.getGreen();
@@ -369,6 +374,21 @@ public class Cell extends Pane {
   @Pure
   public Shape getShapeAnt() {
     return this.shapeAnt;
+  }
+  
+  public void incrementPheromone(final AntState antState) {
+    if (antState != null) {
+      switch (antState) {
+        case RETURN_HOME:
+          this.incrementPheromoneFoodIntensity();
+          break;
+        case SEARCH_FOOD:
+          this.incrementPheromoneHomeIntensity();
+          break;
+        default:
+          break;
+      }
+    }
   }
   
   @Pure

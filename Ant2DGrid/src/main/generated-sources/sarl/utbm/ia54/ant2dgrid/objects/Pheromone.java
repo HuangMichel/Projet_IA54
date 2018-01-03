@@ -114,7 +114,7 @@ public class Pheromone {
     float _intensity = this.intensity;
     this.intensity = (_intensity * this.coefEvaporation);
     double _opacity = this.color.getOpacity();
-    boolean _greaterThan = (_opacity > 0f);
+    boolean _greaterThan = (_opacity > 0.1f);
     if (_greaterThan) {
       double _red = this.color.getRed();
       double _green = this.color.getGreen();

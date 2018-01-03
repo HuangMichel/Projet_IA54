@@ -57,4 +57,7 @@ public class AcceptInfluence extends Event {
     result.append("accept  = ").append(this.accept);
     return result.toString();
   }
+  
+  @SyntheticMember
+  private final static long serialVersionUID = -1414600981L;
 }

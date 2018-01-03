@@ -42,4 +42,7 @@ public class AntInitialize extends Event {
     result.append("body  = ").append(this.body);
     return result.toString();
   }
+  
+  @SyntheticMember
+  private final static long serialVersionUID = 41786855L;
 }
