@@ -396,13 +396,29 @@ public class Cell extends Pane {
   private void setShapeAnt() {
     Color _color = new Color(0f, 0f, 1f, 0);
     this.color = _color;
-    Polygon _polygon = new Polygon(
-      30, 
-      30, 
-      40, 
-      40, 
-      20, 
-      40);
+    Polygon _polygon = new Polygon(8.0, 0.0, 
+      12.0, 0.0, 
+      12.0, 2.0, 
+      14.0, 3.0, 
+      12.0, 4.0, 
+      12.0, 6.0, 
+      14.0, 7.0, 
+      12.0, 8.0, 
+      12.0, 10.0, 
+      12.0, 12.0, 
+      14.0, 13.0, 
+      12.0, 14.0, 
+      8.0, 14.0, 
+      6.0, 13.0, 
+      8.0, 12.0, 
+      8.0, 10.0, 
+      8.0, 8.0, 
+      6.0, 7.0, 
+      8.0, 6.0, 
+      8.0, 4.0, 
+      6.0, 3.0, 
+      8.0, 2.0, 
+      8.0, 4.0);
     this.shapeAnt = _polygon;
     this.shapeAnt.setFill(this.color);
   }

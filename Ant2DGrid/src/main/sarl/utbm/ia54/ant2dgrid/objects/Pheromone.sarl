@@ -44,7 +44,7 @@ class Pheromone {
 			this.objfx = new Rectangle(10, 10, this.color)
 		} else {			
 			this.color = new Color(0, 1.0, 0, 0)
-			this.objfx = new Circle(7, this.color)
+			this.objfx = new Circle(5, this.color)
 		}
 		
 	}
@@ -58,7 +58,7 @@ class Pheromone {
 			this.objfx = new Rectangle(10, 10, this.color)
 		} else {
 			this.color = new Color(0, 1.0, 0, 0)
-			this.objfx = new Circle(7, this.color)
+			this.objfx = new Circle(5, this.color)
 		}
 	}
 	

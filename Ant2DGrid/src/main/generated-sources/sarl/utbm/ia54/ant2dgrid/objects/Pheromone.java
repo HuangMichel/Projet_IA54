@@ -64,7 +64,7 @@ public class Pheromone {
     } else {
       Color _color_1 = new Color(0, 1.0, 0, 0);
       this.color = _color_1;
-      Circle _circle = new Circle(7, this.color);
+      Circle _circle = new Circle(5, this.color);
       this.objfx = _circle;
     }
   }
@@ -81,7 +81,7 @@ public class Pheromone {
     } else {
       Color _color_1 = new Color(0, 1.0, 0, 0);
       this.color = _color_1;
-      Circle _circle = new Circle(7, this.color);
+      Circle _circle = new Circle(5, this.color);
       this.objfx = _circle;
     }
   }
