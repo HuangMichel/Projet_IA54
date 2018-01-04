@@ -56,14 +56,9 @@ public class Cell extends Pane {
   private Pheromone pheromoneFood;
   
   /**
-   * Quantity of food in Food place
+   * Quantity of food in Food place or in Nest place
    */
-  private Food foodPlace;
-  
-  /**
-   * Number of food in Nest place
-   */
-  private Food foodInNest;
+  private Food foodNest;
   
   private Shape shapeAnt;
   
@@ -168,18 +163,25 @@ public class Cell extends Pane {
   public void addAnt(final UUID id, final AntBody ant) {
     synchronized (this.antList) {
       this.antList.put(id, ant);
-      boolean _notEquals = (!Objects.equal(this.state, CellState.HOME));
-      if (_notEquals) {
+      if (((this.state == CellState.NORMAL) && (!Objects.equal(this.state, CellState.WALL)))) {
         this.incrementPheromone(ant.getState());
       }
-      this.incrementOpacity();
+      int _size = this.antList.size();
+      boolean _tripleEquals = (_size == 1);
+      if (_tripleEquals) {
+        this.incrementOpacity();
+      }
     }
   }
   
   public void removeAnt(final UUID id, final AntBody ant) {
     synchronized (this.antList) {
       this.antList.remove(id, ant);
-      this.decrementOpacity();
+      int _size = this.antList.size();
+      boolean _tripleEquals = (_size == 0);
+      if (_tripleEquals) {
+        this.decrementOpacity();
+      }
     }
   }
   
@@ -214,10 +216,10 @@ public class Cell extends Pane {
       Food _xifexpression = null;
       if ((state == CellState.FOOD)) {
         Food _food = new Food(state);
-        _xifexpression = this.foodPlace = _food;
+        _xifexpression = this.foodNest = _food;
       } else {
         Food _food_1 = new Food(state);
-        _xifexpression = this.foodInNest = _food_1;
+        _xifexpression = this.foodNest = _food_1;
       }
       _xblockexpression = _xifexpression;
     }
@@ -329,33 +331,21 @@ public class Cell extends Pane {
   }
   
   public void decrementOpacity() {
-    double _opacity = this.color.getOpacity();
-    boolean _greaterThan = (_opacity > 0.1);
-    if (_greaterThan) {
-      double _red = this.color.getRed();
-      double _green = this.color.getGreen();
-      double _blue = this.color.getBlue();
-      double _opacity_1 = this.color.getOpacity();
-      double _minus = (_opacity_1 - 0.3);
-      Color _color = new Color(_red, _green, _blue, _minus);
-      this.color = _color;
-      this.shapeAnt.setFill(this.color);
-    }
+    double _red = this.color.getRed();
+    double _green = this.color.getGreen();
+    double _blue = this.color.getBlue();
+    Color _color = new Color(_red, _green, _blue, 0f);
+    this.color = _color;
+    this.shapeAnt.setFill(this.color);
   }
   
   public void incrementOpacity() {
-    double _opacity = this.color.getOpacity();
-    boolean _lessThan = (_opacity < 0.9);
-    if (_lessThan) {
-      double _red = this.color.getRed();
-      double _green = this.color.getGreen();
-      double _blue = this.color.getBlue();
-      double _opacity_1 = this.color.getOpacity();
-      double _plus = (_opacity_1 + 0.3);
-      Color _color = new Color(_red, _green, _blue, _plus);
-      this.color = _color;
-      this.shapeAnt.setFill(this.color);
-    }
+    double _red = this.color.getRed();
+    double _green = this.color.getGreen();
+    double _blue = this.color.getBlue();
+    Color _color = new Color(_red, _green, _blue, 1f);
+    this.color = _color;
+    this.shapeAnt.setFill(this.color);
   }
   
   @Pure
@@ -384,9 +374,9 @@ public class Cell extends Pane {
     {
       Food food = null;
       if ((this.state == CellState.FOOD)) {
-        food = this.foodPlace;
+        food = this.foodNest;
       } else {
-        food = this.foodInNest;
+        food = this.foodNest;
       }
       _xblockexpression = food;
     }

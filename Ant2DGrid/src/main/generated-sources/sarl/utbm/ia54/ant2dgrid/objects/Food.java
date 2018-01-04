@@ -27,11 +27,11 @@ public class Food {
     this.shape = _polygon;
     if ((state == CellState.FOOD)) {
       this.food = 1000f;
-      Color _color = new Color(0, 0, 0, 1);
+      Color _color = new Color(0.5, 0.5, 0.5, 1);
       this.color = _color;
     } else {
       this.food = 0;
-      Color _color_1 = new Color(0, 0, 0, 0);
+      Color _color_1 = new Color(0.5, 0.5, 0.5, 0);
       this.color = _color_1;
     }
     this.shape.setFill(this.color);

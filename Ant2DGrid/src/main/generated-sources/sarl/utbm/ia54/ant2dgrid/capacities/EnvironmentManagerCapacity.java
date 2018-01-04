@@ -37,8 +37,6 @@ public interface EnvironmentManagerCapacity extends Capacity {
   
   public abstract void setAddress(final UUID id, final Address address);
   
-  public abstract void sendPerception(final UUID sender, final UUID id, final List<Cell> list);
-  
   public abstract List<Cell> getPerception(final UUID id);
   
   public abstract Map<UUID, Address> getAntAddresses();
@@ -128,15 +126,6 @@ public interface EnvironmentManagerCapacity extends Capacity {
       try {
         ensureCallerInLocalThread();
         this.capacity.setAddress(id, address);
-      } finally {
-        resetCallerInLocalThread();
-      }
-    }
-    
-    public void sendPerception(final UUID sender, final UUID id, final List<Cell> list) {
-      try {
-        ensureCallerInLocalThread();
-        this.capacity.sendPerception(sender, id, list);
       } finally {
         resetCallerInLocalThread();
       }

@@ -33,6 +33,28 @@ skill MotionSkill implements MotionCapacity{
 	
 	var positionBefore : Vector2i
 	
+	def hasFood(list : List<Cell>) : boolean {
+		var bool = false
+		for(cell : list){
+			if(cell.state === CellState.FOOD){
+				bool = true
+			}
+		}
+		
+		bool
+	}
+
+	def hasHome(list : List<Cell>) : boolean {
+		var bool = false
+		for (cell : list) {
+			if (cell.state === CellState.HOME) {
+				bool = true
+			}
+		}
+
+		bool
+	}
+	
 	def move(newpos : Vector2i, body : AntBody){
 		emit(new Influence(newpos, body))
 	}
@@ -40,17 +62,35 @@ skill MotionSkill implements MotionCapacity{
 	def randomMove(listPerception : List<Cell>, body : AntBody){
 		val randomNum = ThreadLocalRandom.current().nextInt(0, listPerception.length)
 		var newPos : Vector2i
-		if (listPerception.get(randomNum).state === CellState.NORMAL ||
-			listPerception.get(randomNum).state === CellState.HOME ||
-			listPerception.get(randomNum).state === CellState.FOOD){
-			if (isEquals(listPerception.get(randomNum).position) === false) {
-				newPos = listPerception.get(randomNum).position
-				emit(new Influence(newPos, body))
-				setPositionBefore(newPos)
+		var cell = listPerception.get(randomNum)
+			switch (cell.state) {
+				case CellState.NORMAL:
+					if (isEquals(cell.position) === false) {
+						newPos = cell.position
+						emit(new Influence(newPos, body))
+						setPositionBefore(newPos)
+					} else {
+						randomMove(listPerception, body)
+					}
+				case CellState.WALL:
+					randomMove(listPerception, body)
+				case CellState.HOME:
+					if (body.state === AntState.RETURN_HOME || isEquals(cell.position) === false) {
+						newPos = cell.position
+						emit(new Influence(newPos, body))
+						setPositionBefore(newPos)
+					} else {
+						randomMove(listPerception, body)
+					}
+				case CellState.FOOD:
+					if (body.state === AntState.SEARCH_FOOD) {
+						newPos = cell.position
+						emit(new Influence(newPos, body))
+						setPositionBefore(newPos)
+					} else if (body.state === AntState.RETURN_HOME) {
+						randomMove(listPerception, body)
+					}
 			}
-		} else {
-			randomMove(listPerception, body)
-		}
 	}
 	
 	def stay(body: AntBody){
@@ -79,40 +119,45 @@ skill PheromoneSkill implements PheromoneCapacity{
 		var home = false
 		var pheromoneFood = 0f
 		var pheromoneHome = 0f
-		if (state == AntState.SEARCH_FOOD) {
-			for (var i = 0; i < listPerception.length; i++) {
-				if (pheromoneFood < listPerception.get(i).pheromoneFoodIntensity) {
-					pheromoneFood = listPerception.get(i).pheromoneFoodIntensity
-					tempCell = listPerception.get(i)
-					bool = true
+		
+		switch(state){
+			case AntState.SEARCH_FOOD:
+				for (var i = 0; i < listPerception.length; i++) {
+					if (food === false) {
+						if (listPerception.get(i).state === CellState.FOOD) {
+							foodCell = listPerception.get(i)
+							tempCell = foodCell
+							food = true
+						} else {
+							if (pheromoneFood < listPerception.get(i).pheromoneFoodIntensity) {
+								pheromoneFood = listPerception.get(i).pheromoneFoodIntensity
+								tempCell = listPerception.get(i)
+								bool = true
+							}
+						}
+					}
 				}
-				if (listPerception.get(i).state === CellState.FOOD){
-					foodCell = listPerception.get(i)
-					food = true
+				
+			case AntState.RETURN_HOME:
+				for (var i = 0; i < listPerception.length; i++) {
+					if (home === false) {
+						if (listPerception.get(i).state === CellState.HOME) {
+							homeCell = listPerception.get(i)
+							tempCell = homeCell
+							home = true
+						} else {
+							if (pheromoneHome < listPerception.get(i).pheromoneHomeIntensity) {
+								pheromoneHome = listPerception.get(i).pheromoneHomeIntensity
+								tempCell = listPerception.get(i)
+								bool = true
+							}
+						}
+					}
 				}
-			}
-		} else if (state == AntState.RETURN_HOME) {
-			for (var i = 0; i < listPerception.length; i++) {
-				if (pheromoneHome < listPerception.get(i).pheromoneHomeIntensity) {
-					pheromoneHome = listPerception.get(i).pheromoneHomeIntensity
-					tempCell = listPerception.get(i)
-					bool = true
-				}
-				if (listPerception.get(i).state === CellState.HOME) {
-					homeCell = listPerception.get(i)
-					home = true
-				}
-			}
 		}
 		
 		if(bool === false){
 			tempCell = new Cell(-1, -1)
-		}
-		if(food === true){
-			tempCell = foodCell
-		}
-		if(home === true){
-			tempCell = homeCell
 		}
 		tempCell
 	}	
@@ -183,10 +228,6 @@ skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
 		this.grid.get(position.x * height + position.y).addAnt(id, body)
 		this.grid.get(position.x * height + position.y).evaporationPheromoneFood
 		this.grid.get(position.x * height + position.y).evaporationPheromoneHome
-	}
-
-	def sendPerception(sender : UUID, id : UUID, list : List<Cell>) {
-		//innerContext.defaultSpace.emit(sender, new Perception(list), Scopes.addresses(getAddress(id)))
 	}
 	
 	def getHomeCell : Cell {

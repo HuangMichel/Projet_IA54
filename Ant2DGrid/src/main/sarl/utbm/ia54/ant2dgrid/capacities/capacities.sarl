@@ -49,7 +49,6 @@ capacity EnvironmentManagerCapacity{
 	def getFoodCell : Cell
 	def getCell(i : int) : Cell
 	def setAddress(id : UUID, address : Address)
-	def sendPerception(sender : UUID, id : UUID, list : List<Cell>)
 	def getPerception(id : UUID) : List<Cell>
 	def getAntAddresses : Map<UUID, Address>
 	def getAddress(id : UUID) : Address

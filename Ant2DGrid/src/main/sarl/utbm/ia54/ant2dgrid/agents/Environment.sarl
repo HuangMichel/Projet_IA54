@@ -9,7 +9,6 @@ import utbm.ia54.ant2dgrid.gui.Ant2DGridFxViewerController
 import io.sarl.core.InnerContextAccess
 import io.sarl.core.Lifecycle
 import utbm.ia54.ant2dgrid.events.StartSimulation
-import utbm.ia54.ant2dgrid.events.EndSimulation
 import io.sarl.core.Destroy
 import utbm.ia54.ant2dgrid.events.AntInitialize
 import utbm.ia54.ant2dgrid.capacities.EnvironmentManagerCapacity
@@ -33,6 +32,7 @@ import utbm.ia54.ant2dgrid.events.AcceptPickFood
 import utbm.ia54.ant2dgrid.events.onNestPlace
 import utbm.ia54.ant2dgrid.events.onFoodPlace
 import io.sarl.core.Schedules
+import utbm.ia54.ant2dgrid.gui.fx.AppExit
 
 /** 
  * @author Michel
@@ -89,17 +89,19 @@ agent Environment {
 					//innerContext.defaultSpace.emit(ID, new Perception(list), Scopes.addresses(address))
 				]
 				
+				// && body.state === AntState.RETURN_HOME
 				if (getHomeCell.numberAnt > 0) {
 					getHomeCell.antList.forEach [id, body|
-						if (body.take === true && body.state === AntState.RETURN_HOME) {
+						if (body.take === true) {
 							innerContext.defaultSpace.emit(ID, new onNestPlace, Scopes.addresses(getAddress(body.ID)))
 						}
 					]
 				}
 				
 				if(getFoodCell.numberAnt>0){
+					// && body.state === AntState.SEARCH_FOOD
 					getFoodCell.antList.forEach [ id, body |
-						if (body.take === false && body.state === AntState.SEARCH_FOOD) {
+						if (body.take === false ) {
 							innerContext.defaultSpace.emit(ID, new onFoodPlace, Scopes.addresses(getAddress(body.ID)))
 						}
 					]
@@ -117,32 +119,32 @@ agent Environment {
 		}
 	}
 	
-	on PickFood{
-		info("Pick")
+	on PickFood [occurrence.isInInnerDefaultSpace] {
+		info("Ant " + occurrence.body.ID + " Pick")
 		var body = occurrence.body
 		if(body.state===AntState.SEARCH_FOOD && body.take === false){
 			if (getCell(body.position.x * height + body.position.y).state === CellState.FOOD){
 				getCell(body.position.x * height + body.position.y).food.decrementFood(body.^capacity)
 				getCell(body.position.x * height + body.position.y).antList.get(body.ID).setTake
+				innerContext.defaultSpace.emit(this.ID,
+					new AcceptPickFood(getCell(body.position.x * height + body.position.y).antList.get(body.ID).take),
+					Scopes.addresses(occurrence.source))
 			}
 		}
-		innerContext.defaultSpace.
-			emit(this.ID, new AcceptPickFood(getCell(body.position.x * height + body.position.y).antList.get(body.ID).take), Scopes.addresses(occurrence.source))
 	}
 	
-	on PutFood{
-		info("put")
+	on PutFood [occurrence.isInInnerDefaultSpace] {
+		info("Ant " + occurrence.body.ID + " Put")
 		var body = occurrence.body
 		if(body.state ===AntState.RETURN_HOME && body.take === true){
 			getHomeCell.food.incrementFood(body.^capacity)
 			getHomeCell.antList.get(body.ID).put
+			innerContext.defaultSpace.emit(this.ID, new AcceptPickFood(getHomeCell.antList.get(body.ID).take),
+				Scopes.addresses(occurrence.source))
 		}
-		innerContext.defaultSpace.emit(this.ID,
-			new AcceptPickFood(getHomeCell.antList.get(body.ID).take),
-			Scopes.addresses(occurrence.source))
 	}
 	
-	on Influence{
+	on Influence [occurrence.isInInnerDefaultSpace] {
 		var accept = false
 		var body = occurrence.body
 		var oldPosition = occurrence.body.position
@@ -181,8 +183,12 @@ agent Environment {
 		info("Agent Environment go die!")
 	}
 	
-	on EndSimulation{
+	on AppExit[!hasMemberAgent] {
+		emit(new AppExit)
 		killMe
 	}
 	
+	on AppExit[hasMemberAgent] {
+		innerContext.defaultSpace.emit(this.ID, new AppExit)
+	}
 }

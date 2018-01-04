@@ -26,6 +26,8 @@ import utbm.ia54.ant2dgrid.events.onFoodPlace
 import utbm.ia54.ant2dgrid.events.onNestPlace
 import utbm.ia54.ant2dgrid.events.PickFood
 import utbm.ia54.ant2dgrid.events.PutFood
+import io.sarl.core.Lifecycle
+import utbm.ia54.ant2dgrid.gui.fx.AppExit
 import io.sarl.util.Scopes
 
 /** 
@@ -33,7 +35,8 @@ import io.sarl.util.Scopes
  * 
  */
 agent Ant {
-	uses Logging, DefaultContextInteractions, MotionCapacity, PheromoneCapacity, AntCapacity
+	
+	uses Lifecycle, Logging, DefaultContextInteractions, MotionCapacity, PheromoneCapacity, AntCapacity
 	
 	/* ID of the environment agent */
 	private var idEnv : UUID
@@ -66,18 +69,20 @@ agent Ant {
 	
 	
 	on onFoodPlace{
+		info("Ant " + selfID + " on food Place")
 		//pickUpFood(body)
 		emit(new PutFood(body))
 	}
 	
 	on onNestPlace{
-		//putDownFood(body)
+		// putDownFood(body)
+		info("Ant " + selfID + " on nest Place")
 		emit(new PickFood(body))
 	}
 	
 	on Perception{
-		var listPerception = occurrence.list.get(this.ID)
 		
+		var listPerception = occurrence.list.get(this.ID)
 		var tempVector : Vector2i
 		if (!listPerception.isEmpty) {
 			tempVector = followPheromone(listPerception, body.state).position
@@ -88,6 +93,9 @@ agent Ant {
 				move(tempVector, body)
 			}
 		} else {
+			for(cell : listPerception){
+				info(cell)
+			}
 			stay(body)
 		}
 		//info("moved")
@@ -123,5 +131,10 @@ agent Ant {
 		if (occurrence.accept === true) {
 			body.put
 		}
+	}
+	
+	on AppExit[isFrom(this.idEnv)]{
+		emit(new AppExit)[it.UUID === this.idEnv]
+		killMe
 	}
 }

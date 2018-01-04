@@ -13,7 +13,6 @@ import javafx.^event.EventHandler
 import utbm.ia54.ant2dgrid.events.ConfigureSimulation
 import utbm.ia54.ant2dgrid.Enum.CellState
 import utbm.ia54.ant2dgrid.events.Continue
-import javafx.scene.shape.Shape
 
 /** 
  * @author aelez
@@ -63,11 +62,13 @@ class Ant2DGridFxViewerController extends FxViewerController{
 			for (var j = 0; j < getHeight; j++) {
 				var cell = grid.get(i * getHeight + j)
 				gridZone.add(cell, i, j)
-				gridZone.add(cell.pheromoneHome.objfx, cell.position.x, cell.position.y, 1, 1)
-				gridZone.add(cell.pheromoneFood.objfx, cell.position.x, cell.position.y, 1, 2)
 				if (cell.state === CellState.NORMAL) {
 					gridZone.add(cell.shapeAnt, cell.position.x, cell.position.y, 2, 1)
-				}else if(cell.state === CellState.FOOD || cell.state === CellState.HOME){
+					gridZone.add(cell.pheromoneHome.objfx, cell.position.x, cell.position.y, 1, 1)
+					gridZone.add(cell.pheromoneFood.objfx, cell.position.x, cell.position.y, 1, 2)
+				}
+				
+				if(cell.state === CellState.FOOD || cell.state === CellState.HOME){
 					gridZone.add(cell.food.shape, cell.position.x, cell.position.y, 2, 2)
 				}
 			}
@@ -96,7 +97,6 @@ class Ant2DGridFxViewerController extends FxViewerController{
 							cell.state = CellState.NORMAL
 					}
 				}
-				
 			}
 			
 		}]
@@ -114,17 +114,5 @@ class Ant2DGridFxViewerController extends FxViewerController{
 		}else{
 			emitToAgent(evt)
 		}
-	}
-
-	def update(list : List<Cell>){
-		/*for(cell : list){
-			gridZone.add(cell, cell.position.x, cell.position.y)
-			gridZone.add(cell.pheromoneHome.objfx, cell.position.x, cell.position.y, 1, 1)
-			gridZone.add(cell.pheromoneFood.objfx, cell.position.x, cell.position.y, 1, 2)
-			if (cell.state === CellState.NORMAL) {
-				gridZone.add(cell.shapeAnt, cell.position.x, cell.position.y, 2, 1)
-			}
-		}
-		addCellEvent*/
 	}
 }

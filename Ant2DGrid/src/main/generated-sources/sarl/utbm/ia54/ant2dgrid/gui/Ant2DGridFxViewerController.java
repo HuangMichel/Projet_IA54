@@ -81,16 +81,15 @@ public class Ant2DGridFxViewerController extends FxViewerController {
           int _plus = (_multiply + j);
           Cell cell = this.grid.get(_plus);
           this.gridZone.add(cell, i, j);
-          this.gridZone.add(cell.getPheromoneHome().getObjfx(), cell.getPosition().getX(), cell.getPosition().getY(), 1, 1);
-          this.gridZone.add(cell.getPheromoneFood().getObjfx(), cell.getPosition().getX(), cell.getPosition().getY(), 1, 2);
           CellState _state = cell.getState();
           boolean _tripleEquals = (_state == CellState.NORMAL);
           if (_tripleEquals) {
             this.gridZone.add(cell.getShapeAnt(), cell.getPosition().getX(), cell.getPosition().getY(), 2, 1);
-          } else {
-            if (((cell.getState() == CellState.FOOD) || (cell.getState() == CellState.HOME))) {
-              this.gridZone.add(cell.getFood().getShape(), cell.getPosition().getX(), cell.getPosition().getY(), 2, 2);
-            }
+            this.gridZone.add(cell.getPheromoneHome().getObjfx(), cell.getPosition().getX(), cell.getPosition().getY(), 1, 1);
+            this.gridZone.add(cell.getPheromoneFood().getObjfx(), cell.getPosition().getX(), cell.getPosition().getY(), 1, 2);
+          }
+          if (((cell.getState() == CellState.FOOD) || (cell.getState() == CellState.HOME))) {
+            this.gridZone.add(cell.getFood().getShape(), cell.getPosition().getX(), cell.getPosition().getY(), 2, 2);
           }
         }
       }
@@ -150,10 +149,6 @@ public class Ant2DGridFxViewerController extends FxViewerController {
     } else {
       this.emitToAgent(evt);
     }
-  }
-  
-  @Pure
-  public void update(final List<Cell> list) {
   }
   
   @Override

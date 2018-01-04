@@ -18,7 +18,6 @@ import javafx.scene.shape.Polygon
 /** 
  * 
  * @author Michel
- * 
  */
 class Cell extends Pane{
 	
@@ -48,14 +47,9 @@ class Cell extends Pane{
 	private var pheromoneFood : Pheromone
 	
 	/*
-	 * Quantity of food in Food place
+	 * Quantity of food in Food place or in Nest place
 	 */
-	private var foodPlace : Food
-	
-	/*
-	 * Number of food in Nest place
-	 */
-	private var foodInNest : Food
+	private var foodNest : Food
 
 	private var shapeAnt : Shape
 	private var color : Color
@@ -136,17 +130,21 @@ class Cell extends Pane{
 	def addAnt(id : UUID, ant : AntBody){
 		synchronized(antList){
 			this.antList.put(id, ant)
-			if (this.state != CellState.HOME) {
+			if (this.state === CellState.NORMAL && this.state != CellState.WALL) {
 				incrementPheromone(ant.state)
 			}
-			incrementOpacity
+			if (this.antList.size === 1) {
+				incrementOpacity
+			}
 		}
 	}
 	
 	def removeAnt(id : UUID, ant : AntBody){
 		synchronized(antList){
 			this.antList.remove(id, ant)
-			decrementOpacity
+			if (this.antList.size === 0) {
+				decrementOpacity
+			}
 		}
 	}
 	
@@ -170,9 +168,9 @@ class Cell extends Pane{
 		this.state = state
 		setColor
 		if(state === CellState.FOOD){
-			this.foodPlace = new Food(state)
+			this.foodNest = new Food(state)
 		}else{
-			this.foodInNest = new Food(state)
+			this.foodNest = new Food(state)
 		}
 	}
 
@@ -268,17 +266,13 @@ class Cell extends Pane{
 	}
 	
 	def decrementOpacity : void {
-		if (this.color.opacity > 0.1) {
-			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity - 0.3)
-			this.shapeAnt.fill = this.color
-		}
+		this.color = new Color(this.color.red, this.color.green, this.color.blue, 0f)
+		this.shapeAnt.fill = this.color
 	}
 	
-	def incrementOpacity : void {
-		if (this.color.opacity < 0.9) {
-			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity + 0.3)
-			this.shapeAnt.fill = this.color
-		}
+	def incrementOpacity : void {	
+		this.color = new Color(this.color.red, this.color.green, this.color.blue, 1f)
+		this.shapeAnt.fill = this.color
 	}
 	
 	def getShapeAnt : Shape {
@@ -297,9 +291,9 @@ class Cell extends Pane{
 	def getFood : Food{
 		var food : Food
 		if(this.state === CellState.FOOD){
-			food = this.foodPlace
+			food = this.foodNest
 		}else{
-			food = this.foodInNest
+			food = this.foodNest
 		}
 		food
 	}

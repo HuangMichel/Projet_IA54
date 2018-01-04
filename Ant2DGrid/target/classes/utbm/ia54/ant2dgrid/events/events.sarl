@@ -92,5 +92,3 @@ event PutFood{
 event onFoodPlace
 
 event onNestPlace
-
-event EndSimulation

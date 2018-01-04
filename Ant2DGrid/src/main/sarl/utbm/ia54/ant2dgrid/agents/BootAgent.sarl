@@ -10,9 +10,9 @@ import utbm.ia54.ant2dgrid.gui.Ant2DGridFxViewerController
 import io.sarl.core.InnerContextAccess
 import io.sarl.core.Lifecycle
 import utbm.ia54.ant2dgrid.events.ConfigureSimulation
-import utbm.ia54.ant2dgrid.events.EndSimulation
 import utbm.ia54.ant2dgrid.events.StartSimulation
 import io.sarl.core.Destroy
+import utbm.ia54.ant2dgrid.gui.fx.AppExit
 
 /** 
  * @author Michel
@@ -41,7 +41,11 @@ agent BootAgent {
 		info("BootAgent go die!")
 	}
 	
-	on EndSimulation{
+	on AppExit[hasMemberAgent]{
+		innerContext.defaultSpace.emit(this.ID, new AppExit)
+	}
+	
+	on AppExit [!hasMemberAgent] {
 		killMe
 	}
 }

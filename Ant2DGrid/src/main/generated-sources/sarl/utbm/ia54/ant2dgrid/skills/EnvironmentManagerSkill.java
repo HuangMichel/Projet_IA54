@@ -97,9 +97,6 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
     this.grid.get(_plus_2).evaporationPheromoneHome();
   }
   
-  public void sendPerception(final UUID sender, final UUID id, final List<Cell> list) {
-  }
-  
   public Cell getHomeCell() {
     return this.getCell(this.homeCellPosition);
   }
