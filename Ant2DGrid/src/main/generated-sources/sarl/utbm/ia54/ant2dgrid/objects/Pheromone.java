@@ -155,14 +155,12 @@ public class Pheromone {
   public void evaporation() {
     float _intensity = this.intensity;
     this.intensity = (_intensity * this.coefEvaporation);
-    double _opacity = this.color.getOpacity();
-    boolean _greaterThan = (_opacity > 0.1f);
-    if (_greaterThan) {
+    if (((this.color.getOpacity() > 0.1f) && (this.intensity < 0.1f))) {
       double _red = this.color.getRed();
       double _green = this.color.getGreen();
       double _blue = this.color.getBlue();
-      double _opacity_1 = this.color.getOpacity();
-      double _minus = (_opacity_1 - 0.05);
+      double _opacity = this.color.getOpacity();
+      double _minus = (_opacity - 0.05);
       Color _color = new Color(_red, _green, _blue, _minus);
       this.color = _color;
       this.objfx.setFill(this.color);

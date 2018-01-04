@@ -118,7 +118,7 @@ class Pheromone {
 	 */
 	def evaporation {
 		this.intensity *= this.coefEvaporation
-		if (this.color.opacity > 0.1f) {
+		if (this.color.opacity > 0.1f && this.intensity<0.1f) {
 			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity - 0.05)
 			this.objfx.fill = this.color
 		}

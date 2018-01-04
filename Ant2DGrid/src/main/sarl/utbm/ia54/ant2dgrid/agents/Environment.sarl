@@ -115,7 +115,7 @@ agent Environment {
 				in(1000)[innerContext.defaultSpace.emit(ID, new Perception(perception))]
 				
 				grid.forEach [cell|
-					if(cell.state===CellState.NORMAL && cell.numberAnt===0){
+					if(cell.state===CellState.NORMAL){
 						cell.evaporationPheromoneHome
 					}
 				]

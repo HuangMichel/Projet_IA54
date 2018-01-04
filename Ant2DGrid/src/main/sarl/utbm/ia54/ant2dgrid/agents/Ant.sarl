@@ -72,8 +72,7 @@ agent Ant {
 	}
 	
 	/* */
-	on Perception [isFrom(this.idEnv)] {
-		
+	on Perception [isFrom(this.idEnv)] {	
 		var listPerception = occurrence.list.get(this.ID)
 		var tempVector : Vector2i
 		
@@ -82,7 +81,6 @@ agent Ant {
 			if (tempVector.equals(new Vector2i(-1, -1))) {
 				randomMove(listPerception, body)
 			} else {
-				//tempVector = followPheromone(listPerception, body.state).position
 				move(tempVector, body)
 			}
 		} else {

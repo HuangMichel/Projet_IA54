@@ -210,7 +210,9 @@ public class Environment extends Agent {
         _$CAPACITY_USE$IO_SARL_CORE_SCHEDULES$CALLER.in(1000, _function_3);
         EnvironmentManagerCapacity _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY$CALLER_5 = this.$castSkill(EnvironmentManagerCapacity.class, (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY.get() == null) ? (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY = this.$getSkill(EnvironmentManagerCapacity.class)) : this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY);
         final Consumer<Cell> _function_4 = (Cell cell) -> {
-          if (((cell.getState() == CellState.NORMAL) && (cell.getNumberAnt() == 0))) {
+          CellState _state = cell.getState();
+          boolean _tripleEquals = (_state == CellState.NORMAL);
+          if (_tripleEquals) {
             cell.evaporationPheromoneHome();
           }
         };

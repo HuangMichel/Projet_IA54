@@ -1,0 +1,138 @@
+package utbm.ia54.ant2dgrid.objects
+
+import utbm.ia54.ant2dgrid.Enum.AntState
+import javafx.scene.shape.Rectangle
+import javafx.scene.shape.Circle
+import javafx.scene.paint.Color
+import javafx.scene.shape.Shape
+
+/** 
+ * @author Michel
+ * A class pheromone
+ */
+class Pheromone {
+	
+	/*The type of pheromone */
+	private var type : AntState
+	
+	/*The intensity */
+	private var intensity : float
+	
+	/*The coefficient of evaporation */
+	private val coefEvaporation : float
+	
+	/*The shape of pheromone */
+	private val objfx : Shape
+	
+	/*The color of pheromone */
+	private var color : Color
+	
+	new(){
+		this.type = AntState.SEARCH_FOOD
+		this.intensity = 0f
+		this.coefEvaporation = 0.5f
+		this.color = new Color(1, 0, 0, 0)
+		this.objfx = new Rectangle(10, 10, this.color)
+	}
+
+	new(type : AntState) {
+		this.type = type
+		this.intensity = 0f
+		this.coefEvaporation = 0.5f
+		if (type === AntState.SEARCH_FOOD) {
+			this.color = new Color(1.0, 0, 0, 0)
+			this.objfx = new Rectangle(10, 10, this.color)
+		} else {			
+			this.color = new Color(0, 1.0, 0, 0)
+			this.objfx = new Circle(7, this.color)
+		}
+		
+	}
+	
+	new(type : AntState, intensity : float, coefEvaporation : float){
+		this.type = type
+		this.intensity = intensity
+		this.coefEvaporation = coefEvaporation
+		if (type === AntState.SEARCH_FOOD) {
+			this.color = new Color(1.0, 0, 0, 0)
+			this.objfx = new Rectangle(10, 10, this.color)
+		} else {
+			this.color = new Color(0, 1.0, 0, 0)
+			this.objfx = new Circle(7, this.color)
+		}
+	}
+	
+	/*
+	 * Gets the type
+	 * @return type
+	 */
+	def getType : AntState{
+		this.type
+	}
+	
+	/*
+	 * Gets the intensity
+	 * @return intensity
+	 */
+	def getIntensity: float{
+		this.intensity
+	}
+
+	/*
+	 * Gets the coefficient of evaporation
+	 * @return coefEvaporation
+	 */
+	def getCoefEvaportation : float{
+		this.coefEvaporation
+	}
+	
+	/*
+	 * Sets the type
+	 * @param type the type
+	 */
+	def setType(type : AntState){
+		this.type = type
+	}
+	
+	/*
+	 * Sets the intensity
+	 * @param intensity the intensity
+	 */
+	def setIntensity(intensity : float){
+		this.intensity = intensity
+	}
+	
+	/*
+	 * Increments the intensity
+	 */
+	def incrementIntensity{
+		this.intensity++
+		if (this.color.opacity < 0.9f) {
+			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity + 0.05)
+			this.objfx.fill = this.color
+		}
+	}
+
+	/*
+	 * Evaporations
+	 */
+	def evaporation {
+		this.intensity *= this.coefEvaporation
+		if (this.color.opacity > 0.1f) {
+			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity - 0.05)
+			this.objfx.fill = this.color
+		}
+	}
+	
+	/*
+	 * Gets the shape
+	 * @return shape
+	 */
+	def getObjfx : Shape{
+		this.objfx
+	}
+	
+	def toString : String{
+		return "Intensity : " + this.intensity
+	}
+}
