@@ -18,13 +18,25 @@ import utbm.ia54.ant2dgrid.capacities.PheromoneCapacity
 import utbm.ia54.ant2dgrid.events.AcceptInfluence
 import utbm.ia54.ant2dgrid.skills.PheromoneSkill
 import utbm.ia54.ant2dgrid.events.ChangeState
+import utbm.ia54.ant2dgrid.capacities.AntCapacity
+import utbm.ia54.ant2dgrid.skills.AntManagerSkill
+import utbm.ia54.ant2dgrid.events.AcceptPickFood
+import utbm.ia54.ant2dgrid.events.AcceptPutFood
+import utbm.ia54.ant2dgrid.events.onFoodPlace
+import utbm.ia54.ant2dgrid.events.onNestPlace
+import utbm.ia54.ant2dgrid.events.PickFood
+import utbm.ia54.ant2dgrid.events.PutFood
+import io.sarl.core.Lifecycle
+import utbm.ia54.ant2dgrid.gui.fx.AppExit
+import io.sarl.util.Scopes
 
 /** 
  * @author Michel
  * 
  */
 agent Ant {
-	uses Logging, DefaultContextInteractions, MotionCapacity, PheromoneCapacity
+	
+	uses Lifecycle, Logging, DefaultContextInteractions, MotionCapacity, PheromoneCapacity, AntCapacity
 	
 	/* ID of the environment agent */
 	private var idEnv : UUID
@@ -42,7 +54,9 @@ agent Ant {
 		info("The agent Ant " + selfID + " was started.")
 		setSkill(new MotionSkill, typeof(MotionCapacity))
 		setSkill(new PheromoneSkill, typeof(PheromoneCapacity))
+		setSkill(new AntManagerSkill, typeof(AntCapacity))
 		emit(new AntInitialize(this.body))
+		setPositionBefore(this.body.position)
 	}
 
 	on Destroy {
@@ -53,9 +67,22 @@ agent Ant {
 		this.selfIDAnt
 	}
 	
+	
+	on onFoodPlace{
+		info("Ant " + selfID + " on food Place")
+		//pickUpFood(body)
+		emit(new PutFood(body))
+	}
+	
+	on onNestPlace{
+		// putDownFood(body)
+		info("Ant " + selfID + " on nest Place")
+		emit(new PickFood(body))
+	}
+	
 	on Perception{
+	
 		var listPerception = occurrence.list.get(this.ID)
-		//mappercept.get(this.ID)
 		var tempVector : Vector2i
 		if (!listPerception.isEmpty) {
 			tempVector = followPheromone(listPerception, body.state).position
@@ -66,9 +93,11 @@ agent Ant {
 				move(tempVector, body)
 			}
 		} else {
+			for(cell : listPerception){
+				info(cell)
+			}
 			stay(body)
 		}
-		//info("moved")
 	}
 	
 	on AcceptInfluence {
@@ -82,12 +111,29 @@ agent Ant {
 	
 	on ChangeState{
 		if (body.state.equals(occurrence.newState)) {
-			info("Ant " + getSelfID +" the same state")
+			info("Ant " + getSelfID +" the same " + body.state + " send by " + occurrence.source)
 		} else {
 			info("Ant " + getSelfID + " " + body.state + " change state to " + occurrence.newState)
 			body.state = occurrence.newState
 		}	
 	}
 	
+	on AcceptPickFood {
+		info("Ant " + getSelfID + "take food " + occurrence.accept)
+		if (occurrence.accept === true) {
+			body.setTake
+		}
+	}
 	
+	on AcceptPutFood {
+		info("Ant " + getSelfID + "put food " + occurrence.accept)
+		if (occurrence.accept === true) {
+			body.put
+		}
+	}
+	
+	on AppExit[isFrom(this.idEnv)]{
+		emit(new AppExit)[it.UUID === this.idEnv]
+		killMe
+	}
 }

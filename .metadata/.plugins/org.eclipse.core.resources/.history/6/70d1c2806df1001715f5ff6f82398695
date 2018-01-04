@@ -71,13 +71,13 @@ agent Ant {
 	on onFoodPlace{
 		info("Ant " + selfID + " on food Place")
 		//pickUpFood(body)
-		emit(new PickFood(body))
+		emit(new PutFood(body))
 	}
 	
 	on onNestPlace{
 		// putDownFood(body)
 		info("Ant " + selfID + " on nest Place")
-		emit(new PutFood(body))
+		emit(new PickFood(body))
 	}
 	
 	on Perception{
@@ -98,6 +98,7 @@ agent Ant {
 			}
 			stay(body)
 		}
+		//info("moved")
 	}
 	
 	on AcceptInfluence {

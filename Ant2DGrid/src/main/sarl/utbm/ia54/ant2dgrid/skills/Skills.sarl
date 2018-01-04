@@ -33,7 +33,7 @@ skill MotionSkill implements MotionCapacity{
 	
 	var positionBefore : Vector2i
 	
-	def hasFood(list : List<Cell>) : boolean {
+	private def hasFood(list : List<Cell>) : boolean {
 		var bool = false
 		for(cell : list){
 			if(cell.state === CellState.FOOD){
@@ -44,7 +44,7 @@ skill MotionSkill implements MotionCapacity{
 		bool
 	}
 
-	def hasHome(list : List<Cell>) : boolean {
+	private def hasHome(list : List<Cell>) : boolean {
 		var bool = false
 		for (cell : list) {
 			if (cell.state === CellState.HOME) {
@@ -53,6 +53,15 @@ skill MotionSkill implements MotionCapacity{
 		}
 
 		bool
+	}
+	private def countHasHomePherommoneCell(list : List<Cell>): int{
+		var i = 0
+		for(cell : list){
+			if(cell.pheromoneFood.intensity>0f){
+				i++
+			}
+		}
+		i
 	}
 	
 	def move(newpos : Vector2i, body : AntBody){
@@ -63,34 +72,48 @@ skill MotionSkill implements MotionCapacity{
 		val randomNum = ThreadLocalRandom.current().nextInt(0, listPerception.length)
 		var newPos : Vector2i
 		var cell = listPerception.get(randomNum)
-			switch (cell.state) {
-				case CellState.NORMAL:
-					if (isEquals(cell.position) === false) {
-						newPos = cell.position
-						emit(new Influence(newPos, body))
-						setPositionBefore(newPos)
-					} else {
-						randomMove(listPerception, body)
-					}
-				case CellState.WALL:
+		var i = countHasHomePherommoneCell(listPerception)
+		
+		switch (cell.state) {
+			case CellState.NORMAL:
+				if((hasFood(listPerception)===true && body.state === AntState.SEARCH_FOOD) ||
+					(hasHome(listPerception) ===true && body.state === AntState.RETURN_HOME)){
 					randomMove(listPerception, body)
-				case CellState.HOME:
-					if (body.state === AntState.RETURN_HOME || isEquals(cell.position) === false) {
+				} else {
+					if (i === listPerception.size) {
 						newPos = cell.position
 						emit(new Influence(newPos, body))
 						setPositionBefore(newPos)
-					} else {
-						randomMove(listPerception, body)
+					} else if (i < listPerception.size) {
+						if (isEquals(cell.position) === false) {
+							newPos = cell.position
+							emit(new Influence(newPos, body))
+							setPositionBefore(newPos)
+						} else {
+							randomMove(listPerception, body)
+						}
 					}
-				case CellState.FOOD:
-					if (body.state === AntState.SEARCH_FOOD) {
-						newPos = cell.position
-						emit(new Influence(newPos, body))
-						setPositionBefore(newPos)
-					} else if (body.state === AntState.RETURN_HOME) {
-						randomMove(listPerception, body)
-					}
-			}
+					
+				}
+			case CellState.WALL:
+				randomMove(listPerception, body)
+			case CellState.HOME:
+				if (body.state === AntState.RETURN_HOME || isEquals(cell.position) === false) {
+					newPos = cell.position
+					emit(new Influence(newPos, body))
+					setPositionBefore(newPos)
+				} else {
+					randomMove(listPerception, body)
+				}
+			case CellState.FOOD:
+				if (body.state === AntState.SEARCH_FOOD) {
+					newPos = cell.position
+					emit(new Influence(newPos, body))
+					setPositionBefore(newPos)
+				} else if (body.state === AntState.RETURN_HOME) {
+					randomMove(listPerception, body)
+				}
+		}
 	}
 	
 	def stay(body: AntBody){

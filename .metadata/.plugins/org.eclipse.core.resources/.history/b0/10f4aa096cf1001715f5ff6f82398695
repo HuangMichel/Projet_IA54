@@ -15,7 +15,7 @@ class AntBody {
 	private var ^capacity : float
 	private var position : Vector2i
 	private var state : AntState
-	private var take = false
+	private var take : boolean = false
 	
 	
 	new(id : UUID, position : Vector2i){

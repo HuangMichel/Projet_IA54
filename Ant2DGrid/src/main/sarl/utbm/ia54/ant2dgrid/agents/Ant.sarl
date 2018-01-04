@@ -71,17 +71,17 @@ agent Ant {
 	on onFoodPlace{
 		info("Ant " + selfID + " on food Place")
 		//pickUpFood(body)
-		emit(new PutFood(body))
+		emit(new PickFood(body))
 	}
 	
 	on onNestPlace{
 		// putDownFood(body)
 		info("Ant " + selfID + " on nest Place")
-		emit(new PickFood(body))
+		emit(new PutFood(body))
 	}
 	
 	on Perception{
-		
+	
 		var listPerception = occurrence.list.get(this.ID)
 		var tempVector : Vector2i
 		if (!listPerception.isEmpty) {
@@ -98,7 +98,6 @@ agent Ant {
 			}
 			stay(body)
 		}
-		//info("moved")
 	}
 	
 	on AcceptInfluence {

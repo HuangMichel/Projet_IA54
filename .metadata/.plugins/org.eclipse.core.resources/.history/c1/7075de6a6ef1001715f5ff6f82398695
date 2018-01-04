@@ -8,14 +8,10 @@ import utbm.ia54.ant2dgrid.objects.Vector2i
 import utbm.ia54.ant2dgrid.capacities.MotionCapacity
 import java.util.UUID
 import java.util.List
-import utbm.ia54.ant2dgrid.Enum.Direction
 import utbm.ia54.ant2dgrid.objects.Cell
 import utbm.ia54.ant2dgrid.capacities.EnvironmentManagerCapacity
 import utbm.ia54.ant2dgrid.objects.AntBody
 import utbm.ia54.ant2dgrid.Enum.CellState
-import io.sarl.core.InnerContextAccess
-import utbm.ia54.ant2dgrid.events.Perception
-import io.sarl.util.Scopes
 import io.sarl.lang.core.Address
 import java.util.Map
 import java.util.HashMap
@@ -25,6 +21,8 @@ import utbm.ia54.ant2dgrid.events.Influence
 import java.util.concurrent.ThreadLocalRandom
 import utbm.ia54.ant2dgrid.Enum.AntState
 import utbm.ia54.ant2dgrid.capacities.AntCapacity
+import utbm.ia54.ant2dgrid.events.PickFood
+import utbm.ia54.ant2dgrid.events.PutFood
 
 /** 
  * @author Michel
@@ -33,19 +31,83 @@ import utbm.ia54.ant2dgrid.capacities.AntCapacity
 skill MotionSkill implements MotionCapacity{
 	uses DefaultContextInteractions
 	
+	var positionBefore : Vector2i
+	
+	private def hasFood(list : List<Cell>) : boolean {
+		var bool = false
+		for(cell : list){
+			if(cell.state === CellState.FOOD){
+				bool = true
+			}
+		}
+		
+		bool
+	}
+
+	private def hasHome(list : List<Cell>) : boolean {
+		var bool = false
+		for (cell : list) {
+			if (cell.state === CellState.HOME) {
+				bool = true
+			}
+		}
+
+		bool
+	}
+	
 	def move(newpos : Vector2i, body : AntBody){
-		emit(new Influence(body.position, newpos, body))
+		emit(new Influence(newpos, body))
 	}
 	
 	def randomMove(listPerception : List<Cell>, body : AntBody){
 		val randomNum = ThreadLocalRandom.current().nextInt(0, listPerception.length)
 		var newPos : Vector2i
-		if (listPerception.get(randomNum).state === CellState.NORMAL){
-			newPos = listPerception.get(randomNum).position
-			emit(new Influence(body.position, newPos, body))
-		}else{
-			randomMove(listPerception, body)
+		var cell = listPerception.get(randomNum)
+		switch (cell.state) {
+			case CellState.NORMAL:
+				if((hasFood(listPerception)===true && body.state === AntState.SEARCH_FOOD) ||
+					(hasHome(listPerception) ===true && body.state === AntState.RETURN_HOME)){
+					randomMove(listPerception, body)
+				} else {
+					if (isEquals(cell.position) === false) {
+						newPos = cell.position
+						emit(new Influence(newPos, body))
+						setPositionBefore(newPos)
+					} else {
+						randomMove(listPerception, body)
+					}
+				}
+			case CellState.WALL:
+				randomMove(listPerception, body)
+			case CellState.HOME:
+				if (body.state === AntState.RETURN_HOME || isEquals(cell.position) === false) {
+					newPos = cell.position
+					emit(new Influence(newPos, body))
+					setPositionBefore(newPos)
+				} else {
+					randomMove(listPerception, body)
+				}
+			case CellState.FOOD:
+				if (body.state === AntState.SEARCH_FOOD) {
+					newPos = cell.position
+					emit(new Influence(newPos, body))
+					setPositionBefore(newPos)
+				} else if (body.state === AntState.RETURN_HOME) {
+					randomMove(listPerception, body)
+				}
 		}
+	}
+	
+	def stay(body: AntBody){
+		emit(new Influence(body.position, body))
+	}
+	
+	def setPositionBefore(pos : Vector2i) {
+		positionBefore = pos
+	}
+	
+	private def isEquals(pos : Vector2i) : boolean{
+		this.positionBefore.equals(pos)
 	}
 	
 }
@@ -55,50 +117,72 @@ skill PheromoneSkill implements PheromoneCapacity{
 	def followPheromone(listPerception : List<Cell>, state : AntState) : Cell {
 
 		var tempCell : Cell
+		var foodCell : Cell
+		var homeCell : Cell
 		var bool = false
+		var food = false
+		var home = false
 		var pheromoneFood = 0f
 		var pheromoneHome = 0f
-		if (state == AntState.SEARCH_FOOD) {
-			for (var i = 0; i < listPerception.length; i++) {
-				if (pheromoneFood < listPerception.get(i).pheromoneFoodIntensity) {
-					pheromoneFood = listPerception.get(i).pheromoneFoodIntensity
-					tempCell = listPerception.get(i)
-					bool = true
+		
+		switch(state){
+			case AntState.SEARCH_FOOD:
+				for (var i = 0; i < listPerception.length; i++) {
+					if (food === false) {
+						if (listPerception.get(i).state === CellState.FOOD) {
+							foodCell = listPerception.get(i)
+							tempCell = foodCell
+							food = true
+						} else {
+							if (pheromoneFood < listPerception.get(i).pheromoneFoodIntensity) {
+								pheromoneFood = listPerception.get(i).pheromoneFoodIntensity
+								tempCell = listPerception.get(i)
+								bool = true
+							}
+						}
+					}
 				}
-			}
-		} else if (state == AntState.RETURN_HOME) {
-			for (var i = 0; i < listPerception.length; i++) {
-				if (pheromoneHome < listPerception.get(i).pheromoneHomeIntensity) {
-					pheromoneHome = listPerception.get(i).pheromoneHomeIntensity
-					tempCell = listPerception.get(i)
-					bool = true
+				
+			case AntState.RETURN_HOME:
+				for (var i = 0; i < listPerception.length; i++) {
+					if (home === false) {
+						if (listPerception.get(i).state === CellState.HOME) {
+							homeCell = listPerception.get(i)
+							tempCell = homeCell
+							home = true
+						} else {
+							if (pheromoneHome < listPerception.get(i).pheromoneHomeIntensity) {
+								pheromoneHome = listPerception.get(i).pheromoneHomeIntensity
+								tempCell = listPerception.get(i)
+								bool = true
+							}
+						}
+					}
 				}
-			}
 		}
 		
 		if(bool === false){
 			tempCell = new Cell(-1, -1)
 		}
-		
 		tempCell
 	}	
 }
 
 skill AntManagerSkill implements AntCapacity{
 	
-	def pickUpFood {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	uses DefaultContextInteractions
+	
+	def pickUpFood(body : AntBody) {
+		emit(new PickFood(body))
 	}
 	
-	def putDownFood {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	def putDownFood(body : AntBody) {
+		emit(new PutFood(body))
 	}
 	
 }
 
 skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
-	
-	uses InnerContextAccess
 	
 	val width : int
 	val height : int
@@ -147,10 +231,8 @@ skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
 	
 	def createAnt (position : Vector2i, id : UUID, body : AntBody){
 		this.grid.get(position.x * height + position.y).addAnt(id, body)
-	}
-
-	def sendPerception(sender : UUID, id : UUID, list : List<Cell>) {
-		//innerContext.defaultSpace.emit(sender, new Perception(list), Scopes.addresses(getAddress(id)))
+		this.grid.get(position.x * height + position.y).evaporationPheromoneFood
+		this.grid.get(position.x * height + position.y).evaporationPheromoneHome
 	}
 	
 	def getHomeCell : Cell {
@@ -176,10 +258,19 @@ skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
 	def getPerception(id : UUID) : List<Cell> {
 		var list = new ArrayList<Cell>
 		var vector = getAntPosition(id)
-		list.add(grid.get((vector.x + 1) * height + vector.y))
-		list.add(grid.get(vector.x * height + (vector.y + 1)))
-		list.add(grid.get((vector.x - 1) * height + vector.y))
-		list.add(grid.get(vector.x * height + (vector.y - 1)))
+		if((vector.x + 1) < width){
+			list.add(grid.get((vector.x + 1) * height + vector.y))
+		}
+		if((vector.y + 1) < height){
+			list.add(grid.get(vector.x * height + (vector.y + 1)))
+		}
+		if((vector.x - 1 )>-1){
+			list.add(grid.get((vector.x - 1) * height + vector.y))
+		}
+		if((vector.y - 1) > -1){
+			list.add(grid.get(vector.x * height + (vector.y - 1)))
+		}
+		
 		/*
 		for (var i = -1; i < 2; i++) {
 			for (var j = -1; j < 2; j++) {
