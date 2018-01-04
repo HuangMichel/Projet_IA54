@@ -7,6 +7,10 @@ import io.sarl.lang.core.Event;
 import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.AntState;
 
+/**
+ * Accepts the change state by the environment
+ * @param newState the AntState
+ */
 @SarlSpecification("0.6")
 @SarlElementType(14)
 @SuppressWarnings("all")

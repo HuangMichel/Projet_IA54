@@ -11,7 +11,7 @@ import java.net.URL
 
 /** 
  * @author aelez
- * 
+ * @author Michel
  */
 
 class Ant2DGridFxApplication extends FxApplication {

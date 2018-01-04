@@ -13,10 +13,16 @@ import javafx.^event.EventHandler
 import utbm.ia54.ant2dgrid.events.ConfigureSimulation
 import utbm.ia54.ant2dgrid.Enum.CellState
 import utbm.ia54.ant2dgrid.events.Continue
+import utbm.ia54.ant2dgrid.objects.Pheromone
+import utbm.ia54.ant2dgrid.objects.Food
+import javafx.scene.shape.Shape
+import javafx.scene.shape.Polygon
+import javafx.scene.shape.Rectangle
+import javafx.scene.shape.Circle
 
 /** 
  * @author aelez
- * 
+ * @author Michel
  */
 
 class Ant2DGridFxViewerController extends FxViewerController{
@@ -33,27 +39,51 @@ class Ant2DGridFxViewerController extends FxViewerController{
 	@FXML
 	private var btnMap : Button
 	
+	/*The grid a list of cell */
 	private var grid : List<Cell>
 	
+	/*mapCreated a boolean */
 	private var mapCreated = false
 	
+	/*launched a boolean */
 	private var launched = false
 	
+	/*
+	 * Gets the grid
+	 * @return grid the list of cell
+	 */
 	def getGrid : List<Cell>{
-		grid
+		this.grid
 	}
+	
+	/*
+	 * Gets the quantity of ant
+	 * @return quantity
+	 */
 	def getAntQuantity : int {
 		Integer.parseInt(numberOfAnt.text)
 	}
 	
+	/*
+	 * Gets the number of rows
+	 * @return width
+	 */
 	def getWidth : int{
 		gridZone.rowConstraints.size
 	}
 	
+	/*
+	 * Gets the number of cols
+	 * @return height
+	 * 
+	 */
 	def getHeight : int{
 		gridZone.columnConstraints.size
 	}
 	
+	/*
+	 * Creates the map
+	 */
 	@FXML
 	def createMap {
 		var generator = new MapGenerator(getWidth, getHeight)
@@ -81,20 +111,16 @@ class Ant2DGridFxViewerController extends FxViewerController{
 		addCellEvent
 	}
 
-	def addCellEvent {
+	/*
+	 * Add event on the cell
+	 */
+	private def addCellEvent {
 		gridZone.children.forEach[item | item.onMouseClicked = new EventHandler<MouseEvent>(){
 			def handle(^event : MouseEvent) {
 				if (item instanceof Cell) {
-						var cell = item as Cell
-						if (^event.clickCount === 1) {
-							println(cell.toString)
-							// cell.incrementPheromoneHomeIntensity
-							emitToAgent(new Continue())
-						} else if (^event.clickCount === 2 && cell.state === CellState.NORMAL) {
-							// cell.state = CellState.WALL
-							// cell.incrementPheromoneFoodIntensity
-						} else if (^event.clickCount === 3 && cell.state === CellState.WALL) {
-							cell.state = CellState.NORMAL
+					var cell = item as Cell
+					if (^event.clickCount === 1) {
+						println(cell.toString)
 					}
 				}
 			}
@@ -102,6 +128,9 @@ class Ant2DGridFxViewerController extends FxViewerController{
 		}]
 	}
 	
+	/*
+	 * Launched the application
+	 */
 	@FXML
 	def actionSpawn{
 		var evt = new ConfigureSimulation

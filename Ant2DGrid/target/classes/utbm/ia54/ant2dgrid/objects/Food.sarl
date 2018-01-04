@@ -14,8 +14,13 @@ import javafx.scene.shape.Polygon
  */
 class Food{
 	
+	/*The shape of the food */
 	private var shape : Shape
+	
+	/*The color of the shape */
 	private var color: Color
+	
+	/*The quantity of food */
 	private var food : float
 	
 	new(state : CellState){
@@ -30,24 +35,43 @@ class Food{
 		this.shape.fill = this.color
 	}
 	
+	/*
+	 * Gets the quantity of food
+	 * @return food
+	 */
 	def getFood : float{
 		this.food
 	}
 	
+	/*
+	 * Sets the quantity of food
+	 * @param f the quantity of food
+	 */
 	def setFood(f : float){
 		this.food = f
 	}
 	
+	/*
+	 * Increments the quantity of food
+	 * @param f the quantity of food
+	 */
 	def incrementFood(f : float){
 		this.food += f
 		incrementOpacity
 	}
 	
+	/*
+	 * Decrements the quantity of food
+	 * @param f the quantity of food
+	 */
 	def decrementFood(f : float) {
 		this.food -= f
 		decrementOpacity
 	}
 	
+	/*
+	 * Increments the opacity of the shape
+	 */
 	def incrementOpacity{
 		if (this.color.opacity < 0.9f) {
 			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity + 0.1)
@@ -55,6 +79,9 @@ class Food{
 		}
 	}
 	
+	/*
+	 * Decrements the opacity of the shape
+	 */
 	def decrementOpacity{
 		if (this.food > 100f && this.color.opacity>0.1f) {
 			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity - 0.1)
@@ -62,6 +89,10 @@ class Food{
 		}
 	}
 	
+	/*
+	 * Gets the shape
+	 * @return shape
+	 */
 	def getShape : Shape{
 		this.shape
 	}

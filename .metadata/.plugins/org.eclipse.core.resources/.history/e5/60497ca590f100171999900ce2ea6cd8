@@ -1,0 +1,135 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.agents
+
+import io.sarl.core.Destroy
+import io.sarl.core.Initialize
+import io.sarl.core.Logging
+import utbm.ia54.ant2dgrid.objects.Vector2i
+import utbm.ia54.ant2dgrid.events.Perception
+import java.util.UUID
+import utbm.ia54.ant2dgrid.objects.AntBody
+import utbm.ia54.ant2dgrid.events.AntInitialize
+import io.sarl.core.DefaultContextInteractions
+import utbm.ia54.ant2dgrid.events.AcceptInfluence
+import utbm.ia54.ant2dgrid.events.ChangeState
+import utbm.ia54.ant2dgrid.capacities.AntCapacity
+import utbm.ia54.ant2dgrid.skills.AntManagerSkill
+import utbm.ia54.ant2dgrid.events.AcceptPickFood
+import utbm.ia54.ant2dgrid.events.AcceptPutFood
+import utbm.ia54.ant2dgrid.events.onFoodPlace
+import utbm.ia54.ant2dgrid.events.onNestPlace
+import io.sarl.core.Lifecycle
+import utbm.ia54.ant2dgrid.gui.fx.AppExit
+
+/** 
+ * @author Michel
+ * 
+ */
+agent Ant {
+	
+	uses Lifecycle, Logging, DefaultContextInteractions, AntCapacity
+	
+	/* ID of the environment agent */
+	private var idEnv : UUID
+	
+	/* ID himself */
+	private var selfIDAnt : int
+	
+	/*The ant body */
+	private var body : AntBody
+	
+	on Initialize {
+		loggingName = "Ant " + this.ID
+		this.body = new AntBody(this.ID, occurrence.parameters.get(1) as Vector2i)
+		this.idEnv = occurrence.spawner
+		this.selfIDAnt = occurrence.parameters.get(0) as Integer
+		info("The agent Ant " + selfID + " was started.")
+		setSkill(new AntManagerSkill, typeof(AntCapacity))
+		emit(new AntInitialize(this.body))
+		setPositionBefore(this.body.position)
+	}
+
+	on Destroy {
+		info("The agent Ant " + selfID + " was stopped." + "Killed by " + occurrence.source)
+	}
+	
+	def getSelfID : int{
+		this.selfIDAnt
+	}
+	
+	/* */
+	on onFoodPlace [isFrom(this.idEnv)] {
+		info("Ant " + selfID + " on food Place")
+		pickUpFood(body)
+	}
+	
+	/* */
+	on onNestPlace [isFrom(this.idEnv)] {
+		info("Ant " + selfID + " on nest Place")
+		putDownFood(body)
+	}
+	
+	/* */
+	on Perception [isFrom(this.idEnv)] {
+	
+		var listPerception = occurrence.list.get(this.ID)
+		var tempVector : Vector2i
+		if (!listPerception.isEmpty) {
+			tempVector = followPheromone(listPerception, body.state).position
+			if (tempVector.equals(new Vector2i(-1, -1))) {
+				randomMove(listPerception, body)
+			} else {
+				tempVector = followPheromone(listPerception, body.state).position
+				move(tempVector, body)
+			}
+		} else {
+			for(cell : listPerception){
+				info(cell)
+			}
+			stay(body)
+		}
+	}
+	
+	/* */
+	on AcceptInfluence [isFrom(this.idEnv)] {
+		if(body.position.equals(occurrence.newpos)){
+			info("Ant " + selfID + " stay in " + body.position)
+		} else {
+			info("Ant " + getSelfID + " " + body.position + " move to " + occurrence.newpos)
+			body.position = occurrence.newpos
+		}
+	}
+	
+	/* */
+	on ChangeState [isFrom(this.idEnv)] {
+		if (body.state.equals(occurrence.newState)) {
+			info("Ant " + getSelfID +" the same " + body.state + " send by " + occurrence.source)
+		} else {
+			info("Ant " + getSelfID + " " + body.state + " change state to " + occurrence.newState)
+			body.state = occurrence.newState
+		}	
+	}
+	
+	/* */
+	on AcceptPickFood [isFrom(this.idEnv)] {
+		info("Ant " + getSelfID + "take food " + occurrence.accept)
+		if (occurrence.accept === true) {
+			body.setTook
+		}
+	}
+	
+	/* */
+	on AcceptPutFood [isFrom(this.idEnv)] {
+		info("Ant " + getSelfID + "put food " + occurrence.accept)
+		if (occurrence.accept === true) {
+			body.put
+		}
+	}
+	
+	on AppExit[isFrom(this.idEnv)]{
+		emit(new AppExit)[it.UUID === this.idEnv]
+		killMe
+	}
+}

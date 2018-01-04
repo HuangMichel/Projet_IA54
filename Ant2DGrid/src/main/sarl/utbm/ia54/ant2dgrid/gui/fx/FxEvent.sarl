@@ -2,14 +2,6 @@
  * 
  */
 package utbm.ia54.ant2dgrid.gui.fx
-
-import java.util.List
-import utbm.ia54.ant2dgrid.objects.Cell
-
-/** 
- * @author Michel
- * 
- */
  
  /*
   * Triggered when the app need to be started

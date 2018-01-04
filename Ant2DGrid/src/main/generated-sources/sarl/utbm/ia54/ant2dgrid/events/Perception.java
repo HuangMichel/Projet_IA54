@@ -10,6 +10,10 @@ import java.util.UUID;
 import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.objects.Cell;
 
+/**
+ * The environment sends the perception to an Ant
+ * @param list the list of perception
+ */
 @SarlSpecification("0.6")
 @SarlElementType(14)
 @SuppressWarnings("all")

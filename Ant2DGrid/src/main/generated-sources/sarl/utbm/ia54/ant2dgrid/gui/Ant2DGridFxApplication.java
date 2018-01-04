@@ -15,6 +15,7 @@ import utbm.ia54.ant2dgrid.gui.fx.FxApplication;
 
 /**
  * @author aelez
+ * @author Michel
  */
 @SarlSpecification("0.6")
 @SarlElementType(9)

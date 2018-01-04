@@ -12,19 +12,35 @@ import utbm.ia54.ant2dgrid.Enum.AntState;
 
 /**
  * @author Michel
+ * A class pheromone
  */
 @SarlSpecification("0.6")
 @SarlElementType(9)
 @SuppressWarnings("all")
 public class Pheromone {
+  /**
+   * The type of pheromone
+   */
   private AntState type;
   
+  /**
+   * The intensity
+   */
   private float intensity;
   
+  /**
+   * The coefficient of evaporation
+   */
   private final float coefEvaporation;
   
+  /**
+   * The shape of pheromone
+   */
   private final Shape objfx;
   
+  /**
+   * The color of pheromone
+   */
   private Color color;
   
   public Pheromone() {
@@ -71,29 +87,52 @@ public class Pheromone {
     }
   }
   
+  /**
+   * Gets the type
+   * @return type
+   */
   @Pure
   public AntState getType() {
     return this.type;
   }
   
+  /**
+   * Gets the intensity
+   * @return intensity
+   */
   @Pure
   public float getIntensity() {
     return this.intensity;
   }
   
+  /**
+   * Gets the coefficient of evaporation
+   * @return coefEvaporation
+   */
   @Pure
   public float getCoefEvaportation() {
     return this.coefEvaporation;
   }
   
+  /**
+   * Sets the type
+   * @param type the type
+   */
   public void setType(final AntState type) {
     this.type = type;
   }
   
+  /**
+   * Sets the intensity
+   * @param intensity the intensity
+   */
   public void setIntensity(final float intensity) {
     this.intensity = intensity;
   }
   
+  /**
+   * Increments the intensity
+   */
   public void incrementIntensity() {
     this.intensity++;
     double _opacity = this.color.getOpacity();
@@ -110,6 +149,9 @@ public class Pheromone {
     }
   }
   
+  /**
+   * Evaporations
+   */
   public void evaporation() {
     float _intensity = this.intensity;
     this.intensity = (_intensity * this.coefEvaporation);
@@ -127,6 +169,10 @@ public class Pheromone {
     }
   }
   
+  /**
+   * Gets the shape
+   * @return shape
+   */
   @Pure
   public Shape getObjfx() {
     return this.objfx;

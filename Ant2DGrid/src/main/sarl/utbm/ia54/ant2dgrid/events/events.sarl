@@ -15,10 +15,17 @@ import java.util.Map
  * @author Michel
  * 
  */
+ 
+ /*Setup the configuration simulation */
 event ConfigureSimulation
 
+/*Starting the simulation */
 event StartSimulation 
 
+/* 
+ * Initialize an ant body send by the Ant to the environment
+ * @param body the AntBody
+ */
 event AntInitialize{
 	var body : AntBody
 	new(body : AntBody){
@@ -26,8 +33,13 @@ event AntInitialize{
 	}
 }
 
+/*An event to launch the cycle */
 event Continue
 
+/*
+ * The environment sends the perception to an Ant 
+ * @param list the list of perception
+ */
 event Perception{
 	var list : Map<UUID, List<Cell>>
 	new (list :Map<UUID, List<Cell>>) {
@@ -35,6 +47,11 @@ event Perception{
 	}
 }
 
+/*
+ * The Ant sends to the environment to move
+ * @param newpos the new position
+ * @param body the AntBodyZ
+ */
 event Influence{
 	var newpos : Vector2i
 	var body : AntBody
@@ -44,6 +61,11 @@ event Influence{
 	}
 }
 
+/*
+ * Accepts the move by the environment
+ * @param newpos the new position
+ * @param accept a boolean
+ */
 event AcceptInfluence{
 	var newpos : Vector2i
 	var accept : boolean
@@ -53,6 +75,10 @@ event AcceptInfluence{
 	}
 }
 
+/*
+ * Accepts the change state by the environment
+ * @param newState the AntState
+ */
 event ChangeState{
 	var newState : AntState
 	new(newState : AntState){
@@ -60,6 +86,10 @@ event ChangeState{
 	}
 }
 
+/*
+ * The ant send to the environment to inform he picks food
+ * @param body the AntBody
+ */
 event PickFood{
 	var body : AntBody
 	new(body: AntBody){
@@ -67,6 +97,10 @@ event PickFood{
 	}
 }
 
+/*
+ * Accepts to pick the food
+ * @param accept a boolean
+ */
 event AcceptPickFood{
 	var accept : boolean
 	new(accept : boolean) {
@@ -74,6 +108,10 @@ event AcceptPickFood{
 	}
 }
 
+/*
+ * Accepts to put the food
+ * @param accept a boolean
+ */
 event AcceptPutFood {
 	var accept : boolean
 
@@ -82,6 +120,10 @@ event AcceptPutFood {
 	}
 }
 
+/*
+ * The ant send to the environment to inform he puts the food
+ * @param body the AntBody
+ */
 event PutFood{
 	var body : AntBody
 	new(body : AntBody){
@@ -89,6 +131,8 @@ event PutFood{
 	}
 }
 
+/* Informs the ant that he is on the food place*/
 event onFoodPlace
 
+/* Informs the ant that he is on the nest place*/
 event onNestPlace

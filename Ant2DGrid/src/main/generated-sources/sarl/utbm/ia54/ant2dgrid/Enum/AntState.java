@@ -12,7 +12,5 @@ import io.sarl.lang.annotation.SarlSpecification;
 public enum AntState {
   SEARCH_FOOD,
   
-  RETURN_HOME,
-  
-  PICK_UP_FOOD;
+  RETURN_HOME;
 }

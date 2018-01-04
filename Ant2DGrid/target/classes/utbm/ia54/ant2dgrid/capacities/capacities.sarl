@@ -16,41 +16,145 @@ import utbm.ia54.ant2dgrid.Enum.AntState
  * @author Michel
  * 
  */
- 
- /*
-  * Capacity to move for an Ant
-  */
-capacity MotionCapacity {
-	def setPositionBefore(pos : Vector2i)
-	def move(newpos : Vector2i, body : AntBody)
-	def randomMove(listPerception : List<Cell>, body : AntBody)
-	def stay(body : AntBody)
-}
 
-capacity PheromoneCapacity{
-	def followPheromone(list : List<Cell>, state : AntState) : Cell
-}
-
-capacity AntCapacity{
+/*
+ * Capacity to manage an ant
+ */
+capacity AntCapacity {
+	
+	/* 
+	 * Pick the food
+	 * @param body the AntBody
+	 */
 	def pickUpFood(body : AntBody)
+	
+	/*
+	 * Put the food
+	 * @param body the AntBody
+	 */
 	def putDownFood(body : AntBody)
+	
+	/* 
+	 * Sets the position before
+	 * @param pos the position 
+	 */
+	def setPositionBefore(pos : Vector2i)
+	
+	/* 
+	 * Moves to a new position
+	 * @param newpos The new position
+	 * @param body an AntBody
+	 */
+	def move(newpos : Vector2i, body : AntBody)
+
+	/* 
+	 * Moves random to a new position
+	 * @param listPerception the perception of the list of cell
+	 * @param body an AntBody
+	 */
+	def randomMove(listPerception : List<Cell>, body : AntBody)
+
+	/* 
+	 * Stays to the same position
+	 * @param body an AntBody
+	 */
+	def stay(body : AntBody)
+	
+	/* 
+	 * Select the best cell to move
+	 * @param listPerception the perception of the list of cell
+	 * @return tempCell the cell to move
+	 */
+	def followPheromone(list : List<Cell>, state : AntState) : Cell
 }
 
 /*
  * Capacity to manage the environment
  */
-capacity EnvironmentManagerCapacity{
+capacity EnvironmentManagerCapacity {
+		
+	/* 
+	 * Gets the number of cols
+	 * @return width
+	 */
 	def getWidth : int
+	
+	/*Gets the numbers of rows
+	 * @return height
+	 */
 	def getHeight : int
+	
+	/*
+	 * Gets the grid the list of cell
+	 * @return grid the list of cell
+	 */
 	def getGrid : List<Cell>
+	
+	/*
+	 * Creates an ant into a cell
+	 * @param position the position of the cell
+	 * @param id the UUID
+	 * @param body the AntBody
+	 */
 	def createAnt(position : Vector2i, id : UUID, body : AntBody)
+	
+	/*
+	 * Gets the quantity of ant
+	 * @param antQuantity
+	 */
 	def getAntQuantity : int
+	
+	/*
+	 * Gets the Home cell 
+	 * @return home cell
+	 */
 	def getHomeCell : Cell
+	
+	/*
+	 * Gets the food cell
+	 * @return food cell
+	 */
 	def getFoodCell : Cell
+	
+	/*
+	 * Gets the cell
+	 * @param i the position of the cell in the list
+	 * @return cell
+	 */
 	def getCell(i : int) : Cell
+	
+	/*
+	 * Sets the address into the map
+	 * @param id the UUID
+	 * @param address the address
+	 */
 	def setAddress(id : UUID, address : Address)
+	
+	/*
+	 * Gets the perception of an agent
+	 * @param id the UUID
+	 * @return list the list of cell
+	 */
 	def getPerception(id : UUID) : List<Cell>
+	
+	/*
+	 * Gets the map addresses
+	 * @return antAddresses 
+	 */
 	def getAntAddresses : Map<UUID, Address>
+	
+	/*
+	 * Gets the address of an agent
+	 * @param id the UUID
+	 * @return address
+	 */
 	def getAddress(id : UUID) : Address
+	
+	/*
+	 * Removes an Ant of the cell
+	 * @param position the position of the cell
+	 * @param id the UUID
+	 * @param body the AntBody
+	 */
 	def removeAntCell(position : Vector2i, id : UUID, body:AntBody)
 }

@@ -17,9 +17,6 @@ import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.gui.fx.AppExit;
 import utbm.ia54.ant2dgrid.gui.fx.AppStart;
 
-/**
- * @author Michel
- */
 @SarlSpecification("0.6")
 @SarlElementType(9)
 @SuppressWarnings("all")

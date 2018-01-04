@@ -94,6 +94,10 @@ public class MapGenerator {
     }
   }
   
+  /**
+   * Reconstruction of the map
+   * @return newgrid the new list of cell
+   */
   public ArrayList<Cell> simulationStep() {
     ArrayList<Cell> _xblockexpression = null;
     {

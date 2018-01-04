@@ -24,6 +24,7 @@ import utbm.ia54.ant2dgrid.objects.Pheromone;
 import utbm.ia54.ant2dgrid.objects.Vector2i;
 
 /**
+ * A class contains all informations of the cell
  * @author Michel
  */
 @SarlSpecification("0.6")
@@ -60,8 +61,14 @@ public class Cell extends Pane {
    */
   private Food foodNest;
   
+  /**
+   * The shape of an Ant
+   */
   private Shape shapeAnt;
   
+  /**
+   * The color of the shape ant
+   */
   private Color color;
   
   public Cell() {
@@ -146,20 +153,38 @@ public class Cell extends Pane {
     this.setShapeAnt();
   }
   
+  /**
+   * Gets the position
+   * @return vector the position
+   */
   @Pure
   public Vector2i getPosition() {
     return this.vector;
   }
   
+  /**
+   * Sets the position
+   * @param v the position
+   */
   public void setPosition(final Vector2i v) {
     this.vector = v;
   }
   
+  /**
+   * Sets the position
+   * @param x the x position
+   * @param y the y position
+   */
   public void setPosition(final int x, final int y) {
     this.vector.setX(x);
     this.vector.setY(y);
   }
   
+  /**
+   * Adds ant on the list
+   * @param id the UUID
+   * @param ant the AntBody
+   */
   public void addAnt(final UUID id, final AntBody ant) {
     synchronized (this.antList) {
       this.antList.put(id, ant);
@@ -174,6 +199,11 @@ public class Cell extends Pane {
     }
   }
   
+  /**
+   * Removes an ant of the list
+   * @param id the UUID
+   * @param ant the AntBody
+   */
   public void removeAnt(final UUID id, final AntBody ant) {
     synchronized (this.antList) {
       this.antList.remove(id, ant);
@@ -185,6 +215,10 @@ public class Cell extends Pane {
     }
   }
   
+  /**
+   * Gets the ant list
+   * @return antList
+   */
   @Pure
   public Map<UUID, AntBody> getAntList() {
     Map<UUID, AntBody> _xsynchronizedexpression = null;
@@ -194,6 +228,10 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
+  /**
+   * Gets the the quantity of ant on the cell
+   * @return size the quantity of ant
+   */
   @Pure
   public int getNumberAnt() {
     int _xsynchronizedexpression = (int) 0;
@@ -203,11 +241,19 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
+  /**
+   * Gets the state of the cell
+   * @return state
+   */
   @Pure
   public CellState getState() {
     return this.state;
   }
   
+  /**
+   * Sets the state of the cell
+   * @param state the CellState
+   */
   public Food setState(final CellState state) {
     Food _xblockexpression = null;
     {
@@ -226,11 +272,19 @@ public class Cell extends Pane {
     return _xblockexpression;
   }
   
+  /**
+   * Gets the pheromone Home
+   * @return pheromoneHome
+   */
   @Pure
   public Pheromone getPheromoneHome() {
     return this.pheromoneHome;
   }
   
+  /**
+   * Gets the pheromone home intensity
+   * @return intensity
+   */
   @Pure
   public float getPheromoneHomeIntensity() {
     float _xsynchronizedexpression = (float) 0;
@@ -240,11 +294,19 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
+  /**
+   * Gets the pheromone food
+   * @return pheromoneFood
+   */
   @Pure
   public Pheromone getPheromoneFood() {
     return this.pheromoneFood;
   }
   
+  /**
+   * Gets the pheromone food intensity
+   * @return intensity
+   */
   @Pure
   public float getPheromoneFoodIntensity() {
     float _xsynchronizedexpression = (float) 0;
@@ -254,30 +316,45 @@ public class Cell extends Pane {
     return _xsynchronizedexpression;
   }
   
+  /**
+   * Increments the pheromone home intensity
+   */
   public void incrementPheromoneHomeIntensity() {
     synchronized (this.pheromoneHome) {
       this.pheromoneHome.incrementIntensity();
     }
   }
   
+  /**
+   * Increments the pheromone food intensity
+   */
   public void incrementPheromoneFoodIntensity() {
     synchronized (this.pheromoneFood) {
       this.pheromoneFood.incrementIntensity();
     }
   }
   
+  /**
+   * Evaporations the pheromone food intensity
+   */
   public void evaporationPheromoneFood() {
     synchronized (this.pheromoneFood) {
       this.pheromoneFood.evaporation();
     }
   }
   
+  /**
+   * Evaporations the pheromone home intensity
+   */
   public void evaporationPheromoneHome() {
     synchronized (this.pheromoneHome) {
       this.pheromoneHome.evaporation();
     }
   }
   
+  /**
+   * Removes all ant of the list
+   */
   public void removeAllAnt() {
     synchronized (this.antList) {
       Set<Map.Entry<UUID, AntBody>> _entrySet = this.antList.entrySet();
@@ -287,6 +364,9 @@ public class Cell extends Pane {
     }
   }
   
+  /**
+   * Sets the color of the cell
+   */
   public void setColor() {
     String color = null;
     final CellState _switchValue = this.state;
@@ -311,11 +391,18 @@ public class Cell extends Pane {
     this.setStyle(("-fx-background-color: " + color));
   }
   
+  /**
+   * Gets the color of the cell
+   * @return style
+   */
   @Pure
   public String getColor() {
     return this.getStyle();
   }
   
+  /**
+   * Sets the shape of ant
+   */
   private void setShapeAnt() {
     Color _color = new Color(0f, 0f, 1f, 0);
     this.color = _color;
@@ -330,6 +417,9 @@ public class Cell extends Pane {
     this.shapeAnt.setFill(this.color);
   }
   
+  /**
+   * Decrements the opacity of the shape ant
+   */
   public void decrementOpacity() {
     double _red = this.color.getRed();
     double _green = this.color.getGreen();
@@ -339,6 +429,9 @@ public class Cell extends Pane {
     this.shapeAnt.setFill(this.color);
   }
   
+  /**
+   * Increments the opacity of the shape ant
+   */
   public void incrementOpacity() {
     double _red = this.color.getRed();
     double _green = this.color.getGreen();
@@ -348,11 +441,19 @@ public class Cell extends Pane {
     this.shapeAnt.setFill(this.color);
   }
   
+  /**
+   * Gets the shape ant
+   * @return shapeAnt
+   */
   @Pure
   public Shape getShapeAnt() {
     return this.shapeAnt;
   }
   
+  /**
+   * Increments the pheromones
+   * @param antState the Antstate
+   */
   public void incrementPheromone(final AntState antState) {
     if (antState != null) {
       switch (antState) {
@@ -368,6 +469,10 @@ public class Cell extends Pane {
     }
   }
   
+  /**
+   * Gets the quantity of food
+   * @return food
+   */
   @Pure
   public Food getFood() {
     Food _xblockexpression = null;

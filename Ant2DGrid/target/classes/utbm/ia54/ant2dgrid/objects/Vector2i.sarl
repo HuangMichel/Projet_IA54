@@ -3,8 +3,6 @@
  */
 package utbm.ia54.ant2dgrid.objects
 
-import java.util.Objects
-
 /** 
  * Simple 2D Vector contains x and y position
  * @author Michel
@@ -12,14 +10,10 @@ import java.util.Objects
  */
 class Vector2i {
 	
-	/*
-	 * The position x
-	 */
+	/* The position x */
 	private var x: int
 	
-	/*
-	 * The position y
-	 */
+	/* The position y */
 	private var y : int
 	
 	new(){
@@ -37,37 +31,68 @@ class Vector2i {
 		this.y = v.getY
 	}
 	
+	/*
+	 * Gets x position
+	 * @return x
+	 */
 	def getX : int {
 		this.x
 	}
-	
+	/* 
+	 * Gets y position
+	 * @return y
+	 */
 	def getY : int {
 		this.y
 	}
 	
+	/* 
+	 * Sets x position
+	 * @param x the x position
+	 */
 	def setX(x : int){
 		this.x = x
 	}
-	
+	/* 
+	 * Sets y position
+	 * @param y the x position
+	 */
 	def setY(y : int){
 		this.y = y
 	}
 	
+	/* 
+	 * Sets x and y position
+	 * @param x the x position
+	 * @param y the y position
+	 */
 	def setXY(x : int, y : int){
 		this.x = x
 		this.y = y
 	}
-	
+	/* 
+	 * Sets x and y position
+	 * @param v the vector
+	 */
 	def setXY(v : Vector2i){
 		this.x = v.getX
 		this.y = v.getY
 	}
 	
+	/*
+	 * Adds
+	 * @param v the vector
+	 */
 	def plus(v : Vector2i){
 		this.x += v.x
 		this.y += v.y
 	}
 	
+	/*
+	 * Adds
+	 * @param x the x position
+	 * @param y the y position
+	 */
 	def plus(x : int, y: int){
 		this.x += x
 		this.y += y

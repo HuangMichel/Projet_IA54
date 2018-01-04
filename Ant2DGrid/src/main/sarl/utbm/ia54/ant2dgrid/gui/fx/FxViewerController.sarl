@@ -11,10 +11,6 @@ import javafx.fxml.FXML
 import io.sarl.lang.core.Event
 import javafx.application.Platform
 
-/** 
- * @author Michel
- * 
- */
 class FxViewerController implements EventListener{
 	
 	

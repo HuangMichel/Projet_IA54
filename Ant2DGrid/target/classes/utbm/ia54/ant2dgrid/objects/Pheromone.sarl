@@ -8,13 +8,23 @@ import javafx.scene.shape.Shape
 
 /** 
  * @author Michel
- * 
+ * A class pheromone
  */
 class Pheromone {
+	
+	/*The type of pheromone */
 	private var type : AntState
+	
+	/*The intensity */
 	private var intensity : float
+	
+	/*The coefficient of evaporation */
 	private val coefEvaporation : float
+	
+	/*The shape of pheromone */
 	private val objfx : Shape
+	
+	/*The color of pheromone */
 	private var color : Color
 	
 	new(){
@@ -52,26 +62,49 @@ class Pheromone {
 		}
 	}
 	
+	/*
+	 * Gets the type
+	 * @return type
+	 */
 	def getType : AntState{
 		this.type
 	}
 	
+	/*
+	 * Gets the intensity
+	 * @return intensity
+	 */
 	def getIntensity: float{
 		this.intensity
 	}
 
+	/*
+	 * Gets the coefficient of evaporation
+	 * @return coefEvaporation
+	 */
 	def getCoefEvaportation : float{
 		this.coefEvaporation
 	}
 	
+	/*
+	 * Sets the type
+	 * @param type the type
+	 */
 	def setType(type : AntState){
 		this.type = type
 	}
 	
+	/*
+	 * Sets the intensity
+	 * @param intensity the intensity
+	 */
 	def setIntensity(intensity : float){
 		this.intensity = intensity
 	}
 	
+	/*
+	 * Increments the intensity
+	 */
 	def incrementIntensity{
 		this.intensity++
 		if (this.color.opacity < 0.9f) {
@@ -80,6 +113,9 @@ class Pheromone {
 		}
 	}
 
+	/*
+	 * Evaporations
+	 */
 	def evaporation {
 		this.intensity *= this.coefEvaporation
 		if (this.color.opacity > 0.1f) {
@@ -88,6 +124,10 @@ class Pheromone {
 		}
 	}
 	
+	/*
+	 * Gets the shape
+	 * @return shape
+	 */
 	def getObjfx : Shape{
 		this.objfx
 	}

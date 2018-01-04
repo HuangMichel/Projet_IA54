@@ -1,0 +1,94 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.events
+
+import java.util.List
+import utbm.ia54.ant2dgrid.objects.Cell
+import utbm.ia54.ant2dgrid.objects.Vector2i
+import utbm.ia54.ant2dgrid.objects.AntBody
+import utbm.ia54.ant2dgrid.Enum.AntState
+import java.util.UUID
+import java.util.Map
+
+/** 
+ * @author Michel
+ * 
+ */
+event ConfigureSimulation
+
+event StartSimulation 
+
+event AntInitialize{
+	var body : AntBody
+	new(body : AntBody){
+		this.body = body
+	}
+}
+
+event Continue
+
+event Perception{
+	var list : Map<UUID, List<Cell>>
+	new (list :Map<UUID, List<Cell>>) {
+		this.list = list
+	}
+}
+
+event Influence{
+	var newpos : Vector2i
+	var body : AntBody
+	new(newpos : Vector2i, body : AntBody) {
+		this.newpos = newpos
+		this.body = body
+	}
+}
+
+event AcceptInfluence{
+	var newpos : Vector2i
+	var accept : boolean
+	new(newpos : Vector2i, accept : boolean) {
+		this.newpos = newpos
+		this.accept = accept
+	}
+}
+
+event ChangeState{
+	var newState : AntState
+	new(newState : AntState){
+		this.newState = newState
+	}
+}
+
+event PickFood{
+	var body : AntBody
+	new(body: AntBody){
+		this.body = body
+	}
+}
+
+event AcceptPickFood{
+	var accept : boolean
+	new(accept : boolean) {
+		this.accept = accept
+	}
+}
+
+event AcceptPutFood {
+	var accept : boolean
+
+	new(accept : boolean) {
+		this.accept = accept
+	}
+}
+
+event PutFood{
+	var body : AntBody
+	new(body : AntBody){
+		this.body = body
+	}
+}
+
+event onFoodPlace
+
+event onNestPlace

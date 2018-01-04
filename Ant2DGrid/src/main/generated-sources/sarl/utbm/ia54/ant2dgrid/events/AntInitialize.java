@@ -7,6 +7,10 @@ import io.sarl.lang.core.Event;
 import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.objects.AntBody;
 
+/**
+ * Initialize an ant body send by the Ant to the environment
+ * @param body the AntBody
+ */
 @SarlSpecification("0.6")
 @SarlElementType(14)
 @SuppressWarnings("all")

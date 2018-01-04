@@ -7,6 +7,10 @@ import io.sarl.lang.core.Event;
 import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.objects.AntBody;
 
+/**
+ * The ant send to the environment to inform he puts the food
+ * @param body the AntBody
+ */
 @SarlSpecification("0.6")
 @SarlElementType(14)
 @SuppressWarnings("all")

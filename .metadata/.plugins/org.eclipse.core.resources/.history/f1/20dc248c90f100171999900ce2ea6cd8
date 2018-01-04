@@ -1,0 +1,134 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.objects
+
+import java.util.UUID
+import utbm.ia54.ant2dgrid.Enum.AntState
+
+/** 
+ * @author Michel
+ * 
+ */
+class AntBody {
+	
+	/*The id */
+	private var id : UUID
+	
+	/*The capacity to take a food */
+	private var ^capacity : float
+	
+	/*The position */
+	private var position : Vector2i
+	
+	/*The state */
+	private var state : AntState
+	
+	/*A boolean took */
+	private var took = false
+	
+	
+	new(id : UUID, position : Vector2i){
+		this.id = id
+		this.position = position
+		this.^capacity = 2f
+		this.state = AntState.SEARCH_FOOD
+	}
+	
+	new(body : AntBody){
+		this.id = body.id
+		this.^capacity = body.^capacity
+		this.position = body.position
+		this.state = AntState.SEARCH_FOOD
+	}
+	
+	/*
+	 * Gets the id
+	 * @return id
+	 */
+	def getID : UUID{
+		this.id
+	}
+	
+	/*
+	 * Gets the capacity
+	 * @return capacity
+	 */
+	def getCapacity : float {
+		this.^capacity
+	}
+	
+	/*
+	 * Gets the position
+	 * @return position
+	 */
+	def getPosition : Vector2i{
+		this.position
+	}
+	
+	/*
+	 * Gets the state
+	 * @return state
+	 */
+	def getState : AntState{
+		this.state
+	}
+	
+	/*Sets the id
+	 * @param id the UUID
+	 */
+	def setID(id : UUID){
+		this.id = id
+	}
+	
+	/*
+	 * Sets the position
+	 * @param position the position
+	 */
+	def setPosition(position : Vector2i){
+		this.position = position
+	}
+	
+	/*
+	 * Sets the capacity
+	 * @param f the capacity
+	 */
+	def setCapacity(f : float){
+		this.^capacity = f
+	}
+	
+	/*
+	 * Sets the state
+	 * @param state the AntState
+	 */
+	def setState(state : AntState){
+		this.state = state
+	}
+	
+	/*
+	 * Tests if took
+	 * @return true, if successful
+	 */
+	def isTook : boolean{
+		this.took
+	}
+	
+	/*
+	 * Sets is took
+	 */
+	def setTook{
+		this.took = true
+	}
+	
+	def put{
+		this.took = false
+	}
+	
+	def toString : String {
+		var string = "id : " + id +
+		"\n position : " + position.toString +
+		"\n capacity : " + ^capacity +
+		"\n state : " + state
+		string
+	}
+}

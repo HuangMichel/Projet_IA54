@@ -38,24 +38,45 @@ public class Vector2i {
     this.y = v.getY();
   }
   
+  /**
+   * Gets x position
+   * @return x
+   */
   @Pure
   public int getX() {
     return this.x;
   }
   
+  /**
+   * Gets y position
+   * @return y
+   */
   @Pure
   public int getY() {
     return this.y;
   }
   
+  /**
+   * Sets x position
+   * @param x the x position
+   */
   public void setX(final int x) {
     this.x = x;
   }
   
+  /**
+   * Sets y position
+   * @param y the x position
+   */
   public void setY(final int y) {
     this.y = y;
   }
   
+  /**
+   * Sets x and y position
+   * @param x the x position
+   * @param y the y position
+   */
   public int setXY(final int x, final int y) {
     int _xblockexpression = (int) 0;
     {
@@ -65,6 +86,10 @@ public class Vector2i {
     return _xblockexpression;
   }
   
+  /**
+   * Sets x and y position
+   * @param v the vector
+   */
   public int setXY(final Vector2i v) {
     int _xblockexpression = (int) 0;
     {
@@ -74,6 +99,10 @@ public class Vector2i {
     return _xblockexpression;
   }
   
+  /**
+   * Adds
+   * @param v the vector
+   */
   public int plus(final Vector2i v) {
     int _xblockexpression = (int) 0;
     {
@@ -85,6 +114,11 @@ public class Vector2i {
     return _xblockexpression;
   }
   
+  /**
+   * Adds
+   * @param x the x position
+   * @param y the y position
+   */
   public int plus(final int x, final int y) {
     int _xblockexpression = (int) 0;
     {

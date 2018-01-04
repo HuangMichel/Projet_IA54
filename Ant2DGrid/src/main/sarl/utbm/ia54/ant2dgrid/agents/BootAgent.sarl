@@ -28,7 +28,7 @@ agent BootAgent {
 		if (ctrl === null) {
 			ctrl = occurrence.parameters.get(0) as Ant2DGridFxViewerController
 		}
-		info("Starting simulation!")
+		info("BootAgent launched !, start to spawn the environment !")
 		spawnInContext(typeof(Environment),innerContext, ctrl)
 		innerContext.defaultSpace.emit(ID,new StartSimulation)
 	}
@@ -41,10 +41,16 @@ agent BootAgent {
 		info("BootAgent go die!")
 	}
 	
+	/*
+	 * Kill all inner agents
+	 */
 	on AppExit[hasMemberAgent]{
 		innerContext.defaultSpace.emit(this.ID, new AppExit)
 	}
 	
+	/*
+	 * Kill itselft on exit signal after all inner agents are killed
+	 */
 	on AppExit [!hasMemberAgent] {
 		killMe
 	}

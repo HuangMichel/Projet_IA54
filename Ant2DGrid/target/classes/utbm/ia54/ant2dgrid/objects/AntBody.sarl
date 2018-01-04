@@ -8,14 +8,24 @@ import utbm.ia54.ant2dgrid.Enum.AntState
 
 /** 
  * @author Michel
- * 
+ * An Ant body contains information of an ant
  */
 class AntBody {
+	
+	/*The id */
 	private var id : UUID
+	
+	/*The capacity to take a food */
 	private var ^capacity : float
+	
+	/*The position */
 	private var position : Vector2i
+	
+	/*The state */
 	private var state : AntState
-	private var take = false
+	
+	/*A boolean took */
+	private var took = false
 	
 	
 	new(id : UUID, position : Vector2i){
@@ -32,48 +42,89 @@ class AntBody {
 		this.state = AntState.SEARCH_FOOD
 	}
 	
+	/*
+	 * Gets the id
+	 * @return id
+	 */
 	def getID : UUID{
 		this.id
 	}
 	
+	/*
+	 * Gets the capacity
+	 * @return capacity
+	 */
 	def getCapacity : float {
 		this.^capacity
 	}
 	
+	/*
+	 * Gets the position
+	 * @return position
+	 */
 	def getPosition : Vector2i{
 		this.position
 	}
 	
+	/*
+	 * Gets the state
+	 * @return state
+	 */
 	def getState : AntState{
 		this.state
 	}
 	
+	/*Sets the id
+	 * @param id the UUID
+	 */
 	def setID(id : UUID){
 		this.id = id
 	}
 	
+	/*
+	 * Sets the position
+	 * @param position the position
+	 */
 	def setPosition(position : Vector2i){
 		this.position = position
 	}
 	
+	/*
+	 * Sets the capacity
+	 * @param f the capacity
+	 */
 	def setCapacity(f : float){
 		this.^capacity = f
 	}
 	
+	/*
+	 * Sets the state
+	 * @param state the AntState
+	 */
 	def setState(state : AntState){
 		this.state = state
 	}
 	
-	def isTake : boolean{
-		this.take
+	/*
+	 * Tests if took
+	 * @return true, if successful
+	 */
+	def isTook : boolean{
+		this.took
 	}
 	
-	def setTake{
-		this.take = true
+	/*
+	 * Sets is took
+	 */
+	def setTook{
+		this.took = true
 	}
 	
+	/*
+	 * Sets is put
+	 */
 	def put{
-		this.take = false
+		this.took = false
 	}
 	
 	def toString : String {

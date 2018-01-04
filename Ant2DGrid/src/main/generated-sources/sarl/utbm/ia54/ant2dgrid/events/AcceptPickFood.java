@@ -6,6 +6,10 @@ import io.sarl.lang.annotation.SyntheticMember;
 import io.sarl.lang.core.Event;
 import org.eclipse.xtext.xbase.lib.Pure;
 
+/**
+ * Accepts to pick the food
+ * @param accept a boolean
+ */
 @SarlSpecification("0.6")
 @SarlElementType(14)
 @SuppressWarnings("all")

@@ -11,20 +11,36 @@ import utbm.ia54.ant2dgrid.objects.Vector2i;
 
 /**
  * @author Michel
+ * An Ant body contains information of an ant
  */
 @SarlSpecification("0.6")
 @SarlElementType(9)
 @SuppressWarnings("all")
 public class AntBody {
+  /**
+   * The id
+   */
   private UUID id;
   
+  /**
+   * The capacity to take a food
+   */
   private float capacity;
   
+  /**
+   * The position
+   */
   private Vector2i position;
   
+  /**
+   * The state
+   */
   private AntState state;
   
-  private boolean take = false;
+  /**
+   * A boolean took
+   */
+  private boolean took = false;
   
   public AntBody(final UUID id, final Vector2i position) {
     this.id = id;
@@ -40,53 +56,95 @@ public class AntBody {
     this.state = AntState.SEARCH_FOOD;
   }
   
+  /**
+   * Gets the id
+   * @return id
+   */
   @Pure
   public UUID getID() {
     return this.id;
   }
   
+  /**
+   * Gets the capacity
+   * @return capacity
+   */
   @Pure
   public float getCapacity() {
     return this.capacity;
   }
   
+  /**
+   * Gets the position
+   * @return position
+   */
   @Pure
   public Vector2i getPosition() {
     return this.position;
   }
   
+  /**
+   * Gets the state
+   * @return state
+   */
   @Pure
   public AntState getState() {
     return this.state;
   }
   
+  /**
+   * Sets the id
+   * @param id the UUID
+   */
   public void setID(final UUID id) {
     this.id = id;
   }
   
+  /**
+   * Sets the position
+   * @param position the position
+   */
   public void setPosition(final Vector2i position) {
     this.position = position;
   }
   
+  /**
+   * Sets the capacity
+   * @param f the capacity
+   */
   public void setCapacity(final float f) {
     this.capacity = f;
   }
   
+  /**
+   * Sets the state
+   * @param state the AntState
+   */
   public void setState(final AntState state) {
     this.state = state;
   }
   
+  /**
+   * Tests if took
+   * @return true, if successful
+   */
   @Pure
-  public boolean isTake() {
-    return this.take;
+  public boolean isTook() {
+    return this.took;
   }
   
-  public void setTake() {
-    this.take = true;
+  /**
+   * Sets is took
+   */
+  public void setTook() {
+    this.took = true;
   }
   
+  /**
+   * Sets is put
+   */
   public void put() {
-    this.take = false;
+    this.took = false;
   }
   
   @Pure
@@ -123,7 +181,7 @@ public class AntBody {
     }
     if (Float.floatToIntBits(other.capacity) != Float.floatToIntBits(this.capacity))
       return false;
-    if (other.take != this.take)
+    if (other.took != this.took)
       return false;
     return super.equals(obj);
   }
@@ -136,7 +194,7 @@ public class AntBody {
     final int prime = 31;
     result = prime * result + Objects.hashCode(this.id);
     result = prime * result + Float.floatToIntBits(this.capacity);
-    result = prime * result + (this.take ? 1231 : 1237);
+    result = prime * result + (this.took ? 1231 : 1237);
     return result;
   }
 }

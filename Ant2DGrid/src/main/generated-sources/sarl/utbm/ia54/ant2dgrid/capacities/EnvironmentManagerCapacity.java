@@ -19,30 +19,90 @@ import utbm.ia54.ant2dgrid.objects.Vector2i;
 @SarlElementType(18)
 @SuppressWarnings("all")
 public interface EnvironmentManagerCapacity extends Capacity {
+  /**
+   * Gets the number of cols
+   * @return width
+   */
   public abstract int getWidth();
   
+  /**
+   * Gets the numbers of rows
+   * @return height
+   */
   public abstract int getHeight();
   
+  /**
+   * Gets the grid the list of cell
+   * @return grid the list of cell
+   */
   public abstract List<Cell> getGrid();
   
+  /**
+   * Creates an ant into a cell
+   * @param position the position of the cell
+   * @param id the UUID
+   * @param body the AntBody
+   */
   public abstract void createAnt(final Vector2i position, final UUID id, final AntBody body);
   
+  /**
+   * Gets the quantity of ant
+   * @param antQuantity
+   */
   public abstract int getAntQuantity();
   
+  /**
+   * Gets the Home cell
+   * @return home cell
+   */
   public abstract Cell getHomeCell();
   
+  /**
+   * Gets the food cell
+   * @return food cell
+   */
   public abstract Cell getFoodCell();
   
+  /**
+   * Gets the cell
+   * @param i the position of the cell in the list
+   * @return cell
+   */
   public abstract Cell getCell(final int i);
   
+  /**
+   * Sets the address into the map
+   * @param id the UUID
+   * @param address the address
+   */
   public abstract void setAddress(final UUID id, final Address address);
   
+  /**
+   * Gets the perception of an agent
+   * @param id the UUID
+   * @return list the list of cell
+   */
   public abstract List<Cell> getPerception(final UUID id);
   
+  /**
+   * Gets the map addresses
+   * @return antAddresses
+   */
   public abstract Map<UUID, Address> getAntAddresses();
   
+  /**
+   * Gets the address of an agent
+   * @param id the UUID
+   * @return address
+   */
   public abstract Address getAddress(final UUID id);
   
+  /**
+   * Removes an Ant of the cell
+   * @param position the position of the cell
+   * @param id the UUID
+   * @param body the AntBody
+   */
   public abstract void removeAntCell(final Vector2i position, final UUID id, final AntBody body);
   
   public static class ContextAwareCapacityWrapper<C extends EnvironmentManagerCapacity> extends Capacity.ContextAwareCapacityWrapper<C> implements EnvironmentManagerCapacity {

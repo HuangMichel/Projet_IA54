@@ -8,6 +8,11 @@ import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.objects.AntBody;
 import utbm.ia54.ant2dgrid.objects.Vector2i;
 
+/**
+ * The Ant sends to the environment to move
+ * @param newpos the new position
+ * @param body the AntBodyZ
+ */
 @SarlSpecification("0.6")
 @SarlElementType(14)
 @SuppressWarnings("all")

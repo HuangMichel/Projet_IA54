@@ -16,10 +16,19 @@ import utbm.ia54.ant2dgrid.Enum.CellState;
 @SarlElementType(9)
 @SuppressWarnings("all")
 public class Food {
+  /**
+   * The shape of the food
+   */
   private Shape shape;
   
+  /**
+   * The color of the shape
+   */
   private Color color;
   
+  /**
+   * The quantity of food
+   */
   private float food;
   
   public Food(final CellState state) {
@@ -37,27 +46,46 @@ public class Food {
     this.shape.setFill(this.color);
   }
   
+  /**
+   * Gets the quantity of food
+   * @return food
+   */
   @Pure
   public float getFood() {
     return this.food;
   }
   
+  /**
+   * Sets the quantity of food
+   * @param f the quantity of food
+   */
   public void setFood(final float f) {
     this.food = f;
   }
   
+  /**
+   * Increments the quantity of food
+   * @param f the quantity of food
+   */
   public void incrementFood(final float f) {
     float _food = this.food;
     this.food = (_food + f);
     this.incrementOpacity();
   }
   
+  /**
+   * Decrements the quantity of food
+   * @param f the quantity of food
+   */
   public void decrementFood(final float f) {
     float _food = this.food;
     this.food = (_food - f);
     this.decrementOpacity();
   }
   
+  /**
+   * Increments the opacity of the shape
+   */
   public void incrementOpacity() {
     double _opacity = this.color.getOpacity();
     boolean _lessThan = (_opacity < 0.9f);
@@ -73,6 +101,9 @@ public class Food {
     }
   }
   
+  /**
+   * Decrements the opacity of the shape
+   */
   public void decrementOpacity() {
     if (((this.food > 100f) && (this.color.getOpacity() > 0.1f))) {
       double _red = this.color.getRed();
@@ -86,6 +117,10 @@ public class Food {
     }
   }
   
+  /**
+   * Gets the shape
+   * @return shape
+   */
   @Pure
   public Shape getShape() {
     return this.shape;

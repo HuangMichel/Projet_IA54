@@ -7,7 +7,7 @@ import io.sarl.lang.core.Address;
 import io.sarl.lang.core.Event;
 
 /**
- * @author Michel
+ * Setup the configuration simulation
  */
 @SarlSpecification("0.6")
 @SarlElementType(14)

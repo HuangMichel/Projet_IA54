@@ -17,13 +17,13 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.events.ConfigureSimulation;
-import utbm.ia54.ant2dgrid.events.Continue;
 import utbm.ia54.ant2dgrid.gui.fx.FxViewerController;
 import utbm.ia54.ant2dgrid.objects.Cell;
 import utbm.ia54.ant2dgrid.objects.MapGenerator;
 
 /**
  * @author aelez
+ * @author Michel
  */
 @SarlSpecification("0.6")
 @SarlElementType(9)
@@ -41,32 +41,60 @@ public class Ant2DGridFxViewerController extends FxViewerController {
   @FXML
   private Button btnMap;
   
+  /**
+   * The grid a list of cell
+   */
   private List<Cell> grid;
   
+  /**
+   * mapCreated a boolean
+   */
   private boolean mapCreated = false;
   
+  /**
+   * launched a boolean
+   */
   private boolean launched = false;
   
+  /**
+   * Gets the grid
+   * @return grid the list of cell
+   */
   @Pure
   public List<Cell> getGrid() {
     return this.grid;
   }
   
+  /**
+   * Gets the quantity of ant
+   * @return quantity
+   */
   @Pure
   public int getAntQuantity() {
     return Integer.parseInt(this.numberOfAnt.getText());
   }
   
+  /**
+   * Gets the number of rows
+   * @return width
+   */
   @Pure
   public int getWidth() {
     return this.gridZone.getRowConstraints().size();
   }
   
+  /**
+   * Gets the number of cols
+   * @return height
+   */
   @Pure
   public int getHeight() {
     return this.gridZone.getColumnConstraints().size();
   }
   
+  /**
+   * Creates the map
+   */
   @FXML
   public void createMap() {
     int _width = this.getWidth();
@@ -102,7 +130,10 @@ public class Ant2DGridFxViewerController extends FxViewerController {
     this.addCellEvent();
   }
   
-  public void addCellEvent() {
+  /**
+   * Add event on the cell
+   */
+  private void addCellEvent() {
     abstract class __Ant2DGridFxViewerController_0 implements EventHandler<MouseEvent> {
       public abstract void handle(final MouseEvent event);
     }
@@ -116,15 +147,6 @@ public class Ant2DGridFxViewerController extends FxViewerController {
             boolean _tripleEquals = (_clickCount == 1);
             if (_tripleEquals) {
               InputOutput.<String>println(cell.toString());
-              Continue _continue = new Continue();
-              Ant2DGridFxViewerController.this.emitToAgent(_continue);
-            } else {
-              if (((event.getClickCount() == 2) && (cell.getState() == CellState.NORMAL))) {
-              } else {
-                if (((event.getClickCount() == 3) && (cell.getState() == CellState.WALL))) {
-                  cell.setState(CellState.NORMAL);
-                }
-              }
             }
           }
         }
@@ -134,6 +156,9 @@ public class Ant2DGridFxViewerController extends FxViewerController {
     this.gridZone.getChildren().forEach(_function);
   }
   
+  /**
+   * Launched the application
+   */
   @FXML
   public void actionSpawn() {
     ConfigureSimulation evt = new ConfigureSimulation();

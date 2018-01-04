@@ -1,0 +1,96 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.objects
+
+import javafx.scene.shape.Shape
+import javafx.scene.paint.Color
+import utbm.ia54.ant2dgrid.Enum.CellState
+import javafx.scene.shape.Polygon
+
+/** 
+ * @author Michel
+ * 
+ */
+class Food{
+	
+	/*The shape of the food */
+	private var shape : Shape
+	
+	/*The color of the shape */
+	private var color: Color
+	
+	/*The quantity of food */
+	private var food : float
+	
+	new(state : CellState){
+		this.shape = new Polygon(10,10, 10, 10, 10, 10, 10)
+		if (state === CellState.FOOD) {
+			this.food = 1000f
+			this.color = new Color(0.5, 0.5, 0.5, 1)
+		}else{
+			this.food = 0
+			this.color = new Color(0.5, 0.5, 0.5, 0)
+		}
+		this.shape.fill = this.color
+	}
+	
+	/*
+	 * Gets the quantity of food
+	 * @return food
+	 */
+	def getFood : float{
+		this.food
+	}
+	
+	/*
+	 * Sets the quantity of food
+	 * @param f the quantity of food
+	 */
+	def setFood(f : float){
+		this.food = f
+	}
+	
+	/*
+	 * Increments the quantity of food
+	 * @param f the quantity of food
+	 */
+	def incrementFood(f : float){
+		this.food += f
+		incrementOpacity
+	}
+	
+	/*
+	 * Decrements the quantity of food
+	 * @param f the quantity of food
+	 */
+	def decrementFood(f : float) {
+		this.food -= f
+		decrementOpacity
+	}
+	
+	/*
+	 * Increments the opacity of the shape
+	 */
+	def incrementOpacity{
+		if (this.color.opacity < 0.9f) {
+			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity + 0.1)
+			this.shape.fill = this.color
+		}
+	}
+	
+	/*
+	 * Decrements the opacity of the shape
+	 */
+	def decrementOpacity{
+		if (this.food > 100f && this.color.opacity>0.1f) {
+			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity - 0.1)
+			this.shape.fill = this.color
+		}
+	}
+	
+	def getShape : Shape{
+		this.shape
+	}
+	
+}
