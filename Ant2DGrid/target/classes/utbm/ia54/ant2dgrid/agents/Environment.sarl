@@ -117,6 +117,7 @@ agent Environment {
 				grid.forEach [cell|
 					if(cell.state===CellState.NORMAL && cell.numberAnt===0){
 						cell.evaporationPheromoneHome
+						cell.evaporationPheromoneFood
 					}
 				]
 			}

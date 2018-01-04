@@ -4,7 +4,6 @@ import io.sarl.lang.annotation.SarlElementType;
 import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
 import io.sarl.lang.core.Event;
-import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.objects.AntBody;
 
 /**
@@ -22,14 +21,12 @@ public class PickFood extends Event {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     return super.equals(obj);
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();
@@ -40,7 +37,6 @@ public class PickFood extends Event {
    * Returns a String representation of the PickFood event's attributes only.
    */
   @SyntheticMember
-  @Pure
   protected String attributesToString() {
     StringBuilder result = new StringBuilder(super.attributesToString());
     result.append("body  = ").append(this.body);
