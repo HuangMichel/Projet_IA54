@@ -1,0 +1,45 @@
+package utbm.ia54.ant2dgrid.gui
+
+import utbm.ia54.ant2dgrid.gui.fx.FxApplication
+import javafx.stage.Stage
+import javafx.fxml.FXMLLoader
+import java.util.ResourceBundle
+import javafx.fxml.JavaFXBuilderFactory
+import javafx.scene.Parent
+import javafx.scene.Scene
+import java.net.URL
+
+/** 
+ * @author aelez
+ * @author Michel
+ */
+
+class Ant2DGridFxApplication extends FxApplication {
+	
+	def doApplicationStart(stage : Stage) : FXMLLoader {
+		var simpleName = typeof(Ant2DGridFxApplication).simpleName
+		val bundle = ResourceBundle::getBundle(
+			typeof(Ant2DGridFxApplication).package.name.replaceAll("\\.", "/") + "/" + simpleName)
+
+		//var location = class.getResource(simpleName + ".fxml")
+		/*var urlstr = new URL(
+			"file:/C:/Users/Michel/Desktop/Projet_IA54/Ant2DGrid/src/main/resources/utbm/ia54/ant2dgrid/gui/" +
+				simpleName + ".fxml")*/
+		var urlstr = new URL(
+			"file:/D:/GitHub/Projet_IA54/Ant2DGrid/src/main/resources/utbm/ia54/ant2dgrid/gui/" +
+				simpleName + ".fxml")
+				
+		var location =  urlstr
+		var loader = new FXMLLoader
+		loader.location = location
+		loader.builderFactory = new JavaFXBuilderFactory
+		loader.resources = bundle
+		var root : Parent = loader.load(location.openStream)
+		var scene = new Scene(root)
+		scene.stylesheets.add(class.getResource("ViewerController.css").toExternalForm)
+		stage.title = bundle.getString("TITLE")
+		stage.scene = scene
+		stage.centerOnScreen
+		return loader
+	}
+}

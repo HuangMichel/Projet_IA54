@@ -13,7 +13,6 @@ import java.util.UUID;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
-import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.gui.fx.AppExit;
 import utbm.ia54.ant2dgrid.gui.fx.AppStart;
 
@@ -60,7 +59,6 @@ public class FxViewerController implements EventListener {
   /**
    * Replies the space for interaction between SARL agent and UI
    */
-  @Pure
   public OpenEventSpace getUISpace() {
     return this.space;
   }
@@ -88,7 +86,6 @@ public class FxViewerController implements EventListener {
   /**
    * Get ID of the object on the space
    */
-  @Pure
   public UUID getID() {
     return this.id;
   }
@@ -100,7 +97,6 @@ public class FxViewerController implements EventListener {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -117,7 +113,6 @@ public class FxViewerController implements EventListener {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

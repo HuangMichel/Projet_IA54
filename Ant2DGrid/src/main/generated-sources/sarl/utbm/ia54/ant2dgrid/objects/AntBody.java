@@ -5,7 +5,6 @@ import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
 import java.util.Objects;
 import java.util.UUID;
-import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.AntState;
 import utbm.ia54.ant2dgrid.objects.Vector2i;
 
@@ -60,7 +59,6 @@ public class AntBody {
    * Gets the id
    * @return id
    */
-  @Pure
   public UUID getID() {
     return this.id;
   }
@@ -69,7 +67,6 @@ public class AntBody {
    * Gets the capacity
    * @return capacity
    */
-  @Pure
   public float getCapacity() {
     return this.capacity;
   }
@@ -78,7 +75,6 @@ public class AntBody {
    * Gets the position
    * @return position
    */
-  @Pure
   public Vector2i getPosition() {
     return this.position;
   }
@@ -87,7 +83,6 @@ public class AntBody {
    * Gets the state
    * @return state
    */
-  @Pure
   public AntState getState() {
     return this.state;
   }
@@ -128,7 +123,6 @@ public class AntBody {
    * Tests if took
    * @return true, if successful
    */
-  @Pure
   public boolean isTook() {
     return this.took;
   }
@@ -147,7 +141,6 @@ public class AntBody {
     this.took = false;
   }
   
-  @Pure
   public String toString() {
     String _xblockexpression = null;
     {
@@ -166,7 +159,6 @@ public class AntBody {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -187,7 +179,6 @@ public class AntBody {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

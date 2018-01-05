@@ -110,7 +110,7 @@ public class AntManagerSkill extends Skill implements AntCapacity {
     {
       int i = 0;
       for (final Cell cell : list) {
-        if (((cell.getPheromoneFood().getIntensity() >= 0f) && (cell.getState() == CellState.NORMAL))) {
+        if (((cell.getPheromoneFood().getIntensity() > 0.1f) && (cell.getState() == CellState.NORMAL))) {
           i++;
         }
       }
@@ -181,10 +181,8 @@ public class AntManagerSkill extends Skill implements AntCapacity {
             if ((((Boolean.valueOf(this.hasFood(listPerception)) == Boolean.valueOf(true)) && (body.getState() == AntState.SEARCH_FOOD)) || ((Boolean.valueOf(this.hasHome(listPerception)) == Boolean.valueOf(true)) && (body.getState() == AntState.RETURN_HOME)))) {
               this.randomMove(listPerception, body);
             } else {
-              if ((numberPheromoneCell <= (numberNormalState - numberPheromoneCell))) {
-                float _pheromoneHomeIntensity = cell.getPheromoneHomeIntensity();
-                boolean _lessThan = (_pheromoneHomeIntensity < 0.001f);
-                if (_lessThan) {
+              if (((numberNormalState - numberPheromoneCell) >= numberPheromoneCell)) {
+                if (((0.1f > cell.getPheromoneHomeIntensity()) || (Boolean.valueOf(this.isEquals(cell.getPosition())) == Boolean.valueOf(false)))) {
                   newPos = cell.getPosition();
                   DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
                   Influence _influence_1 = new Influence(newPos, body);
@@ -212,7 +210,9 @@ public class AntManagerSkill extends Skill implements AntCapacity {
             this.randomMove(listPerception, body);
             break;
           case HOME:
-            if ((((body.getState() == AntState.RETURN_HOME) || (Boolean.valueOf(this.isEquals(cell.getPosition())) == Boolean.valueOf(false))) || (numberNormalState == 1))) {
+            boolean _isEquals_1 = this.isEquals(cell.getPosition());
+            boolean _tripleEquals_2 = (Boolean.valueOf(_isEquals_1) == Boolean.valueOf(false));
+            if (_tripleEquals_2) {
               newPos = cell.getPosition();
               DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_3 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
               Influence _influence_3 = new Influence(newPos, body);
@@ -223,18 +223,14 @@ public class AntManagerSkill extends Skill implements AntCapacity {
             }
             break;
           case FOOD:
-            if (((body.getState() == AntState.SEARCH_FOOD) || (numberNormalState == 1))) {
+            if (((body.getState() == AntState.SEARCH_FOOD) || (Boolean.valueOf(this.isEquals(cell.getPosition())) == Boolean.valueOf(false)))) {
               newPos = cell.getPosition();
               DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_4 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
               Influence _influence_4 = new Influence(newPos, body);
               _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_4.emit(_influence_4);
               this.setPositionBefore(newPos);
             } else {
-              AntState _state_2 = body.getState();
-              boolean _tripleEquals_2 = (_state_2 == AntState.RETURN_HOME);
-              if (_tripleEquals_2) {
-                this.randomMove(listPerception, body);
-              }
+              this.randomMove(listPerception, body);
             }
             break;
           default:
@@ -301,9 +297,8 @@ public class AntManagerSkill extends Skill implements AntCapacity {
                   tempCell = foodCell;
                   food = true;
                 } else {
-                  float _pheromoneFoodIntensity = listPerception.get(i).getPheromoneFoodIntensity();
-                  boolean _lessThan = (pheromoneFood < _pheromoneFoodIntensity);
-                  if (_lessThan) {
+                  if (((pheromoneFood < listPerception.get(i).getPheromoneFoodIntensity()) && 
+                    (Boolean.valueOf(this.isEquals(listPerception.get(i).getPosition())) == Boolean.valueOf(false)))) {
                     pheromoneFood = listPerception.get(i).getPheromoneFoodIntensity();
                     tempCell = listPerception.get(i);
                     bool = true;
@@ -322,9 +317,8 @@ public class AntManagerSkill extends Skill implements AntCapacity {
                   tempCell = homeCell;
                   home = true;
                 } else {
-                  float _pheromoneHomeIntensity = listPerception.get(i).getPheromoneHomeIntensity();
-                  boolean _lessThan = (pheromoneHome < _pheromoneHomeIntensity);
-                  if (_lessThan) {
+                  if (((pheromoneHome < listPerception.get(i).getPheromoneHomeIntensity()) && 
+                    (Boolean.valueOf(this.isEquals(listPerception.get(i).getPosition())) == Boolean.valueOf(false)))) {
                     pheromoneHome = listPerception.get(i).getPheromoneHomeIntensity();
                     tempCell = listPerception.get(i);
                     bool = true;
@@ -340,6 +334,8 @@ public class AntManagerSkill extends Skill implements AntCapacity {
       if ((Boolean.valueOf(bool) == Boolean.valueOf(false))) {
         Cell _cell = new Cell((-1), (-1));
         tempCell = _cell;
+      } else {
+        this.setPositionBefore(tempCell.getPosition());
       }
       _xblockexpression = tempCell;
     }

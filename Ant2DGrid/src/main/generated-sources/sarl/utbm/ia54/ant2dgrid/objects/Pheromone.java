@@ -46,7 +46,7 @@ public class Pheromone {
   public Pheromone() {
     this.type = AntState.SEARCH_FOOD;
     this.intensity = 0f;
-    this.coefEvaporation = 0.5f;
+    this.coefEvaporation = 0.9f;
     Color _color = new Color(1, 0, 0, 0);
     this.color = _color;
     Rectangle _rectangle = new Rectangle(10, 10, this.color);
@@ -56,7 +56,7 @@ public class Pheromone {
   public Pheromone(final AntState type) {
     this.type = type;
     this.intensity = 0f;
-    this.coefEvaporation = 0.5f;
+    this.coefEvaporation = 0.85f;
     if ((type == AntState.SEARCH_FOOD)) {
       Color _color = new Color(1.0, 0, 0, 0);
       this.color = _color;
@@ -65,7 +65,7 @@ public class Pheromone {
     } else {
       Color _color_1 = new Color(0, 1.0, 0, 0);
       this.color = _color_1;
-      Circle _circle = new Circle(7, this.color);
+      Circle _circle = new Circle(5, this.color);
       this.objfx = _circle;
     }
   }
@@ -82,7 +82,7 @@ public class Pheromone {
     } else {
       Color _color_1 = new Color(0, 1.0, 0, 0);
       this.color = _color_1;
-      Circle _circle = new Circle(7, this.color);
+      Circle _circle = new Circle(5, this.color);
       this.objfx = _circle;
     }
   }
@@ -142,7 +142,7 @@ public class Pheromone {
       double _green = this.color.getGreen();
       double _blue = this.color.getBlue();
       double _opacity_1 = this.color.getOpacity();
-      double _plus = (_opacity_1 + 0.05);
+      double _plus = (_opacity_1 + 0.1);
       Color _color = new Color(_red, _green, _blue, _plus);
       this.color = _color;
       this.objfx.setFill(this.color);
@@ -153,18 +153,27 @@ public class Pheromone {
    * Evaporations
    */
   public void evaporation() {
+    float diffintensity = (this.intensity - (this.intensity * this.coefEvaporation));
     float _intensity = this.intensity;
     this.intensity = (_intensity * this.coefEvaporation);
-    if (((this.color.getOpacity() > 0.1f) && (this.intensity < 0.1f))) {
+    double _opacity = this.color.getOpacity();
+    boolean _greaterThan = (_opacity > (0.1 * diffintensity));
+    if (_greaterThan) {
       double _red = this.color.getRed();
       double _green = this.color.getGreen();
       double _blue = this.color.getBlue();
-      double _opacity = this.color.getOpacity();
-      double _minus = (_opacity - 0.05);
+      double _opacity_1 = this.color.getOpacity();
+      double _minus = (_opacity_1 - (0.1 * diffintensity));
       Color _color = new Color(_red, _green, _blue, _minus);
       this.color = _color;
-      this.objfx.setFill(this.color);
+    } else {
+      double _red_1 = this.color.getRed();
+      double _green_1 = this.color.getGreen();
+      double _blue_1 = this.color.getBlue();
+      Color _color_1 = new Color(_red_1, _green_1, _blue_1, 0);
+      this.color = _color_1;
     }
+    this.objfx.setFill(this.color);
   }
   
   /**

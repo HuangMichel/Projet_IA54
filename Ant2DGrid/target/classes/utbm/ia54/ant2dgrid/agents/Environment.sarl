@@ -114,9 +114,12 @@ agent Environment {
 
 				in(1000)[innerContext.defaultSpace.emit(ID, new Perception(perception))]
 				
+				//FIXME
+				//TROP RAPIDE
 				grid.forEach [cell|
 					if(cell.state===CellState.NORMAL){
-						cell.evaporationPheromoneHome
+						//cell.evaporationPheromoneHome
+						//cell.evaporationPheromoneFood
 					}
 				]
 			}

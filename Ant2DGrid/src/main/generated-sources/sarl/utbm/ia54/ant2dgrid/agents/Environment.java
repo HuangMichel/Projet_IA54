@@ -213,7 +213,6 @@ public class Environment extends Agent {
           CellState _state = cell.getState();
           boolean _tripleEquals = (_state == CellState.NORMAL);
           if (_tripleEquals) {
-            cell.evaporationPheromoneHome();
           }
         };
         _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY$CALLER_5.getGrid().forEach(_function_4);

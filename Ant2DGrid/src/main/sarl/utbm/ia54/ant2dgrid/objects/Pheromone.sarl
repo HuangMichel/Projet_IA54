@@ -30,7 +30,7 @@ class Pheromone {
 	new(){
 		this.type = AntState.SEARCH_FOOD
 		this.intensity = 0f
-		this.coefEvaporation = 0.5f
+		this.coefEvaporation = 0.9f
 		this.color = new Color(1, 0, 0, 0)
 		this.objfx = new Rectangle(10, 10, this.color)
 	}
@@ -38,13 +38,13 @@ class Pheromone {
 	new(type : AntState) {
 		this.type = type
 		this.intensity = 0f
-		this.coefEvaporation = 0.5f
+		this.coefEvaporation = 0.85f
 		if (type === AntState.SEARCH_FOOD) {
 			this.color = new Color(1.0, 0, 0, 0)
 			this.objfx = new Rectangle(10, 10, this.color)
 		} else {			
 			this.color = new Color(0, 1.0, 0, 0)
-			this.objfx = new Circle(7, this.color)
+			this.objfx = new Circle(5, this.color)
 		}
 		
 	}
@@ -58,7 +58,7 @@ class Pheromone {
 			this.objfx = new Rectangle(10, 10, this.color)
 		} else {
 			this.color = new Color(0, 1.0, 0, 0)
-			this.objfx = new Circle(7, this.color)
+			this.objfx = new Circle(5, this.color)
 		}
 	}
 	
@@ -108,7 +108,7 @@ class Pheromone {
 	def incrementIntensity{
 		this.intensity++
 		if (this.color.opacity < 0.9f) {
-			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity + 0.05)
+			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity + 0.1)
 			this.objfx.fill = this.color
 		}
 	}
@@ -117,11 +117,14 @@ class Pheromone {
 	 * Evaporations
 	 */
 	def evaporation {
+		var diffintensity = this.intensity - (this.intensity * this.coefEvaporation)
 		this.intensity *= this.coefEvaporation
-		if (this.color.opacity > 0.1f && this.intensity<0.1f) {
-			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity - 0.05)
-			this.objfx.fill = this.color
+		if (this.color.opacity > (0.1*diffintensity)) {
+			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity - (0.1*diffintensity))
+		} else {
+			this.color = new Color(this.color.red, this.color.green, this.color.blue, 0)
 		}
+		this.objfx.fill = this.color
 	}
 	
 	/*
