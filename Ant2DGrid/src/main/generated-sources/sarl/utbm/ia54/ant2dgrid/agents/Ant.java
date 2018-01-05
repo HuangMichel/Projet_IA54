@@ -14,7 +14,6 @@ import io.sarl.lang.core.Address;
 import io.sarl.lang.core.Agent;
 import io.sarl.lang.core.BuiltinCapacitiesProvider;
 import io.sarl.lang.core.DynamicSkillProvider;
-import io.sarl.lang.core.Scope;
 import io.sarl.lang.core.Skill;
 import io.sarl.lang.util.ClearableReference;
 import java.util.Collection;
@@ -32,6 +31,7 @@ import utbm.ia54.ant2dgrid.events.AcceptPickFood;
 import utbm.ia54.ant2dgrid.events.AcceptPutFood;
 import utbm.ia54.ant2dgrid.events.AntInitialize;
 import utbm.ia54.ant2dgrid.events.ChangeState;
+import utbm.ia54.ant2dgrid.events.EndAgent;
 import utbm.ia54.ant2dgrid.events.Perception;
 import utbm.ia54.ant2dgrid.events.onFoodPlace;
 import utbm.ia54.ant2dgrid.events.onNestPlace;
@@ -283,13 +283,6 @@ public class Ant extends Agent {
   
   @SyntheticMember
   private void $behaviorUnit$AppExit$9(final AppExit occurrence) {
-    DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
-    AppExit _appExit = new AppExit();
-    final Scope<Address> _function = (Address it) -> {
-      UUID _uUID = it.getUUID();
-      return (_uUID == this.idEnv);
-    };
-    _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_appExit, _function);
     Lifecycle _$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE$CALLER = this.$castSkill(Lifecycle.class, (this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE == null || this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE = this.$getSkill(Lifecycle.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE);
     _$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE$CALLER.killMe();
   }
@@ -297,6 +290,19 @@ public class Ant extends Agent {
   @SyntheticMember
   @Pure
   private boolean $behaviorUnitGuard$AppExit$9(final AppExit it, final AppExit occurrence) {
+    boolean _isFrom = it.isFrom(this.idEnv);
+    return _isFrom;
+  }
+  
+  @SyntheticMember
+  private void $behaviorUnit$EndAgent$10(final EndAgent occurrence) {
+    Lifecycle _$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE$CALLER = this.$castSkill(Lifecycle.class, (this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE == null || this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE = this.$getSkill(Lifecycle.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE);
+    _$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE$CALLER.killMe();
+  }
+  
+  @SyntheticMember
+  @Pure
+  private boolean $behaviorUnitGuard$EndAgent$10(final EndAgent it, final EndAgent occurrence) {
     boolean _isFrom = it.isFrom(this.idEnv);
     return _isFrom;
   }
@@ -405,6 +411,16 @@ public class Ant extends Agent {
     assert occurrence != null;
     assert ___SARLlocal_runnableCollection != null;
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Destroy$1(occurrence));
+  }
+  
+  @SyntheticMember
+  @PerceptGuardEvaluator
+  private void $guardEvaluator$EndAgent(final EndAgent occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
+    assert occurrence != null;
+    assert ___SARLlocal_runnableCollection != null;
+    if ($behaviorUnitGuard$EndAgent$10(occurrence, occurrence)) {
+      ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$EndAgent$10(occurrence));
+    }
   }
   
   @SyntheticMember

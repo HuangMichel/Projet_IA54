@@ -36,6 +36,7 @@ import utbm.ia54.ant2dgrid.gui.fx.AppExit
 import utbm.ia54.ant2dgrid.objects.AntBody
 import utbm.ia54.ant2dgrid.objects.Vector2i
 import java.util.ArrayList
+import utbm.ia54.ant2dgrid.events.EndAgent
 
 /** 
  * @author Michel
@@ -57,6 +58,7 @@ agent Environment {
 	/*A map of perception for each ant */
 	private var perception = new HashMap<UUID,List<Cell>>
 	
+	/*A list of ant to update */
 	private var updateList = new HashMap<AntBody, List<Vector2i>>
 	
 	on Initialize {
@@ -131,11 +133,12 @@ agent Environment {
 
 				//FIXME
 				//TROP RAPIDE
-				grid.forEach [ cell |
-					if (cell.state === CellState.NORMAL) {
-						cell.evaporationPheromoneHome
-						cell.evaporationPheromoneFood
-					}
+				in(3000)[grid.forEach [ cell |
+						if (cell.state === CellState.NORMAL) {
+							cell.evaporationPheromoneHome
+							cell.evaporationPheromoneFood
+						}
+					]
 				]
 			}
 			
@@ -210,11 +213,46 @@ agent Environment {
 	}
 	
 	on AppExit[!hasMemberAgent] {
-		emit(new AppExit)
+		launched = false
 		killMe
 	}
 	
-	on AppExit[hasMemberAgent] {
+	on AppExit [hasMemberAgent] {
 		innerContext.defaultSpace.emit(this.ID, new AppExit)
+	}
+	
+	on EndAgent [!hasMemberAgent] {
+		launched = false
+		restartMap
+		killMe
+	}
+	
+	on EndAgent [hasMemberAgent] {
+		innerContext.defaultSpace.emit(ID, new EndAgent)	
+	}
+	
+	def restartMap{
+		if(launched === false){
+			synchronized(grid){
+				grid.forEach[cell |
+					if (cell.numberAnt >=1) {
+						cell.removeAllAnt
+					}
+					if (cell.state === CellState.HOME || cell.state === CellState.FOOD) {
+						if (cell.food.food > 0) {
+							cell.food.food = 0
+						}
+					}
+					if(cell.pheromoneFoodIntensity>0){
+						cell.pheromoneFood.intensity = 0
+						cell.pheromoneFood.evaporation
+					}
+					if (cell.pheromoneHomeIntensity > 0) {
+						cell.pheromoneHome.intensity = 0
+						cell.pheromoneHome.evaporation
+					}
+				]
+			}
+		}
 	}
 }

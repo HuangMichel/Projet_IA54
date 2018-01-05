@@ -162,8 +162,7 @@ skill AntManagerSkill implements AntCapacity{
 						} else {
 							if ((numberNormalState - numberPheromoneCell) < numberNormalState) {
 								if ((0.1f > cell.pheromoneHomeIntensity && isEquals(cell.position) === false) || 
-									isEquals(cell.position)===true
-								) {
+									isEquals(cell.position)===false) {
 									newPos = cell.position
 									emit(new Influence(newPos, body))
 									setPositionBefore(newPos)
@@ -184,7 +183,9 @@ skill AntManagerSkill implements AntCapacity{
 				case CellState.WALL:
 					randomMove(listPerception, body)
 				case CellState.HOME:
-					if (isEquals(cell.position) === false || body.state === AntState.RETURN_HOME) {
+					if (body.state === AntState.RETURN_HOME || 
+						isEquals(cell.position) === false || 
+						body.state ===AntState.SEARCH_FOOD) {
 						newPos = cell.position
 						emit(new Influence(newPos, body))
 						setPositionBefore(newPos)
@@ -192,7 +193,9 @@ skill AntManagerSkill implements AntCapacity{
 						randomMove(listPerception, body)
 					}
 				case CellState.FOOD:
-					if (body.state === AntState.SEARCH_FOOD || isEquals(cell.position)===false) {
+					if (body.state === AntState.SEARCH_FOOD || 
+						isEquals(cell.position) === false || 
+						body.state === AntState.RETURN_HOME) {
 						newPos = cell.position
 						emit(new Influence(newPos, body))
 						setPositionBefore(newPos)

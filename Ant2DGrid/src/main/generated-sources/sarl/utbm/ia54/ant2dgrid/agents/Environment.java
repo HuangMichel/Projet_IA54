@@ -41,6 +41,7 @@ import utbm.ia54.ant2dgrid.events.AcceptPickFood;
 import utbm.ia54.ant2dgrid.events.AntInitialize;
 import utbm.ia54.ant2dgrid.events.ChangeState;
 import utbm.ia54.ant2dgrid.events.Continue;
+import utbm.ia54.ant2dgrid.events.EndAgent;
 import utbm.ia54.ant2dgrid.events.Influence;
 import utbm.ia54.ant2dgrid.events.Perception;
 import utbm.ia54.ant2dgrid.events.PickFood;
@@ -52,6 +53,8 @@ import utbm.ia54.ant2dgrid.gui.Ant2DGridFxViewerController;
 import utbm.ia54.ant2dgrid.gui.fx.AppExit;
 import utbm.ia54.ant2dgrid.objects.AntBody;
 import utbm.ia54.ant2dgrid.objects.Cell;
+import utbm.ia54.ant2dgrid.objects.Food;
+import utbm.ia54.ant2dgrid.objects.Pheromone;
 import utbm.ia54.ant2dgrid.objects.Vector2i;
 import utbm.ia54.ant2dgrid.skills.EnvironmentManagerSkill;
 
@@ -82,6 +85,9 @@ public class Environment extends Agent {
    */
   private HashMap<UUID, List<Cell>> perception = new HashMap<UUID, List<Cell>>();
   
+  /**
+   * A list of ant to update
+   */
   private HashMap<AntBody, List<Vector2i>> updateList = new HashMap<AntBody, List<Vector2i>>();
   
   @SyntheticMember
@@ -218,16 +224,20 @@ public class Environment extends Agent {
           _$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS$CALLER.getInnerContext().getDefaultSpace().emit(it.getID(), _perception, null);
         };
         _$CAPACITY_USE$IO_SARL_CORE_SCHEDULES$CALLER.in(1000, _function_4);
-        EnvironmentManagerCapacity _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY$CALLER_5 = this.$castSkill(EnvironmentManagerCapacity.class, (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY.get() == null) ? (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY = this.$getSkill(EnvironmentManagerCapacity.class)) : this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY);
-        final Consumer<Cell> _function_5 = (Cell cell) -> {
-          CellState _state = cell.getState();
-          boolean _tripleEquals = (_state == CellState.NORMAL);
-          if (_tripleEquals) {
-            cell.evaporationPheromoneHome();
-            cell.evaporationPheromoneFood();
-          }
+        Schedules _$CAPACITY_USE$IO_SARL_CORE_SCHEDULES$CALLER_1 = this.$castSkill(Schedules.class, (this.$CAPACITY_USE$IO_SARL_CORE_SCHEDULES == null || this.$CAPACITY_USE$IO_SARL_CORE_SCHEDULES.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_SCHEDULES = this.$getSkill(Schedules.class)) : this.$CAPACITY_USE$IO_SARL_CORE_SCHEDULES);
+        final Procedure1<Agent> _function_5 = (Agent it) -> {
+          EnvironmentManagerCapacity _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY$CALLER_5 = this.$castSkill(EnvironmentManagerCapacity.class, (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY.get() == null) ? (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY = this.$getSkill(EnvironmentManagerCapacity.class)) : this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY);
+          final Consumer<Cell> _function_6 = (Cell cell) -> {
+            CellState _state = cell.getState();
+            boolean _tripleEquals = (_state == CellState.NORMAL);
+            if (_tripleEquals) {
+              cell.evaporationPheromoneHome();
+              cell.evaporationPheromoneFood();
+            }
+          };
+          _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY$CALLER_5.getGrid().forEach(_function_6);
         };
-        _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY$CALLER_5.getGrid().forEach(_function_5);
+        _$CAPACITY_USE$IO_SARL_CORE_SCHEDULES$CALLER_1.in(3000, _function_5);
       }
     }
   }
@@ -384,9 +394,7 @@ public class Environment extends Agent {
   
   @SyntheticMember
   private void $behaviorUnit$AppExit$8(final AppExit occurrence) {
-    DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
-    AppExit _appExit = new AppExit();
-    _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_appExit);
+    this.launched = Boolean.valueOf(false);
     Lifecycle _$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE$CALLER = this.$castSkill(Lifecycle.class, (this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE == null || this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE = this.$getSkill(Lifecycle.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE);
     _$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE$CALLER.killMe();
   }
@@ -413,6 +421,76 @@ public class Environment extends Agent {
     InnerContextAccess _$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS$CALLER = this.$castSkill(InnerContextAccess.class, (this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS == null || this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS = this.$getSkill(InnerContextAccess.class)) : this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS);
     boolean _hasMemberAgent = _$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS$CALLER.hasMemberAgent();
     return _hasMemberAgent;
+  }
+  
+  @SyntheticMember
+  private void $behaviorUnit$EndAgent$10(final EndAgent occurrence) {
+    this.launched = Boolean.valueOf(false);
+    this.restartMap();
+    Lifecycle _$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE$CALLER = this.$castSkill(Lifecycle.class, (this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE == null || this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE = this.$getSkill(Lifecycle.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE);
+    _$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE$CALLER.killMe();
+  }
+  
+  @SyntheticMember
+  @Pure
+  private boolean $behaviorUnitGuard$EndAgent$10(final EndAgent it, final EndAgent occurrence) {
+    InnerContextAccess _$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS$CALLER = this.$castSkill(InnerContextAccess.class, (this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS == null || this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS = this.$getSkill(InnerContextAccess.class)) : this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS);
+    boolean _hasMemberAgent = _$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS$CALLER.hasMemberAgent();
+    boolean _not = (!_hasMemberAgent);
+    return _not;
+  }
+  
+  @SyntheticMember
+  private void $behaviorUnit$EndAgent$11(final EndAgent occurrence) {
+    InnerContextAccess _$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS$CALLER = this.$castSkill(InnerContextAccess.class, (this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS == null || this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS = this.$getSkill(InnerContextAccess.class)) : this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS);
+    EndAgent _endAgent = new EndAgent();
+    _$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS$CALLER.getInnerContext().getDefaultSpace().emit(this.getID(), _endAgent, null);
+  }
+  
+  @SyntheticMember
+  @Pure
+  private boolean $behaviorUnitGuard$EndAgent$11(final EndAgent it, final EndAgent occurrence) {
+    InnerContextAccess _$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS$CALLER = this.$castSkill(InnerContextAccess.class, (this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS == null || this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS = this.$getSkill(InnerContextAccess.class)) : this.$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS);
+    boolean _hasMemberAgent = _$CAPACITY_USE$IO_SARL_CORE_INNERCONTEXTACCESS$CALLER.hasMemberAgent();
+    return _hasMemberAgent;
+  }
+  
+  protected void restartMap() {
+    if ((this.launched == Boolean.valueOf(false))) {
+      synchronized (this.$castSkill(EnvironmentManagerCapacity.class, (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY.get() == null) ? (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY = this.$getSkill(EnvironmentManagerCapacity.class)) : this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY).getGrid()) {
+        EnvironmentManagerCapacity _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY$CALLER = this.$castSkill(EnvironmentManagerCapacity.class, (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY.get() == null) ? (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY = this.$getSkill(EnvironmentManagerCapacity.class)) : this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY);
+        final Consumer<Cell> _function = (Cell cell) -> {
+          int _numberAnt = cell.getNumberAnt();
+          boolean _greaterEqualsThan = (_numberAnt >= 1);
+          if (_greaterEqualsThan) {
+            cell.removeAllAnt();
+          }
+          if (((cell.getState() == CellState.HOME) || (cell.getState() == CellState.FOOD))) {
+            float _food = cell.getFood().getFood();
+            boolean _greaterThan = (_food > 0);
+            if (_greaterThan) {
+              Food _food_1 = cell.getFood();
+              _food_1.setFood(0);
+            }
+          }
+          float _pheromoneFoodIntensity = cell.getPheromoneFoodIntensity();
+          boolean _greaterThan_1 = (_pheromoneFoodIntensity > 0);
+          if (_greaterThan_1) {
+            Pheromone _pheromoneFood = cell.getPheromoneFood();
+            _pheromoneFood.setIntensity(0);
+            cell.getPheromoneFood().evaporation();
+          }
+          float _pheromoneHomeIntensity = cell.getPheromoneHomeIntensity();
+          boolean _greaterThan_2 = (_pheromoneHomeIntensity > 0);
+          if (_greaterThan_2) {
+            Pheromone _pheromoneHome = cell.getPheromoneHome();
+            _pheromoneHome.setIntensity(0);
+            cell.getPheromoneHome().evaporation();
+          }
+        };
+        _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY$CALLER.getGrid().forEach(_function);
+      }
+    }
   }
   
   @Extension
@@ -559,6 +637,19 @@ public class Environment extends Agent {
     assert occurrence != null;
     assert ___SARLlocal_runnableCollection != null;
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Destroy$7(occurrence));
+  }
+  
+  @SyntheticMember
+  @PerceptGuardEvaluator
+  private void $guardEvaluator$EndAgent(final EndAgent occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
+    assert occurrence != null;
+    assert ___SARLlocal_runnableCollection != null;
+    if ($behaviorUnitGuard$EndAgent$10(occurrence, occurrence)) {
+      ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$EndAgent$10(occurrence));
+    }
+    if ($behaviorUnitGuard$EndAgent$11(occurrence, occurrence)) {
+      ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$EndAgent$11(occurrence));
+    }
   }
   
   /**

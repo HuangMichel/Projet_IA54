@@ -46,7 +46,4 @@ public class ChangeState extends Event {
     result.append("newState  = ").append(this.newState);
     return result.toString();
   }
-  
-  @SyntheticMember
-  private final static long serialVersionUID = 883262486L;
 }

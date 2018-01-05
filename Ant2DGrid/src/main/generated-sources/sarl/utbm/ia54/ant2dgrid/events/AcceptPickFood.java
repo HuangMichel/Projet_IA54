@@ -56,7 +56,4 @@ public class AcceptPickFood extends Event {
     result.append("accept  = ").append(this.accept);
     return result.toString();
   }
-  
-  @SyntheticMember
-  private final static long serialVersionUID = 1235685549L;
 }

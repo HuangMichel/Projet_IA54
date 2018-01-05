@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent
 import javafx.^event.EventHandler
 import utbm.ia54.ant2dgrid.events.ConfigureSimulation
 import utbm.ia54.ant2dgrid.Enum.CellState
+import utbm.ia54.ant2dgrid.events.EndAgent
 
 /** 
  * @author aelez
@@ -31,6 +32,9 @@ class Ant2DGridFxViewerController extends FxViewerController{
 
 	@FXML
 	private var btnMap : Button
+	
+	@FXML
+	private var restartBtn : Button
 	
 	/*The grid a list of cell */
 	private var grid : List<Cell>
@@ -133,8 +137,22 @@ class Ant2DGridFxViewerController extends FxViewerController{
 			btnMap.disable = true
 			spawnButton.disable = true
 			numberOfAnt.disable = true
+			restartBtn.disable = false
 		}else{
 			emitToAgent(evt)
 		}
+	}
+	
+	/*
+	 * Restart the application
+	 */
+	@FXML
+	def onRestart{
+		btnMap.disable = false
+		numberOfAnt.disable = false
+		restartBtn.disable = true
+		launched = false
+		spawnButton.disable = false
+		emitToAgent(new EndAgent)
 	}
 }

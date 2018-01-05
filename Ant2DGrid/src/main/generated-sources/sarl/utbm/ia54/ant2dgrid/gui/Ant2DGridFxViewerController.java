@@ -17,6 +17,7 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
 import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.events.ConfigureSimulation;
+import utbm.ia54.ant2dgrid.events.EndAgent;
 import utbm.ia54.ant2dgrid.gui.fx.FxViewerController;
 import utbm.ia54.ant2dgrid.objects.Cell;
 import utbm.ia54.ant2dgrid.objects.MapGenerator;
@@ -40,6 +41,9 @@ public class Ant2DGridFxViewerController extends FxViewerController {
   
   @FXML
   private Button btnMap;
+  
+  @FXML
+  private Button restartBtn;
   
   /**
    * The grid a list of cell
@@ -171,9 +175,24 @@ public class Ant2DGridFxViewerController extends FxViewerController {
       this.btnMap.setDisable(true);
       this.spawnButton.setDisable(true);
       this.numberOfAnt.setDisable(true);
+      this.restartBtn.setDisable(false);
     } else {
       this.emitToAgent(evt);
     }
+  }
+  
+  /**
+   * Restart the application
+   */
+  @FXML
+  public void onRestart() {
+    this.btnMap.setDisable(false);
+    this.numberOfAnt.setDisable(false);
+    this.restartBtn.setDisable(true);
+    this.launched = false;
+    this.spawnButton.setDisable(false);
+    EndAgent _endAgent = new EndAgent();
+    this.emitToAgent(_endAgent);
   }
   
   @Override

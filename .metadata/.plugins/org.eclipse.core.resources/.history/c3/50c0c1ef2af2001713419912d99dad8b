@@ -1,0 +1,141 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.events
+
+import java.util.List
+import utbm.ia54.ant2dgrid.objects.Cell
+import utbm.ia54.ant2dgrid.objects.Vector2i
+import utbm.ia54.ant2dgrid.objects.AntBody
+import utbm.ia54.ant2dgrid.Enum.AntState
+import java.util.UUID
+import java.util.Map
+
+/** 
+ * @author Michel
+ * 
+ */
+ 
+ /*Setup the configuration simulation */
+event ConfigureSimulation
+
+/*Starting the simulation */
+event StartSimulation 
+
+/* 
+ * Initialize an ant body send by the Ant to the environment
+ * @param body the AntBody
+ */
+event AntInitialize{
+	var body : AntBody
+	new(body : AntBody){
+		this.body = body
+	}
+}
+
+/*An event to launch the cycle */
+event Continue
+
+/*
+ * The environment sends the perception to an Ant 
+ * @param list the list of perception
+ */
+event Perception{
+	var list : Map<UUID, List<Cell>>
+	new (list :Map<UUID, List<Cell>>) {
+		this.list = list
+	}
+}
+
+/*
+ * The Ant sends to the environment to move
+ * @param newpos the new position
+ * @param body the AntBodyZ
+ */
+event Influence{
+	var newpos : Vector2i
+	var body : AntBody
+	new(newpos : Vector2i, body : AntBody) {
+		this.newpos = newpos
+		this.body = body
+	}
+}
+
+/*
+ * Accepts the move by the environment
+ * @param newpos the new position
+ * @param accept a boolean
+ */
+event AcceptInfluence{
+	var newpos : Vector2i
+	var accept : boolean
+	new(newpos : Vector2i, accept : boolean) {
+		this.newpos = newpos
+		this.accept = accept
+	}
+}
+
+/*
+ * Accepts the change state by the environment
+ * @param newState the AntState
+ */
+event ChangeState{
+	var newState : AntState
+	new(newState : AntState){
+		this.newState = newState
+	}
+}
+
+/*
+ * The ant send to the environment to inform he picks food
+ * @param body the AntBody
+ */
+event PickFood{
+	var body : AntBody
+	new(body: AntBody){
+		this.body = body
+	}
+}
+
+/*
+ * Accepts to pick the food
+ * @param accept a boolean
+ */
+event AcceptPickFood{
+	var accept : boolean
+	new(accept : boolean) {
+		this.accept = accept
+	}
+}
+
+/*
+ * Accepts to put the food
+ * @param accept a boolean
+ */
+event AcceptPutFood {
+	var accept : boolean
+
+	new(accept : boolean) {
+		this.accept = accept
+	}
+}
+
+/*
+ * The ant send to the environment to inform he puts the food
+ * @param body the AntBody
+ */
+event PutFood{
+	var body : AntBody
+	new(body : AntBody){
+		this.body = body
+	}
+}
+
+/* Informs the ant that he is on the food place*/
+event onFoodPlace
+
+/* Informs the ant that he is on the nest place*/
+event onNestPlace
+
+/*Informs all agent to kill */
+event endAgent

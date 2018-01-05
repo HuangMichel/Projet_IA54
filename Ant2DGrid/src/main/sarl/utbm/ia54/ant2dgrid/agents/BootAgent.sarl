@@ -13,13 +13,15 @@ import utbm.ia54.ant2dgrid.events.ConfigureSimulation
 import utbm.ia54.ant2dgrid.events.StartSimulation
 import io.sarl.core.Destroy
 import utbm.ia54.ant2dgrid.gui.fx.AppExit
+import utbm.ia54.ant2dgrid.events.EndAgent
+import io.sarl.core.Behaviors
 
 /** 
  * @author Michel
  * 
  */
 agent BootAgent {
-	uses Logging, InnerContextAccess, Lifecycle
+	uses Logging, InnerContextAccess, Lifecycle, Behaviors
 
 	var ctrl : Ant2DGridFxViewerController = null
 	
@@ -28,9 +30,9 @@ agent BootAgent {
 		if (ctrl === null) {
 			ctrl = occurrence.parameters.get(0) as Ant2DGridFxViewerController
 		}
+		ctrl.UISpace.register(asEventListener)
 		info("BootAgent launched !, start to spawn the environment !")
 		spawnInContext(typeof(Environment),innerContext, ctrl)
-		innerContext.defaultSpace.emit(ID,new StartSimulation)
 	}
 
 	on ConfigureSimulation {
@@ -53,5 +55,13 @@ agent BootAgent {
 	 */
 	on AppExit [!hasMemberAgent] {
 		killMe
+	}
+
+	on EndAgent [!hasMemberAgent] {
+		killMe
+	}
+
+	on EndAgent[hasMemberAgent]{
+		innerContext.defaultSpace.emit(this.ID, new EndAgent)
 	}
 }

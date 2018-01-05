@@ -22,6 +22,7 @@ import utbm.ia54.ant2dgrid.events.onFoodPlace
 import utbm.ia54.ant2dgrid.events.onNestPlace
 import io.sarl.core.Lifecycle
 import utbm.ia54.ant2dgrid.gui.fx.AppExit
+import utbm.ia54.ant2dgrid.events.EndAgent
 
 /** 
  * @author Michel
@@ -124,8 +125,11 @@ agent Ant {
 		}
 	}
 	
-	on AppExit[isFrom(this.idEnv)]{
-		emit(new AppExit)[it.UUID === this.idEnv]
+	on AppExit [isFrom(this.idEnv)] {
+		killMe
+	}
+
+	on EndAgent[isFrom(this.idEnv)]{
 		killMe
 	}
 }

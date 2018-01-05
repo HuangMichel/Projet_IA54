@@ -136,3 +136,6 @@ event onFoodPlace
 
 /* Informs the ant that he is on the nest place*/
 event onNestPlace
+
+/*Informs all agent to kill */
+event EndAgent
