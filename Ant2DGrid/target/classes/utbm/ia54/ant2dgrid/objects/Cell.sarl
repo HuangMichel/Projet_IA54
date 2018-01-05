@@ -413,6 +413,9 @@ class Cell extends Pane{
 	def toString : String{
 		var string = "Cell : " + vector.toString + "\n Ant : " + antList.size + "\n food : " + pheromoneFood.toString +
 			"\n home : " + pheromoneHome.toString + "\n state : " + state
+		if(state === CellState.FOOD || state === CellState.HOME){
+			string += "\n food : " + foodNest.food
+		}
 		string
 	}
 }

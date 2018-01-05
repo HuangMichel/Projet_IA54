@@ -538,6 +538,12 @@ public class Cell extends Pane {
       String _plus_6 = (_plus_5 + _string_2);
       String _plus_7 = (_plus_6 + "\n state : ");
       String string = (_plus_7 + this.state);
+      if (((this.state == CellState.FOOD) || (this.state == CellState.HOME))) {
+        String _string_3 = string;
+        float _food = this.foodNest.getFood();
+        String _plus_8 = ("\n food : " + Float.valueOf(_food));
+        string = (_string_3 + _plus_8);
+      }
       _xblockexpression = string;
     }
     return _xblockexpression;

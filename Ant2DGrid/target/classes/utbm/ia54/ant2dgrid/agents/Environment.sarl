@@ -33,6 +33,9 @@ import utbm.ia54.ant2dgrid.events.onNestPlace
 import utbm.ia54.ant2dgrid.events.onFoodPlace
 import io.sarl.core.Schedules
 import utbm.ia54.ant2dgrid.gui.fx.AppExit
+import utbm.ia54.ant2dgrid.objects.AntBody
+import utbm.ia54.ant2dgrid.objects.Vector2i
+import java.util.ArrayList
 
 /** 
  * @author Michel
@@ -53,6 +56,8 @@ agent Environment {
 	
 	/*A map of perception for each ant */
 	private var perception = new HashMap<UUID,List<Cell>>
+	
+	private var updateList = new HashMap<AntBody, List<Vector2i>>
 	
 	on Initialize {
 		loggingName = "Environment " + this.ID
@@ -88,38 +93,48 @@ agent Environment {
 	on Continue{
 		info("New cycle")
 		if(!launched){
-			synchronized(grid){
-				antAddresses.forEach [ id, address |
-					var list = getPerception(id)
-					perception.put(id,list)
-				]
-				 
-				if (getHomeCell.numberAnt > 0) {
-					getHomeCell.antList.forEach [id, body|
-						if (body.took === true) {
-							info("ant " + body.ID + " putting food")
-							innerContext.defaultSpace.emit(this.ID, new onNestPlace, Scopes.addresses(getAddress(body.ID)))
-						}
-					]
-				}
+			synchronized (grid) {
 				
-				if(getFoodCell.numberAnt>0){
-					getFoodCell.antList.forEach [ id, body |
-						if (body.took === false) {
-							info("ant " + body.ID + " picking food")
-							innerContext.defaultSpace.emit(this.ID, new onFoodPlace, Scopes.addresses(getAddress(body.ID)))
+				updateList.forEach [ body, listPos |
+					removeAntCell(listPos.get(0), body.ID, body)
+					createAnt(listPos.get(1), body.ID, body)
+				]
+				
+				updateList.clear
+				
+				if (getHomeCell.numberAnt > 0) {
+					getHomeCell.antList.forEach [ id, body |
+						if (body.took === true && body.state === AntState.RETURN_HOME) {
+							info("ant " + body.ID + " putting food")
+							innerContext.defaultSpace.emit(this.ID, new onNestPlace,
+								Scopes.addresses(getAddress(body.ID)))
 						}
 					]
 				}
 
-				in(1000)[innerContext.defaultSpace.emit(ID, new Perception(perception))]
+				if (getFoodCell.numberAnt > 0) {
+					getFoodCell.antList.forEach [ id, body |
+						if (body.took === false && body.state === AntState.SEARCH_FOOD) {
+							info("ant " + body.ID + " picking food")
+							innerContext.defaultSpace.emit(this.ID, new onFoodPlace,
+								Scopes.addresses(getAddress(body.ID)))
+						}
+					]
+				}
 				
+				antAddresses.forEach [ id, address |
+					var list = getPerception(id)
+					perception.put(id,list)
+				]
+
+				in(1000)[innerContext.defaultSpace.emit(ID, new Perception(perception))]
+
 				//FIXME
 				//TROP RAPIDE
-				grid.forEach [cell|
-					if(cell.state===CellState.NORMAL){
-						//cell.evaporationPheromoneHome
-						//cell.evaporationPheromoneFood
+				grid.forEach [ cell |
+					if (cell.state === CellState.NORMAL) {
+						cell.evaporationPheromoneHome
+						cell.evaporationPheromoneFood
 					}
 				]
 			}
@@ -138,6 +153,9 @@ agent Environment {
 				innerContext.defaultSpace.emit(this.ID,
 					new AcceptPickFood(getCell(body.position.x * height + body.position.y).antList.get(body.ID).took),
 					Scopes.addresses(occurrence.source))
+				innerContext.defaultSpace.emit(this.ID, new ChangeState(AntState.RETURN_HOME),
+					Scopes.addresses(occurrence.source))
+					
 			}
 		}
 	}
@@ -151,6 +169,8 @@ agent Environment {
 			getHomeCell.antList.get(body.ID).put
 			innerContext.defaultSpace.emit(this.ID, new AcceptPickFood(getHomeCell.antList.get(body.ID).took),
 				Scopes.addresses(occurrence.source))
+			innerContext.defaultSpace.emit(this.ID, new ChangeState(AntState.SEARCH_FOOD),
+				Scopes.addresses(getAddress(body.ID)))
 		}
 	}
 	
@@ -165,25 +185,12 @@ agent Environment {
 			if (getCell(newPosition.x * height + newPosition.y).state === CellState.NORMAL ||
 				getCell(newPosition.x * height + newPosition.y).state === CellState.FOOD ||					
 				getCell(newPosition.x * height + newPosition.y).state === CellState.HOME) {
-				removeAntCell(oldPosition, body.ID, body)
-				createAnt(newPosition, body.ID, body)
+				var listPos = new ArrayList<Vector2i>
+				listPos.addAll(oldPosition, newPosition)
+				updateList.put(body,listPos)
 				accept = true
-				
-				switch (getCell(newPosition.x * height + newPosition.y).state){
-					case CellState.FOOD:
-						if (body.state === AntState.SEARCH_FOOD) {
-							innerContext.defaultSpace.emit(this.ID, new ChangeState(AntState.RETURN_HOME),
-								Scopes.addresses(occurrence.source))
-						}
-					case CellState.HOME:
-						if (body.state === AntState.RETURN_HOME) {
-							innerContext.defaultSpace.emit(this.ID, new ChangeState(AntState.SEARCH_FOOD),
-								Scopes.addresses(occurrence.source))
-						}
-				}	
 			}
 		}
-
 		counter += 1
 		info(counter + " Ants updated")
 		if (accept) {
