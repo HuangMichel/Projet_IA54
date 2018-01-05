@@ -30,7 +30,7 @@ class Pheromone {
 	new(){
 		this.type = AntState.SEARCH_FOOD
 		this.intensity = 0f
-		this.coefEvaporation = 0.9f
+		this.coefEvaporation = 0.98f
 		this.color = new Color(1, 0, 0, 0)
 		this.objfx = new Rectangle(10, 10, this.color)
 	}
@@ -38,7 +38,7 @@ class Pheromone {
 	new(type : AntState) {
 		this.type = type
 		this.intensity = 0f
-		this.coefEvaporation = 0.85f
+		this.coefEvaporation = 0.98f
 		if (type === AntState.SEARCH_FOOD) {
 			this.color = new Color(1.0, 0, 0, 0)
 			this.objfx = new Rectangle(10, 10, this.color)

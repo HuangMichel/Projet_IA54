@@ -118,7 +118,7 @@ agent Environment {
 				if (getHomeCell.numberAnt > 0) {
 					getHomeCell.antList.forEach [ id, body |
 						if (body.took === true && body.state === AntState.RETURN_HOME) {
-							info("ant " + body.ID + " putting food")
+							//info("ant " + body.ID + " putting food")
 							innerContext.defaultSpace.emit(this.ID, new onNestPlace,
 								Scopes.addresses(getAddress(body.ID)))
 						}
@@ -128,7 +128,7 @@ agent Environment {
 				if (getFoodCell.numberAnt > 0) {
 					getFoodCell.antList.forEach [ id, body |
 						if (body.took === false && body.state === AntState.SEARCH_FOOD) {
-							info("ant " + body.ID + " picking food")
+							//info("ant " + body.ID + " picking food")
 							innerContext.defaultSpace.emit(this.ID, new onFoodPlace,
 								Scopes.addresses(getAddress(body.ID)))
 						}
@@ -214,7 +214,7 @@ agent Environment {
 			}
 		}
 		counter += 1
-		info(counter + " Ants updated")
+		//info(counter + " Ants updated")
 		if (accept) {
 			innerContext.defaultSpace.emit(this.ID,
 				new AcceptInfluence(newPosition, accept),

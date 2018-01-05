@@ -106,9 +106,9 @@ agent Ant {
 	 */
 	on AcceptInfluence [isFrom(this.idEnv)] {
 		if(body.position.equals(occurrence.newpos)){
-			info("Ant " + selfID + " stay in " + body.position)
+			//info("Ant " + selfID + " stay in " + body.position)
 		} else {
-			info("Ant " + getSelfID + " " + body.position + " move to " + occurrence.newpos)
+			//info("Ant " + getSelfID + " " + body.position + " move to " + occurrence.newpos)
 			body.position = occurrence.newpos
 		}
 	}

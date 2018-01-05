@@ -28,7 +28,6 @@ import utbm.ia54.ant2dgrid.capacities.AntCapacity;
 import utbm.ia54.ant2dgrid.events.AcceptInfluence;
 import utbm.ia54.ant2dgrid.events.AcceptPickFood;
 import utbm.ia54.ant2dgrid.events.AcceptPutFood;
-import utbm.ia54.ant2dgrid.events.AntInitialize;
 import utbm.ia54.ant2dgrid.events.ChangeState;
 import utbm.ia54.ant2dgrid.events.EndAgent;
 import utbm.ia54.ant2dgrid.events.Perception;
@@ -38,7 +37,6 @@ import utbm.ia54.ant2dgrid.gui.fx.AppExit;
 import utbm.ia54.ant2dgrid.objects.AntBody;
 import utbm.ia54.ant2dgrid.objects.Cell;
 import utbm.ia54.ant2dgrid.objects.Vector2i;
-import utbm.ia54.ant2dgrid.skills.AntManagerSkill;
 
 /**
  * @author Michel
@@ -64,29 +62,9 @@ public class Ant extends Agent {
   
   @SyntheticMember
   private void $behaviorUnit$Initialize$0(final Initialize occurrence) {
-    Logging _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER = this.$castSkill(Logging.class, (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || this.$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING = this.$getSkill(Logging.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LOGGING);
-    UUID _iD = this.getID();
-    String _plus = ("Ant " + _iD);
-    _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER.setLoggingName(_plus);
-    UUID _iD_1 = this.getID();
-    Object _get = occurrence.parameters[1];
-    AntBody _antBody = new AntBody(_iD_1, ((Vector2i) _get));
-    this.body = _antBody;
-    this.idEnv = occurrence.spawner;
-    Object _get_1 = occurrence.parameters[0];
-    this.selfIDAnt = (((Integer) _get_1)).intValue();
-    Logging _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER_1 = this.$castSkill(Logging.class, (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || this.$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING = this.$getSkill(Logging.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LOGGING);
-    int _selfID = this.getSelfID();
-    String _plus_1 = ("The agent Ant " + Integer.valueOf(_selfID));
-    String _plus_2 = (_plus_1 + " was started.");
-    _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER_1.info(_plus_2);
-    AntManagerSkill _antManagerSkill = new AntManagerSkill();
-    this.<AntManagerSkill>setSkill(_antManagerSkill, AntCapacity.class);
-    DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
-    AntInitialize _antInitialize = new AntInitialize(this.body);
-    _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_antInitialize);
-    AntCapacity _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY$CALLER = this.$castSkill(AntCapacity.class, (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY.get() == null) ? (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY = this.$getSkill(AntCapacity.class)) : this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY);
-    _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY$CALLER.setPositionBefore(this.body.getPosition());
+    throw new Error("Unresolved compilation problems:"
+      + "\nBounds mismatch: The type argument <AntManagerSkill> is not a valid substitute for the bounded type parameter <S extends Skill> of the method setSkill(S, Class<? extends Capacity>[])"
+      + "\nType mismatch: cannot convert from Class<AntCapacity> to Class<? extends Capacity>[]");
   }
   
   @SyntheticMember
@@ -176,23 +154,7 @@ public class Ant extends Agent {
   private void $behaviorUnit$AcceptInfluence$5(final AcceptInfluence occurrence) {
     boolean _equals = this.body.getPosition().equals(occurrence.newpos);
     if (_equals) {
-      Logging _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER = this.$castSkill(Logging.class, (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || this.$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING = this.$getSkill(Logging.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LOGGING);
-      int _selfID = this.getSelfID();
-      String _plus = ("Ant " + Integer.valueOf(_selfID));
-      String _plus_1 = (_plus + " stay in ");
-      Vector2i _position = this.body.getPosition();
-      String _plus_2 = (_plus_1 + _position);
-      _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER.info(_plus_2);
     } else {
-      Logging _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER_1 = this.$castSkill(Logging.class, (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || this.$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING = this.$getSkill(Logging.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LOGGING);
-      int _selfID_1 = this.getSelfID();
-      String _plus_3 = ("Ant " + Integer.valueOf(_selfID_1));
-      String _plus_4 = (_plus_3 + " ");
-      Vector2i _position_1 = this.body.getPosition();
-      String _plus_5 = (_plus_4 + _position_1);
-      String _plus_6 = (_plus_5 + " move to ");
-      String _plus_7 = (_plus_6 + occurrence.newpos);
-      _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER_1.info(_plus_7);
       this.body.setPosition(occurrence.newpos);
     }
   }
@@ -341,18 +303,17 @@ public class Ant extends Agent {
     return $castSkill(DefaultContextInteractions.class, this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
   }
   
-  @Extension
-  @ImportedCapacityFeature(AntCapacity.class)
+  @Extension/* 
+  @ImportedCapacityFeature(AntCapacity.class) */
   @SyntheticMember
   private transient ClearableReference<Skill> $CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY;
   
-  @SyntheticMember
-  @Inline(value = "$castSkill(AntCapacity.class, ($0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY == null || $0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY.get() == null) ? ($0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY = $0$getSkill(AntCapacity.class)) : $0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY)", imported = AntCapacity.class)
+  @SyntheticMember/* 
+  @Inline(value = "$castSkill(AntCapacity.class, ($0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY == null || $0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY.get() == null) ? ($0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY = $0$getSkill(AntCapacity.class)) : $0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY)", imported = AntCapacity.class) */
   private AntCapacity $CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY$CALLER() {
-    if (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY.get() == null) {
-      this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY = $getSkill(AntCapacity.class);
-    }
-    return $castSkill(AntCapacity.class, this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY);
+    throw new Error("Unresolved compilation problems:"
+      + "\nInvalid type: \'utbm.ia54.ant2dgrid.capacities.AntCapacity\'. Only capacities can be used after the keyword \'uses\'."
+      + "\nInvalid type: \'utbm.ia54.ant2dgrid.capacities.AntCapacity\'. Only capacities can be used after the keyword \'uses\'.");
   }
   
   @SyntheticMember

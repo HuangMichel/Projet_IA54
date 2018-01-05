@@ -292,36 +292,18 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
   @Override
   @SyntheticMember
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    EnvironmentManagerSkill other = (EnvironmentManagerSkill) obj;
-    if (other.width != this.width)
-      return false;
-    if (other.height != this.height)
-      return false;
-    if (other.antQuantity != this.antQuantity)
-      return false;
-    if (other.homeCellPosition != this.homeCellPosition)
-      return false;
-    if (other.foodCellPosition != this.foodCellPosition)
-      return false;
-    return super.equals(obj);
+    throw new Error("Unresolved compilation problems:"
+      + "\nInvalid implemented type: \'utbm.ia54.ant2dgrid.capacities.EnvironmentManagerCapacity\'. Only subtypes of \'io.sarl.lang.core.Capacity\' are allowed for \'EnvironmentManagerSkill\'."
+      + "\nInvalid implemented type: \'utbm.ia54.ant2dgrid.capacities.EnvironmentManagerCapacity\'. Only subtypes of \'io.sarl.lang.core.Capacity\' are allowed for \'EnvironmentManagerSkill\'."
+      + "\nMissing implemented type \'io.sarl.lang.core.Capacity\' for \'EnvironmentManagerSkill\'."
+      + "\nMissing implemented type \'io.sarl.lang.core.Capacity\' for \'EnvironmentManagerSkill\'.");
   }
   
   @Override
   @SyntheticMember
   public int hashCode() {
-    int result = super.hashCode();
-    final int prime = 31;
-    result = prime * result + this.width;
-    result = prime * result + this.height;
-    result = prime * result + this.antQuantity;
-    result = prime * result + this.homeCellPosition;
-    result = prime * result + this.foodCellPosition;
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nInvalid implemented type: \'utbm.ia54.ant2dgrid.capacities.EnvironmentManagerCapacity\'. Only subtypes of \'io.sarl.lang.core.Capacity\' are allowed for \'EnvironmentManagerSkill\'."
+      + "\nMissing implemented type \'io.sarl.lang.core.Capacity\' for \'EnvironmentManagerSkill\'.");
   }
 }

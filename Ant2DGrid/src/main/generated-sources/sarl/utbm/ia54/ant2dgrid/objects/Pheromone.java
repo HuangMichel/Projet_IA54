@@ -45,7 +45,7 @@ public class Pheromone {
   public Pheromone() {
     this.type = AntState.SEARCH_FOOD;
     this.intensity = 0f;
-    this.coefEvaporation = 0.9f;
+    this.coefEvaporation = 0.98f;
     Color _color = new Color(1, 0, 0, 0);
     this.color = _color;
     Rectangle _rectangle = new Rectangle(10, 10, this.color);
@@ -55,7 +55,7 @@ public class Pheromone {
   public Pheromone(final AntState type) {
     this.type = type;
     this.intensity = 0f;
-    this.coefEvaporation = 0.85f;
+    this.coefEvaporation = 0.98f;
     if ((type == AntState.SEARCH_FOOD)) {
       Color _color = new Color(1.0, 0, 0, 0);
       this.color = _color;
