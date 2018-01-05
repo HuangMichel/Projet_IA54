@@ -139,3 +139,11 @@ event onNestPlace
 
 /*Informs all agent to kill */
 event EndAgent
+
+/* Pause the Simulation
+ */
+event PauseSim
+
+/* Resume the Simulation
+ */
+event ResumeSim

@@ -13,6 +13,8 @@ import javafx.^event.EventHandler
 import utbm.ia54.ant2dgrid.events.ConfigureSimulation
 import utbm.ia54.ant2dgrid.Enum.CellState
 import utbm.ia54.ant2dgrid.events.EndAgent
+import utbm.ia54.ant2dgrid.events.PauseSim
+import utbm.ia54.ant2dgrid.events.ResumeSim
 
 /** 
  * @author aelez
@@ -35,6 +37,12 @@ class Ant2DGridFxViewerController extends FxViewerController{
 	
 	@FXML
 	private var restartBtn : Button
+
+	@FXML
+	private var pauseButton : Button
+
+	@FXML
+	private var resumeButton : Button
 	
 	/*The grid a list of cell */
 	private var grid : List<Cell>
@@ -137,7 +145,9 @@ class Ant2DGridFxViewerController extends FxViewerController{
 			btnMap.disable = true
 			spawnButton.disable = true
 			numberOfAnt.disable = true
+			resumeButton.disable = true
 			restartBtn.disable = false
+			pauseButton.disable = false
 		}else{
 			emitToAgent(evt)
 		}
@@ -155,4 +165,23 @@ class Ant2DGridFxViewerController extends FxViewerController{
 		spawnButton.disable = false
 		emitToAgent(new EndAgent)
 	}
+	/*
+	 * Pause the Simulation
+	 */
+	@FXML
+	def pauseSim {
+		emitToAgent(new PauseSim)
+		pauseButton.disable = true
+		resumeButton.disable = false
+	}
+	/* 
+	  * Resume the Simulation
+	 */
+	@FXML
+	def resumeSim {
+		emitToAgent(new ResumeSim)
+		pauseButton.disable = false
+		resumeButton.disable = true
+	}
+
 }

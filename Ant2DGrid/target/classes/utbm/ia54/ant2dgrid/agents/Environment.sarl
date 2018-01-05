@@ -37,6 +37,8 @@ import utbm.ia54.ant2dgrid.objects.AntBody
 import utbm.ia54.ant2dgrid.objects.Vector2i
 import java.util.ArrayList
 import utbm.ia54.ant2dgrid.events.EndAgent
+import utbm.ia54.ant2dgrid.events.PauseSim
+import utbm.ia54.ant2dgrid.events.ResumeSim
 
 /** 
  * @author Michel
@@ -60,6 +62,11 @@ agent Environment {
 	
 	/*A list of ant to update */
 	private var updateList = new HashMap<AntBody, List<Vector2i>>
+	
+	/*A boolean to know if we want to pause the simulation or not*/
+	private var paused : Boolean = false
+
+	private var resumed : int = 0
 	
 	on Initialize {
 		loggingName = "Environment " + this.ID
@@ -97,7 +104,7 @@ agent Environment {
 	 */
 	on Continue{
 		info("New cycle")
-		if(!launched){
+		if (!launched && this.paused === false) {
 			
 			synchronized (grid) {
 				
@@ -253,6 +260,19 @@ agent Environment {
 	 */
 	on EndAgent [hasMemberAgent] {
 		innerContext.defaultSpace.emit(ID, new EndAgent)	
+	}
+
+	on PauseSim {
+		paused = true
+	}
+
+	on ResumeSim {
+		paused = false
+		resumed++
+		if (resumed < 2) {
+			emit(new Continue)
+		}
+
 	}
 	
 	/*

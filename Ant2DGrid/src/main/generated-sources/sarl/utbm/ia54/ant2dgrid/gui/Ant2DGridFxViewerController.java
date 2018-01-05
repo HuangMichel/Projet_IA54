@@ -14,10 +14,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
-import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.events.ConfigureSimulation;
 import utbm.ia54.ant2dgrid.events.EndAgent;
+import utbm.ia54.ant2dgrid.events.PauseSim;
+import utbm.ia54.ant2dgrid.events.ResumeSim;
 import utbm.ia54.ant2dgrid.gui.fx.FxViewerController;
 import utbm.ia54.ant2dgrid.objects.Cell;
 import utbm.ia54.ant2dgrid.objects.MapGenerator;
@@ -45,6 +46,12 @@ public class Ant2DGridFxViewerController extends FxViewerController {
   @FXML
   private Button restartBtn;
   
+  @FXML
+  private Button pauseButton;
+  
+  @FXML
+  private Button resumeButton;
+  
   /**
    * The grid a list of cell
    */
@@ -64,7 +71,6 @@ public class Ant2DGridFxViewerController extends FxViewerController {
    * Gets the grid
    * @return grid the list of cell
    */
-  @Pure
   public List<Cell> getGrid() {
     return this.grid;
   }
@@ -73,7 +79,6 @@ public class Ant2DGridFxViewerController extends FxViewerController {
    * Gets the quantity of ant
    * @return quantity
    */
-  @Pure
   public int getAntQuantity() {
     return Integer.parseInt(this.numberOfAnt.getText());
   }
@@ -82,7 +87,6 @@ public class Ant2DGridFxViewerController extends FxViewerController {
    * Gets the number of rows
    * @return width
    */
-  @Pure
   public int getWidth() {
     return this.gridZone.getRowConstraints().size();
   }
@@ -91,7 +95,6 @@ public class Ant2DGridFxViewerController extends FxViewerController {
    * Gets the number of cols
    * @return height
    */
-  @Pure
   public int getHeight() {
     return this.gridZone.getColumnConstraints().size();
   }
@@ -175,7 +178,9 @@ public class Ant2DGridFxViewerController extends FxViewerController {
       this.btnMap.setDisable(true);
       this.spawnButton.setDisable(true);
       this.numberOfAnt.setDisable(true);
+      this.resumeButton.setDisable(true);
       this.restartBtn.setDisable(false);
+      this.pauseButton.setDisable(false);
     } else {
       this.emitToAgent(evt);
     }
@@ -195,8 +200,29 @@ public class Ant2DGridFxViewerController extends FxViewerController {
     this.emitToAgent(_endAgent);
   }
   
+  /**
+   * Pause the Simulation
+   */
+  @FXML
+  public void pauseSim() {
+    PauseSim _pauseSim = new PauseSim();
+    this.emitToAgent(_pauseSim);
+    this.pauseButton.setDisable(true);
+    this.resumeButton.setDisable(false);
+  }
+  
+  /**
+   * Resume the Simulation
+   */
+  @FXML
+  public void resumeSim() {
+    ResumeSim _resumeSim = new ResumeSim();
+    this.emitToAgent(_resumeSim);
+    this.pauseButton.setDisable(false);
+    this.resumeButton.setDisable(true);
+  }
+  
   @Override
-  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -214,7 +240,6 @@ public class Ant2DGridFxViewerController extends FxViewerController {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

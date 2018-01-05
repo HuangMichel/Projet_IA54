@@ -23,7 +23,6 @@ import java.util.UUID;
 import javax.inject.Inject;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Inline;
-import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.AntState;
 import utbm.ia54.ant2dgrid.capacities.AntCapacity;
 import utbm.ia54.ant2dgrid.events.AcceptInfluence;
@@ -105,7 +104,6 @@ public class Ant extends Agent {
   /**
    * Gets the number of ant
    */
-  @Pure
   protected int getSelfID() {
     return this.selfIDAnt;
   }
@@ -122,7 +120,6 @@ public class Ant extends Agent {
   }
   
   @SyntheticMember
-  @Pure
   private boolean $behaviorUnitGuard$onFoodPlace$2(final onFoodPlace it, final onFoodPlace occurrence) {
     boolean _isFrom = it.isFrom(this.idEnv);
     return _isFrom;
@@ -140,7 +137,6 @@ public class Ant extends Agent {
   }
   
   @SyntheticMember
-  @Pure
   private boolean $behaviorUnitGuard$onNestPlace$3(final onNestPlace it, final onNestPlace occurrence) {
     boolean _isFrom = it.isFrom(this.idEnv);
     return _isFrom;
@@ -171,7 +167,6 @@ public class Ant extends Agent {
   }
   
   @SyntheticMember
-  @Pure
   private boolean $behaviorUnitGuard$Perception$4(final Perception it, final Perception occurrence) {
     boolean _isFrom = it.isFrom(this.idEnv);
     return _isFrom;
@@ -203,7 +198,6 @@ public class Ant extends Agent {
   }
   
   @SyntheticMember
-  @Pure
   private boolean $behaviorUnitGuard$AcceptInfluence$5(final AcceptInfluence it, final AcceptInfluence occurrence) {
     boolean _isFrom = it.isFrom(this.idEnv);
     return _isFrom;
@@ -238,7 +232,6 @@ public class Ant extends Agent {
   }
   
   @SyntheticMember
-  @Pure
   private boolean $behaviorUnitGuard$ChangeState$6(final ChangeState it, final ChangeState occurrence) {
     boolean _isFrom = it.isFrom(this.idEnv);
     return _isFrom;
@@ -258,7 +251,6 @@ public class Ant extends Agent {
   }
   
   @SyntheticMember
-  @Pure
   private boolean $behaviorUnitGuard$AcceptPickFood$7(final AcceptPickFood it, final AcceptPickFood occurrence) {
     boolean _isFrom = it.isFrom(this.idEnv);
     return _isFrom;
@@ -278,7 +270,6 @@ public class Ant extends Agent {
   }
   
   @SyntheticMember
-  @Pure
   private boolean $behaviorUnitGuard$AcceptPutFood$8(final AcceptPutFood it, final AcceptPutFood occurrence) {
     boolean _isFrom = it.isFrom(this.idEnv);
     return _isFrom;
@@ -291,7 +282,6 @@ public class Ant extends Agent {
   }
   
   @SyntheticMember
-  @Pure
   private boolean $behaviorUnitGuard$AppExit$9(final AppExit it, final AppExit occurrence) {
     boolean _isFrom = it.isFrom(this.idEnv);
     return _isFrom;
@@ -304,7 +294,6 @@ public class Ant extends Agent {
   }
   
   @SyntheticMember
-  @Pure
   private boolean $behaviorUnitGuard$EndAgent$10(final EndAgent it, final EndAgent occurrence) {
     boolean _isFrom = it.isFrom(this.idEnv);
     return _isFrom;
@@ -316,7 +305,6 @@ public class Ant extends Agent {
   private transient ClearableReference<Skill> $CAPACITY_USE$IO_SARL_CORE_LIFECYCLE;
   
   @SyntheticMember
-  @Pure
   @Inline(value = "$castSkill(Lifecycle.class, ($0$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE == null || $0$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE.get() == null) ? ($0$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE = $0$getSkill(Lifecycle.class)) : $0$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE)", imported = Lifecycle.class)
   private Lifecycle $CAPACITY_USE$IO_SARL_CORE_LIFECYCLE$CALLER() {
     if (this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE == null || this.$CAPACITY_USE$IO_SARL_CORE_LIFECYCLE.get() == null) {
@@ -331,7 +319,6 @@ public class Ant extends Agent {
   private transient ClearableReference<Skill> $CAPACITY_USE$IO_SARL_CORE_LOGGING;
   
   @SyntheticMember
-  @Pure
   @Inline(value = "$castSkill(Logging.class, ($0$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || $0$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) ? ($0$CAPACITY_USE$IO_SARL_CORE_LOGGING = $0$getSkill(Logging.class)) : $0$CAPACITY_USE$IO_SARL_CORE_LOGGING)", imported = Logging.class)
   private Logging $CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER() {
     if (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || this.$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) {
@@ -346,7 +333,6 @@ public class Ant extends Agent {
   private transient ClearableReference<Skill> $CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS;
   
   @SyntheticMember
-  @Pure
   @Inline(value = "$castSkill(DefaultContextInteractions.class, ($0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || $0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? ($0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = $0$getSkill(DefaultContextInteractions.class)) : $0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS)", imported = DefaultContextInteractions.class)
   private DefaultContextInteractions $CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER() {
     if (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) {
@@ -361,7 +347,6 @@ public class Ant extends Agent {
   private transient ClearableReference<Skill> $CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY;
   
   @SyntheticMember
-  @Pure
   @Inline(value = "$castSkill(AntCapacity.class, ($0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY == null || $0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY.get() == null) ? ($0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY = $0$getSkill(AntCapacity.class)) : $0$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY)", imported = AntCapacity.class)
   private AntCapacity $CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY$CALLER() {
     if (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ANTCAPACITY.get() == null) {
@@ -510,7 +495,6 @@ public class Ant extends Agent {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -529,7 +513,6 @@ public class Ant extends Agent {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();
