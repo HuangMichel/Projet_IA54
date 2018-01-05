@@ -281,8 +281,10 @@ class Cell extends Pane{
 	 */
 	def removeAllAnt{
 		synchronized(antList){
-			for(body : antList.entrySet){
-				removeAnt(body.key, body.value)
+			if (!antList.isEmpty) {
+				antList.forEach[k, v|
+					removeAnt(k, v)
+				]
 			}
 		}
 	}

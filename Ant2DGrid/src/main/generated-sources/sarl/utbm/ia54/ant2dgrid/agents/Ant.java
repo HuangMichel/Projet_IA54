@@ -102,6 +102,9 @@ public class Ant extends Agent {
     _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER.info(_plus_3);
   }
   
+  /**
+   * Gets the number of ant
+   */
   @Pure
   protected int getSelfID() {
     return this.selfIDAnt;
@@ -375,6 +378,10 @@ public class Ant extends Agent {
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Initialize$0(occurrence));
   }
   
+  /**
+   * Accepts the change state by the environment
+   * @param newState the AntState
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$ChangeState(final ChangeState occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -385,6 +392,9 @@ public class Ant extends Agent {
     }
   }
   
+  /**
+   * Sends by the environment to inform the ant that he is on the nest place
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$onNestPlace(final onNestPlace occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -395,6 +405,10 @@ public class Ant extends Agent {
     }
   }
   
+  /**
+   * The environment sends the perception to the Ant
+   * @param list the list of perception
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$Perception(final Perception occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -413,6 +427,9 @@ public class Ant extends Agent {
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Destroy$1(occurrence));
   }
   
+  /**
+   * Kill himself after an reset signal
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$EndAgent(final EndAgent occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -423,6 +440,9 @@ public class Ant extends Agent {
     }
   }
   
+  /**
+   * Sends by the environment to inform the ant that he is on the food place
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$onFoodPlace(final onFoodPlace occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -433,6 +453,10 @@ public class Ant extends Agent {
     }
   }
   
+  /**
+   * Accepts to pick the food
+   * @param accept a boolean
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$AcceptPickFood(final AcceptPickFood occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -443,6 +467,10 @@ public class Ant extends Agent {
     }
   }
   
+  /**
+   * Accepts to put the food
+   * @param accept a boolean
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$AcceptPutFood(final AcceptPutFood occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -453,6 +481,9 @@ public class Ant extends Agent {
     }
   }
   
+  /**
+   * Kill himself after an exit signal of the application
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$AppExit(final AppExit occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -463,6 +494,11 @@ public class Ant extends Agent {
     }
   }
   
+  /**
+   * Accepts the move by the environment
+   * @param newpos the new position
+   * @param accept a boolean
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$AcceptInfluence(final AcceptInfluence occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {

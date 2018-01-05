@@ -22,4 +22,7 @@ public class ConfigureSimulation extends Event {
   public ConfigureSimulation(final Address source) {
     super(source);
   }
+  
+  @SyntheticMember
+  private final static long serialVersionUID = 588368462L;
 }

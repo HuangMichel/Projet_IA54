@@ -21,15 +21,7 @@ class Ant2DGridFxApplication extends FxApplication {
 		val bundle = ResourceBundle::getBundle(
 			typeof(Ant2DGridFxApplication).package.name.replaceAll("\\.", "/") + "/" + simpleName)
 
-		//var location = class.getResource(simpleName + ".fxml")
-		var urlstr = new URL(
-			"file:/C:/Users/Michel/Desktop/Projet_IA54/Ant2DGrid/src/main/resources/utbm/ia54/ant2dgrid/gui/" +
-				simpleName + ".fxml")
-		/*var urlstr = new URL(
-			"file:/D:/GitHub/Projet_IA54/Ant2DGrid/src/main/resources/utbm/ia54/ant2dgrid/gui/" +
-				simpleName + ".fxml")*/
-				
-		var location =  urlstr
+		var location = class.getResource(simpleName + ".fxml")
 		var loader = new FXMLLoader
 		loader.location = location
 		loader.builderFactory = new JavaFXBuilderFactory

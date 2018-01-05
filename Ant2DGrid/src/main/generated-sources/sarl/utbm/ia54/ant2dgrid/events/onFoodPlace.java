@@ -22,4 +22,7 @@ public class onFoodPlace extends Event {
   public onFoodPlace(final Address source) {
     super(source);
   }
+  
+  @SyntheticMember
+  private final static long serialVersionUID = 588368462L;
 }

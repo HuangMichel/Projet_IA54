@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 import java.util.UUID;
+import java.util.function.BiConsumer;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
@@ -357,9 +357,13 @@ public class Cell extends Pane {
    */
   public void removeAllAnt() {
     synchronized (this.antList) {
-      Set<Map.Entry<UUID, AntBody>> _entrySet = this.antList.entrySet();
-      for (final Map.Entry<UUID, AntBody> body : _entrySet) {
-        this.removeAnt(body.getKey(), body.getValue());
+      boolean _isEmpty = this.antList.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        final BiConsumer<UUID, AntBody> _function = (UUID k, AntBody v) -> {
+          this.removeAnt(k, v);
+        };
+        this.antList.forEach(_function);
       }
     }
   }

@@ -28,9 +28,7 @@ public class Ant2DGridFxApplication extends FxApplication {
       String _plus = (_replaceAll + "/");
       String _plus_1 = (_plus + simpleName);
       final ResourceBundle bundle = ResourceBundle.getBundle(_plus_1);
-      URL urlstr = new URL(
-        (("file:/C:/Users/Michel/Desktop/Projet_IA54/Ant2DGrid/src/main/resources/utbm/ia54/ant2dgrid/gui/" + simpleName) + ".fxml"));
-      URL location = urlstr;
+      URL location = this.getClass().getResource((simpleName + ".fxml"));
       FXMLLoader loader = new FXMLLoader();
       loader.setLocation(location);
       JavaFXBuilderFactory _javaFXBuilderFactory = new JavaFXBuilderFactory();

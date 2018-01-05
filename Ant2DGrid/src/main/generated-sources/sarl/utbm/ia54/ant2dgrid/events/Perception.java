@@ -49,4 +49,7 @@ public class Perception extends Event {
     result.append("list  = ").append(this.list);
     return result.toString();
   }
+  
+  @SyntheticMember
+  private final static long serialVersionUID = 2934127843L;
 }

@@ -206,6 +206,9 @@ public class BootAgent extends Agent {
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Destroy$2(occurrence));
   }
   
+  /**
+   * Kill itself after an reset signal
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$EndAgent(final EndAgent occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -219,6 +222,9 @@ public class BootAgent extends Agent {
     }
   }
   
+  /**
+   * Setup the configuration simulation
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$ConfigureSimulation(final ConfigureSimulation occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {

@@ -56,23 +56,33 @@ agent Ant {
 		info("The agent Ant " + selfID + " was stopped." + "Killed by " + occurrence.source)
 	}
 	
+	/*
+	 * Gets the number of ant
+	 */
 	def getSelfID : int{
 		this.selfIDAnt
 	}
 	
-	/* */
+	/* 
+	 * Sends by the environment to inform the ant that he is on the food place
+	 */
 	on onFoodPlace [isFrom(this.idEnv)] {
 		info("Ant " + selfID + " on food Place")
 		pickUpFood(body)
 	}
 	
-	/* */
+	/* 
+	 * Sends by the environment to inform the ant that he is on the nest place
+	 */
 	on onNestPlace [isFrom(this.idEnv)] {
 		info("Ant " + selfID + " on nest Place")
 		putDownFood(body)
 	}
 	
-	/* */
+	/*
+	 * The environment sends the perception to the Ant 
+	 * @param list the list of perception
+	 */
 	on Perception [isFrom(this.idEnv)] {	
 		var listPerception = occurrence.list.get(this.ID)
 		var tempVector : Vector2i
@@ -89,7 +99,11 @@ agent Ant {
 		}
 	}
 	
-	/* */
+	/*
+	 * Accepts the move by the environment
+	 * @param newpos the new position
+	 * @param accept a boolean
+	 */
 	on AcceptInfluence [isFrom(this.idEnv)] {
 		if(body.position.equals(occurrence.newpos)){
 			info("Ant " + selfID + " stay in " + body.position)
@@ -99,7 +113,10 @@ agent Ant {
 		}
 	}
 	
-	/* */
+	/*
+	 * Accepts the change state by the environment
+	 * @param newState the AntState
+	 */
 	on ChangeState [isFrom(this.idEnv)] {
 		if (body.state.equals(occurrence.newState)) {
 			info("Ant " + getSelfID +" the same " + body.state + " send by " + occurrence.source)
@@ -109,7 +126,10 @@ agent Ant {
 		}	
 	}
 	
-	/* */
+	/*
+	 * Accepts to pick the food
+	 * @param accept a boolean
+	 */
 	on AcceptPickFood [isFrom(this.idEnv)] {
 		info("Ant " + getSelfID + "take food " + occurrence.accept)
 		if (occurrence.accept === true) {
@@ -117,7 +137,10 @@ agent Ant {
 		}
 	}
 	
-	/* */
+	/*
+	 * Accepts to put the food
+	 * @param accept a boolean
+	 */
 	on AcceptPutFood [isFrom(this.idEnv)] {
 		info("Ant " + getSelfID + "put food " + occurrence.accept)
 		if (occurrence.accept === true) {
@@ -125,10 +148,16 @@ agent Ant {
 		}
 	}
 	
+	/*
+	 * Kill himself after an exit signal of the application
+	 */
 	on AppExit [isFrom(this.idEnv)] {
 		killMe
 	}
 
+	/*
+	 * Kill himself after an reset signal
+	 */
 	on EndAgent[isFrom(this.idEnv)]{
 		killMe
 	}

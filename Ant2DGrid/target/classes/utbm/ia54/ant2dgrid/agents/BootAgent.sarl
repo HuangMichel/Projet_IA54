@@ -34,7 +34,10 @@ agent BootAgent {
 		info("BootAgent launched !, start to spawn the environment !")
 		spawnInContext(typeof(Environment),innerContext, ctrl)
 	}
-
+	
+	/*
+	 * Setup the configuration simulation
+	 */
 	on ConfigureSimulation {
 		innerContext.defaultSpace.emit(ID, new StartSimulation)
 	}
@@ -57,10 +60,16 @@ agent BootAgent {
 		killMe
 	}
 
+	/*
+	 * Kill itself after an reset signal
+	 */
 	on EndAgent [!hasMemberAgent] {
 		killMe
 	}
-
+	
+	/*
+	 * Kill all inner agent after an reset signal
+	 */
 	on EndAgent[hasMemberAgent]{
 		innerContext.defaultSpace.emit(this.ID, new EndAgent)
 	}

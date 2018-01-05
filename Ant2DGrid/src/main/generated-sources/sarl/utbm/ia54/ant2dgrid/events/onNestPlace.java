@@ -22,4 +22,7 @@ public class onNestPlace extends Event {
   public onNestPlace(final Address source) {
     super(source);
   }
+  
+  @SyntheticMember
+  private final static long serialVersionUID = 588368462L;
 }

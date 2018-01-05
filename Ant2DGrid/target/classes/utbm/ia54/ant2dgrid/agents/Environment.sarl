@@ -82,8 +82,8 @@ agent Environment {
 		}
 	}
 	
-	/*Starting the simulation
-	 * Spawn all ants
+	/*
+	 * Starting the simulation, spawn all ants
 	 */
 	on StartSimulation{
 		info("Starting Simulation")
@@ -92,9 +92,13 @@ agent Environment {
 		}
 	}
 	
+	/*
+	 * New cycle
+	 */
 	on Continue{
 		info("New cycle")
 		if(!launched){
+			
 			synchronized (grid) {
 				
 				updateList.forEach [ body, listPos |
@@ -131,9 +135,7 @@ agent Environment {
 
 				in(1000)[innerContext.defaultSpace.emit(ID, new Perception(perception))]
 
-				//FIXME
-				//TROP RAPIDE
-				in(3000)[grid.forEach [ cell |
+				in(10000)[grid.forEach [ cell |
 						if (cell.state === CellState.NORMAL) {
 							cell.evaporationPheromoneHome
 							cell.evaporationPheromoneFood
@@ -145,7 +147,10 @@ agent Environment {
 		}
 	}
 	
-	/* */
+	/*
+	 * Sends by the ant to inform he picks food
+	 * @param body the AntBody
+	 */
 	on PickFood [occurrence.isInInnerDefaultSpace] {
 		var body = occurrence.body
 		if(body.state===AntState.SEARCH_FOOD && body.took === false){
@@ -163,7 +168,10 @@ agent Environment {
 		}
 	}
 	
-	/* */
+	/*
+	 * Sends by the ant to inform he puts the food
+	 * @param body the AntBody
+	 */
 	on PutFood [occurrence.isInInnerDefaultSpace] {
 		var body = occurrence.body
 		if (body.state === AntState.RETURN_HOME && body.took === true) {
@@ -177,7 +185,11 @@ agent Environment {
 		}
 	}
 	
-	/* */
+	/*
+	 * Sends by the ant to inform he moves
+	 * @param newpos the new position
+	 * @param body the AntBodyZ
+	 */
 	on Influence [occurrence.isInInnerDefaultSpace] {
 		var accept = false
 		var body = occurrence.body
@@ -212,25 +224,40 @@ agent Environment {
 		info("Agent Environment go die!")
 	}
 	
+	/*
+	 * Kill itself after an exit signal
+	 */
 	on AppExit[!hasMemberAgent] {
 		launched = false
 		killMe
 	}
 	
+	/*
+	 * Kill all inner agent after an exit signal
+	 */
 	on AppExit [hasMemberAgent] {
 		innerContext.defaultSpace.emit(this.ID, new AppExit)
 	}
 	
+	/*
+	 * Kill itself after a reset signal
+	 */
 	on EndAgent [!hasMemberAgent] {
 		launched = false
 		restartMap
 		killMe
 	}
 	
+	/*
+	 * Kill all inner agents after a reset signal
+	 */
 	on EndAgent [hasMemberAgent] {
 		innerContext.defaultSpace.emit(ID, new EndAgent)	
 	}
 	
+	/*
+	 * Restarts the map, kill all ants on the map
+	 */
 	def restartMap{
 		if(launched === false){
 			synchronized(grid){
@@ -243,13 +270,15 @@ agent Environment {
 							cell.food.food = 0
 						}
 					}
-					if(cell.pheromoneFoodIntensity>0){
-						cell.pheromoneFood.intensity = 0
-						cell.pheromoneFood.evaporation
-					}
-					if (cell.pheromoneHomeIntensity > 0) {
-						cell.pheromoneHome.intensity = 0
-						cell.pheromoneHome.evaporation
+					if (cell.state === CellState.NORMAL) {
+						if (cell.pheromoneFoodIntensity > 0) {
+							cell.pheromoneFood.intensity = 0
+							cell.pheromoneFood.evaporation
+						}
+						if (cell.pheromoneHomeIntensity > 0) {
+							cell.pheromoneHome.intensity = 0
+							cell.pheromoneHome.evaporation
+						}
 					}
 				]
 			}

@@ -52,4 +52,7 @@ public class Influence extends Event {
     result.append("body  = ").append(this.body);
     return result.toString();
   }
+  
+  @SyntheticMember
+  private final static long serialVersionUID = 1686467621L;
 }

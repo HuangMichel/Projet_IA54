@@ -237,7 +237,7 @@ public class Environment extends Agent {
           };
           _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY$CALLER_5.getGrid().forEach(_function_6);
         };
-        _$CAPACITY_USE$IO_SARL_CORE_SCHEDULES$CALLER_1.in(3000, _function_5);
+        _$CAPACITY_USE$IO_SARL_CORE_SCHEDULES$CALLER_1.in(10000, _function_5);
       }
     }
   }
@@ -455,6 +455,9 @@ public class Environment extends Agent {
     return _hasMemberAgent;
   }
   
+  /**
+   * Restarts the map, kill all ants on the map
+   */
   protected void restartMap() {
     if ((this.launched == Boolean.valueOf(false))) {
       synchronized (this.$castSkill(EnvironmentManagerCapacity.class, (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY == null || this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY.get() == null) ? (this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY = this.$getSkill(EnvironmentManagerCapacity.class)) : this.$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY).getGrid()) {
@@ -473,19 +476,23 @@ public class Environment extends Agent {
               _food_1.setFood(0);
             }
           }
-          float _pheromoneFoodIntensity = cell.getPheromoneFoodIntensity();
-          boolean _greaterThan_1 = (_pheromoneFoodIntensity > 0);
-          if (_greaterThan_1) {
-            Pheromone _pheromoneFood = cell.getPheromoneFood();
-            _pheromoneFood.setIntensity(0);
-            cell.getPheromoneFood().evaporation();
-          }
-          float _pheromoneHomeIntensity = cell.getPheromoneHomeIntensity();
-          boolean _greaterThan_2 = (_pheromoneHomeIntensity > 0);
-          if (_greaterThan_2) {
-            Pheromone _pheromoneHome = cell.getPheromoneHome();
-            _pheromoneHome.setIntensity(0);
-            cell.getPheromoneHome().evaporation();
+          CellState _state = cell.getState();
+          boolean _tripleEquals = (_state == CellState.NORMAL);
+          if (_tripleEquals) {
+            float _pheromoneFoodIntensity = cell.getPheromoneFoodIntensity();
+            boolean _greaterThan_1 = (_pheromoneFoodIntensity > 0);
+            if (_greaterThan_1) {
+              Pheromone _pheromoneFood = cell.getPheromoneFood();
+              _pheromoneFood.setIntensity(0);
+              cell.getPheromoneFood().evaporation();
+            }
+            float _pheromoneHomeIntensity = cell.getPheromoneHomeIntensity();
+            boolean _greaterThan_2 = (_pheromoneHomeIntensity > 0);
+            if (_greaterThan_2) {
+              Pheromone _pheromoneHome = cell.getPheromoneHome();
+              _pheromoneHome.setIntensity(0);
+              cell.getPheromoneHome().evaporation();
+            }
           }
         };
         _$CAPACITY_USE$UTBM_IA54_ANT2DGRID_CAPACITIES_ENVIRONMENTMANAGERCAPACITY$CALLER.getGrid().forEach(_function);
@@ -591,6 +598,9 @@ public class Environment extends Agent {
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Initialize$0(occurrence));
   }
   
+  /**
+   * New cycle
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$Continue(final Continue occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -599,6 +609,10 @@ public class Environment extends Agent {
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Continue$3(occurrence));
   }
   
+  /**
+   * Sends by the ant to inform he puts the food
+   * @param body the AntBody
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$PutFood(final PutFood occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -609,6 +623,11 @@ public class Environment extends Agent {
     }
   }
   
+  /**
+   * Sends by the ant to inform he moves
+   * @param newpos the new position
+   * @param body the AntBodyZ
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$Influence(final Influence occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -620,8 +639,7 @@ public class Environment extends Agent {
   }
   
   /**
-   * Starting the simulation
-   * Spawn all ants
+   * Starting the simulation, spawn all ants
    */
   @SyntheticMember
   @PerceptGuardEvaluator
@@ -639,6 +657,9 @@ public class Environment extends Agent {
     ___SARLlocal_runnableCollection.add(() -> $behaviorUnit$Destroy$7(occurrence));
   }
   
+  /**
+   * Kill itself after a reset signal
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$EndAgent(final EndAgent occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -665,6 +686,10 @@ public class Environment extends Agent {
     }
   }
   
+  /**
+   * Sends by the ant to inform he picks food
+   * @param body the AntBody
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$PickFood(final PickFood occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
@@ -675,6 +700,9 @@ public class Environment extends Agent {
     }
   }
   
+  /**
+   * Kill itself after an exit signal
+   */
   @SyntheticMember
   @PerceptGuardEvaluator
   private void $guardEvaluator$AppExit(final AppExit occurrence, final Collection<Runnable> ___SARLlocal_runnableCollection) {
