@@ -131,7 +131,6 @@ agent Ant {
 	 * @param accept a boolean
 	 */
 	on AcceptPickFood [isFrom(this.idEnv)] {
-		info("Ant " + getSelfID + "take food " + occurrence.accept)
 		if (occurrence.accept === true) {
 			body.setTook
 		}
@@ -142,7 +141,6 @@ agent Ant {
 	 * @param accept a boolean
 	 */
 	on AcceptPutFood [isFrom(this.idEnv)] {
-		info("Ant " + getSelfID + "put food " + occurrence.accept)
 		if (occurrence.accept === true) {
 			body.put
 		}

@@ -1,0 +1,322 @@
+/** 
+ * 
+ */
+package utbm.ia54.ant2dgrid.agents
+
+import io.sarl.core.Initialize
+import io.sarl.core.Logging
+import utbm.ia54.ant2dgrid.gui.Ant2DGridFxViewerController
+import io.sarl.core.InnerContextAccess
+import io.sarl.core.Lifecycle
+import utbm.ia54.ant2dgrid.events.StartSimulation
+import io.sarl.core.Destroy
+import utbm.ia54.ant2dgrid.events.AntInitialize
+import utbm.ia54.ant2dgrid.capacities.EnvironmentManagerCapacity
+import utbm.ia54.ant2dgrid.skills.EnvironmentManagerSkill
+import utbm.ia54.ant2dgrid.events.Continue
+import io.sarl.util.Scopes
+import utbm.ia54.ant2dgrid.events.Perception
+import utbm.ia54.ant2dgrid.events.Influence
+import utbm.ia54.ant2dgrid.Enum.CellState
+import utbm.ia54.ant2dgrid.events.AcceptInfluence
+import io.sarl.core.DefaultContextInteractions
+import utbm.ia54.ant2dgrid.Enum.AntState
+import utbm.ia54.ant2dgrid.events.ChangeState
+import utbm.ia54.ant2dgrid.objects.Cell
+import java.util.List
+import java.util.UUID
+import java.util.HashMap
+import utbm.ia54.ant2dgrid.events.PickFood
+import utbm.ia54.ant2dgrid.events.PutFood
+import utbm.ia54.ant2dgrid.events.AcceptPickFood
+import utbm.ia54.ant2dgrid.events.onNestPlace
+import utbm.ia54.ant2dgrid.events.onFoodPlace
+import io.sarl.core.Schedules
+import utbm.ia54.ant2dgrid.gui.fx.AppExit
+import utbm.ia54.ant2dgrid.objects.AntBody
+import utbm.ia54.ant2dgrid.objects.Vector2i
+import java.util.ArrayList
+import utbm.ia54.ant2dgrid.events.EndAgent
+import utbm.ia54.ant2dgrid.events.PauseSim
+import utbm.ia54.ant2dgrid.events.ResumeSim
+
+/** 
+ * @author Michel
+ * 
+ */
+agent Environment {
+	
+	uses Lifecycle, Logging, InnerContextAccess, EnvironmentManagerCapacity, DefaultContextInteractions, Schedules
+
+	/* The fx viewer controller */
+	private var ctrl : Ant2DGridFxViewerController = null
+	
+	/*An boolean to know if the app is launched */
+	private var launched : Boolean = false
+	
+	/*The counter count the number of ant is updated */
+	private var counter = 0
+	
+	/*A map of perception for each ant */
+	private var perception = new HashMap<UUID,List<Cell>>
+	
+	/*A list of ant to update */
+	private var updateList = new HashMap<AntBody, List<Vector2i>>
+	
+	/*A boolean to know if we want to pause the simulation or not*/
+	private var paused : Boolean = false
+	
+	on Initialize {
+		loggingName = "Environment " + this.ID
+		if (ctrl === null) {
+			ctrl = occurrence.parameters.get(0) as Ant2DGridFxViewerController
+		}
+		setSkill(new EnvironmentManagerSkill(ctrl.width, ctrl.height, ctrl.grid, ctrl.antQuantity), typeof(EnvironmentManagerCapacity))
+		info("The agent Environment was started.")
+	}
+	
+	/*Initialize an ant body to the home cell */
+	on AntInitialize [occurrence.isInInnerDefaultSpace] {
+		counter += 1
+		info("Ant " + counter + " created " + occurrence.source.UUID)
+		setAddress(occurrence.source.UUID, occurrence.source)
+		createAnt(homeCell.position, occurrence.source.UUID, occurrence.body)
+		if (counter === ctrl.antQuantity){
+			emit(new Continue)
+			counter = 0
+		}
+	}
+	
+	/*
+	 * Starting the simulation, spawn all ants
+	 */
+	on StartSimulation{
+		info("Starting Simulation")
+		for(var i = 0; i<antQuantity; i++){
+			spawnInContext(typeof(Ant), innerContext,#[i+1, homeCell.position])
+		}
+	}
+	
+	/*
+	 * New cycle
+	 */
+	on Continue{
+		info("New cycle")
+		if (!launched) {
+			
+			if (paused===true) {
+				
+				synchronized (grid) {
+
+					updateList.forEach [ body, listPos |
+						removeAntCell(listPos.get(0), body.ID, body)
+						createAnt(listPos.get(1), body.ID, body)
+					]
+
+					updateList.clear
+
+					if (getHomeCell.numberAnt > 0) {
+						getHomeCell.antList.forEach [ id, body |
+							if (body.took === true && body.state === AntState.RETURN_HOME) {
+								info("ant " + body.ID + " putting food")
+								innerContext.defaultSpace.emit(this.ID, new onNestPlace,
+									Scopes.addresses(getAddress(body.ID)))
+							}
+						]
+					}
+
+					if (getFoodCell.numberAnt > 0) {
+						getFoodCell.antList.forEach [ id, body |
+							if (body.took === false && body.state === AntState.SEARCH_FOOD) {
+								info("ant " + body.ID + " picking food")
+								innerContext.defaultSpace.emit(this.ID, new onFoodPlace,
+									Scopes.addresses(getAddress(body.ID)))
+							}
+						]
+					}
+
+					antAddresses.forEach [ id, address |
+						var list = getPerception(id)
+						perception.put(id, list)
+					]
+
+					in(1000)[innerContext.defaultSpace.emit(ID, new Perception(perception))]
+
+					in(10000) [
+						grid.forEach [ cell |
+							if (cell.state === CellState.NORMAL) {
+								cell.evaporationPheromoneHome
+								cell.evaporationPheromoneFood
+							}
+						]
+					]
+				}
+			} else {
+				
+				antAddresses.forEach [ id, address |
+					var list = getPerception(id)
+					perception.put(id, list)
+				]
+
+				in(1000)[innerContext.defaultSpace.emit(ID, new Perception(perception))]
+
+				in(10000) [
+					grid.forEach [ cell |
+						if (cell.state === CellState.NORMAL) {
+							cell.evaporationPheromoneHome
+							cell.evaporationPheromoneFood
+						}
+					]
+				]
+			}
+		}
+			
+	}
+	
+	/*
+	 * Sends by the ant to inform he picks food
+	 * @param body the AntBody
+	 */
+	on PickFood [occurrence.isInInnerDefaultSpace] {
+		var body = occurrence.body
+		if(body.state===AntState.SEARCH_FOOD && body.took === false){
+			if (getCell(body.position.x * height + body.position.y).state === CellState.FOOD) {
+				info("Ant " + occurrence.body.ID + " is picking food")
+				getCell(body.position.x * height + body.position.y).food.decrementFood(body.^capacity)
+				getCell(body.position.x * height + body.position.y).antList.get(body.ID).setTook
+				innerContext.defaultSpace.emit(this.ID,
+					new AcceptPickFood(getCell(body.position.x * height + body.position.y).antList.get(body.ID).took),
+					Scopes.addresses(occurrence.source))
+				innerContext.defaultSpace.emit(this.ID, new ChangeState(AntState.RETURN_HOME),
+					Scopes.addresses(occurrence.source))
+					
+			}
+		}
+	}
+	
+	/*
+	 * Sends by the ant to inform he puts the food
+	 * @param body the AntBody
+	 */
+	on PutFood [occurrence.isInInnerDefaultSpace] {
+		var body = occurrence.body
+		if (body.state === AntState.RETURN_HOME && body.took === true) {
+			info("Ant " + occurrence.body.ID + " is putting food")
+			getHomeCell.food.incrementFood(body.^capacity)
+			getHomeCell.antList.get(body.ID).put
+			innerContext.defaultSpace.emit(this.ID, new AcceptPickFood(getHomeCell.antList.get(body.ID).took),
+				Scopes.addresses(occurrence.source))
+			innerContext.defaultSpace.emit(this.ID, new ChangeState(AntState.SEARCH_FOOD),
+				Scopes.addresses(getAddress(body.ID)))
+		}
+	}
+	
+	/*
+	 * Sends by the ant to inform he moves
+	 * @param newpos the new position
+	 * @param body the AntBodyZ
+	 */
+	on Influence [occurrence.isInInnerDefaultSpace] {
+		var accept = false
+		var body = occurrence.body
+		var oldPosition = occurrence.body.position
+		var newPosition = occurrence.newpos
+	
+		synchronized (grid) {
+			if (getCell(newPosition.x * height + newPosition.y).state === CellState.NORMAL ||
+				getCell(newPosition.x * height + newPosition.y).state === CellState.FOOD ||					
+				getCell(newPosition.x * height + newPosition.y).state === CellState.HOME) {
+				var listPos = new ArrayList<Vector2i>
+				listPos.addAll(oldPosition, newPosition)
+				updateList.put(body,listPos)
+				accept = true
+			}
+		}
+		counter += 1
+		info(counter + " Ants updated")
+		if (accept) {
+			innerContext.defaultSpace.emit(this.ID,
+				new AcceptInfluence(newPosition, accept),
+				Scopes.addresses(occurrence.source))
+			if (counter === ctrl.antQuantity) {
+				counter = 0
+				perception.clear
+				emit(new Continue)
+			}
+		}
+	}
+	
+	on Destroy{
+		info("Agent Environment go die!")
+	}
+	
+	/*
+	 * Kill itself after an exit signal
+	 */
+	on AppExit[!hasMemberAgent] {
+		launched = false
+		killMe
+	}
+	
+	/*
+	 * Kill all inner agent after an exit signal
+	 */
+	on AppExit [hasMemberAgent] {
+		innerContext.defaultSpace.emit(this.ID, new AppExit)
+	}
+	
+	/*
+	 * Kill itself after a reset signal
+	 */
+	on EndAgent [!hasMemberAgent] {
+		launched = false
+		restartMap
+		killMe
+	}
+	
+	/*
+	 * Kill all inner agents after a reset signal
+	 */
+	on EndAgent [hasMemberAgent] {
+		innerContext.defaultSpace.emit(ID, new EndAgent)	
+	}
+
+	on PauseSim {
+		paused = true
+	}
+
+	on ResumeSim {
+		paused = false
+		emit(new Continue)
+	}
+	
+	/*
+	 * Restarts the map, kill all ants on the map
+	 */
+	def restartMap{
+		if(launched === false){
+			synchronized(grid){
+				grid.forEach[cell |
+					if (cell.numberAnt >=1) {
+						cell.removeAllAnt
+					}
+					if (cell.state === CellState.HOME || cell.state === CellState.FOOD) {
+						if (cell.food.food > 0) {
+							cell.food.food = 0
+						}
+					}
+					if (cell.state === CellState.NORMAL) {
+						if (cell.pheromoneFoodIntensity > 0) {
+							cell.pheromoneFood.intensity = 0
+							cell.pheromoneFood.evaporation
+						}
+						if (cell.pheromoneHomeIntensity > 0) {
+							cell.pheromoneHome.intensity = 0
+							cell.pheromoneHome.evaporation
+						}
+					}
+				]
+			}
+		}
+	}
+}

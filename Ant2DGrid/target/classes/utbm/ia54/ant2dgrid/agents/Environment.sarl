@@ -64,9 +64,8 @@ agent Environment {
 	private var updateList = new HashMap<AntBody, List<Vector2i>>
 	
 	/*A boolean to know if we want to pause the simulation or not*/
-	private var paused : Boolean = false
-
-	private var resumed : int = 0
+	private var paused = false
+	
 	
 	on Initialize {
 		loggingName = "Environment " + this.ID
@@ -104,54 +103,60 @@ agent Environment {
 	 */
 	on Continue{
 		info("New cycle")
-		if (!launched && this.paused === false) {
+		
+		if (!launched) {
 			
-			synchronized (grid) {
+			if (paused===false) {
 				
-				updateList.forEach [ body, listPos |
-					removeAntCell(listPos.get(0), body.ID, body)
-					createAnt(listPos.get(1), body.ID, body)
-				]
-				
-				updateList.clear
-				
-				if (getHomeCell.numberAnt > 0) {
-					getHomeCell.antList.forEach [ id, body |
-						if (body.took === true && body.state === AntState.RETURN_HOME) {
-							info("ant " + body.ID + " putting food")
-							innerContext.defaultSpace.emit(this.ID, new onNestPlace,
-								Scopes.addresses(getAddress(body.ID)))
-						}
+				synchronized (grid) {
+					
+					updateList.forEach [ body, listPos |
+						removeAntCell(listPos.get(0), body.ID, body)
+						createAnt(listPos.get(1), body.ID, body)
+					]
+
+					updateList.clear
+
+					if (getHomeCell.numberAnt > 0) {
+						getHomeCell.antList.forEach [ id, body |
+							if (body.took === true && body.state === AntState.RETURN_HOME) {
+								info("ant " + body.ID + " putting food")
+								innerContext.defaultSpace.emit(this.ID, new onNestPlace,
+									Scopes.addresses(getAddress(body.ID)))
+							}
+						]
+					}
+
+					if (getFoodCell.numberAnt > 0) {
+						getFoodCell.antList.forEach [ id, body |
+							if (body.took === false && body.state === AntState.SEARCH_FOOD) {
+								info("ant " + body.ID + " picking food")
+								innerContext.defaultSpace.emit(this.ID, new onFoodPlace,
+									Scopes.addresses(getAddress(body.ID)))
+							}
+						]
+					}
+
+					antAddresses.forEach [ id, address |
+						var list = getPerception(id)
+						perception.put(id, list)
+					]
+
+					in(1000)[innerContext.defaultSpace.emit(ID, new Perception(perception))]
+
+					in(10000) [
+						grid.forEach [ cell |
+							if (cell.state === CellState.NORMAL) {
+								cell.evaporationPheromoneHome
+								cell.evaporationPheromoneFood
+							}
+						]
 					]
 				}
-
-				if (getFoodCell.numberAnt > 0) {
-					getFoodCell.antList.forEach [ id, body |
-						if (body.took === false && body.state === AntState.SEARCH_FOOD) {
-							info("ant " + body.ID + " picking food")
-							innerContext.defaultSpace.emit(this.ID, new onFoodPlace,
-								Scopes.addresses(getAddress(body.ID)))
-						}
-					]
-				}
-				
-				antAddresses.forEach [ id, address |
-					var list = getPerception(id)
-					perception.put(id,list)
-				]
-
-				in(1000)[innerContext.defaultSpace.emit(ID, new Perception(perception))]
-
-				in(10000)[grid.forEach [ cell |
-						if (cell.state === CellState.NORMAL) {
-							cell.evaporationPheromoneHome
-							cell.evaporationPheromoneFood
-						}
-					]
-				]
 			}
 			
 		}
+			
 	}
 	
 	/*
@@ -268,11 +273,8 @@ agent Environment {
 
 	on ResumeSim {
 		paused = false
-		resumed++
-		if (resumed < 2) {
-			emit(new Continue)
-		}
-
+		counter = 0
+		updateList.clear
 	}
 	
 	/*

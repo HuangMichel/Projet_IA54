@@ -165,6 +165,7 @@ class Ant2DGridFxViewerController extends FxViewerController{
 		spawnButton.disable = false
 		emitToAgent(new EndAgent)
 	}
+	
 	/*
 	 * Pause the Simulation
 	 */
@@ -174,6 +175,7 @@ class Ant2DGridFxViewerController extends FxViewerController{
 		pauseButton.disable = true
 		resumeButton.disable = false
 	}
+	
 	/* 
 	  * Resume the Simulation
 	 */
