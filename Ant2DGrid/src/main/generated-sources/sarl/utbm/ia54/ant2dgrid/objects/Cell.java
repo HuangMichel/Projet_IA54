@@ -360,10 +360,12 @@ public class Cell extends Pane {
       boolean _isEmpty = this.antList.isEmpty();
       boolean _not = (!_isEmpty);
       if (_not) {
+        final Map<UUID, AntBody> list = this.antList;
         final BiConsumer<UUID, AntBody> _function = (UUID k, AntBody v) -> {
           this.removeAnt(k, v);
         };
-        this.antList.forEach(_function);
+        list.forEach(_function);
+        list.clear();
       }
     }
   }

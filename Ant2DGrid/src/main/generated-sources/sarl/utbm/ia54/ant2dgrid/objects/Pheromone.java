@@ -7,6 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
+import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.AntState;
 
 /**
@@ -45,7 +46,7 @@ public class Pheromone {
   public Pheromone() {
     this.type = AntState.SEARCH_FOOD;
     this.intensity = 0f;
-    this.coefEvaporation = 0.9f;
+    this.coefEvaporation = 0.98f;
     Color _color = new Color(1, 0, 0, 0);
     this.color = _color;
     Rectangle _rectangle = new Rectangle(10, 10, this.color);
@@ -55,7 +56,7 @@ public class Pheromone {
   public Pheromone(final AntState type) {
     this.type = type;
     this.intensity = 0f;
-    this.coefEvaporation = 0.85f;
+    this.coefEvaporation = 0.98f;
     if ((type == AntState.SEARCH_FOOD)) {
       Color _color = new Color(1.0, 0, 0, 0);
       this.color = _color;
@@ -90,6 +91,7 @@ public class Pheromone {
    * Gets the type
    * @return type
    */
+  @Pure
   public AntState getType() {
     return this.type;
   }
@@ -98,6 +100,7 @@ public class Pheromone {
    * Gets the intensity
    * @return intensity
    */
+  @Pure
   public float getIntensity() {
     return this.intensity;
   }
@@ -106,6 +109,7 @@ public class Pheromone {
    * Gets the coefficient of evaporation
    * @return coefEvaporation
    */
+  @Pure
   public float getCoefEvaportation() {
     return this.coefEvaporation;
   }
@@ -176,15 +180,18 @@ public class Pheromone {
    * Gets the shape
    * @return shape
    */
+  @Pure
   public Shape getObjfx() {
     return this.objfx;
   }
   
+  @Pure
   public String toString() {
     return ("Intensity : " + Float.valueOf(this.intensity));
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -202,6 +209,7 @@ public class Pheromone {
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

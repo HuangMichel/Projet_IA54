@@ -37,6 +37,8 @@ import utbm.ia54.ant2dgrid.objects.AntBody
 import utbm.ia54.ant2dgrid.objects.Vector2i
 import java.util.ArrayList
 import utbm.ia54.ant2dgrid.events.EndAgent
+import utbm.ia54.ant2dgrid.events.PauseSim
+import utbm.ia54.ant2dgrid.events.ResumeSim
 
 /** 
  * @author Michel
@@ -59,7 +61,11 @@ agent Environment {
 	private var perception = new HashMap<UUID,List<Cell>>
 	
 	/*A list of ant to update */
-	private var updateList = new HashMap<AntBody, Vector2i>
+	private var updateList = new HashMap<AntBody, List<Vector2i>>
+	
+	/*A boolean to know if we want to pause the simulation or not*/
+	private var paused = false
+	
 	
 	on Initialize {
 		loggingName = "Environment " + this.ID
@@ -82,8 +88,8 @@ agent Environment {
 		}
 	}
 	
-	/*Starting the simulation
-	 * Spawn all ants
+	/*
+	 * Starting the simulation, spawn all ants
 	 */
 	on StartSimulation{
 		info("Starting Simulation")
@@ -92,59 +98,73 @@ agent Environment {
 		}
 	}
 	
-	/*New Cycle */
+	/*
+	 * New cycle
+	 */
 	on Continue{
 		info("New cycle")
-		if(!launched){
-			synchronized (grid) {
+		
+		if (!launched) {
+			
+			if (paused===false) {
 				
-				updateList.forEach [ body, pos |
-					removeAntCell(pos, body.ID, body)
-					createAnt(body.position, body.ID, body)
-				]
-				
-				updateList.clear
-				
-				if (getHomeCell.numberAnt > 0) {
-					getHomeCell.antList.forEach [ id, body |
-						if (body.took === true && body.state === AntState.RETURN_HOME) {
-							info("ant " + body.ID + " putting food")
-							innerContext.defaultSpace.emit(this.ID, new onNestPlace,
-								Scopes.addresses(getAddress(body.ID)))
-						}
+				synchronized (grid) {
+					
+					if (!updateList.isEmpty) {
+						updateList.forEach [ body, listPos |
+							removeAntCell(listPos.get(0), body.ID, body)
+							createAnt(listPos.get(1), body.ID, body)
+						]
+
+						updateList.clear
+					}
+					
+					if (getHomeCell.numberAnt > 0) {
+						getHomeCell.antList.forEach [ id, body |	
+							if (body.took === true && body.state === AntState.RETURN_HOME) {
+								//info("ant " + body.ID + " putting food")
+								innerContext.defaultSpace.emit(this.ID, new onNestPlace,
+									Scopes.addresses(getAddress(body.ID)))
+							}
+						]
+					}
+
+					if (getFoodCell.numberAnt > 0) {
+						getFoodCell.antList.forEach [ id, body |
+							if (body.took === false && body.state === AntState.SEARCH_FOOD) {
+								//info("ant " + body.ID + " picking food")
+								innerContext.defaultSpace.emit(this.ID, new onFoodPlace,
+									Scopes.addresses(getAddress(body.ID)))
+							}
+						]
+					}
+
+					antAddresses.forEach [ id, address |
+							var list = getPerception(id)
+							perception.put(id, list)
+					]
+
+					in(1000)[innerContext.defaultSpace.emit(ID, new Perception(perception))]
+
+					in(10000) [
+						grid.forEach [ cell |
+							if (cell.state === CellState.NORMAL) {
+								cell.evaporationPheromoneHome
+								cell.evaporationPheromoneFood
+							}
+						]
 					]
 				}
-
-				if (getFoodCell.numberAnt > 0) {
-					getFoodCell.antList.forEach [ id, body |
-						if (body.took === false && body.state === AntState.SEARCH_FOOD) {
-							info("ant " + body.ID + " picking food")
-							innerContext.defaultSpace.emit(this.ID, new onFoodPlace,
-								Scopes.addresses(getAddress(body.ID)))
-						}
-					]
-				}
-				
-				antAddresses.forEach [ id, address |
-					var list = getPerception(id)
-					perception.put(id,list)
-				]
-
-				in(1000)[innerContext.defaultSpace.emit(ID, new Perception(perception))]
-
-				in(10000)[grid.forEach [ cell |
-						if (cell.state === CellState.NORMAL) {
-							cell.evaporationPheromoneHome
-							cell.evaporationPheromoneFood
-						}
-					]
-				]
 			}
 			
 		}
+			
 	}
 	
-	/* */
+	/*
+	 * Sends by the ant to inform he picks food
+	 * @param body the AntBody
+	 */
 	on PickFood [occurrence.isInInnerDefaultSpace] {
 		var body = occurrence.body
 		if(body.state===AntState.SEARCH_FOOD && body.took === false){
@@ -162,7 +182,10 @@ agent Environment {
 		}
 	}
 	
-	/* */
+	/*
+	 * Sends by the ant to inform he puts the food
+	 * @param body the AntBody
+	 */
 	on PutFood [occurrence.isInInnerDefaultSpace] {
 		var body = occurrence.body
 		if (body.state === AntState.RETURN_HOME && body.took === true) {
@@ -176,7 +199,11 @@ agent Environment {
 		}
 	}
 	
-	/* */
+	/*
+	 * Sends by the ant to inform he moves
+	 * @param newpos the new position
+	 * @param body the AntBodyZ
+	 */
 	on Influence [occurrence.isInInnerDefaultSpace] {
 		var accept = false
 		var body = occurrence.body
@@ -187,12 +214,14 @@ agent Environment {
 			if (getCell(newPosition.x * height + newPosition.y).state === CellState.NORMAL ||
 				getCell(newPosition.x * height + newPosition.y).state === CellState.FOOD ||					
 				getCell(newPosition.x * height + newPosition.y).state === CellState.HOME) {
-				updateList.put(body,oldPosition)
+				var listPos = new ArrayList<Vector2i>
+				listPos.addAll(oldPosition, newPosition)
+				updateList.put(body,listPos)
 				accept = true
 			}
 		}
 		counter += 1
-		info(counter + " Ants updated")
+		//info(counter + " Ants updated")
 		if (accept) {
 			innerContext.defaultSpace.emit(this.ID,
 				new AcceptInfluence(newPosition, accept),
@@ -209,25 +238,51 @@ agent Environment {
 		info("Agent Environment go die!")
 	}
 	
+	/*
+	 * Kill itself after an exit signal
+	 */
 	on AppExit[!hasMemberAgent] {
 		launched = false
 		killMe
 	}
 	
+	/*
+	 * Kill all inner agent after an exit signal
+	 */
 	on AppExit [hasMemberAgent] {
 		innerContext.defaultSpace.emit(this.ID, new AppExit)
 	}
 	
+	/*
+	 * Kill itself after a reset signal
+	 */
 	on EndAgent [!hasMemberAgent] {
 		launched = false
 		restartMap
 		killMe
 	}
 	
+	/*
+	 * Kill all inner agents after a reset signal
+	 */
 	on EndAgent [hasMemberAgent] {
 		innerContext.defaultSpace.emit(ID, new EndAgent)	
 	}
+
+	on PauseSim {
+		paused = true
+	}
+
+	on ResumeSim {
+		paused = false
+		counter = 0
+		updateList.clear
+		emit(new Continue)
+	}
 	
+	/*
+	 * Restarts the map, kill all ants on the map
+	 */
 	def restartMap{
 		if(launched === false){
 			synchronized(grid){

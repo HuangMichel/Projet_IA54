@@ -16,48 +16,33 @@ import javafx.scene.paint.Color
 import javafx.scene.shape.Polygon
 
 /** 
- * 
+ * A class contains all informations of the cell
  * @author Michel
- * 
  */
 class Cell extends Pane{
 	
-	/*
-	 * The vector position
-	 */
+	/* The vector position */
 	private var vector : Vector2i
 	
-	/*
-	 * A list of ants
-	 */
+	/* A list of ants */
 	private var antList : Map<UUID, AntBody>
 	
-	/*
-	 * The cell state
-	 */
+	/* The cell state */
 	private var state : CellState
 	
-	/*
-	 * The pheromone home
-	 */
+	/* The pheromone home */
 	private var pheromoneHome : Pheromone
 	
-	/*
-	 * The pheromone food
-	 */
+	/* The pheromone food */
 	private var pheromoneFood : Pheromone
 	
-	/*
-	 * Quantity of food in Food place
-	 */
-	private var foodToPick : float
-	
-	/*
-	 * Number of food in Nest place
-	 */
-	private var foodInNest : float
+	/* Quantity of food in Food place or in Nest place */
+	private var foodNest : Food
 
+	/*The shape of an Ant */
 	private var shapeAnt : Shape
+	
+	/*The color of the shape ant */
 	private var color : Color
 	
 	new(){
@@ -120,184 +105,319 @@ class Cell extends Pane{
 		setShapeAnt
 	}
 	
+	/*
+	 * Gets the position
+	 * @return vector the position
+	 */
 	def getPosition : Vector2i {
 		return vector
 	}
 	
+	/*
+	 * Sets the position
+	 * @param v the position
+	 */
 	def setPosition(v : Vector2i){
 		this.vector = v
 	}
 	
+	/*
+	 * Sets the position
+	 * @param x the x position
+	 * @param y the y position
+	 */
 	def setPosition(x : int, y : int){
 		this.vector.setX(x)
 		this.vector.setY(y)
 	}
 	
+	/*
+	 * Adds ant on the list
+	 * @param id the UUID
+	 * @param ant the AntBody
+	 */
 	def addAnt(id : UUID, ant : AntBody){
 		synchronized(antList){
 			this.antList.put(id, ant)
-			incrementOpacity
+			if (this.state === CellState.NORMAL && this.state != CellState.WALL) {
+				incrementPheromone(ant.state)
+			}
+			if (this.antList.size === 1) {
+				incrementOpacity
+			}
 		}
 	}
 	
+	/*
+	 * Removes an ant of the list
+	 * @param id the UUID
+	 * @param ant the AntBody
+	 */
 	def removeAnt(id : UUID, ant : AntBody){
 		synchronized(antList){
 			this.antList.remove(id, ant)
-			decrementOpacity
+			if (this.antList.size === 0) {
+				decrementOpacity
+			}
 		}
 	}
 	
+	/*
+	 * Gets the ant list
+	 * @return antList
+	 */
 	def getAntList : Map<UUID, AntBody>{
 		synchronized(antList){
 			this.antList.unmodifiableView
 		}
 	}
 	
+	/*
+	 * Gets the the quantity of ant on the cell
+	 * @return size the quantity of ant
+	 */
 	def getNumberAnt : int{
 		synchronized(antList){
 			this.antList.size
 		}
 	}
 	
+	/*
+	 * Gets the state of the cell
+	 * @return state
+	 */
 	def getState : CellState{
 		this.state
 	}
 	
+	/*
+	 * Sets the state of the cell
+	 * @param state the CellState
+	 */
 	def setState(state : CellState){
 		this.state = state
 		setColor
-		setFood
+		if(state === CellState.FOOD){
+			this.foodNest = new Food(state)
+		}else{
+			this.foodNest = new Food(state)
+		}
 	}
 
-	def getPheromoneHome {
+	/*
+	 * Gets the pheromone Home
+	 * @return pheromoneHome
+	 */
+	def getPheromoneHome : Pheromone{
 		this.pheromoneHome
 	}
 	
+	/*
+	 * Gets the pheromone home intensity
+	 * @return intensity
+	 */
 	def getPheromoneHomeIntensity : float {
 		synchronized (pheromoneHome) {
 			this.pheromoneHome.intensity
 		}
 	}
 
-	def getPheromoneFood {
+	/*
+	 * Gets the pheromone food
+	 * @return pheromoneFood
+	 */
+	def getPheromoneFood : Pheromone{
 		this.pheromoneFood
 	}
 	
+	/*
+	 * Gets the pheromone food intensity
+	 * @return intensity
+	 */
 	def getPheromoneFoodIntensity : float{
 		synchronized (pheromoneFood) {
 			this.pheromoneFood.intensity
 		}
 	}
 	
+	/*
+	 * Increments the pheromone home intensity
+	 */
 	def incrementPheromoneHomeIntensity {
 		synchronized(pheromoneHome){
 			this.pheromoneHome.incrementIntensity
 		}
 	}
 	
+	/*
+	 * Increments the pheromone food intensity
+	 */
 	def incrementPheromoneFoodIntensity{
 		synchronized(pheromoneFood){
 			this.pheromoneFood.incrementIntensity
 		}
 	}
-
+	
+	/* 
+	 * Evaporations the pheromone food intensity
+	 */
 	def evaporationPheromoneFood {
 		synchronized (pheromoneFood) {
 			this.pheromoneFood.evaporation
 		}
 	}
-
+	
+	/* 
+	 * Evaporations the pheromone home intensity
+	 */
 	def evaporationPheromoneHome {
 		synchronized (pheromoneHome) {
 			this.pheromoneHome.evaporation
 		}
 	}
 	
-	def removeAllAnt(){
+	/*
+	 * Removes all ant of the list
+	 */
+	def removeAllAnt{
 		synchronized(antList){
-			for(body : antList.entrySet){
-				removeAnt(body.key, body.value)
+			if (!antList.isEmpty) {
+				antList.forEach[k, v|
+					removeAnt(k, v)
+				]
 			}
 		}
 	}
 
+	/*
+	 * Sets the color of the cell
+	 */
 	def setColor {
 		
 		var color : String
 
 		switch (this.state) {
 			case CellState.WALL:
-			//CHOCOLATE
 				color = "#d2691e"
 			case CellState.HOME:
-			//AZURE
 				color = "#f0ffff"
 			case CellState.FOOD:
-			//AQUA
 				color = "#00ffff"
 			default:
-			//DARKGRAY
 				color = "#a9a9a9"
 		}
 		
 		this.style = "-fx-background-color: " + color
 	}
 	
+	/*
+	 * Gets the color of the cell
+	 * @return style
+	 */
 	def getColor : String{
 		this.style
 	}
-	
-	def setFood{
-		if(this.state === CellState.FOOD){
-			this.foodToPick = 100f
-		}
-	}
-	
-	def getFood : float{
-		this.foodToPick
-	}
-	
-	def setFoodInNest(n : float){
-		this.foodInNest = n
-	}
-	
-	def getFoodInNest : float{
-		this.foodInNest
-	}
 
-	private def setShapeAnt {
+	/*
+	 * Sets the shape of ant
+	 */
+	private def setShapeAnt : void{
 		this.color = new Color(0f, 0f, 1f, 0)
-		this.shapeAnt = new Polygon(
-			30,
-			30,
-			40,
-			40,
-			20,
-			40
+		this.shapeAnt = new Polygon(8.0,0.0,
+			12.0,0.0,
+			12.0,2.0,
+			14.0,3.0,
+			12.0,4.0,
+			12.0,6.0,
+			14.0,7.0,
+			12.0,8.0,
+			12.0,10.0,
+			12.0,12.0,
+			14.0,13.0,
+			12.0,14.0,
+			8.0,14.0,
+			6.0,13.0,
+			8.0,12.0,
+			8.0,10.0,
+			8.0,8.0,
+			6.0,7.0,
+			8.0,6.0,
+			8.0,4.0,
+			6.0,3.0,
+			8.0,2.0,
+			8.0,4.0
 		)
 		this.shapeAnt.fill = this.color
 	}
 	
+	/*
+	 * Decrements the opacity of the shape ant
+	 */
 	def decrementOpacity : void {
-		if (this.color.opacity > 0f) {
-			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity - 0.3)
-			this.shapeAnt.fill = this.color
-		}
+		this.color = new Color(this.color.red, this.color.green, this.color.blue, 0f)
+		this.shapeAnt.fill = this.color
 	}
 	
-	def incrementOpacity : void {
-		if (this.color.opacity < 0.9f) {
-			this.color = new Color(this.color.red, this.color.green, this.color.blue, this.color.opacity + 0.3)
-			this.shapeAnt.fill = this.color
-		}
+	/*
+	 * Increments the opacity of the shape ant
+	 */
+	def incrementOpacity : void {	
+		this.color = new Color(this.color.red, this.color.green, this.color.blue, 1f)
+		this.shapeAnt.fill = this.color
 	}
+	
+	/*
+	 * Gets the shape ant
+	 * @return shapeAnt
+	 */
 	def getShapeAnt : Shape {
 		this.shapeAnt
 	}
-		
+	
+	/*
+	 * Increments the pheromones
+	 * @param antState the Antstate
+	 */
+	def incrementPheromone(antState : AntState){
+		switch(antState){
+			case AntState.RETURN_HOME:
+				incrementPheromoneFoodIntensity
+			case AntState.SEARCH_FOOD:
+				incrementPheromoneHomeIntensity
+		}
+	}
+	
+	/*
+	 * Gets the quantity of food
+	 * @return food
+	 */
+	def getFood : Food{
+		var food : Food
+		if(this.state === CellState.FOOD){
+			food = this.foodNest
+		}else{
+			food = this.foodNest
+		}
+		food
+	}
+	
+	def equals(obj : Object): boolean{
+		var bool = false
+		if(obj instanceof Cell){
+			var cell = obj as Cell
+			if(cell.vector.equals(position)){
+				bool = true
+			}
+		}
+		bool
+	}
+	
 	def toString : String{
 		var string = "Cell : " + vector.toString + "\n Ant : " + antList.size + "\n food : " + pheromoneFood.toString +
 			"\n home : " + pheromoneHome.toString + "\n state : " + state
+		if(state === CellState.FOOD || state === CellState.HOME){
+			string += "\n food : " + foodNest.food
+		}
 		string
 	}
 }

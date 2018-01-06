@@ -22,6 +22,7 @@ import utbm.ia54.ant2dgrid.events.onFoodPlace
 import utbm.ia54.ant2dgrid.events.onNestPlace
 import io.sarl.core.Lifecycle
 import utbm.ia54.ant2dgrid.gui.fx.AppExit
+import utbm.ia54.ant2dgrid.events.EndAgent
 
 /** 
  * @author Michel
@@ -55,54 +56,67 @@ agent Ant {
 		info("The agent Ant " + selfID + " was stopped." + "Killed by " + occurrence.source)
 	}
 	
+	/*
+	 * Gets the number of ant
+	 */
 	def getSelfID : int{
 		this.selfIDAnt
 	}
 	
-	/* */
+	/* 
+	 * Sends by the environment to inform the ant that he is on the food place
+	 */
 	on onFoodPlace [isFrom(this.idEnv)] {
 		info("Ant " + selfID + " on food Place")
 		pickUpFood(body)
 	}
 	
-	/* */
+	/* 
+	 * Sends by the environment to inform the ant that he is on the nest place
+	 */
 	on onNestPlace [isFrom(this.idEnv)] {
 		info("Ant " + selfID + " on nest Place")
 		putDownFood(body)
 	}
 	
-	/* */
-	on Perception [isFrom(this.idEnv)] {
-	
+	/*
+	 * The environment sends the perception to the Ant 
+	 * @param list the list of perception
+	 */
+	on Perception [isFrom(this.idEnv)] {	
 		var listPerception = occurrence.list.get(this.ID)
 		var tempVector : Vector2i
+		
 		if (!listPerception.isEmpty) {
 			tempVector = followPheromone(listPerception, body.state).position
 			if (tempVector.equals(new Vector2i(-1, -1))) {
 				randomMove(listPerception, body)
 			} else {
-				tempVector = followPheromone(listPerception, body.state).position
 				move(tempVector, body)
 			}
 		} else {
-			for(cell : listPerception){
-				info(cell)
-			}
 			stay(body)
 		}
 	}
 	
-	/* */
+	/*
+	 * Accepts the move by the environment
+	 * @param newpos the new position
+	 * @param accept a boolean
+	 */
 	on AcceptInfluence [isFrom(this.idEnv)] {
 		if(body.position.equals(occurrence.newpos)){
-			info("Ant " + selfID + " stay in " + body.position)
+			//info("Ant " + selfID + " stay in " + body.position)
 		} else {
-			info("Ant " + getSelfID + " " + body.position + " move to " + occurrence.newpos)
+			//info("Ant " + getSelfID + " " + body.position + " move to " + occurrence.newpos)
 			body.position = occurrence.newpos
 		}
 	}
 	
-	/* */
+	/*
+	 * Accepts the change state by the environment
+	 * @param newState the AntState
+	 */
 	on ChangeState [isFrom(this.idEnv)] {
 		if (body.state.equals(occurrence.newState)) {
 			info("Ant " + getSelfID +" the same " + body.state + " send by " + occurrence.source)
@@ -112,24 +126,37 @@ agent Ant {
 		}	
 	}
 	
-	/* */
+	/*
+	 * Accepts to pick the food
+	 * @param accept a boolean
+	 */
 	on AcceptPickFood [isFrom(this.idEnv)] {
-		info("Ant " + getSelfID + "take food " + occurrence.accept)
 		if (occurrence.accept === true) {
 			body.setTook
 		}
 	}
 	
-	/* */
+	/*
+	 * Accepts to put the food
+	 * @param accept a boolean
+	 */
 	on AcceptPutFood [isFrom(this.idEnv)] {
-		info("Ant " + getSelfID + "put food " + occurrence.accept)
 		if (occurrence.accept === true) {
 			body.put
 		}
 	}
 	
-	on AppExit[isFrom(this.idEnv)]{
-		emit(new AppExit)[it.UUID === this.idEnv]
+	/*
+	 * Kill himself after an exit signal of the application
+	 */
+	on AppExit [isFrom(this.idEnv)] {
+		killMe
+	}
+
+	/*
+	 * Kill himself after an reset signal
+	 */
+	on EndAgent[isFrom(this.idEnv)]{
 		killMe
 	}
 }

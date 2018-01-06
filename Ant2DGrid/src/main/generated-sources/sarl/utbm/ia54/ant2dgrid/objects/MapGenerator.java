@@ -271,30 +271,15 @@ public class MapGenerator {
   @Override
   @SyntheticMember
   public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    MapGenerator other = (MapGenerator) obj;
-    if (Float.floatToIntBits(other.chanceNormalState) != Float.floatToIntBits(this.chanceNormalState))
-      return false;
-    if (other.width != this.width)
-      return false;
-    if (other.height != this.height)
-      return false;
-    return super.equals(obj);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe return type is incompatible with equals(Object). Current method has the return type: void. The super method has the return type: boolean."
+      + "\nThe return type is incompatible with equals(Object). Current method has the return type: void. The super method has the return type: boolean.");
   }
   
   @Override
   @SyntheticMember
   public int hashCode() {
-    int result = super.hashCode();
-    final int prime = 31;
-    result = prime * result + Float.floatToIntBits(this.chanceNormalState);
-    result = prime * result + this.width;
-    result = prime * result + this.height;
-    return result;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe return type is incompatible with equals(Object). Current method has the return type: void. The super method has the return type: boolean.");
   }
 }

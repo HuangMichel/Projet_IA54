@@ -59,21 +59,25 @@ public class AntManagerSkill extends Skill implements AntCapacity {
   /**
    * Gets has food cell of the list
    * @param list the perception of list of cell
-   * return true, if found
+   * @return the place of the cell in the list
    */
   @Pure
-  private boolean hasFood(final List<Cell> list) {
-    boolean _xblockexpression = false;
+  private int hasFood(final List<Cell> list) {
+    int _xblockexpression = (int) 0;
     {
-      boolean bool = false;
+      int place = (-1);
+      int iterator = 0;
       for (final Cell cell : list) {
-        CellState _state = cell.getState();
-        boolean _tripleEquals = (_state == CellState.FOOD);
-        if (_tripleEquals) {
-          bool = true;
+        {
+          CellState _state = cell.getState();
+          boolean _tripleEquals = (_state == CellState.FOOD);
+          if (_tripleEquals) {
+            place = iterator;
+          }
+          iterator++;
         }
       }
-      _xblockexpression = bool;
+      _xblockexpression = place;
     }
     return _xblockexpression;
   }
@@ -81,21 +85,25 @@ public class AntManagerSkill extends Skill implements AntCapacity {
   /**
    * Gets has home cell of the list
    * @param list the perception of list of cell
-   * @return true, if found
+   * @return the place of the cell in the list
    */
   @Pure
-  private boolean hasHome(final List<Cell> list) {
-    boolean _xblockexpression = false;
+  private int hasHome(final List<Cell> list) {
+    int _xblockexpression = (int) 0;
     {
-      boolean bool = false;
+      int place = (-1);
+      int iterator = 0;
       for (final Cell cell : list) {
-        CellState _state = cell.getState();
-        boolean _tripleEquals = (_state == CellState.HOME);
-        if (_tripleEquals) {
-          bool = true;
+        {
+          CellState _state = cell.getState();
+          boolean _tripleEquals = (_state == CellState.HOME);
+          if (_tripleEquals) {
+            place = iterator;
+          }
+          iterator++;
         }
       }
-      _xblockexpression = bool;
+      _xblockexpression = place;
     }
     return _xblockexpression;
   }
@@ -164,92 +172,104 @@ public class AntManagerSkill extends Skill implements AntCapacity {
       CellState _state = cell.getState();
       boolean _tripleEquals = (_state == CellState.WALL);
       if (_tripleEquals) {
+        listPerception.remove(randomNum);
         this.randomMove(listPerception, body);
       } else {
         newPos = cell.getPosition();
         DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
         Influence _influence = new Influence(newPos, body);
         _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER.emit(_influence);
+        this.setPositionBefore(newPos);
       }
     } else {
-      CellState _state_1 = cell.getState();
-      if (_state_1 != null) {
-        switch (_state_1) {
-          case NORMAL:
-            if ((((Boolean.valueOf(this.hasFood(listPerception)) == Boolean.valueOf(true)) && (body.getState() == AntState.SEARCH_FOOD)) || ((Boolean.valueOf(this.hasHome(listPerception)) == Boolean.valueOf(true)) && (body.getState() == AntState.RETURN_HOME)))) {
-              this.randomMove(listPerception, body);
-            } else {
-              if (((numberNormalState - numberPheromoneCell) == 0)) {
-                boolean _isEquals = this.isEquals(cell.getPosition());
-                boolean _tripleEquals_1 = (Boolean.valueOf(_isEquals) == Boolean.valueOf(false));
-                if (_tripleEquals_1) {
+      if (((this.hasFood(listPerception) != (-1)) && (body.getState() == AntState.SEARCH_FOOD))) {
+        newPos = listPerception.get(this.hasFood(listPerception)).getPosition();
+        DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
+        Influence _influence_1 = new Influence(newPos, body);
+        _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1.emit(_influence_1);
+        this.setPositionBefore(newPos);
+      } else {
+        if (((this.hasHome(listPerception) != (-1)) && (body.getState() == AntState.RETURN_HOME))) {
+          newPos = listPerception.get(this.hasHome(listPerception)).getPosition();
+          DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_2 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
+          Influence _influence_2 = new Influence(newPos, body);
+          _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_2.emit(_influence_2);
+          this.setPositionBefore(newPos);
+        } else {
+          CellState _state_1 = cell.getState();
+          if (_state_1 != null) {
+            switch (_state_1) {
+              case NORMAL:
+                if (((numberPheromoneCell == 1) && (Boolean.valueOf(this.isEquals(cell.getPosition())) == Boolean.valueOf(false)))) {
                   newPos = cell.getPosition();
-                  DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
-                  Influence _influence_1 = new Influence(newPos, body);
-                  _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_1.emit(_influence_1);
+                  DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_3 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
+                  Influence _influence_3 = new Influence(newPos, body);
+                  _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_3.emit(_influence_3);
                   this.setPositionBefore(newPos);
                 } else {
+                  if (((numberNormalState - numberPheromoneCell) < numberNormalState)) {
+                    if ((((0.1f > cell.getPheromoneHomeIntensity()) && (Boolean.valueOf(this.isEquals(cell.getPosition())) == Boolean.valueOf(false))) || 
+                      (Boolean.valueOf(this.isEquals(cell.getPosition())) == Boolean.valueOf(false)))) {
+                      newPos = cell.getPosition();
+                      DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_4 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
+                      Influence _influence_4 = new Influence(newPos, body);
+                      _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_4.emit(_influence_4);
+                      this.setPositionBefore(newPos);
+                    } else {
+                      listPerception.remove(randomNum);
+                      this.randomMove(listPerception, body);
+                    }
+                  } else {
+                    boolean _isEquals = this.isEquals(cell.getPosition());
+                    boolean _tripleEquals_1 = (Boolean.valueOf(_isEquals) == Boolean.valueOf(false));
+                    if (_tripleEquals_1) {
+                      newPos = cell.getPosition();
+                      DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_5 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
+                      Influence _influence_5 = new Influence(newPos, body);
+                      _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_5.emit(_influence_5);
+                      this.setPositionBefore(newPos);
+                    } else {
+                      listPerception.remove(randomNum);
+                      this.randomMove(listPerception, body);
+                    }
+                  }
+                }
+                break;
+              case WALL:
+                this.randomMove(listPerception, body);
+                break;
+              case HOME:
+                if ((((body.getState() == AntState.RETURN_HOME) || 
+                  (Boolean.valueOf(this.isEquals(cell.getPosition())) == Boolean.valueOf(false))) || 
+                  (body.getState() == AntState.SEARCH_FOOD))) {
+                  newPos = cell.getPosition();
+                  DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_6 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
+                  Influence _influence_6 = new Influence(newPos, body);
+                  _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_6.emit(_influence_6);
+                  this.setPositionBefore(newPos);
+                } else {
+                  listPerception.remove(randomNum);
                   this.randomMove(listPerception, body);
                 }
-              } else {
-                if (((numberNormalState - numberPheromoneCell) < numberNormalState)) {
-                  if ((((0.1f > cell.getPheromoneHomeIntensity()) && (Boolean.valueOf(this.isEquals(cell.getPosition())) == Boolean.valueOf(false))) || 
-                    (Boolean.valueOf(this.isEquals(cell.getPosition())) == Boolean.valueOf(false)))) {
-                    newPos = cell.getPosition();
-                    DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_2 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
-                    Influence _influence_2 = new Influence(newPos, body);
-                    _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_2.emit(_influence_2);
-                    this.setPositionBefore(newPos);
-                  } else {
-                    this.randomMove(listPerception, body);
-                  }
+                break;
+              case FOOD:
+                if ((((body.getState() == AntState.SEARCH_FOOD) || 
+                  (Boolean.valueOf(this.isEquals(cell.getPosition())) == Boolean.valueOf(false))) || 
+                  (body.getState() == AntState.RETURN_HOME))) {
+                  newPos = cell.getPosition();
+                  DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_7 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
+                  Influence _influence_7 = new Influence(newPos, body);
+                  _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_7.emit(_influence_7);
+                  this.setPositionBefore(newPos);
                 } else {
-                  boolean _isEquals_1 = this.isEquals(cell.getPosition());
-                  boolean _tripleEquals_2 = (Boolean.valueOf(_isEquals_1) == Boolean.valueOf(false));
-                  if (_tripleEquals_2) {
-                    newPos = cell.getPosition();
-                    DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_3 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
-                    Influence _influence_3 = new Influence(newPos, body);
-                    _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_3.emit(_influence_3);
-                    this.setPositionBefore(newPos);
-                  } else {
-                    this.randomMove(listPerception, body);
-                  }
+                  listPerception.remove(randomNum);
+                  this.randomMove(listPerception, body);
                 }
-              }
+                break;
+              default:
+                break;
             }
-            break;
-          case WALL:
-            this.randomMove(listPerception, body);
-            break;
-          case HOME:
-            if ((((body.getState() == AntState.RETURN_HOME) || 
-              (Boolean.valueOf(this.isEquals(cell.getPosition())) == Boolean.valueOf(false))) || 
-              (body.getState() == AntState.SEARCH_FOOD))) {
-              newPos = cell.getPosition();
-              DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_4 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
-              Influence _influence_4 = new Influence(newPos, body);
-              _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_4.emit(_influence_4);
-              this.setPositionBefore(newPos);
-            } else {
-              this.randomMove(listPerception, body);
-            }
-            break;
-          case FOOD:
-            if ((((body.getState() == AntState.SEARCH_FOOD) || 
-              (Boolean.valueOf(this.isEquals(cell.getPosition())) == Boolean.valueOf(false))) || 
-              (body.getState() == AntState.RETURN_HOME))) {
-              newPos = cell.getPosition();
-              DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_5 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
-              Influence _influence_5 = new Influence(newPos, body);
-              _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_5.emit(_influence_5);
-              this.setPositionBefore(newPos);
-            } else {
-              this.randomMove(listPerception, body);
-            }
-            break;
-          default:
-            break;
+          }
         }
       }
     }

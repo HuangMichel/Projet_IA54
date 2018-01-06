@@ -181,23 +181,16 @@ public class Ant extends Agent {
   private void $behaviorUnit$AcceptInfluence$5(final AcceptInfluence occurrence) {
     boolean _equals = this.body.getPosition().equals(occurrence.newpos);
     if (_equals) {
+    } else {
       Logging _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER = this.$castSkill(Logging.class, (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || this.$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING = this.$getSkill(Logging.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LOGGING);
       int _selfID = this.getSelfID();
       String _plus = ("Ant " + Integer.valueOf(_selfID));
-      String _plus_1 = (_plus + " stay in ");
+      String _plus_1 = (_plus + " ");
       Vector2i _position = this.body.getPosition();
       String _plus_2 = (_plus_1 + _position);
-      _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER.info(_plus_2);
-    } else {
-      Logging _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER_1 = this.$castSkill(Logging.class, (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING == null || this.$CAPACITY_USE$IO_SARL_CORE_LOGGING.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_LOGGING = this.$getSkill(Logging.class)) : this.$CAPACITY_USE$IO_SARL_CORE_LOGGING);
-      int _selfID_1 = this.getSelfID();
-      String _plus_3 = ("Ant " + Integer.valueOf(_selfID_1));
-      String _plus_4 = (_plus_3 + " ");
-      Vector2i _position_1 = this.body.getPosition();
-      String _plus_5 = (_plus_4 + _position_1);
-      String _plus_6 = (_plus_5 + " move to ");
-      String _plus_7 = (_plus_6 + occurrence.newpos);
-      _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER_1.info(_plus_7);
+      String _plus_3 = (_plus_2 + " move to ");
+      String _plus_4 = (_plus_3 + occurrence.newpos);
+      _$CAPACITY_USE$IO_SARL_CORE_LOGGING$CALLER.info(_plus_4);
       this.body.setPosition(occurrence.newpos);
     }
   }

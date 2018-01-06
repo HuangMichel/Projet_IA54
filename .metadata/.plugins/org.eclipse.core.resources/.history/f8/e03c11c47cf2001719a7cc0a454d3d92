@@ -110,19 +110,17 @@ agent Environment {
 				
 				synchronized (grid) {
 					
-					if (!updateList.isEmpty) {
-						updateList.forEach [ body, listPos |
-							removeAntCell(listPos.get(0), body.ID, body)
-							createAnt(listPos.get(1), body.ID, body)
-						]
-
-						updateList.clear
-					}
+					updateList.forEach [ body, listPos |
+						removeAntCell(listPos.get(0), body.ID, body)
+						createAnt(listPos.get(1), body.ID, body)
+					]
+					
+					updateList.clear
 					
 					if (getHomeCell.numberAnt > 0) {
 						getHomeCell.antList.forEach [ id, body |	
 							if (body.took === true && body.state === AntState.RETURN_HOME) {
-								//info("ant " + body.ID + " putting food")
+								info("ant " + body.ID + " putting food")
 								innerContext.defaultSpace.emit(this.ID, new onNestPlace,
 									Scopes.addresses(getAddress(body.ID)))
 							}
@@ -132,7 +130,7 @@ agent Environment {
 					if (getFoodCell.numberAnt > 0) {
 						getFoodCell.antList.forEach [ id, body |
 							if (body.took === false && body.state === AntState.SEARCH_FOOD) {
-								//info("ant " + body.ID + " picking food")
+								info("ant " + body.ID + " picking food")
 								innerContext.defaultSpace.emit(this.ID, new onFoodPlace,
 									Scopes.addresses(getAddress(body.ID)))
 							}
@@ -287,7 +285,7 @@ agent Environment {
 		if(launched === false){
 			synchronized(grid){
 				grid.forEach[cell |
-					if (cell.numberAnt >0) {
+					if (cell.numberAnt >=1) {
 						cell.removeAllAnt
 					}
 					if (cell.state === CellState.HOME || cell.state === CellState.FOOD) {

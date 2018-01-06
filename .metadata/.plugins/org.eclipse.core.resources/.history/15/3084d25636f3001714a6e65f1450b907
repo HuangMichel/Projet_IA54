@@ -287,7 +287,7 @@ agent Environment {
 		if(launched === false){
 			synchronized(grid){
 				grid.forEach[cell |
-					if (cell.numberAnt >0) {
+					if (!cell.antList.isEmpty) {
 						cell.removeAllAnt
 					}
 					if (cell.state === CellState.HOME || cell.state === CellState.FOOD) {

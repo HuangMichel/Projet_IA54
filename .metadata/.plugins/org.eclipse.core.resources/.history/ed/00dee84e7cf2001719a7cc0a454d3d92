@@ -56,33 +56,37 @@ skill AntManagerSkill implements AntCapacity{
 	/*
 	 * Gets has food cell of the list
 	 * @param list the perception of list of cell
-	 * return true, if found
+	 * return the place of the cell in the list
 	 */
-	private def hasFood(list : List<Cell>) : boolean {
-		var bool = false
+	private def hasFood(list : List<Cell>) : int {
+		var place = -1
+		var iterator = 0
 		for (cell : list) {
 			if (cell.state === CellState.FOOD) {
-				bool = true
+				place = iterator
 			}
+			iterator++
 		}
 
-		bool
+		place
 	}
 	
 	/* 
 	 * Gets has home cell of the list
 	 * @param list the perception of list of cell
-	 * @return true, if found
+	 * @return the place of the cell in the list
 	 */
-	private def hasHome(list : List<Cell>) : boolean {
-		var bool = false
+	private def hasHome(list : List<Cell>) : int {
+		var place = -1
+		var iterator = 0
 		for (cell : list) {
 			if (cell.state === CellState.HOME) {
-				bool = true
+				place = iterator
 			}
+			iterator++
 		}
 
-		bool
+		place
 	}
 	
 	/* 
@@ -93,7 +97,7 @@ skill AntManagerSkill implements AntCapacity{
 	private def countHasHomePherommoneCell(list : List<Cell>) : int {
 		var i = 0
 		for (cell : list) {
-			if (cell.pheromoneFood.intensity >= 0.1f && cell.state === CellState.NORMAL) {
+			if ((cell.pheromoneFood.intensity >= 0.01f && cell.state === CellState.NORMAL) || cell.state === CellState.HOME || cell.state === CellState.FOOD) {
 				i++
 			}
 		}
@@ -101,14 +105,14 @@ skill AntManagerSkill implements AntCapacity{
 	}
 	
 	/*
-	 * Gets the number of cell has normal state
+	 * Gets the number of cell has normal, home and food state
 	 * @param list the perception of list of cell
 	 * return i the number of cell has normal state
 	 */
 	private def countNormalState(list : List<Cell>) : int {
 		var i = 0
 		for (cell : list) {
-			if (cell.state === CellState.NORMAL) {
+			if (cell.state === CellState.NORMAL || cell.state === CellState.FOOD || cell.state === CellState.HOME) {
 				i++
 			}
 		}
@@ -139,19 +143,52 @@ skill AntManagerSkill implements AntCapacity{
 		
 		if(numberNormalState === 1){
 			if(cell.state === CellState.WALL){
+				listPerception.remove(randomNum)
 				randomMove(listPerception, body)
 			} else {
 				newPos = cell.position
 				emit(new Influence(newPos, body))
+				setPositionBefore(newPos)
 			}
-		} else {
+		} else if (hasFood(listPerception) !== -1 && body.state === AntState.SEARCH_FOOD) {
+			newPos = listPerception.get(hasFood(listPerception)).position
+			emit(new Influence(newPos, body))
+			setPositionBefore(newPos)
+					
+			} else if (hasHome(listPerception) !== -1 && body.state === AntState.RETURN_HOME) {
+			newPos = listPerception.get(hasHome(listPerception)).position
+			emit(new Influence(newPos, body))
+			setPositionBefore(newPos)
+			
+					
+			}else{
 			switch (cell.state) {
 				case CellState.NORMAL:
-					if ((hasFood(listPerception) === true && body.state === AntState.SEARCH_FOOD) ||
-						(hasHome(listPerception) === true && body.state === AntState.RETURN_HOME)) {
-						randomMove(listPerception, body)
+					if (numberPheromoneCell === 1 && isEquals(cell.position) === false) {
+						newPos = cell.position
+						emit(new Influence(newPos, body))
+						setPositionBefore(newPos)
+					} else if ((numberNormalState - numberPheromoneCell) < numberNormalState) {
+						if ((0.1f > cell.pheromoneHomeIntensity && isEquals(cell.position) === false) ||
+							isEquals(cell.position) === false) {
+							newPos = cell.position
+							emit(new Influence(newPos, body))
+							setPositionBefore(newPos)
+						} else {
+							listPerception.remove(randomNum)
+							randomMove(listPerception, body)
+						}
 					} else {
-						if ((numberNormalState - numberPheromoneCell)===0){
+						if (isEquals(cell.position) === false) {
+							newPos = cell.position
+							emit(new Influence(newPos, body))
+							setPositionBefore(newPos)
+						} else {
+							listPerception.remove(randomNum)
+							randomMove(listPerception, body)
+						}
+					}
+						/*if ((numberNormalState - numberPheromoneCell)===0){
 							if (isEquals(cell.position) === false) {
 								newPos = cell.position
 								emit(new Influence(newPos, body))
@@ -160,8 +197,9 @@ skill AntManagerSkill implements AntCapacity{
 								randomMove(listPerception, body)
 							}
 						} else {
-							if ((numberNormalState - numberPheromoneCell) > numberPheromoneCell) {
-								if (0.1f > cell.pheromoneHomeIntensity || isEquals(cell.position) === false) {
+							if ((numberNormalState - numberPheromoneCell) < numberNormalState) {
+								if ((0.1f > cell.pheromoneHomeIntensity && isEquals(cell.position) === false) || 
+									isEquals(cell.position)===false) {
 									newPos = cell.position
 									emit(new Influence(newPos, body))
 									setPositionBefore(newPos)
@@ -177,28 +215,35 @@ skill AntManagerSkill implements AntCapacity{
 									randomMove(listPerception, body)
 								}
 							}
-						}
-					}
+						}*/
 				case CellState.WALL:
 					randomMove(listPerception, body)
+															
 				case CellState.HOME:
-					if (isEquals(cell.position) === false) {
+					if (body.state === AntState.RETURN_HOME || 
+						isEquals(cell.position) === false || 
+						body.state ===AntState.SEARCH_FOOD) {
 						newPos = cell.position
 						emit(new Influence(newPos, body))
 						setPositionBefore(newPos)
 					} else {
+						listPerception.remove(randomNum)
 						randomMove(listPerception, body)
 					}
 				case CellState.FOOD:
-					if (body.state === AntState.SEARCH_FOOD || isEquals(cell.position)===false) {
+					if (body.state === AntState.SEARCH_FOOD || 
+						isEquals(cell.position) === false || 
+						body.state === AntState.RETURN_HOME) {
 						newPos = cell.position
 						emit(new Influence(newPos, body))
 						setPositionBefore(newPos)
-					} else{
+					} else {
+						listPerception.remove(randomNum)
 						randomMove(listPerception, body)
 					}
 			}
 		}
+		
 	}
 	
 	/*
@@ -451,21 +496,6 @@ skill EnvironmentManagerSkill implements EnvironmentManagerCapacity{
 			list.add(grid.get(vector.x * height + (vector.y - 1)))
 		}
 		
-		/*
-		for (var i = -1; i < 2; i++) {
-			for (var j = -1; j < 2; j++) {
-				var temp_vector = new Vector2i(i, j)
-				temp_vector.plus(vector)
-				if (temp_vector.x*height+temp_vector.y<height*width) {
-					if(temp_vector.x < 0 || temp_vector.y<0 || temp_vector.x>height || temp_vector.y>width){
-						if ((i===0 && (j===-1 || j===1)) || (j ===0 && (i===-1 || i===1))) {
-							list.add(grid.get(temp_vector.x * height + temp_vector.y))
-						}
-					}
-				}
-				
-			}
-		}*/
 		list
 	}
 	

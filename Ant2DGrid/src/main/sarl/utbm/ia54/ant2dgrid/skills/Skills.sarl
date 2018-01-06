@@ -56,33 +56,37 @@ skill AntManagerSkill implements AntCapacity{
 	/*
 	 * Gets has food cell of the list
 	 * @param list the perception of list of cell
-	 * return true, if found
+	 * @return the place of the cell in the list
 	 */
-	private def hasFood(list : List<Cell>) : boolean {
-		var bool = false
+	private def hasFood(list : List<Cell>) : int {
+		var place = -1
+		var iterator = 0
 		for (cell : list) {
 			if (cell.state === CellState.FOOD) {
-				bool = true
+				place = iterator
 			}
+			iterator++
 		}
 
-		bool
+		place
 	}
 	
 	/* 
 	 * Gets has home cell of the list
 	 * @param list the perception of list of cell
-	 * @return true, if found
+	 * @return the place of the cell in the list
 	 */
-	private def hasHome(list : List<Cell>) : boolean {
-		var bool = false
+	private def hasHome(list : List<Cell>) : int {
+		var place = -1
+		var iterator = 0
 		for (cell : list) {
 			if (cell.state === CellState.HOME) {
-				bool = true
+				place = iterator
 			}
+			iterator++
 		}
 
-		bool
+		place
 	}
 	
 	/* 
@@ -139,69 +143,105 @@ skill AntManagerSkill implements AntCapacity{
 		
 		if(numberNormalState === 1){
 			if(cell.state === CellState.WALL){
+				listPerception.remove(randomNum)
 				randomMove(listPerception, body)
 			} else {
 				newPos = cell.position
 				emit(new Influence(newPos, body))
+				setPositionBefore(newPos)
 			}
-		} else {
-			switch (cell.state) {
-				case CellState.NORMAL:
-					if ((hasFood(listPerception) === true && body.state === AntState.SEARCH_FOOD) ||
-						(hasHome(listPerception) === true && body.state === AntState.RETURN_HOME)) {
-						randomMove(listPerception, body)
-					} else {
-						if ((numberNormalState - numberPheromoneCell)===0){
+		} else if (hasFood(listPerception) !== -1 && body.state === AntState.SEARCH_FOOD) {
+				newPos = listPerception.get(hasFood(listPerception)).position
+				emit(new Influence(newPos, body))
+				setPositionBefore(newPos)
+					
+			} else if (hasHome(listPerception) !== -1 && body.state === AntState.RETURN_HOME) {
+				newPos = listPerception.get(hasHome(listPerception)).position
+				emit(new Influence(newPos, body))
+				setPositionBefore(newPos)
+			
+					
+			}else{
+				switch (cell.state) {
+					case CellState.NORMAL:
+					
+						if (numberPheromoneCell === 1 && isEquals(cell.position) === false) {
+							newPos = cell.position
+							emit(new Influence(newPos, body))
+							setPositionBefore(newPos)
+						} else if ((numberNormalState - numberPheromoneCell) < numberNormalState) {
+							if ((0.1f > cell.pheromoneHomeIntensity && isEquals(cell.position) === false) ||
+								isEquals(cell.position) === false) {
+								newPos = cell.position
+								emit(new Influence(newPos, body))
+								setPositionBefore(newPos)
+							} else {
+								listPerception.remove(randomNum)
+								randomMove(listPerception, body)
+							}
+						} else {
 							if (isEquals(cell.position) === false) {
 								newPos = cell.position
 								emit(new Influence(newPos, body))
 								setPositionBefore(newPos)
-							}else{
+							} else {
+								listPerception.remove(randomNum)
 								randomMove(listPerception, body)
 							}
-						} else {
-							if ((numberNormalState - numberPheromoneCell) < numberNormalState) {
-								if ((0.1f > cell.pheromoneHomeIntensity && isEquals(cell.position) === false) || 
-									isEquals(cell.position)===false) {
-									newPos = cell.position
-									emit(new Influence(newPos, body))
-									setPositionBefore(newPos)
-								} else {
-									randomMove(listPerception, body)
-								}
-							} else {
+						}
+							/*if ((numberNormalState - numberPheromoneCell)===0){
 								if (isEquals(cell.position) === false) {
 									newPos = cell.position
 									emit(new Influence(newPos, body))
 									setPositionBefore(newPos)
-								} else {
+								}else{
 									randomMove(listPerception, body)
 								}
-							}
+							} else {
+								if ((numberNormalState - numberPheromoneCell) < numberNormalState) {
+									if ((0.1f > cell.pheromoneHomeIntensity && isEquals(cell.position) === false) || 
+										isEquals(cell.position)===false) {
+										newPos = cell.position
+										emit(new Influence(newPos, body))
+										setPositionBefore(newPos)
+									} else {
+										randomMove(listPerception, body)
+									}
+								} else {
+									if (isEquals(cell.position) === false) {
+										newPos = cell.position
+										emit(new Influence(newPos, body))
+										setPositionBefore(newPos)
+									} else {
+										randomMove(listPerception, body)
+									}
+								}
+							}*/
+					case CellState.WALL:
+						randomMove(listPerception, body)
+																
+					case CellState.HOME:
+						if (body.state === AntState.RETURN_HOME || 
+							isEquals(cell.position) === false || 
+							body.state ===AntState.SEARCH_FOOD) {
+							newPos = cell.position
+							emit(new Influence(newPos, body))
+							setPositionBefore(newPos)
+						} else {
+							listPerception.remove(randomNum)
+							randomMove(listPerception, body)
 						}
-					}
-				case CellState.WALL:
-					randomMove(listPerception, body)
-				case CellState.HOME:
-					if (body.state === AntState.RETURN_HOME || 
-						isEquals(cell.position) === false || 
-						body.state ===AntState.SEARCH_FOOD) {
-						newPos = cell.position
-						emit(new Influence(newPos, body))
-						setPositionBefore(newPos)
-					} else {
-						randomMove(listPerception, body)
-					}
-				case CellState.FOOD:
-					if (body.state === AntState.SEARCH_FOOD || 
-						isEquals(cell.position) === false || 
-						body.state === AntState.RETURN_HOME) {
-						newPos = cell.position
-						emit(new Influence(newPos, body))
-						setPositionBefore(newPos)
-					} else{
-						randomMove(listPerception, body)
-					}
+					case CellState.FOOD:
+						if (body.state === AntState.SEARCH_FOOD || 
+							isEquals(cell.position) === false || 
+							body.state === AntState.RETURN_HOME) {
+							newPos = cell.position
+							emit(new Influence(newPos, body))
+							setPositionBefore(newPos)
+						} else {
+							listPerception.remove(randomNum)
+							randomMove(listPerception, body)
+						}
 			}
 		}
 		
