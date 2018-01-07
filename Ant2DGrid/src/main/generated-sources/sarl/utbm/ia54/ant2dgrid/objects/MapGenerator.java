@@ -6,6 +6,7 @@ import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
 import java.util.ArrayList;
 import java.util.List;
+import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.objects.Cell;
 
@@ -269,17 +270,34 @@ public class MapGenerator {
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe return type is incompatible with equals(Object). Current method has the return type: void. The super method has the return type: boolean."
-      + "\nThe return type is incompatible with equals(Object). Current method has the return type: void. The super method has the return type: boolean.");
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    MapGenerator other = (MapGenerator) obj;
+    if (Float.floatToIntBits(other.chanceNormalState) != Float.floatToIntBits(this.chanceNormalState))
+      return false;
+    if (other.width != this.width)
+      return false;
+    if (other.height != this.height)
+      return false;
+    return super.equals(obj);
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public int hashCode() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe return type is incompatible with equals(Object). Current method has the return type: void. The super method has the return type: boolean.");
+    int result = super.hashCode();
+    final int prime = 31;
+    result = prime * result + Float.floatToIntBits(this.chanceNormalState);
+    result = prime * result + this.width;
+    result = prime * result + this.height;
+    return result;
   }
 }

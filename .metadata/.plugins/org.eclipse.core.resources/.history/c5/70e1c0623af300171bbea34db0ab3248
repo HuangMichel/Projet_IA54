@@ -1,0 +1,21 @@
+/**
+ * 
+ */
+package utbm.ia54.ant2dgrid;
+
+import utbm.ia54.ant2dgrid.gui.Ant2DGridFxApplication;
+
+/**
+ * @author Michel
+ *
+ */
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Ant2DGridFxApplication main = new Ant2DGridFxApplication();
+	}
+
+}

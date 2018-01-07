@@ -44,7 +44,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <TextField fx:id="numberOfAnt" layoutX="323.0" layoutY="827.0" prefHeight="23.0" prefWidth="66.0" text="100" />
+      <TextField fx:id="numberOfAnt" layoutX="323.0" layoutY="827.0" prefHeight="23.0" prefWidth="66.0" text="19" />
       <Label layoutX="313.0" layoutY="804.0" text="Number of Ant" />
       <Button fx:id="btnMap" layoutX="32.0" layoutY="781.0" mnemonicParsing="false" onAction="#createMap" text="Generate Map" />
       <Button fx:id="restartBtn" disable="true" layoutX="656.0" layoutY="827.0" mnemonicParsing="false" onAction="#onRestart" text="Restart" />

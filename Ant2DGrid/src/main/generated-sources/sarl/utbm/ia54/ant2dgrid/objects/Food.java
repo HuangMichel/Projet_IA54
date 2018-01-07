@@ -6,6 +6,7 @@ import io.sarl.lang.annotation.SyntheticMember;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Shape;
+import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 
 /**
@@ -49,6 +50,7 @@ public class Food {
    * Gets the quantity of food
    * @return food
    */
+  @Pure
   public float getFood() {
     return this.food;
   }
@@ -119,11 +121,13 @@ public class Food {
    * Gets the shape
    * @return shape
    */
+  @Pure
   public Shape getShape() {
     return this.shape;
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -139,6 +143,7 @@ public class Food {
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

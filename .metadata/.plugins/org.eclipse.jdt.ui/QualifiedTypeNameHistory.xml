@@ -21,4 +21,6 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.Enum.AntState"/>
 <fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.objects.AntBody"/>
+<fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.gui.Ant2DGridFxApplication"/>
+<fullyQualifiedTypeName name="utbm.ia54.ant2dgrid.Ant2DGrid"/>
 </qualifiedTypeNameHistroy>
