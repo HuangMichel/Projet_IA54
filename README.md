@@ -5,6 +5,17 @@
 * C'est une application sur des Ant colony.
 Ce projet est implémenté avec le langage SARL.
 
+## Compilation
+* Sur linux :
+** Mettre dans la classe Ant2DGridFxApplication var location = new URL(
+			"file:/C:/"path"/Projet_IA54/Ant2DGrid/src/main/resources/utbm/ia54/ant2dgrid/gui/" +
+				simpleName + ".fxml")
+puis enlever var location = class.getRessource(simpleName+ ".fxml")
+Ensuite lancer le script RunAnt2D.sh
+
+* Sur Window:
+** Lancé le script RunAnt2D.bat
+
 ## Développé par:
 * Michel HUANG
 * Alban ELEZI
