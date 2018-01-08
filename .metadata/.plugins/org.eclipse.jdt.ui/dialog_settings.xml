@@ -3,6 +3,7 @@
 	<item value="false" key="TypeHierarchyViewPart.qualifiednames"/>
 	<item value="3" key="TypeHierarchyViewPart.orientation"/>
 	<item value="false" key="TypeHierarchyViewPart.linkeditors"/>
+	<item value="C:\Users\Michel\Desktop\Projet_IA54\Ant2DGrid\run" key="org.eclipse.jdt.ui.lastextjar"/>
 	<item value="2" key="TypeHierarchyViewPart.hierarchyview"/>
 	<section name="New SARL Behavior">
 		<item value="true" key="generate_event_handlers"/>
@@ -27,6 +28,21 @@
 		<item value="false" key="generate_lifecycle_functions"/>
 		<item value="false" key="create_constructor"/>
 		<item value="false" key="create_unimplemented"/>
+	</section>
+	<section name="FatJarPackageWizard">
+		<item value="C:\Users\Michel\Desktop\Projet_IA54" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
+		<item value="Javalauncher - Ant2DGrid" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
+		<item value="Ant2DGrid\run\Ant2DFinal.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
+		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
+		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="Ant2DGrid\run\Ant2DFinal.jar"/>
+			<item value="Ant2DGrid/run/test.jar"/>
+		</list>
+		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
+			<item value="C:\Users\Michel\Desktop\Projet_IA54.xml"/>
+			<item value=".xml"/>
+		</list>
 	</section>
 	<section name="New SARL Agent">
 		<item value="true" key="generate_event_handlers"/>
@@ -69,6 +85,7 @@
 		<item value="false" key="JarManifestWizardPage.SAVE_MANIFEST"/>
 		<item value="false" key="JarPackageWizardPage.EXPORT_OUTPUT_FOLDER"/>
 		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\Michel\Desktop\Ant2DFinal.jar"/>
 			<item value="C:\Users\Michel\Desktop\Ant2DGrid.jar"/>
 		</list>
 	</section>
@@ -116,6 +133,7 @@
 	</section>
 	<section name="OptionalMessageDialog.hide.">
 		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
+		<item value="false" key="RunnableJar.export.ipwarning"/>
 	</section>
 	<section name="DialogBounds_OverrideMethodDialog">
 		<item value="582" key="DIALOG_WIDTH"/>
@@ -177,7 +195,7 @@
 		<item value="true" key="create_unimplemented"/>
 	</section>
 	<section name="ClasspathContainerSelectionPage">
-		<item value="3" key="index"/>
+		<item value="0" key="index"/>
 	</section>
 	<section name="DialogBounds_io.sarl.eclipse.wizards.elements.aop.newcapacity.SuperCapacitySelectionDialog">
 		<item value="373" key="DIALOG_WIDTH"/>

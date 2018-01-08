@@ -76,7 +76,9 @@ agent Environment {
 		info("The agent Environment was started.")
 	}
 	
-	/*Initialize an ant body to the home cell */
+	/*
+	 * Initialize an ant body to the home cell 
+	 */
 	on AntInitialize [occurrence.isInInnerDefaultSpace] {
 		counter += 1
 		info("Ant " + counter + " created " + occurrence.source.UUID)
@@ -122,7 +124,7 @@ agent Environment {
 					if (getHomeCell.numberAnt > 0) {
 						getHomeCell.antList.forEach [ id, body |	
 							if (body.took === true && body.state === AntState.RETURN_HOME) {
-								//info("ant " + body.ID + " putting food")
+								info("Ant " + body.ID + " putting food")
 								innerContext.defaultSpace.emit(this.ID, new onNestPlace,
 									Scopes.addresses(getAddress(body.ID)))
 							}
@@ -132,7 +134,7 @@ agent Environment {
 					if (getFoodCell.numberAnt > 0) {
 						getFoodCell.antList.forEach [ id, body |
 							if (body.took === false && body.state === AntState.SEARCH_FOOD) {
-								//info("ant " + body.ID + " picking food")
+								info("Ant " + body.ID + " picking food")
 								innerContext.defaultSpace.emit(this.ID, new onFoodPlace,
 									Scopes.addresses(getAddress(body.ID)))
 							}
@@ -150,10 +152,18 @@ agent Environment {
 						grid.forEach [ cell |
 							if (cell.state === CellState.NORMAL) {
 								cell.evaporationPheromoneHome
+							}
+						]
+					]
+					
+					in(20000) [
+						grid.forEach [ cell |
+							if (cell.state === CellState.NORMAL && cell.pheromoneFood.intensity>0) {
 								cell.evaporationPheromoneFood
 							}
 						]
 					]
+					
 				}
 			}
 			
@@ -221,7 +231,6 @@ agent Environment {
 			}
 		}
 		counter += 1
-		//info(counter + " Ants updated")
 		if (accept) {
 			innerContext.defaultSpace.emit(this.ID,
 				new AcceptInfluence(newPosition, accept),
@@ -269,10 +278,16 @@ agent Environment {
 		innerContext.defaultSpace.emit(ID, new EndAgent)	
 	}
 
+	/*
+	 * Pause the simulation
+	 */
 	on PauseSim {
 		paused = true
 	}
 
+	/*
+	 * Resume the simulation
+	 */
 	on ResumeSim {
 		paused = false
 		counter = 0

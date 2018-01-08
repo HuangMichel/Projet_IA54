@@ -133,7 +133,7 @@ skill AntManagerSkill implements AntCapacity{
 	 * @param listPerception the perception of the list of cell
 	 * @param body an AntBody
 	 */
-	def randomMove(listPerception : List<Cell>, body : AntBody) {
+	def randomMove(listPerception : List<Cell>, body : AntBody){
 		
 		val randomNum = ThreadLocalRandom.current().nextInt(0, listPerception.length)
 		var newPos : Vector2i
@@ -142,6 +142,7 @@ skill AntManagerSkill implements AntCapacity{
 		var numberNormalState = countNormalState(listPerception)
 		
 		if(numberNormalState === 1){
+			
 			if(cell.state === CellState.WALL){
 				listPerception.remove(randomNum)
 				randomMove(listPerception, body)
@@ -150,104 +151,96 @@ skill AntManagerSkill implements AntCapacity{
 				emit(new Influence(newPos, body))
 				setPositionBefore(newPos)
 			}
-		} else if (hasFood(listPerception) !== -1 && body.state === AntState.SEARCH_FOOD) {
+			
+		} else {
+			
+			if (hasFood(listPerception) !== -1 && body.state === AntState.SEARCH_FOOD) {
+				
 				newPos = listPerception.get(hasFood(listPerception)).position
 				emit(new Influence(newPos, body))
 				setPositionBefore(newPos)
-					
+
 			} else if (hasHome(listPerception) !== -1 && body.state === AntState.RETURN_HOME) {
+				
 				newPos = listPerception.get(hasHome(listPerception)).position
 				emit(new Influence(newPos, body))
 				setPositionBefore(newPos)
-			
-					
-			}else{
+
+			} else {
+				
 				switch (cell.state) {
+					
 					case CellState.NORMAL:
 					
-						if (numberPheromoneCell === 1 && isEquals(cell.position) === false) {
-							newPos = cell.position
-							emit(new Influence(newPos, body))
-							setPositionBefore(newPos)
-						} else if ((numberNormalState - numberPheromoneCell) < numberNormalState) {
+						if ((numberNormalState - numberPheromoneCell) < numberNormalState) {
+							
 							if ((0.1f > cell.pheromoneHomeIntensity && isEquals(cell.position) === false) ||
 								isEquals(cell.position) === false) {
+									
 								newPos = cell.position
 								emit(new Influence(newPos, body))
 								setPositionBefore(newPos)
+								
 							} else {
+								
 								listPerception.remove(randomNum)
 								randomMove(listPerception, body)
+								
 							}
 						} else {
+							
 							if (isEquals(cell.position) === false) {
+								
 								newPos = cell.position
 								emit(new Influence(newPos, body))
 								setPositionBefore(newPos)
+								
 							} else {
+								
 								listPerception.remove(randomNum)
 								randomMove(listPerception, body)
+								
 							}
 						}
-							/*if ((numberNormalState - numberPheromoneCell)===0){
-								if (isEquals(cell.position) === false) {
-									newPos = cell.position
-									emit(new Influence(newPos, body))
-									setPositionBefore(newPos)
-								}else{
-									randomMove(listPerception, body)
-								}
-							} else {
-								if ((numberNormalState - numberPheromoneCell) < numberNormalState) {
-									if ((0.1f > cell.pheromoneHomeIntensity && isEquals(cell.position) === false) || 
-										isEquals(cell.position)===false) {
-										newPos = cell.position
-										emit(new Influence(newPos, body))
-										setPositionBefore(newPos)
-									} else {
-										randomMove(listPerception, body)
-									}
-								} else {
-									if (isEquals(cell.position) === false) {
-										newPos = cell.position
-										emit(new Influence(newPos, body))
-										setPositionBefore(newPos)
-									} else {
-										randomMove(listPerception, body)
-									}
-								}
-							}*/
+						
 					case CellState.WALL:
 						randomMove(listPerception, body)
-																
+						
 					case CellState.HOME:
-						if (body.state === AntState.RETURN_HOME || 
-							isEquals(cell.position) === false || 
-							body.state ===AntState.SEARCH_FOOD) {
+					
+						if (isEquals(cell.position) === false) {
+							
 							newPos = cell.position
 							emit(new Influence(newPos, body))
 							setPositionBefore(newPos)
+							
 						} else {
+							
 							listPerception.remove(randomNum)
 							randomMove(listPerception, body)
+							
 						}
+						
 					case CellState.FOOD:
-						if (body.state === AntState.SEARCH_FOOD || 
-							isEquals(cell.position) === false || 
-							body.state === AntState.RETURN_HOME) {
+					
+						if (isEquals(cell.position) === false){
+							
 							newPos = cell.position
 							emit(new Influence(newPos, body))
 							setPositionBefore(newPos)
+							
 						} else {
+							
 							listPerception.remove(randomNum)
 							randomMove(listPerception, body)
+							
 						}
+				}
 			}
 		}
-		
+
 	}
-	
-	/*
+	/* 
 	 * Stays to the same position
 	 * @param body an AntBody
 	 */

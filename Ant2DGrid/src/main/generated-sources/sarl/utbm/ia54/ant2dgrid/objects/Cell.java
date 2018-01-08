@@ -14,6 +14,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Shape;
+import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.AntState;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.agents.Ant;
@@ -156,6 +157,7 @@ public class Cell extends Pane {
    * Gets the position
    * @return vector the position
    */
+  @Pure
   public Vector2i getPosition() {
     return this.vector;
   }
@@ -217,6 +219,7 @@ public class Cell extends Pane {
    * Gets the ant list
    * @return antList
    */
+  @Pure
   public Map<UUID, AntBody> getAntList() {
     Map<UUID, AntBody> _xsynchronizedexpression = null;
     synchronized (this.antList) {
@@ -229,6 +232,7 @@ public class Cell extends Pane {
    * Gets the the quantity of ant on the cell
    * @return size the quantity of ant
    */
+  @Pure
   public int getNumberAnt() {
     int _xsynchronizedexpression = (int) 0;
     synchronized (this.antList) {
@@ -241,6 +245,7 @@ public class Cell extends Pane {
    * Gets the state of the cell
    * @return state
    */
+  @Pure
   public CellState getState() {
     return this.state;
   }
@@ -271,6 +276,7 @@ public class Cell extends Pane {
    * Gets the pheromone Home
    * @return pheromoneHome
    */
+  @Pure
   public Pheromone getPheromoneHome() {
     return this.pheromoneHome;
   }
@@ -279,6 +285,7 @@ public class Cell extends Pane {
    * Gets the pheromone home intensity
    * @return intensity
    */
+  @Pure
   public float getPheromoneHomeIntensity() {
     float _xsynchronizedexpression = (float) 0;
     synchronized (this.pheromoneHome) {
@@ -291,6 +298,7 @@ public class Cell extends Pane {
    * Gets the pheromone food
    * @return pheromoneFood
    */
+  @Pure
   public Pheromone getPheromoneFood() {
     return this.pheromoneFood;
   }
@@ -299,6 +307,7 @@ public class Cell extends Pane {
    * Gets the pheromone food intensity
    * @return intensity
    */
+  @Pure
   public float getPheromoneFoodIntensity() {
     float _xsynchronizedexpression = (float) 0;
     synchronized (this.pheromoneFood) {
@@ -392,6 +401,7 @@ public class Cell extends Pane {
    * Gets the color of the cell
    * @return style
    */
+  @Pure
   public String getColor() {
     return this.getStyle();
   }
@@ -457,6 +467,7 @@ public class Cell extends Pane {
    * Gets the shape ant
    * @return shapeAnt
    */
+  @Pure
   public Shape getShapeAnt() {
     return this.shapeAnt;
   }
@@ -484,6 +495,7 @@ public class Cell extends Pane {
    * Gets the quantity of food
    * @return food
    */
+  @Pure
   public Food getFood() {
     Food _xblockexpression = null;
     {
@@ -498,6 +510,7 @@ public class Cell extends Pane {
     return _xblockexpression;
   }
   
+  @Pure
   public boolean equals(final Object obj) {
     boolean _xblockexpression = false;
     {
@@ -543,6 +556,7 @@ public class Cell extends Pane {
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

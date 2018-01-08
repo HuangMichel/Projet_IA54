@@ -4,6 +4,7 @@ import io.sarl.lang.annotation.SarlElementType;
 import io.sarl.lang.annotation.SarlSpecification;
 import io.sarl.lang.annotation.SyntheticMember;
 import io.sarl.lang.core.Event;
+import org.eclipse.xtext.xbase.lib.Pure;
 
 /**
  * Accepts to pick the food
@@ -20,6 +21,7 @@ public class AcceptPickFood extends Event {
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -35,6 +37,7 @@ public class AcceptPickFood extends Event {
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();
@@ -47,6 +50,7 @@ public class AcceptPickFood extends Event {
    * Returns a String representation of the AcceptPickFood event's attributes only.
    */
   @SyntheticMember
+  @Pure
   protected String attributesToString() {
     StringBuilder result = new StringBuilder(super.attributesToString());
     result.append("accept  = ").append(this.accept);

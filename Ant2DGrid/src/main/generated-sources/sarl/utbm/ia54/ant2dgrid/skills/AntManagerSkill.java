@@ -13,6 +13,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Inline;
+import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.AntState;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.capacities.AntCapacity;
@@ -60,6 +61,7 @@ public class AntManagerSkill extends Skill implements AntCapacity {
    * @param list the perception of list of cell
    * @return the place of the cell in the list
    */
+  @Pure
   private int hasFood(final List<Cell> list) {
     int _xblockexpression = (int) 0;
     {
@@ -85,6 +87,7 @@ public class AntManagerSkill extends Skill implements AntCapacity {
    * @param list the perception of list of cell
    * @return the place of the cell in the list
    */
+  @Pure
   private int hasHome(final List<Cell> list) {
     int _xblockexpression = (int) 0;
     {
@@ -197,38 +200,30 @@ public class AntManagerSkill extends Skill implements AntCapacity {
           if (_state_1 != null) {
             switch (_state_1) {
               case NORMAL:
-                if (((numberPheromoneCell == 1) && (Boolean.valueOf(this.isEquals(cell.getPosition())) == Boolean.valueOf(false)))) {
-                  newPos = cell.getPosition();
-                  DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_3 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
-                  Influence _influence_3 = new Influence(newPos, body);
-                  _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_3.emit(_influence_3);
-                  this.setPositionBefore(newPos);
-                } else {
-                  if (((numberNormalState - numberPheromoneCell) < numberNormalState)) {
-                    if ((((0.1f > cell.getPheromoneHomeIntensity()) && (Boolean.valueOf(this.isEquals(cell.getPosition())) == Boolean.valueOf(false))) || 
-                      (Boolean.valueOf(this.isEquals(cell.getPosition())) == Boolean.valueOf(false)))) {
-                      newPos = cell.getPosition();
-                      DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_4 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
-                      Influence _influence_4 = new Influence(newPos, body);
-                      _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_4.emit(_influence_4);
-                      this.setPositionBefore(newPos);
-                    } else {
-                      listPerception.remove(randomNum);
-                      this.randomMove(listPerception, body);
-                    }
+                if (((numberNormalState - numberPheromoneCell) < numberNormalState)) {
+                  if ((((0.1f > cell.getPheromoneHomeIntensity()) && (Boolean.valueOf(this.isEquals(cell.getPosition())) == Boolean.valueOf(false))) || 
+                    (Boolean.valueOf(this.isEquals(cell.getPosition())) == Boolean.valueOf(false)))) {
+                    newPos = cell.getPosition();
+                    DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_3 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
+                    Influence _influence_3 = new Influence(newPos, body);
+                    _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_3.emit(_influence_3);
+                    this.setPositionBefore(newPos);
                   } else {
-                    boolean _isEquals = this.isEquals(cell.getPosition());
-                    boolean _tripleEquals_1 = (Boolean.valueOf(_isEquals) == Boolean.valueOf(false));
-                    if (_tripleEquals_1) {
-                      newPos = cell.getPosition();
-                      DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_5 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
-                      Influence _influence_5 = new Influence(newPos, body);
-                      _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_5.emit(_influence_5);
-                      this.setPositionBefore(newPos);
-                    } else {
-                      listPerception.remove(randomNum);
-                      this.randomMove(listPerception, body);
-                    }
+                    listPerception.remove(randomNum);
+                    this.randomMove(listPerception, body);
+                  }
+                } else {
+                  boolean _isEquals = this.isEquals(cell.getPosition());
+                  boolean _tripleEquals_1 = (Boolean.valueOf(_isEquals) == Boolean.valueOf(false));
+                  if (_tripleEquals_1) {
+                    newPos = cell.getPosition();
+                    DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_4 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
+                    Influence _influence_4 = new Influence(newPos, body);
+                    _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_4.emit(_influence_4);
+                    this.setPositionBefore(newPos);
+                  } else {
+                    listPerception.remove(randomNum);
+                    this.randomMove(listPerception, body);
                   }
                 }
                 break;
@@ -236,13 +231,13 @@ public class AntManagerSkill extends Skill implements AntCapacity {
                 this.randomMove(listPerception, body);
                 break;
               case HOME:
-                if ((((body.getState() == AntState.RETURN_HOME) || 
-                  (Boolean.valueOf(this.isEquals(cell.getPosition())) == Boolean.valueOf(false))) || 
-                  (body.getState() == AntState.SEARCH_FOOD))) {
+                boolean _isEquals_1 = this.isEquals(cell.getPosition());
+                boolean _tripleEquals_2 = (Boolean.valueOf(_isEquals_1) == Boolean.valueOf(false));
+                if (_tripleEquals_2) {
                   newPos = cell.getPosition();
-                  DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_6 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
-                  Influence _influence_6 = new Influence(newPos, body);
-                  _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_6.emit(_influence_6);
+                  DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_5 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
+                  Influence _influence_5 = new Influence(newPos, body);
+                  _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_5.emit(_influence_5);
                   this.setPositionBefore(newPos);
                 } else {
                   listPerception.remove(randomNum);
@@ -250,13 +245,13 @@ public class AntManagerSkill extends Skill implements AntCapacity {
                 }
                 break;
               case FOOD:
-                if ((((body.getState() == AntState.SEARCH_FOOD) || 
-                  (Boolean.valueOf(this.isEquals(cell.getPosition())) == Boolean.valueOf(false))) || 
-                  (body.getState() == AntState.RETURN_HOME))) {
+                boolean _isEquals_2 = this.isEquals(cell.getPosition());
+                boolean _tripleEquals_3 = (Boolean.valueOf(_isEquals_2) == Boolean.valueOf(false));
+                if (_tripleEquals_3) {
                   newPos = cell.getPosition();
-                  DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_7 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
-                  Influence _influence_7 = new Influence(newPos, body);
-                  _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_7.emit(_influence_7);
+                  DefaultContextInteractions _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_6 = this.$castSkill(DefaultContextInteractions.class, (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = this.$getSkill(DefaultContextInteractions.class)) : this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS);
+                  Influence _influence_6 = new Influence(newPos, body);
+                  _$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER_6.emit(_influence_6);
                   this.setPositionBefore(newPos);
                 } else {
                   listPerception.remove(randomNum);
@@ -296,6 +291,7 @@ public class AntManagerSkill extends Skill implements AntCapacity {
    * @param pos the posistion
    * @return true, if equals
    */
+  @Pure
   private boolean isEquals(final Vector2i pos) {
     return this.positionBefore.equals(pos);
   }
@@ -379,6 +375,7 @@ public class AntManagerSkill extends Skill implements AntCapacity {
   private transient ClearableReference<Skill> $CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS;
   
   @SyntheticMember
+  @Pure
   @Inline(value = "$castSkill(DefaultContextInteractions.class, ($0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || $0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? ($0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = $0$getSkill(DefaultContextInteractions.class)) : $0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS)", imported = DefaultContextInteractions.class)
   private DefaultContextInteractions $CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER() {
     if (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) {
@@ -388,12 +385,14 @@ public class AntManagerSkill extends Skill implements AntCapacity {
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     return super.equals(obj);
   }
   
   @Override
+  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

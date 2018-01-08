@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/Ant2DGrid/src/main/java/utbm/ia54/ant2dgrid/Javalauncher.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="utbm.ia54.ant2dgrid.Javalauncher"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Ant2DGrid"/>
+</launchConfiguration>

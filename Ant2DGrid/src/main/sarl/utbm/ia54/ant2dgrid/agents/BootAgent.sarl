@@ -24,7 +24,8 @@ import utbm.ia54.ant2dgrid.events.ResumeSim
  */
 agent BootAgent {
 	uses Logging, InnerContextAccess, Lifecycle, Behaviors
-
+	
+	/* The fx viewer controller */
 	var ctrl : Ant2DGridFxViewerController = null
 	
 	on Initialize {
@@ -76,10 +77,16 @@ agent BootAgent {
 		innerContext.defaultSpace.emit(this.ID, new EndAgent)
 	}
 
+	/*
+	 * Pause the simulation
+	 */
 	on PauseSim {
 		innerContext.defaultSpace.emit(this.ID, new PauseSim)
 	}
 
+	/*
+	 * Resume the simulation
+	 */
 	on ResumeSim {
 		innerContext.defaultSpace.emit(this.ID, new ResumeSim)
 	}
