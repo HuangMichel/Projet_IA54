@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.capacities.EnvironmentManagerCapacity;
 import utbm.ia54.ant2dgrid.objects.AntBody;
@@ -258,7 +257,6 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
    * @param id the UUID
    * @return v the position
    */
-  @Pure
   private Vector2i getAntPosition(final UUID id) {
     Vector2i _xblockexpression = null;
     {
@@ -292,7 +290,6 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -316,7 +313,6 @@ public class EnvironmentManagerSkill extends Skill implements EnvironmentManager
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

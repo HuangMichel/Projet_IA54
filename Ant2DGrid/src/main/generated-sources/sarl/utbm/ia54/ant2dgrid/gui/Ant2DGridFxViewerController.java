@@ -14,7 +14,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
-import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.events.ConfigureSimulation;
 import utbm.ia54.ant2dgrid.events.EndAgent;
@@ -72,7 +71,6 @@ public class Ant2DGridFxViewerController extends FxViewerController {
    * Gets the grid
    * @return grid the list of cell
    */
-  @Pure
   public List<Cell> getGrid() {
     return this.grid;
   }
@@ -81,7 +79,6 @@ public class Ant2DGridFxViewerController extends FxViewerController {
    * Gets the quantity of ant
    * @return quantity
    */
-  @Pure
   public int getAntQuantity() {
     return Integer.parseInt(this.numberOfAnt.getText());
   }
@@ -90,7 +87,6 @@ public class Ant2DGridFxViewerController extends FxViewerController {
    * Gets the number of rows
    * @return width
    */
-  @Pure
   public int getWidth() {
     return this.gridZone.getRowConstraints().size();
   }
@@ -99,7 +95,6 @@ public class Ant2DGridFxViewerController extends FxViewerController {
    * Gets the number of cols
    * @return height
    */
-  @Pure
   public int getHeight() {
     return this.gridZone.getColumnConstraints().size();
   }
@@ -228,7 +223,6 @@ public class Ant2DGridFxViewerController extends FxViewerController {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     if (this == obj)
@@ -246,7 +240,6 @@ public class Ant2DGridFxViewerController extends FxViewerController {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();

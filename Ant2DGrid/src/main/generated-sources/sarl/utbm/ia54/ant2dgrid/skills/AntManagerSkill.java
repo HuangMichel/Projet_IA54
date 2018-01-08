@@ -13,7 +13,6 @@ import java.util.concurrent.ThreadLocalRandom;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Inline;
-import org.eclipse.xtext.xbase.lib.Pure;
 import utbm.ia54.ant2dgrid.Enum.AntState;
 import utbm.ia54.ant2dgrid.Enum.CellState;
 import utbm.ia54.ant2dgrid.capacities.AntCapacity;
@@ -61,7 +60,6 @@ public class AntManagerSkill extends Skill implements AntCapacity {
    * @param list the perception of list of cell
    * @return the place of the cell in the list
    */
-  @Pure
   private int hasFood(final List<Cell> list) {
     int _xblockexpression = (int) 0;
     {
@@ -87,7 +85,6 @@ public class AntManagerSkill extends Skill implements AntCapacity {
    * @param list the perception of list of cell
    * @return the place of the cell in the list
    */
-  @Pure
   private int hasHome(final List<Cell> list) {
     int _xblockexpression = (int) 0;
     {
@@ -299,7 +296,6 @@ public class AntManagerSkill extends Skill implements AntCapacity {
    * @param pos the posistion
    * @return true, if equals
    */
-  @Pure
   private boolean isEquals(final Vector2i pos) {
     return this.positionBefore.equals(pos);
   }
@@ -383,7 +379,6 @@ public class AntManagerSkill extends Skill implements AntCapacity {
   private transient ClearableReference<Skill> $CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS;
   
   @SyntheticMember
-  @Pure
   @Inline(value = "$castSkill(DefaultContextInteractions.class, ($0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || $0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) ? ($0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS = $0$getSkill(DefaultContextInteractions.class)) : $0$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS)", imported = DefaultContextInteractions.class)
   private DefaultContextInteractions $CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS$CALLER() {
     if (this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS == null || this.$CAPACITY_USE$IO_SARL_CORE_DEFAULTCONTEXTINTERACTIONS.get() == null) {
@@ -393,14 +388,12 @@ public class AntManagerSkill extends Skill implements AntCapacity {
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public boolean equals(final Object obj) {
     return super.equals(obj);
   }
   
   @Override
-  @Pure
   @SyntheticMember
   public int hashCode() {
     int result = super.hashCode();
